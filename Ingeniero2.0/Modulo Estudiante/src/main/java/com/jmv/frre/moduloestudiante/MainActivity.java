@@ -13,9 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.jmv.frre.moduloestudiante.comps.MyButton;
+import com.jmv.frre.moduloestudiante.constants.HomePageImages;
 import com.jmv.frre.moduloestudiante.constants.HomePageLinks;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
@@ -208,20 +211,23 @@ public class MainActivity extends ActionBarActivity {
                 return false;
             }
 
-            HashMap<HomePageLinks, String> links = parser.getHomeLinks();
+            HashMap<HomePageLinks,  List<String>> links = parser.getHomeLinks();
 
             Set<HomePageLinks> linksKeys = links.keySet();
 
-            List<Button> btns = new ArrayList<Button>();
+            List<MyButton> btns = new ArrayList<MyButton>();
             for(HomePageLinks key : linksKeys){
-                final String content = links.get(key);
-                Button myButton = new Button(this.parent);
+                final String content = links.get(key).get(1);
+                MyButton myButton = new MyButton(this.parent);
                 myButton.setTextColor(Color.WHITE);
+                myButton.setEnumLink(key);
+                final String linkUri = links.get(key).get(0);
+                myButton.setLink(linkUri);
                 myButton.setText(content);
                 myButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        doActivity(content);
+                        doActivity(linkUri);
                     }
                 });
                 btns.add(myButton);
@@ -229,13 +235,34 @@ public class MainActivity extends ActionBarActivity {
 
             Collections.sort(btns, new ButtonNameComparator());
 
-            for(Button btn : btns){
+            for(MyButton btn : btns){
+                LinearLayout layer1 = new LinearLayout(this.parent);
+                layer1.setOrientation(LinearLayout.HORIZONTAL);
+                layer1.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
+
+                ImageView imageView1 = new ImageView(this.parent);
+                imageView1.setBackgroundResource(getImageByEnum(btn));
+
+                layer1.addView(imageView1, new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+
+
+                LinearLayout layer2 = new LinearLayout(this.parent);
+                layer2.setOrientation(LinearLayout.VERTICAL);
+                layer2.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+                layer2.addView(btn, new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+
+                layer1.addView(layer2);
+
                 LinearLayout ll = (LinearLayout)findViewById(R.id.button_place);
-                LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-                ll.addView(btn, lp);
+                ll.addView(layer1);
+
             }
 
             return true;
+        }
+
+        private int getImageByEnum(MyButton btn) {
+            return HomePageImages.getLinkByValue(btn.getEnumLink());
         }
 
         protected void doActivity(String buttonName){

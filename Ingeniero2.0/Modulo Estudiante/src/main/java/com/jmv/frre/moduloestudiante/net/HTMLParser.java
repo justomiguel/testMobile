@@ -14,6 +14,7 @@ import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author developer
@@ -55,11 +56,11 @@ public class HTMLParser {
         return true;
     }
 
-    public HashMap<HomePageLinks, String> getHomeLinks() {
+    public HashMap<HomePageLinks, List<String>> getHomeLinks() {
 
         String baseUri = "http://sysacadweb.frre.utn.edu.ar/";
 
-        HashMap<HomePageLinks, String> links = new HashMap<HomePageLinks, String>();
+        HashMap<HomePageLinks, List<String>> links = new HashMap<HomePageLinks, List<String>>();
         Elements wrapper = doc.getElementsByClass("textoTabla");
         //inbound
         //faresReturn
@@ -70,10 +71,15 @@ public class HTMLParser {
                     Elements trips = row.getElementsByTag("li");
                     for (Element trip : trips) {
                         String listElement = trip.getElementsByTag("a").get(0).toString();
+                        String linkWithoutSessionID = listElement.substring(listElement.indexOf("href=\"")+6,listElement.indexOf("\">"));
+                        linkWithoutSessionID = linkWithoutSessionID.substring(0, linkWithoutSessionID.indexOf("?"));
                         String link = baseUri+listElement.substring(listElement.indexOf("href=\"")+6,listElement.indexOf("\">"));
                         String content = listElement.substring(listElement.indexOf("\">")+2,listElement.indexOf("</a>"));
                         if (!content.contains("Salir")){
-                            links.put(HomePageLinks.getLinkByValue(replaceAcutesHTML(link)), replaceAcutesHTML(content));
+                            ArrayList<String> list = new ArrayList<String>(2);
+                            list.add(link);
+                            list.add(replaceAcutesHTML(content));
+                            links.put(HomePageLinks.getLinkByValue(linkWithoutSessionID), list);
                         }
                     }
                 }

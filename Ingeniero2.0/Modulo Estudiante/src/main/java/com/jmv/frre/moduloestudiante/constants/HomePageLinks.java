@@ -5,16 +5,17 @@ package com.jmv.frre.moduloestudiante.constants;
  */
 public enum HomePageLinks {
 
-    AVISOS("Avisos"),
-    EXAMENES("Exámenes"),
-    ESTADO_ACADEMICO("Estado académico"),
-    MATERIAS_DEL_PLAN("Materias del plan"),
-    INSCRIPCION_A_EXAMEN("Inscripción a examen"),
-    CAMBIO_DE_CONTRASENA("Cambio de Contraseña"),
-    INSCRIPCION_A_CURSADO("Inscripción a cursado"),
-    CORRELATIVIDAD_PARA_RENDIR("Correlatividad para rendir"),
-    CORRELATIVIDAD_PARA_CURSAR("Correlatividad para cursar"),
-    CURSADO_NOTAS_ENCUESTAS("Cursado / Notas de parciales / Encuestas");
+    AVISOS("menuAvisosAlumnos.asp"),
+    EXAMENES("examenes.asp"),
+    ESTADO_ACADEMICO("estadoAcademico.asp"),
+    MATERIAS_DEL_PLAN("materiasPlan.asp"),
+    INSCRIPCION_A_EXAMEN("materiasExamen.asp"),
+    CAMBIO_DE_CONTRASENA("cambioPassword.asp"),
+    INSCRIPCION_A_CURSADO("materiasCursado.asp"),
+    CORRELATIVIDAD_PARA_RENDIR("correlatividadExamen.asp"),
+    CORRELATIVIDAD_PARA_CURSAR("correlatividadCursado.asp"),
+    CURSADO_NOTAS_ENCUESTAS("notasParciales.asp"),
+    SALIR("loginAlumno.asp?refrescar");
 
     private String link;
 

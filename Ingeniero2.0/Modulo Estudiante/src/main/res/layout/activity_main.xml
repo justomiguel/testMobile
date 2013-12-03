@@ -34,40 +34,33 @@
     <ScrollView
         android:id="@+id/home_form"
         android:layout_width="match_parent"
-        android:background="#000000"
+        android:background="#736f6f"
         android:layout_height="match_parent">
 
         <LinearLayout
             android:orientation="vertical"
-            android:background="#000000"
+            android:background="#736f6f"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="left|top">
 
 
-            <Space
-                android:layout_width="28dp"
-                android:layout_height="30dp" />
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:id="@+id/imageView"
                 android:layout_gravity="center_horizontal"
                 android:src="@drawable/home_image" />
 
-            <Space
-                android:layout_width="28dp"
-                android:layout_height="30dp" />
 
         <LinearLayout
             android:id="@+id/button_place"
             android:orientation="vertical"
-            android:background="#000000"
+            android:background="#736f6f"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_gravity="left|top">
-
         </LinearLayout>
 
         </LinearLayout>
