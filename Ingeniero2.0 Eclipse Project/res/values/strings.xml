@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ingeniero 2.0</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Borrar Credenciales</string>
+    <string name="title_activity_login">Ingresar Credenciales</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Legajo</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register"><b>Ingresar</b></string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="action_forgot_password">Recordar Password</string>
+    <string name="login_progress_signing_in">Ingresando al Sistema…</string>
+    <string name="error_invalid_email">Legajo Invalido</string>
+    <string name="error_invalid_password">Contraseña muy corta</string>
+    <string name="error_incorrect_password">Contraseña/Legajo Incorrecto</string>
+    <string name="error_field_required">Campo requerido</string>
+    <string name="loadin_content_progress">Cargando Contenido Del Servidor…</string>
+    <string name="dialog_confirm_response_has_errors">Error:</string>
+    <string name="dialog_confirm_response_has_errors_button">Aceptar</string>
+    <string name="dialog_confirm_response_info">Error:</string>
+    <string name="dialog_confirm_response_info_button">Aceptar</string>
+    <string name="dialog_tittle_label">The server says:</string>
+    <string name="dialog_confirm_nothing_to_show">Nada por aqui</string>
+
+    <item name="activity_login_title" type="id">Ingresar a FRRe</item>
+
+    <string name="activity_exam_date" type="id">Fecha</string>
+    <string name="activity_exam_materia" type="id">Materia</string>
+    <string name="activity_exam_nota" type="id">Nota</string>
+    <string name="activity_exam_plan" type="id">Plan</string>
+    
+    <string name="title_activity_exams_made">Examenes Rendidos</string>
+
+</resources>
