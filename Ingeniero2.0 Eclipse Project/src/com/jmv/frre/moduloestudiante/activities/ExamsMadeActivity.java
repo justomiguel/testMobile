@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TableLayout;
+import android.widget.TableLayout.LayoutParams;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -43,7 +44,7 @@ public class ExamsMadeActivity extends LinkActivity {
 	private TextView aprobaText;
 	private TextView desaprobaText;
 	private TextView ausenteText;
-	
+
 	private static final String DELIMITER = "#";
 
 	@Override
@@ -93,11 +94,11 @@ public class ExamsMadeActivity extends LinkActivity {
 
 	private void setAllViewsAs(int visibilityMode) {
 		// TODO Auto-generated method stub
-		for(int i=0; i<((ViewGroup)materiasView).getChildCount(); ++i) {
-		    View nextChild = ((ViewGroup)materiasView).getChildAt(i);
-		    if (nextChild instanceof MyTableRow){
-		    	nextChild.setVisibility(visibilityMode);
-		    }
+		for (int i = 0; i < ((ViewGroup) materiasView).getChildCount(); ++i) {
+			View nextChild = ((ViewGroup) materiasView).getChildAt(i);
+			if (nextChild instanceof MyTableRow) {
+				nextChild.setVisibility(visibilityMode);
+			}
 		}
 	}
 
@@ -118,8 +119,8 @@ public class ExamsMadeActivity extends LinkActivity {
 			int value = Notas.getNotaByValue(data[2]);
 			data[2] = String.valueOf(value);
 			if (data.length > 4) {
-				String output = data[0] + DELIMITER + data[1] + DELIMITER + data[2] + DELIMITER
-						 + data[4];
+				String output = data[0] + DELIMITER + data[1] + DELIMITER
+						+ data[2] + DELIMITER + data[4];
 				if (data[2].equalsIgnoreCase("0")) {
 					ausentes.add(output);
 				} else {
@@ -139,37 +140,45 @@ public class ExamsMadeActivity extends LinkActivity {
 		Collections.sort(aprobados);
 
 		for (String exam : aprobados) {
-			materiasView.addView(getTableRowView(exam));
+			materiasView.addView(getTableRowView(exam), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		}
 
 		Collections.sort(desaprobados);
 
 		for (String exam : desaprobados) {
-			materiasView.addView(getTableRowView(exam));
+			materiasView.addView(getTableRowView(exam), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		}
 
 		Collections.sort(ausentes);
 
 		for (String exam : ausentes) {
-			materiasView.addView(getTableRowView(exam));
+			materiasView.addView(getTableRowView(exam), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
 		}
 	}
 
 	private MyTableRow getTableRowView(String value) {
-		// delcare a new row		
+		// delcare a new row
 		// add views to the row
 		String[] data = value.split(DELIMITER);
-		
+
 		MyTableRow newRow = null;
-		
+
 		for (String string : data) {
 			TextView text = new TextView(this);
 			text.setText(string);
+			text.setLayoutParams(new TableRow.LayoutParams(
+					TableRow.LayoutParams.MATCH_PARENT,
+					TableRow.LayoutParams.WRAP_CONTENT));
 			text.setTextColor(Color.WHITE);
-			 newRow = new MyTableRow(this, Integer.valueOf(data[2]));
+
+			newRow = new MyTableRow(this, Integer.valueOf(data[2]));
+			newRow.setLayoutParams(new TableLayout.LayoutParams(
+					TableLayout.LayoutParams.MATCH_PARENT,
+					TableLayout.LayoutParams.WRAP_CONTENT));
+
 			newRow.addView(text);
 		}
-		
+
 		return newRow;
 	}
 
@@ -191,23 +200,23 @@ public class ExamsMadeActivity extends LinkActivity {
 				long id) {
 
 			setAllViewsAs(View.GONE);
-			for(int i=0; i<((ViewGroup) materiasView).getChildCount(); ++i) {
-			    View nextChild = ((ViewGroup)materiasView).getChildAt(i);
-			    if (nextChild instanceof MyTableRow){
-			    	MyTableRow row = (MyTableRow) nextChild;
-			    	switch (pos) {
+			for (int i = 0; i < ((ViewGroup) materiasView).getChildCount(); ++i) {
+				View nextChild = ((ViewGroup) materiasView).getChildAt(i);
+				if (nextChild instanceof MyTableRow) {
+					MyTableRow row = (MyTableRow) nextChild;
+					switch (pos) {
 					case 0:
-						if (row.getNota() > 4){
+						if (row.getNota() > 4) {
 							row.setVisibility(View.VISIBLE);
 						}
 						break;
 					case 1:
-						if (row.getNota() == 0){
+						if (row.getNota() == 0) {
 							row.setVisibility(View.VISIBLE);
 						}
 						break;
 					case 2:
-						if (row.getNota() < 4){
+						if (row.getNota() < 4) {
 							row.setVisibility(View.VISIBLE);
 						}
 						break;
@@ -215,9 +224,9 @@ public class ExamsMadeActivity extends LinkActivity {
 						setAllViewsAs(View.VISIBLE);
 						break;
 					}
-			    }
+				}
 			}
-			
+
 		}
 
 		@Override

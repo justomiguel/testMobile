@@ -101,18 +101,18 @@ public class HTMLParser {
 
     public String replaceAcutesHTML(String str) {
 
-        str = str.replaceAll("&aacute;","√°");
-        str = str.replaceAll("&eacute;","√©");
-        str = str.replaceAll("&iacute;","√≠");
-        str = str.replaceAll("&oacute;","√≥");
-        str = str.replaceAll("&uacute;","√∫");
-        str = str.replaceAll("&Aacute;","√Å");
-        str = str.replaceAll("&Eacute;","√â");
-        str = str.replaceAll("&Iacute;","√ç");
-        str = str.replaceAll("&Oacute;","√ì");
-        str = str.replaceAll("&Uacute;","√ö");
-        str = str.replaceAll("&ntilde;","√±");
-        str = str.replaceAll("&Ntilde;","√ë");
+    	str = str.replaceAll("&aacute;","·");
+    	str = str.replaceAll("&eacute;","È");
+    	str = str.replaceAll("&iacute;","Ì");
+    	str = str.replaceAll("&oacute;","Û");
+    	str = str.replaceAll("&uacute;","˙");
+    	str = str.replaceAll("&Aacute;","¡");
+    	str = str.replaceAll("&Eacute;","…");
+    	str = str.replaceAll("&Iacute;","Õ");
+    	str = str.replaceAll("&Oacute;","”");
+    	str = str.replaceAll("&Uacute;","⁄");
+    	str = str.replaceAll("&ntilde;","Ò");
+    	str = str.replaceAll("&Ntilde;","—");
 
         return str;
 
