@@ -1,0 +1,163 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/internal_bg"
+    tools:context="com.jmv.frre.moduloestudiante.activities.IncsripcionAExamen" >
+
+    <!-- Login progress -->
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <ScrollView
+            android:id="@+id/loading_content_status"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical"
+                android:padding="6dip" >
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:focusable="true" />
+
+                <TextView
+                    android:id="@+id/loading_status_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal|center_vertical"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="sans-serif-light"
+                    android:gravity="center_horizontal"
+                    android:shadowColor="#FF0000"
+                    android:shadowRadius="25"
+                    android:text="@string/loadin_content_progress"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- Login form -->
+
+    <ScrollView
+        android:id="@+id/home_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_gravity="left|top"
+            android:orientation="vertical" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:gravity="left"
+                android:shadowColor="#FFFFFF"
+                android:shadowRadius="25"
+                android:text="@string/activity_ins_exam_select_subject"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <Spinner
+                android:id="@+id/change_type_spinner"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:gravity="left|top"
+                android:shadowColor="#FFFFFF"
+                android:shadowRadius="25"
+                android:text="@string/activity_ins_exam_select_details"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TableLayout
+                android:id="@+id/RHE"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:shrinkColumns="1"
+                android:stretchColumns="1"
+                android:textAlignment="center" >
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg" >
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="25"
+                        android:text="@string/activity_ins_exam_ano"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="25"
+                        android:text="@string/activity_ins_exam_status"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="25"
+                        android:text="@string/activity_ins_exam_codigo"
+                        android:textSize="18sp" />
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="right"
+                android:gravity="right"
+                android:orientation="horizontal"
+                android:padding="25dp" >
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/corre"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                     android:id="@+id/btn_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:onClick="actionBtn"
+                    android:text="@string/activity_ins_exam_btn_ins"
+                    android:textColor="#000000"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="5" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
