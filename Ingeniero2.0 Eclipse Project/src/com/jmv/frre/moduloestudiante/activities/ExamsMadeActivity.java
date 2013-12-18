@@ -24,7 +24,7 @@ import com.google.common.base.Function;
 import com.jmv.frre.moduloestudiante.LoginActivity;
 import com.jmv.frre.moduloestudiante.MainActivity;
 import com.jmv.frre.moduloestudiante.R;
-import com.jmv.frre.moduloestudiante.comps.MyTableRow;
+import com.jmv.frre.moduloestudiante.comps.NotaTableRow;
 import com.jmv.frre.moduloestudiante.constants.Notas;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
@@ -32,6 +32,8 @@ import com.jmv.frre.moduloestudiante.net.NetworkTaskHandler;
 
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static com.jmv.frre.moduloestudiante.constants.Constants.DELIMITER;
 
 public class ExamsMadeActivity extends LinkActivity {
 
@@ -45,7 +47,7 @@ public class ExamsMadeActivity extends LinkActivity {
 	private TextView desaprobaText;
 	private TextView ausenteText;
 
-	private static final String DELIMITER = "#";
+	protected String myCurrentResponse = null;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +80,7 @@ public class ExamsMadeActivity extends LinkActivity {
 		Function<String, Void> examenesFunction = new Function<String, Void>() {
 			@Override
 			public Void apply(String response) {
+				myCurrentResponse = response;
 				HTMLParser parser = new HTMLParser(response);
 				showProgress(false);
 				if (!checkForErrors(parser, response)) {
@@ -89,14 +92,14 @@ public class ExamsMadeActivity extends LinkActivity {
 		};
 
 		showProgress(true);
-		new NetworkTaskHandler(getRequest, examenesFunction).execute();
+		new NetworkTaskHandler(getRequest, examenesFunction).execute(myCurrentResponse != null?myCurrentResponse:null);
 	}
 
 	private void setAllViewsAs(int visibilityMode) {
 		// TODO Auto-generated method stub
 		for (int i = 0; i < ((ViewGroup) materiasView).getChildCount(); ++i) {
 			View nextChild = ((ViewGroup) materiasView).getChildAt(i);
-			if (nextChild instanceof MyTableRow) {
+			if (nextChild instanceof NotaTableRow) {
 				nextChild.setVisibility(visibilityMode);
 			}
 		}
@@ -156,22 +159,23 @@ public class ExamsMadeActivity extends LinkActivity {
 		}
 	}
 
-	private MyTableRow getTableRowView(String value) {
+	private NotaTableRow getTableRowView(String value) {
 		// delcare a new row
 		// add views to the row
 		String[] data = value.split(DELIMITER);
 
-		MyTableRow newRow = null;
+		NotaTableRow newRow = null;
 
+		newRow = new NotaTableRow(this, Integer.valueOf(data[2]));
+		
 		for (String string : data) {
 			TextView text = new TextView(this);
 			text.setText(string);
+			text.setPadding(5, 5,5,5);
 			text.setLayoutParams(new TableRow.LayoutParams(
 					TableRow.LayoutParams.MATCH_PARENT,
 					TableRow.LayoutParams.WRAP_CONTENT));
-			text.setTextColor(Color.WHITE);
-
-			newRow = new MyTableRow(this, Integer.valueOf(data[2]));
+			text.setTextColor(Color.WHITE);			
 			newRow.setLayoutParams(new TableLayout.LayoutParams(
 					TableLayout.LayoutParams.MATCH_PARENT,
 					TableLayout.LayoutParams.WRAP_CONTENT));
@@ -202,8 +206,8 @@ public class ExamsMadeActivity extends LinkActivity {
 			setAllViewsAs(View.GONE);
 			for (int i = 0; i < ((ViewGroup) materiasView).getChildCount(); ++i) {
 				View nextChild = ((ViewGroup) materiasView).getChildAt(i);
-				if (nextChild instanceof MyTableRow) {
-					MyTableRow row = (MyTableRow) nextChild;
+				if (nextChild instanceof NotaTableRow) {
+					NotaTableRow row = (NotaTableRow) nextChild;
 					switch (pos) {
 					case 0:
 						if (row.getNota() > 4) {
@@ -216,7 +220,7 @@ public class ExamsMadeActivity extends LinkActivity {
 						}
 						break;
 					case 2:
-						if (row.getNota() < 4) {
+						if (row.getNota() < 4 && row.getNota() != 0) {
 							row.setVisibility(View.VISIBLE);
 						}
 						break;

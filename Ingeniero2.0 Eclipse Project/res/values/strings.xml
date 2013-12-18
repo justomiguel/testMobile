@@ -23,6 +23,7 @@
     <string name="dialog_confirm_response_info">Error:</string>
     <string name="dialog_confirm_response_info_button">Aceptar</string>
     <string name="dialog_tittle_label">The server says:</string>
+    <string name="dialog_tittle_label_exam">Exam Details:</string>
     <string name="dialog_confirm_nothing_to_show">Nada por aqui</string>
 
     <item name="activity_login_title" type="id">Ingresar a FRRe</item>
@@ -32,6 +33,24 @@
     <string name="activity_exam_nota" type="id">Nota</string>
     <string name="activity_exam_plan" type="id">Plan</string>
     
+    <string name="activity_ins_exam_ano" type="id">Año</string>
+    <string name="activity_ins_exam_select_subject" type="id">Seleccione Materia:</string>
+    <string name="activity_ins_exam_select_details" type="id">Detalle:</string>
+    <string name="activity_ins_exam_materia" type="id">Materia</string>
+    <string name="activity_ins_exam_status" type="id">Estado</string>
+    <string name="activity_ins_exam_plan" type="id">Plan</string>
+    <string name="activity_ins_exam_codigo" type="id">Codigo</string>
+    
+        <string name="activity_ins_exam_to_compare" type="id">Inscribir</string>
+    
+        
+    <string name="activity_ins_exam_btn_ins" type="id">Inscribirse</string>
+    <string name="activity_ins_exam_btn_ver" type="id">Ver Comprobante</string>
+    
+    <string name="activity_ins_exam_status_no_inscripto" type="id">No Inscripto</string>
+    <string name="activity_ins_exam_status_inscripto" type="id">Inscripto</string>
+    
     <string name="title_activity_exams_made">Examenes Rendidos</string>
+    <string name="title_activity_incsripcion_aexamen">IncsripcionAExamen</string>
 
 </resources>

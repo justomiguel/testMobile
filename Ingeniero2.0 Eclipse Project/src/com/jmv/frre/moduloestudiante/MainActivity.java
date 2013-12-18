@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.google.common.base.Function;
 import com.jmv.frre.moduloestudiante.activities.ExamsMadeActivity;
+import com.jmv.frre.moduloestudiante.activities.IncsripcionAExamen;
 import com.jmv.frre.moduloestudiante.activities.LinkActivity;
 import com.jmv.frre.moduloestudiante.comps.MyButton;
 import com.jmv.frre.moduloestudiante.constants.HomePageImages;
@@ -167,6 +168,8 @@ public class MainActivity extends LinkActivity {
             case MATERIAS_DEL_PLAN:
                 break;
             case INSCRIPCION_A_EXAMEN:
+            	showProgress(false);
+                IncsripcionAExamen.showExamsView(this, buttonName.getLink());
                 break;
             case CAMBIO_DE_CONTRASENA:
                 break;
@@ -224,11 +227,12 @@ public class MainActivity extends LinkActivity {
             for (HomePageLinks key : linksKeys) {
                 final String content = links.get(key).get(1);
                 final MyButton myButton = new MyButton(this.parent);
-                myButton.setTextColor(Color.BLACK);
                 myButton.setEnumLink(key);
                 final String linkUri = links.get(key).get(0);
                 myButton.setLink(linkUri);
                 myButton.setText(content);
+                myButton.setEnabled(key.isEnabled());
+                myButton.setTextColor(key.isEnabled()?Color.BLACK:Color.GRAY);
                 myButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {

@@ -65,56 +65,72 @@ public final class R {
         public static final int tickker=0x7f02001f;
     }
     public static final class id {
-        public static final int RHE=0x7f08000b;
-        public static final int action_forgot_password=0x7f080013;
-        public static final int action_settings=0x7f080014;
+        public static final int RHE=0x7f08000a;
+        public static final int action_forgot_password=0x7f080014;
+        public static final int action_settings=0x7f080015;
         public static final int activity_login_title=0x7f080000;
-        public static final int aprobadasTextView=0x7f080007;
-        public static final int ausentesTextView=0x7f080009;
-        public static final int button_place=0x7f080012;
-        public static final int change_type_spinner=0x7f08000a;
+        public static final int aprobadasTextView=0x7f080006;
+        public static final int ausentesTextView=0x7f080008;
+        public static final int btn_activity=0x7f08000b;
+        public static final int button_place=0x7f080013;
+        public static final int change_type_spinner=0x7f080009;
         public static final int container=0x7f080001;
-        public static final int desaprobadasTextView=0x7f080008;
-        public static final int email=0x7f08000e;
+        public static final int desaprobadasTextView=0x7f080007;
+        public static final int email=0x7f08000f;
         public static final int home_form=0x7f080005;
-        public static final int imageView=0x7f080006;
+        public static final int imageView=0x7f08000e;
         public static final int loading_content_status=0x7f080002;
         public static final int loading_status_message=0x7f080004;
-        public static final int login=0x7f080010;
+        public static final int login=0x7f080011;
         public static final int login_form=0x7f08000d;
         public static final int login_status=0x7f08000c;
-        public static final int password=0x7f08000f;
+        public static final int password=0x7f080010;
         public static final int progress=0x7f080003;
-        public static final int sign_in_button=0x7f080011;
+        public static final int sign_in_button=0x7f080012;
     }
     public static final class layout {
         public static final int activity_exams_made=0x7f030000;
-        public static final int activity_login=0x7f030001;
-        public static final int activity_main=0x7f030002;
-        public static final int fragment_exams_made=0x7f030003;
-        public static final int wait_layout=0x7f030004;
+        public static final int activity_incsripcion_aexamen=0x7f030001;
+        public static final int activity_login=0x7f030002;
+        public static final int activity_main=0x7f030003;
+        public static final int fragment_exams_made=0x7f030004;
+        public static final int wait_layout=0x7f030005;
     }
     public static final class menu {
         public static final int exams_made=0x7f0a0000;
-        public static final int login=0x7f0a0001;
-        public static final int main=0x7f0a0002;
+        public static final int incsripcion_aexamen=0x7f0a0001;
+        public static final int login=0x7f0a0002;
+        public static final int main=0x7f0a0003;
     }
     public static final class string {
         public static final int action_forgot_password=0x7f070008;
         public static final int action_settings=0x7f070002;
         public static final int action_sign_in_register=0x7f070006;
         public static final int action_sign_in_short=0x7f070007;
-        public static final int activity_exam_date=0x7f070015;
-        public static final int activity_exam_materia=0x7f070016;
-        public static final int activity_exam_nota=0x7f070017;
-        public static final int activity_exam_plan=0x7f070018;
+        public static final int activity_exam_date=0x7f070016;
+        public static final int activity_exam_materia=0x7f070017;
+        public static final int activity_exam_nota=0x7f070018;
+        public static final int activity_exam_plan=0x7f070019;
+        public static final int activity_ins_exam_ano=0x7f07001a;
+        public static final int activity_ins_exam_btn_ins=0x7f070022;
+        public static final int activity_ins_exam_btn_ver=0x7f070023;
+        public static final int activity_ins_exam_codigo=0x7f070020;
+        public static final int activity_ins_exam_materia=0x7f07001d;
+        public static final int activity_ins_exam_plan=0x7f07001f;
+        public static final int activity_ins_exam_select_details=0x7f07001c;
+        public static final int activity_ins_exam_select_subject=0x7f07001b;
+        public static final int activity_ins_exam_status=0x7f07001e;
+        public static final int activity_ins_exam_status_inscripto=0x7f070025;
+        public static final int activity_ins_exam_status_no_inscripto=0x7f070024;
+        public static final int activity_ins_exam_to_compare=0x7f070021;
         public static final int app_name=0x7f070000;
-        public static final int dialog_confirm_nothing_to_show=0x7f070014;
+        public static final int dialog_confirm_nothing_to_show=0x7f070015;
         public static final int dialog_confirm_response_has_errors=0x7f07000f;
         public static final int dialog_confirm_response_has_errors_button=0x7f070010;
         public static final int dialog_confirm_response_info=0x7f070011;
         public static final int dialog_confirm_response_info_button=0x7f070012;
         public static final int dialog_tittle_label=0x7f070013;
+        public static final int dialog_tittle_label_exam=0x7f070014;
         public static final int error_field_required=0x7f07000d;
         public static final int error_incorrect_password=0x7f07000c;
         public static final int error_invalid_email=0x7f07000a;
@@ -122,34 +138,35 @@ public final class R {
         public static final int hello_world=0x7f070001;
         public static final int loadin_content_progress=0x7f07000e;
         public static final int login_progress_signing_in=0x7f070009;
-        public static final int pref_default_display_name=0x7f07001f;
-        public static final int pref_description_social_recommendations=0x7f07001d;
+        public static final int pref_default_display_name=0x7f07002d;
+        public static final int pref_description_social_recommendations=0x7f07002b;
         /**  Example settings for Data & Sync 
          */
-        public static final int pref_header_data_sync=0x7f070021;
+        public static final int pref_header_data_sync=0x7f07002f;
         /**  Strings related to Settings 
  Example General settings 
          */
-        public static final int pref_header_general=0x7f07001b;
+        public static final int pref_header_general=0x7f070029;
         /**  Example settings for Notifications 
          */
-        public static final int pref_header_notifications=0x7f070024;
-        public static final int pref_ringtone_silent=0x7f070027;
-        public static final int pref_title_add_friends_to_messages=0x7f070020;
-        public static final int pref_title_display_name=0x7f07001e;
-        public static final int pref_title_new_message_notifications=0x7f070025;
-        public static final int pref_title_ringtone=0x7f070026;
-        public static final int pref_title_social_recommendations=0x7f07001c;
-        public static final int pref_title_sync_frequency=0x7f070022;
-        public static final int pref_title_system_sync_settings=0x7f070023;
-        public static final int pref_title_vibrate=0x7f070028;
+        public static final int pref_header_notifications=0x7f070032;
+        public static final int pref_ringtone_silent=0x7f070035;
+        public static final int pref_title_add_friends_to_messages=0x7f07002e;
+        public static final int pref_title_display_name=0x7f07002c;
+        public static final int pref_title_new_message_notifications=0x7f070033;
+        public static final int pref_title_ringtone=0x7f070034;
+        public static final int pref_title_social_recommendations=0x7f07002a;
+        public static final int pref_title_sync_frequency=0x7f070030;
+        public static final int pref_title_system_sync_settings=0x7f070031;
+        public static final int pref_title_vibrate=0x7f070036;
         /**  Strings related to login 
          */
         public static final int prompt_email=0x7f070004;
         public static final int prompt_password=0x7f070005;
-        public static final int title_activity_exams_made=0x7f070019;
+        public static final int title_activity_exams_made=0x7f070026;
+        public static final int title_activity_incsripcion_aexamen=0x7f070027;
         public static final int title_activity_login=0x7f070003;
-        public static final int title_activity_settings=0x7f07001a;
+        public static final int title_activity_settings=0x7f070028;
     }
     public static final class style {
         /** 

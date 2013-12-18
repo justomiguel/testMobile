@@ -8,19 +8,19 @@ import com.google.common.base.Function;
 /**
  * Created by Cleo on 12/10/13.
  */
-public class NetworkTaskHandler extends AsyncTask<Function, Void, String> {
+public class NetworkTaskHandler extends AsyncTask<String, Void, String> {
 
     private final Function<String, Void> nextFunction;
     private Function<Activity, String> function;
 
-    public NetworkTaskHandler(Function function, Function nextFunction) {
+    public NetworkTaskHandler(Function<Activity, String> function, Function<String, Void> nextFunction) {
         this.function = function;
         this.nextFunction = nextFunction;
     }
 
     @Override
-    protected String doInBackground(Function... params) {
-            return function.apply(null);
+    protected String doInBackground(String... params) {
+            return params!= null && params.length > 0 && params[0]!=null? params[0]:function.apply(null);
     }
 
     @Override

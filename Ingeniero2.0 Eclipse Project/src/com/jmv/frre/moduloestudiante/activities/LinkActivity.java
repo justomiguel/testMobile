@@ -28,6 +28,7 @@ public class LinkActivity extends Activity{
 
     protected static final int DIALOG_SHOW_ERROR = 0;
     protected static final int DIALOG_SHOW_INFO = 1;
+    protected static final int DIALOG_SHOW_DETAILS_EXAM = 2;
 
     protected View mHomeFormView;
     protected View mLoginStatusView;

@@ -41,6 +41,10 @@
             android:name="com.jmv.frre.moduloestudiante.activities.ExamsMadeActivity"
             android:label="@string/title_activity_exams_made" >
         </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.IncsripcionAExamen"
+            android:label="@string/title_activity_incsripcion_aexamen" >
+        </activity>
     </application>
 
 </manifest>
