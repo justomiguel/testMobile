@@ -2,7 +2,26 @@
 <resources>
 
     <string name="app_name">Ingeniero 2.0</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="login_main_label">Ingresar a Ingeniero 2.0</string>
+    <string name="mainteance_mode_on">Sysacad No Anda!</string>
+    <string name="no_internet">Tu Internet No Anda!</string>
+    <string name="login_usr_label">Legajo:</string>
+    <string name="no_inetrnet_label">Sepa disculpar los incovenientes, pero esto no funciona sin internet </string>
+    <string name="maintenance_mode">Sepa disculpar los incovenientes, pero esto no funciona sin el sysacad </string>
+    <string name="login_password_label">Password (Sysacad):</string>
+    <string name="main_menu_change">Cambiar Usuario</string>
+    <string name="main_menu_sysacad">Sysacad Mobile</string>
+    <string name="main_menu_about">Sobre Ingeniero 2.0</string>
+    <string name="sysacad_menu_exams">Ver Estado Academico</string>
+    <string name="sysacad_menu_ins">Inscribirse a Finales</string>
+    <string name="sysacad_mobile_status_separator"> - </string>
+    <string name="sysacad_mobile_status_ready">Usuario Actual:</string>
+    <string name="sysacad_mobile_status_time">00:00</string>
+    <string name="sysacad_mobile_status_key">XXXXX</string>
+    <string name="sysacad_mobile_status_current_time">Session Time:</string>
+    <string name="sysacad_mobile_status_current_key">Current Session Key:</string>
+    <string name="sysacad_mobile_status_usr">--</string>
+    <string name="sysacad_mobile_status_getting_token">Obteniendo Token</string>
     <string name="action_settings">Borrar Credenciales</string>
     <string name="title_activity_login">Ingresar Credenciales</string>
 
@@ -10,6 +29,7 @@
     <string name="prompt_email">Legajo</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in_register"><b>Ingresar</b></string>
+    <string name="retry_login"><b>Re-Intentar</b></string>
     <string name="action_sign_in_short">Ingresar</string>
     <string name="action_forgot_password">Recordar Password</string>
     <string name="login_progress_signing_in">Ingresando al Sistema…</string>
@@ -18,39 +38,72 @@
     <string name="error_incorrect_password">Contraseña/Legajo Incorrecto</string>
     <string name="error_field_required">Campo requerido</string>
     <string name="loadin_content_progress">Cargando Contenido Del Servidor…</string>
+    <string name="loadin_content_progress_refresh">Resfrescando Session en el Servidor…</string>
     <string name="dialog_confirm_response_has_errors">Error:</string>
     <string name="dialog_confirm_response_has_errors_button">Aceptar</string>
     <string name="dialog_confirm_response_info">Error:</string>
     <string name="dialog_confirm_response_info_button">Aceptar</string>
-    <string name="dialog_tittle_label">The server says:</string>
-    <string name="dialog_tittle_label_exam">Exam Details:</string>
+    <string name="dialog_tittle_label">El servidor dice:</string>
+    <string name="dialog_tittle_label_about">Ingeniero 2.0</string>
+    <string name="dialog_tittle_label_exam">Detalles de Examen:</string>
+    <string name="dialog_tittle_label_ins_exam_details">Materia a Inscribirse:</string>
+    <string name="dialog_tittle_label_ins_exam">Estas seguro??</string>
+    <string name="dialog_tittle_label_ins_exam_confirm">Ya estas en el horno!</string>
+    <string name="dialog_tittle_label_ins_exam_confirm_details">Te inscribiste con exito!</string>
     <string name="dialog_confirm_nothing_to_show">Nada por aqui</string>
+    <string name="dialog_about_details">Reportar bugs a justomiguelvargas@gmail.com</string>
 
     <item name="activity_login_title" type="id">Ingresar a FRRe</item>
 
+    
+    
+    <string name="getting_events_current_account" type="id">Obteniendo Examenes Por Rendir!</string>
+        <string name="default_image_description" type="id">IMG</string>
+            <string name="from_label_change" type="id">Desde:</string>
+        <string name="date_label_change">Fecha:</string>
+    <string name="default_date_label_change">29/09/2014</string>
+    <string name="set_button_label_change">Cambiar</string>
+    <string name="until_label_change">Hasta:</string>
+    <string name="search_button_label_change">Buscar</string>
+    <string name="change_details_label_change">Detalles del Examen:</string>
+    <string name="change_list_label_change">Resultados:</string>
+    <string name="change_prompt">Examenes Encontrados</string>
+    
+    <string name="change_extended_details_label_change">&#8230;</string>
+    
+    
+    <string name="confirm_button_label_modify_change">Modificar</string>
+    <string name="confirm_button_label_delete_change">Borrar</string>
+    
+    <string name="change_details_start_date_change">Teoria:</string>
+    <string name="change_details_end_date_change">Practica:</string>
+    <string name="change_details_tittle_change">Nombre:</string>
+    <string name="change_details_id_change">ID:</string>
+    
     <string name="activity_exam_date" type="id">Fecha</string>
     <string name="activity_exam_materia" type="id">Materia</string>
     <string name="activity_exam_nota" type="id">Nota</string>
     <string name="activity_exam_plan" type="id">Plan</string>
-    
     <string name="activity_ins_exam_ano" type="id">Año</string>
-    <string name="activity_ins_exam_select_subject" type="id">Seleccione Materia:</string>
+    <string name="activity_ins_exam_select_subject" type="id">Inscribirse a mas materias:</string>
     <string name="activity_ins_exam_select_details" type="id">Detalle:</string>
+    <string name="activity_ins_exam_already_insc" type="id">Materias Inscriptas:</string>
     <string name="activity_ins_exam_materia" type="id">Materia</string>
     <string name="activity_ins_exam_status" type="id">Estado</string>
     <string name="activity_ins_exam_plan" type="id">Plan</string>
     <string name="activity_ins_exam_codigo" type="id">Codigo</string>
-    
-        <string name="activity_ins_exam_to_compare" type="id">Inscribir</string>
-    
-        
+    <string name="activity_ins_exam_to_compare" type="id">Inscribir</string>
     <string name="activity_ins_exam_btn_ins" type="id">Inscribirse</string>
+    <string name="activity_about" type="id">Sobre Ingeniero 2.0</string>
     <string name="activity_ins_exam_btn_ver" type="id">Ver Comprobante</string>
-    
     <string name="activity_ins_exam_status_no_inscripto" type="id">No Inscripto</string>
     <string name="activity_ins_exam_status_inscripto" type="id">Inscripto</string>
-    
     <string name="title_activity_exams_made">Examenes Rendidos</string>
-    <string name="title_activity_incsripcion_aexamen">IncsripcionAExamen</string>
+    <string name="title_activity_incsripcion_aexamen">Inscripcion A Examen</string>
+    <string name="title_activity_main_screen">Ingeniero 2.0</string>
+    <string name="title_activity_maintenance_mode">MaintenanceMode</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_conection_required">ConectionRequired</string>
+    <string name="title_activity_listar_examenes">ListarExamenes</string>
 
 </resources>

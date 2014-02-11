@@ -2,7 +2,7 @@ package com.jmv.frre.moduloestudiante.comps;
 
 import android.content.Context;
 
-import com.jmv.frre.moduloestudiante.ExamenIns;
+import com.jmv.frre.moduloestudiante.logic.ExamenIns;
 
 public class ExamenTableRow extends CustomTableRow {
 

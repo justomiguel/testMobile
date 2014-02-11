@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/internal_bg"
-    tools:context="com.jmv.frre.moduloestudiante.activities.ExamsMadeActivity"
+    tools:context="com.jmv.frre.moduloestudiante.activities.sysacad.ExamsMadeActivity"
     tools:ignore="MergeRootFrame" >
 
     <!-- Login progress -->
@@ -222,7 +222,7 @@
 
                 <TableRow
                      android:layout_width="fill_parent"
-                     android:background="@drawable/bg"
+                     android:background="@drawable/bg_already_ins"
                 	android:layout_height="wrap_content" >
 
                     <TextView
@@ -230,6 +230,7 @@
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
                         android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
                         android:shadowRadius="25"
                         android:text="@string/activity_exam_date" />
 
@@ -238,6 +239,7 @@
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
                         android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
                         android:shadowRadius="25"
                         android:text="@string/activity_exam_materia" />
 
@@ -245,6 +247,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
+                        android:textColor="#FFFFFF"
                         android:shadowColor="#FFFFFF"
                         android:shadowRadius="25"
                         android:text="@string/activity_exam_nota" />
@@ -253,6 +256,7 @@
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
+                        android:textColor="#FFFFFF"
                         android:shadowColor="#FFFFFF"
                         android:shadowRadius="25"
                         android:text="@string/activity_exam_plan" />
@@ -261,4 +265,5 @@
         </LinearLayout>
     </ScrollView>
 
+    
 </FrameLayout>

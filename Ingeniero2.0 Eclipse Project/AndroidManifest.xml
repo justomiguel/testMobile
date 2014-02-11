@@ -20,16 +20,11 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.jmv.frre.moduloestudiante.MainActivity"
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.SysacadActivity"
             android:label="@string/app_name" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
-            android:name="com.jmv.frre.moduloestudiante.LoginActivity"
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.LoginActivity"
             android:label="@string/title_activity_login"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
@@ -38,12 +33,33 @@
             android:label="@string/title_activity_settings" >
         </activity>
         <activity
-            android:name="com.jmv.frre.moduloestudiante.activities.ExamsMadeActivity"
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.ExamsMadeActivity"
             android:label="@string/title_activity_exams_made" >
         </activity>
         <activity
-            android:name="com.jmv.frre.moduloestudiante.activities.IncsripcionAExamen"
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.IncsripcionAExamen"
             android:label="@string/title_activity_incsripcion_aexamen" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.MainScreenActivity"
+            android:label="@string/title_activity_main_screen" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.MaintenanceMode"
+            android:label="@string/title_activity_maintenance_mode" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.ConectionRequired"
+            android:label="@string/title_activity_conection_required" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.ListarExamenes"
+            android:label="@string/title_activity_listar_examenes" >
         </activity>
     </application>
 

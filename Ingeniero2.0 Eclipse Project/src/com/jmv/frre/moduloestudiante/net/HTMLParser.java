@@ -32,8 +32,12 @@ public class HTMLParser {
 
     private Document doc;
 
-    public HTMLParser(String html) {
+    private HTMLParser(String html) {
         doc = Jsoup.parse(html);
+    }
+    
+    public static HTMLParser getParserFor(String html){
+    	return new HTMLParser(html);
     }
 
     public boolean succefullyLoggin() {
@@ -57,9 +61,7 @@ public class HTMLParser {
         if (wrapper != null) {
             for (Element row : wrapper) {
                 if (row != null) {
-                    String rowText = row.toString();
-                    String error = rowText.substring(rowText.indexOf(ERROR) + ERROR.length() + 2, rowText.length() - 4);
-                    return error;
+                    return row.text();
                 }
             }
         }
@@ -88,7 +90,7 @@ public class HTMLParser {
                         if (!content.contains("Salir")){
                             ArrayList<String> list = new ArrayList<String>(2);
                             list.add(link);
-                            list.add(replaceAcutesHTML(content));
+                            list.add(trip.text());
                             links.put(HomePageLinks.getLinkByValue(linkWithoutSessionID), list);
                         }
                     }
@@ -98,21 +100,44 @@ public class HTMLParser {
         return links;
     }
 
+    
+    public String getSessionID() {
+
+        String baseUri = "http://sysacadweb.frre.utn.edu.ar/";
+        Elements wrapper = doc.getElementsByClass("textoTabla");
+        if (wrapper != null) {
+            for (Element row : wrapper) {
+                if (row != null) {
+                    Elements trips = row.getElementsByTag("li");
+                    for (Element trip : trips) {
+                        String listElement = trip.getElementsByTag("a").get(0).toString();
+                        String linkWithoutSessionID = listElement.substring(listElement.indexOf("href=\"")+6,listElement.indexOf("\">"));
+                        linkWithoutSessionID = linkWithoutSessionID.substring(0, linkWithoutSessionID.indexOf("?"));
+                        String link = baseUri+listElement.substring(listElement.indexOf("href=\"")+6,listElement.indexOf("\">"));
+                        String content = listElement.substring(listElement.indexOf("\">")+2,listElement.indexOf("</a>"));
+                        return link.substring(link.indexOf("id="));
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
 
     public String replaceAcutesHTML(String str) {
 
-    	str = str.replaceAll("&aacute;","á");
-    	str = str.replaceAll("&eacute;","é");
-    	str = str.replaceAll("&iacute;","í");
-    	str = str.replaceAll("&oacute;","ó");
-    	str = str.replaceAll("&uacute;","ú");
-    	str = str.replaceAll("&Aacute;","Á");
-    	str = str.replaceAll("&Eacute;","É");
-    	str = str.replaceAll("&Iacute;","Í");
-    	str = str.replaceAll("&Oacute;","Ó");
-    	str = str.replaceAll("&Uacute;","Ú");
-    	str = str.replaceAll("&ntilde;","ñ");
-    	str = str.replaceAll("&Ntilde;","Ñ");
+    	str = str.replaceAll("&aacute;","ï¿½");
+    	str = str.replaceAll("&eacute;","ï¿½");
+    	str = str.replaceAll("&iacute;","ï¿½");
+    	str = str.replaceAll("&oacute;","ï¿½");
+    	str = str.replaceAll("&uacute;","ï¿½");
+    	str = str.replaceAll("&Aacute;","ï¿½");
+    	str = str.replaceAll("&Eacute;","ï¿½");
+    	str = str.replaceAll("&Iacute;","ï¿½");
+    	str = str.replaceAll("&Oacute;","ï¿½");
+    	str = str.replaceAll("&Uacute;","ï¿½");
+    	str = str.replaceAll("&ntilde;","ï¿½");
+    	str = str.replaceAll("&Ntilde;","ï¿½");
 
         return str;
 

@@ -3,7 +3,7 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context="com.jmv.frre.moduloestudiante.activities.sysacad.SysacadActivity"
     tools:ignore="MergeRootFrame" >
 
     <!-- Login progress -->
@@ -79,7 +79,57 @@
                 android:layout_gravity="left|top"
                 android:orientation="vertical" >
             </LinearLayout>
-        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/test"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btn_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="academicStatus"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="5"
+                    android:text="@string/sysacad_menu_exams"
+                    android:textColor="#000000" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/exam"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/btn_activity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="actionBtnExams"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="5"
+                    android:text="@string/sysacad_menu_ins"
+                    android:textColor="#000000" />
+            </LinearLayout>
+                    </LinearLayout>
     </ScrollView>
 
 </merge>

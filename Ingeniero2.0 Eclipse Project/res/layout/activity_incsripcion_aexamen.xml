@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/internal_bg"
-    tools:context="com.jmv.frre.moduloestudiante.activities.IncsripcionAExamen" >
+    tools:context="com.jmv.frre.moduloestudiante.activities.sysacad.IncsripcionAExamen" >
 
     <!-- Login progress -->
 
@@ -61,12 +61,62 @@
             android:layout_height="fill_parent"
             android:layout_gravity="left|top"
             android:orientation="vertical" >
+            
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:gravity="left|top"
+                android:shadowColor="#FFFFFF"
+                android:shadowRadius="25"
+                android:text="@string/activity_ins_exam_already_insc"
+                android:textColor="#000000"
+                android:textSize="20sp" />
+
+            <TableLayout
+                android:id="@+id/tablaInscriptas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:shrinkColumns="1"
+                android:stretchColumns="1"
+                android:textAlignment="center" >
+
+                <TableRow
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg" >
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
+                        android:shadowRadius="25"
+                        android:text="@string/activity_ins_exam_plan"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
+                        android:shadowRadius="25"
+                        android:text="@string/activity_ins_exam_materia"
+                        android:textSize="18sp" />
+
+                </TableRow>
+            </TableLayout>
+            
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:gravity="left"
+                android:paddingTop="40dp"
                 android:shadowColor="#FFFFFF"
                 android:shadowRadius="25"
                 android:text="@string/activity_ins_exam_select_subject"
@@ -101,13 +151,14 @@
                 <TableRow
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/bg" >
+                    android:background="@drawable/bg_already_ins" >
 
                     <TextView
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
                         android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
                         android:shadowRadius="25"
                         android:text="@string/activity_ins_exam_ano"
                         android:textSize="18sp" />
@@ -117,6 +168,7 @@
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
                         android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
                         android:shadowRadius="25"
                         android:text="@string/activity_ins_exam_status"
                         android:textSize="18sp" />
@@ -126,6 +178,7 @@
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
                         android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
                         android:shadowRadius="25"
                         android:text="@string/activity_ins_exam_codigo"
                         android:textSize="18sp" />

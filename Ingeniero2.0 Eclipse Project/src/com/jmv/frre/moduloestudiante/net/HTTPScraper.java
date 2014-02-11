@@ -24,7 +24,9 @@ import java.util.List;
  */
 public class HTTPScraper {
 
-    public static HttpClient client = new DefaultHttpClient();
+	public static final String MAINTENANCE_MODE_ON = "MAINTENANCE_MODE_ON";
+	public static HttpClient client = new DefaultHttpClient();
+   
 
     public String fecthHtmlGet(String url){
         HttpResponse response;
@@ -59,15 +61,16 @@ public class HTTPScraper {
         try {
             HttpResponse response = client.execute(post);
             HttpEntity entity = response.getEntity();
-            if(entity != null)
+            if(entity != null && response.getStatusLine().getStatusCode()==200)
             {
                 String responseBody = EntityUtils.toString(entity);
                 return responseBody;
+            } else {
+            	return MAINTENANCE_MODE_ON;
             }
             // System.out.println(resp);
         } catch (IOException e) {
-            e.printStackTrace();
+        	return MAINTENANCE_MODE_ON;
         }
-        return "";
     }
 }
