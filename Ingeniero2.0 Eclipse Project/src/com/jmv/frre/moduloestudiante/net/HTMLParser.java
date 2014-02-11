@@ -161,8 +161,13 @@ public class HTMLParser {
                 if (row != null) {
                     StringBuilder builder = new StringBuilder();
                     for (org.jsoup.nodes.Element column : row.select("td")) {
-                        builder.append(column.text());
-                        builder.append("#");
+                        	builder.append(column.text());
+                        	builder.append("#");
+                        if (column.getElementsByTag("a").attr("href").length()!=0){
+                        	builder.append(column.getElementsByTag("a").attr("href"));
+                        	builder.append("#");
+                        }
+                        
                     }
                     String finalSt = builder.toString();
                     list.add(finalSt);

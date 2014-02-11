@@ -33,6 +33,9 @@ public class LinkActivity extends Activity{
     protected static final int DIALOG_SHOW_DETAILS_EXAM = 2;
     protected static final int DIALOG_SHOW_INSCRIBIRSE_EXAM = 3;
     protected static final int DIALOG_SHOW_INSCRIBIRSE_CONFIRM = 4;
+    protected static final int DIALOG_SHOW_DELETE_CONFIRM = 7;
+    protected static final int DIALOG_SHOW_DELETE_EXAM = 6;
+    
 
     protected View mHomeFormView;
     protected View mLoginStatusView;

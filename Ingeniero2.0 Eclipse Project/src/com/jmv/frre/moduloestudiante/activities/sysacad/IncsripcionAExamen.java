@@ -40,7 +40,8 @@ import static com.jmv.frre.moduloestudiante.constants.Constants.DELIMITER;
 public class IncsripcionAExamen extends LinkActivity {
 
 	private static final String LINK = "http://sysacadweb.frre.utn.edu.ar/fechasExamen.asp?";
-	
+	private static final String DELETE_LINK = "http://sysacadweb.frre.utn.edu.ar/";
+
 	private Spinner spinner;
 	private TableLayout tableView;
 	protected String myCurrentResponse;
@@ -96,20 +97,25 @@ public class IncsripcionAExamen extends LinkActivity {
 			if (exa != null) {
 				tableView.addView(exa, new TableLayout.LayoutParams(
 						LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
-				if (exa instanceof ExamenTableRow){
+				if (exa instanceof ExamenTableRow) {
 					ExamenTableRow currentExa = (ExamenTableRow) exa;
 					ExamenIns theExa = currentExa.getExamen();
-					if (!theExa.getEstado().equalsIgnoreCase(getString(R.string.activity_ins_exam_to_compare))){
-						tableAlreadyInscView.addView(getTableRowViewAlreadyIns(theExa), new TableLayout.LayoutParams(
-						LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+					if (!theExa.getEstado().equalsIgnoreCase(
+							getString(R.string.activity_ins_exam_to_compare))) {
+						tableAlreadyInscView.addView(
+								getTableRowViewAlreadyIns(theExa),
+								new TableLayout.LayoutParams(
+										LayoutParams.MATCH_PARENT,
+										LayoutParams.WRAP_CONTENT));
 					}
 				}
 			}
 		}
 
-		if (((ViewGroup) tableAlreadyInscView).getChildCount() == 1){
-			tableAlreadyInscView.addView(getTableRowViewAlreadyIns(), new TableLayout.LayoutParams(
-					LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+		if (((ViewGroup) tableAlreadyInscView).getChildCount() == 1) {
+			tableAlreadyInscView.addView(getTableRowViewAlreadyIns(),
+					new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+							LayoutParams.WRAP_CONTENT));
 		}
 		List<ExamenIns> examnesAIns = new ArrayList<ExamenIns>();
 
@@ -131,10 +137,10 @@ public class IncsripcionAExamen extends LinkActivity {
 
 	private View getTableRowViewAlreadyIns() {
 		ExamenTableRow newRow = new ExamenTableRow(this, null);
-		
+
 		newRow.addView(getTextForTable(String.valueOf("--")));
 		newRow.addView(getTextForTable(String.valueOf("--")));
-		
+
 		newRow.setLayoutParams(new TableLayout.LayoutParams(
 				TableLayout.LayoutParams.MATCH_PARENT,
 				TableLayout.LayoutParams.WRAP_CONTENT));
@@ -160,43 +166,43 @@ public class IncsripcionAExamen extends LinkActivity {
 
 		ExamenIns examen = null;
 		try {
-			examen = new ExamenIns(Integer.parseInt(data[0]), data[1], data[2],
-					Integer.parseInt(data[3]), Integer.parseInt(data[4]));
+			examen = new ExamenIns(Integer.parseInt(data[0]), data[1], data[2],data[3],
+					Integer.parseInt(data[4]), Integer.parseInt(data[5]));
 		} catch (Exception e) {
 			return null;
 		}
 
 		newRow = new ExamenTableRow(this, examen);
-		
+
 		newRow.addView(getTextForTable(String.valueOf(examen.getAnio())));
 		String textToPut = getString(R.string.activity_ins_exam_status_inscripto);
-		if (examen.getEstado().equalsIgnoreCase(getString(R.string.activity_ins_exam_to_compare))){
+		if (examen.getEstado().equalsIgnoreCase(
+				getString(R.string.activity_ins_exam_to_compare))) {
 			textToPut = getString(R.string.activity_ins_exam_status_no_inscripto);
 		}
 		newRow.addView(getTextForTable(textToPut));
 		newRow.addView(getTextForTable(String.valueOf(examen.getCodigo())));
-		
+
 		newRow.setLayoutParams(new TableLayout.LayoutParams(
 				TableLayout.LayoutParams.MATCH_PARENT,
 				TableLayout.LayoutParams.WRAP_CONTENT));
 
 		return newRow;
 	}
-	
+
 	private View getTableRowViewAlreadyIns(ExamenIns exam) {
-		
+
 		ExamenTableRow newRow = new ExamenTableRow(this, exam);
-		
+
 		newRow.addView(getTextForTable(String.valueOf(exam.getPlan())));
 		newRow.addView(getTextForTable(String.valueOf(exam.getMateria())));
-		
+
 		newRow.setLayoutParams(new TableLayout.LayoutParams(
 				TableLayout.LayoutParams.MATCH_PARENT,
 				TableLayout.LayoutParams.WRAP_CONTENT));
 
 		return newRow;
 	}
-
 
 	private View getTextForTable(String string) {
 		TextView text = new TextView(this);
@@ -211,57 +217,92 @@ public class IncsripcionAExamen extends LinkActivity {
 		text.setTextColor(Color.WHITE);
 		return text;
 	}
-	
+
 	@Override
-    public Dialog onCreateDialog(int id) {
-        switch (id) {
-            case DIALOG_SHOW_DETAILS_EXAM:
-                return ConfirmationDialog.create(this, id,
-                        R.string.dialog_tittle_label_exam, examDetails,
-                        R.string.dialog_confirm_response_has_errors_button,
-                        new Runnable() {
-                            @Override
-                            public void run() {
+	public Dialog onCreateDialog(int id) {
+		switch (id) {
+		case DIALOG_SHOW_DETAILS_EXAM:
+			return ConfirmationDialog.create(this, id,
+					R.string.dialog_tittle_label_exam, examDetails,
+					R.string.dialog_confirm_response_has_errors_button,
+					new Runnable() {
+						@Override
+						public void run() {
 
-                            }
-                        });
-            case DIALOG_SHOW_INSCRIBIRSE_EXAM:
-                return ConfirmationDialog.create(this, id,
-                        R.string.dialog_tittle_label_ins_exam, getString(R.string.dialog_tittle_label_ins_exam_details) + materiaToInscribirse.getMateria(),
-                        R.string.dialog_confirm_response_has_errors_button,
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                            	inscribirseAExamen();
-                            }
-                        });
-            case DIALOG_SHOW_INSCRIBIRSE_CONFIRM:
-                return ConfirmationDialog.create(this, id,
-                        R.string.dialog_tittle_label_ins_exam_confirm, getString(R.string.dialog_tittle_label_ins_exam_confirm_details),
-                        R.string.dialog_confirm_response_has_errors_button,
-                        new Runnable() {
-                            @Override
-                            public void run() {
-                            	SysacadActivity.showHome(IncsripcionAExamen.this);
-                            }
-                        });
-        }
+						}
+					});
+		case DIALOG_SHOW_INSCRIBIRSE_EXAM:
+			return ConfirmationDialog.create(this, id,
+					R.string.dialog_tittle_label_ins_exam,
+					getString(R.string.dialog_tittle_label_ins_exam_details)
+							+ materiaToInscribirse.getMateria(),
+					R.string.dialog_confirm_response_has_errors_button,
+					new Runnable() {
+						@Override
+						public void run() {
+							inscribirseAExamen();
+						}
+					});
 
-        return super.onCreateDialog(id);
-    }
+		case DIALOG_SHOW_DELETE_EXAM:
+			return ConfirmationDialog.create(this, id,
+					R.string.dialog_tittle_label_ins_exam,
+					getString(R.string.dialog_tittle_label_ins_exam_delete_details)
+							+ materiaToInscribirse.getMateria(),
+					R.string.dialog_confirm_response_has_errors_button,
+					new Runnable() {
+						@Override
+						public void run() {
+							borrarExamen(examDetails);
+						}
+					});
+		case DIALOG_SHOW_INSCRIBIRSE_CONFIRM:
+			return ConfirmationDialog
+					.create(this,
+							id,
+							R.string.dialog_tittle_label_ins_exam_confirm,
+							getString(R.string.dialog_tittle_label_ins_exam_confirm_details),
+							R.string.dialog_confirm_response_has_errors_button,
+							new Runnable() {
+								@Override
+								public void run() {
+									SysacadActivity
+											.showHome(IncsripcionAExamen.this);
+								}
+							});
+		case DIALOG_SHOW_DELETE_CONFIRM:
+			return ConfirmationDialog
+					.create(this,
+							id,
+							R.string.dialog_tittle_label_ins_delete_exam_confirm,
+							getString(R.string.dialog_tittle_label_ins_exam_confirm_delete_details),
+							R.string.dialog_confirm_response_has_errors_button,
+							new Runnable() {
+								@Override
+								public void run() {
+									SysacadActivity
+											.showHome(IncsripcionAExamen.this);
+								}
+							});
+		}
+
+		return super.onCreateDialog(id);
+	}
 
 	protected void inscribirseAExamen() {
-		
-		final String link = LINK+MainScreenActivity.CURRENT_ID+"&plan="+materiaToInscribirse.getPlan()+"&materia="+materiaToInscribirse.getCodigo();
-		
+
+		final String link = LINK + MainScreenActivity.CURRENT_ID + "&plan="
+				+ materiaToInscribirse.getPlan() + "&materia="
+				+ materiaToInscribirse.getCodigo();
+
 		Function<Activity, String> inscribirse = new Function<Activity, String>() {
-	            @Override
-	            public String apply(Activity context) {
-	                String response = scraper.fecthHtmlGet(link);
-	                return response;
-	            }
-	        };
-		
+			@Override
+			public String apply(Activity context) {
+				String response = scraper.fecthHtmlGet(link);
+				return response;
+			}
+		};
+
 		Function<String, Void> examenesFunction = new Function<String, Void>() {
 			@Override
 			public Void apply(String response) {
@@ -270,36 +311,44 @@ public class IncsripcionAExamen extends LinkActivity {
 				if (!checkForErrors(parser, response, IncsripcionAExamen.this)) {
 
 					Function<Activity, String> inscribirsePosta = new Function<Activity, String>() {
-			            @Override
-			            public String apply(Activity context) {
-			            	List<NameValuePair> pairs = new ArrayList<NameValuePair>();
-				            pairs.add(new BasicNameValuePair("plan", String.valueOf(materiaToInscribirse.getPlan())));
-				            pairs.add(new BasicNameValuePair("materia", String.valueOf(materiaToInscribirse.getCodigo())));
-				            pairs.add(new BasicNameValuePair("seleccion", "1"));
-				            pairs.add(new BasicNameValuePair("inscribirse", "Inscribirse"));
+						@Override
+						public String apply(Activity context) {
+							List<NameValuePair> pairs = new ArrayList<NameValuePair>();
+							pairs.add(new BasicNameValuePair("plan", String
+									.valueOf(materiaToInscribirse.getPlan())));
+							pairs.add(new BasicNameValuePair("materia", String
+									.valueOf(materiaToInscribirse.getCodigo())));
+							pairs.add(new BasicNameValuePair("seleccion", "1"));
+							pairs.add(new BasicNameValuePair("inscribirse",
+									"Inscribirse"));
 
-				            String myResponse = scraper.fetchPageHtmlPost("http://sysacadweb.frre.utn.edu.ar/inscripcionExamen.asp", pairs);
+							String myResponse = scraper
+									.fetchPageHtmlPost(
+											"http://sysacadweb.frre.utn.edu.ar/inscripcionExamen.asp",
+											pairs);
 
-			                return myResponse;
-			            }
-			        };
-					
-			        Function<String, Void> responseFromInscripcion = new Function<String, Void>() {
+							return myResponse;
+						}
+					};
+
+					Function<String, Void> responseFromInscripcion = new Function<String, Void>() {
 						@Override
 						public Void apply(String response) {
-							HTMLParser parser = HTMLParser.getParserFor(response);
+							HTMLParser parser = HTMLParser
+									.getParserFor(response);
 							showProgress(false);
-							if (!checkForErrors(parser, response, IncsripcionAExamen.this)) {
+							if (!checkForErrors(parser, response,
+									IncsripcionAExamen.this)) {
 								showDialog(DIALOG_SHOW_INSCRIBIRSE_CONFIRM);
 							}
 							return null;
 						}
-			        };
-			        
-			        showProgress(true);
-			        new NetworkTaskHandler(inscribirsePosta, responseFromInscripcion).execute();
-		            
-					
+					};
+
+					showProgress(true);
+					new NetworkTaskHandler(inscribirsePosta,
+							responseFromInscripcion).execute();
+
 				}
 				return null;
 			}
@@ -307,7 +356,38 @@ public class IncsripcionAExamen extends LinkActivity {
 
 		showProgress(true);
 		new NetworkTaskHandler(inscribirse, examenesFunction).execute();
-		
+
+	}
+
+	protected void borrarExamen(String details) {
+
+		final String link = DELETE_LINK + materiaToInscribirse.getUrl();
+
+		Function<Activity, String> inscribirse = new Function<Activity, String>() {
+			@Override
+			public String apply(Activity context) {
+				String response = scraper.fecthHtmlGet(link);
+				return response;
+			}
+		};
+
+		Function<String, Void> examenesFunction = new Function<String, Void>() {
+			@Override
+			public Void apply(String response) {
+				HTMLParser parser = HTMLParser.getParserFor(response);
+				showProgress(false);
+				if (!checkForErrors(parser, response, IncsripcionAExamen.this)) {
+
+					showDialog(DIALOG_SHOW_DELETE_CONFIRM);
+
+				}
+				return null;
+			}
+		};
+
+		showProgress(true);
+		new NetworkTaskHandler(inscribirse, examenesFunction).execute();
+
 	}
 
 	private void setAllViewsAs(int visibilityMode) {
@@ -319,14 +399,20 @@ public class IncsripcionAExamen extends LinkActivity {
 			}
 		}
 	}
-	
-	public void actionBtn(View view){
+
+	public void actionBtn(View view) {
 		Button theButton = (Button) view;
-		if (String.valueOf(theButton.getText()).equalsIgnoreCase(getString(R.string.activity_ins_exam_btn_ver))){
+		if (String.valueOf(theButton.getText()).equalsIgnoreCase(
+				getString(R.string.activity_ins_exam_btn_ver))) {
 			showDialog(DIALOG_SHOW_DETAILS_EXAM);
 		} else {
 			showDialog(DIALOG_SHOW_INSCRIBIRSE_EXAM);
 		}
+	}
+
+	public void actionDeleteBtn(View view) {
+		Button theButton = (Button) view;
+		showDialog(DIALOG_SHOW_DELETE_EXAM);
 	}
 
 	public static void showExamsView(Context context, String link) {
@@ -347,18 +433,28 @@ public class IncsripcionAExamen extends LinkActivity {
 				long id) {
 
 			Button theButton = (Button) findViewById(R.id.btn_activity);
+			Button deleteButton = (Button) findViewById(R.id.btn_delete_activity);
+
 			theButton.setText(R.string.activity_ins_exam_btn_ins);
+
+			deleteButton.setVisibility(View.GONE);
+			deleteButton.setText(R.string.activity_ins_exam_btn_delete_ins);
+
 			for (int i = 0; i < ((ViewGroup) tableView).getChildCount(); ++i) {
 				View nextChild = ((ViewGroup) tableView).getChildAt(i);
 				if (nextChild instanceof ExamenTableRow) {
 					ExamenTableRow row = (ExamenTableRow) nextChild;
-					if (pos+1 == i){
+					if (pos + 1 == i) {
 						row.setVisibility(View.VISIBLE);
 						String textToPut = getString(R.string.activity_ins_exam_btn_ver);
 						ExamenIns exa = row.getExamen();
 						examDetails = exa.getEstado();
 						materiaToInscribirse = exa;
-						if (exa.getEstado().equalsIgnoreCase(getString(R.string.activity_ins_exam_to_compare))){
+						deleteButton.setVisibility(View.VISIBLE);
+						if (exa.getEstado()
+								.equalsIgnoreCase(
+										getString(R.string.activity_ins_exam_to_compare))) {
+							deleteButton.setVisibility(View.GONE);
 							textToPut = getString(R.string.activity_ins_exam_btn_ins);
 						}
 						theButton.setText(textToPut);

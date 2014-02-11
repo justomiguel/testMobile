@@ -209,6 +209,19 @@
                     android:textColor="#000000"
                     android:shadowColor="#FFFFFF"
                     android:shadowRadius="5" />
+
+               <Button
+                     android:id="@+id/btn_delete_activity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:onClick="actionDeleteBtn"
+                    android:visibility="gone"
+                    android:text="@string/activity_ins_exam_btn_delete_ins"
+                    android:textColor="#000000"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="5" />
+
             </LinearLayout>
         </LinearLayout>
     </ScrollView>

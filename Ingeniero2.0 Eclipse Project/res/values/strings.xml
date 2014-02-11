@@ -13,7 +13,7 @@
     <string name="main_menu_sysacad">Sysacad Mobile</string>
     <string name="main_menu_about">Sobre Ingeniero 2.0</string>
     <string name="sysacad_menu_exams">Ver Estado Academico</string>
-    <string name="sysacad_menu_ins">Inscribirse a Finales</string>
+    <string name="sysacad_menu_ins">Gestionar Finales</string>
     <string name="sysacad_mobile_status_separator"> - </string>
     <string name="sysacad_mobile_status_ready">Usuario Actual:</string>
     <string name="sysacad_mobile_status_time">00:00</string>
@@ -47,9 +47,12 @@
     <string name="dialog_tittle_label_about">Ingeniero 2.0</string>
     <string name="dialog_tittle_label_exam">Detalles de Examen:</string>
     <string name="dialog_tittle_label_ins_exam_details">Materia a Inscribirse:</string>
+    <string name="dialog_tittle_label_ins_exam_delete_details">Materia a Borrar Inscripcion:</string>
     <string name="dialog_tittle_label_ins_exam">Estas seguro??</string>
     <string name="dialog_tittle_label_ins_exam_confirm">Ya estas en el horno!</string>
+    <string name="dialog_tittle_label_ins_delete_exam_confirm">Arrugaste!</string>
     <string name="dialog_tittle_label_ins_exam_confirm_details">Te inscribiste con exito!</string>
+    <string name="dialog_tittle_label_ins_exam_confirm_delete_details">Se Borro con exito!</string>
     <string name="dialog_confirm_nothing_to_show">Nada por aqui</string>
     <string name="dialog_about_details">Reportar bugs a justomiguelvargas@gmail.com</string>
 
@@ -85,7 +88,7 @@
     <string name="activity_exam_nota" type="id">Nota</string>
     <string name="activity_exam_plan" type="id">Plan</string>
     <string name="activity_ins_exam_ano" type="id">Año</string>
-    <string name="activity_ins_exam_select_subject" type="id">Inscribirse a mas materias:</string>
+    <string name="activity_ins_exam_select_subject" type="id">Listado de Materias:</string>
     <string name="activity_ins_exam_select_details" type="id">Detalle:</string>
     <string name="activity_ins_exam_already_insc" type="id">Materias Inscriptas:</string>
     <string name="activity_ins_exam_materia" type="id">Materia</string>
@@ -94,6 +97,7 @@
     <string name="activity_ins_exam_codigo" type="id">Codigo</string>
     <string name="activity_ins_exam_to_compare" type="id">Inscribir</string>
     <string name="activity_ins_exam_btn_ins" type="id">Inscribirse</string>
+    <string name="activity_ins_exam_btn_delete_ins" type="id">Eliminar Inscripcion</string>
     <string name="activity_about" type="id">Sobre Ingeniero 2.0</string>
     <string name="activity_ins_exam_btn_ver" type="id">Ver Comprobante</string>
     <string name="activity_ins_exam_status_no_inscripto" type="id">No Inscripto</string>
