@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="monday">Lu</string>
+    <string name="tuesday">Lu</string>
+    <string name="wednesday">Lu</string>
+    <string name="thursday">Lu</string>
+    <string name="friday">Lu</string>
+    <string name="saturday">Lu</string>
+    <string name="sunday">Lu</string>
+    <string name="specialheader"> &lt;&lt;</string>
+    
+    <string name="detailedCalendar">Seleccionar Fecha</string>
+    <string name="pictureCalendar">Imagen Completa</string>
+    
+    <string name="detailedCalendarTex" type="id">Calendario Detallado por Mes</string>
+    <string name="pictureCalendarTex" type="id">Calendario Completo</string>
+   
     <string name="app_name">Ingeniero 2.0</string>
     <string name="login_main_label">Ingresar a Ingeniero 2.0</string>
     <string name="mainteance_mode_on">Sysacad No Anda!</string>
@@ -18,6 +33,14 @@
     <string name="sysacad_mobile_status_separator"> - </string>
     <string name="sysacad_mobile_status_ready">Usuario Actual:</string>
     <string name="calendar_activity_title">Calendario Academico 2014</string>
+    
+    <string name="calendar_activity_details_title">Fecha Seleccionada:</string>
+    <string name="calendar_activity_details_title_content">--/--/--</string>
+    <string name="calendar_activity_details_content">Detalle:</string>
+     <string name="calendar_activity_details_content_content">-------------</string>
+    
+    
+    
     <string name="sysacad_mobile_status_time">00:00</string>
     <string name="sysacad_mobile_status_key">XXXXX</string>
     <string name="sysacad_mobile_status_current_time">Session Time:</string>
@@ -106,5 +129,6 @@
     <string name="title_activity_conection_required">ConectionRequired</string>
     <string name="title_activity_listar_examenes">ListarExamenes</string>
     <string name="title_activity_calendario_academico">CalendarioAcademico</string>
+    <string name="title_activity_calendar_view">Calendar Academico</string>
 
 </resources>

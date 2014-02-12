@@ -3,6 +3,7 @@ package com.jmv.frre.moduloestudiante;
 import java.util.Date;
 
 import com.google.common.base.Function;
+import com.jmv.frre.moduloestudiante.activities.calendar.CalendarioAcademico;
 import com.jmv.frre.moduloestudiante.activities.sysacad.ConectionRequired;
 import com.jmv.frre.moduloestudiante.activities.sysacad.LinkActivity;
 import com.jmv.frre.moduloestudiante.activities.sysacad.LoginActivity;

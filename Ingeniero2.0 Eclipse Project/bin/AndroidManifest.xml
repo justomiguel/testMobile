@@ -5,7 +5,7 @@
     android:versionName="1.1" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -62,8 +62,12 @@
             android:label="@string/title_activity_listar_examenes" >
         </activity>
         <activity
-            android:name="com.jmv.frre.moduloestudiante.CalendarioAcademico"
+            android:name="com.jmv.frre.moduloestudiante.activities.calendar.CalendarioAcademico"
             android:label="@string/title_activity_calendario_academico" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.calendar.CalendarView"
+            android:label="@string/title_activity_calendar_view" >
         </activity>
     </application>
 
