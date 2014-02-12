@@ -44,6 +44,8 @@ public class MainScreenActivity extends LinkActivity {
 
 	private Button button_sysacad;
 
+	private Button button_calendar;
+
 	public static void showHome(Context parent) {
 		Intent intent = new Intent(parent, MainScreenActivity.class);
 		parent.startActivity(intent);
@@ -88,6 +90,7 @@ public class MainScreenActivity extends LinkActivity {
 		current_session_key = (TextView) findViewById(R.id.current_session_key);
 		
 		button_sysacad = (Button) findViewById(R.id.button_sysacad);
+		button_calendar = (Button) findViewById(R.id.calendario);
 		
 		currentTime = (TextView) findViewById(R.id.current_time);
 		sessionStatusIconOk = (Button) findViewById(R.id.session_status_icon_ok);
@@ -138,6 +141,11 @@ public class MainScreenActivity extends LinkActivity {
 	public void seeSysacad(View view){
 		SysacadActivity.showHome(this);
 	}
+	
+	public void seeCalendar(View view){
+		CalendarioAcademico.showHome(this);
+	}
+	
 	
 	public void about(View view){
 		showDialog(DIALOG_SHOW_ABOUT);

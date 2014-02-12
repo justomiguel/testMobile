@@ -14,6 +14,7 @@ import com.jmv.frre.moduloestudiante.dialogs.ConfirmationDialog;
 import com.jmv.frre.moduloestudiante.logic.ExamenIns;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.NetworkTaskHandler;
+import com.jmv.frre.moduloestudiante.utils.Utils;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -196,7 +197,8 @@ public class IncsripcionAExamen extends LinkActivity {
 
 		newRow.addView(getTextForTable(String.valueOf(exam.getPlan())));
 		newRow.addView(getTextForTable(String.valueOf(exam.getMateria())));
-
+		newRow.addView(getTextForTable(String.valueOf(Utils.getDateByPattern(exam.getEstado().split("-")[0].trim()))));
+		
 		newRow.setLayoutParams(new TableLayout.LayoutParams(
 				TableLayout.LayoutParams.MATCH_PARENT,
 				TableLayout.LayoutParams.WRAP_CONTENT));

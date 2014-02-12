@@ -11,11 +11,13 @@
     <string name="login_password_label">Password (Sysacad):</string>
     <string name="main_menu_change">Cambiar Usuario</string>
     <string name="main_menu_sysacad">Sysacad Mobile</string>
+    <string name="main_menu_calendario">Calendario Academico</string>
     <string name="main_menu_about">Sobre Ingeniero 2.0</string>
     <string name="sysacad_menu_exams">Ver Estado Academico</string>
     <string name="sysacad_menu_ins">Gestionar Finales</string>
     <string name="sysacad_mobile_status_separator"> - </string>
     <string name="sysacad_mobile_status_ready">Usuario Actual:</string>
+    <string name="calendar_activity_title">Calendario Academico 2014</string>
     <string name="sysacad_mobile_status_time">00:00</string>
     <string name="sysacad_mobile_status_key">XXXXX</string>
     <string name="sysacad_mobile_status_current_time">Session Time:</string>
@@ -58,12 +60,10 @@
 
     <item name="activity_login_title" type="id">Ingresar a FRRe</item>
 
-    
-    
     <string name="getting_events_current_account" type="id">Obteniendo Examenes Por Rendir!</string>
-        <string name="default_image_description" type="id">IMG</string>
-            <string name="from_label_change" type="id">Desde:</string>
-        <string name="date_label_change">Fecha:</string>
+    <string name="default_image_description" type="id">IMG</string>
+    <string name="from_label_change" type="id">Desde:</string>
+    <string name="date_label_change">Fecha:</string>
     <string name="default_date_label_change">29/09/2014</string>
     <string name="set_button_label_change">Cambiar</string>
     <string name="until_label_change">Hasta:</string>
@@ -71,18 +71,13 @@
     <string name="change_details_label_change">Detalles del Examen:</string>
     <string name="change_list_label_change">Resultados:</string>
     <string name="change_prompt">Examenes Encontrados</string>
-    
     <string name="change_extended_details_label_change">&#8230;</string>
-    
-    
     <string name="confirm_button_label_modify_change">Modificar</string>
     <string name="confirm_button_label_delete_change">Borrar</string>
-    
     <string name="change_details_start_date_change">Teoria:</string>
     <string name="change_details_end_date_change">Practica:</string>
     <string name="change_details_tittle_change">Nombre:</string>
     <string name="change_details_id_change">ID:</string>
-    
     <string name="activity_exam_date" type="id">Fecha</string>
     <string name="activity_exam_materia" type="id">Materia</string>
     <string name="activity_exam_nota" type="id">Nota</string>
@@ -92,6 +87,7 @@
     <string name="activity_ins_exam_select_details" type="id">Detalle:</string>
     <string name="activity_ins_exam_already_insc" type="id">Materias Inscriptas:</string>
     <string name="activity_ins_exam_materia" type="id">Materia</string>
+    <string name="activity_ins_exam_fecha_insc" type="id">Fecha</string>
     <string name="activity_ins_exam_status" type="id">Estado</string>
     <string name="activity_ins_exam_plan" type="id">Plan</string>
     <string name="activity_ins_exam_codigo" type="id">Codigo</string>
@@ -109,5 +105,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_conection_required">ConectionRequired</string>
     <string name="title_activity_listar_examenes">ListarExamenes</string>
+    <string name="title_activity_calendario_academico">CalendarioAcademico</string>
 
 </resources>

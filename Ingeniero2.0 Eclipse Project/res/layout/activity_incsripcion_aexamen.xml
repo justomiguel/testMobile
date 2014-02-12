@@ -107,6 +107,16 @@
                         android:text="@string/activity_ins_exam_materia"
                         android:textSize="18sp" />
 
+                     <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:shadowColor="#FFFFFF"
+                        android:textColor="#FFFFFF"
+                        android:shadowRadius="25"
+                        android:text="@string/activity_ins_exam_fecha_insc"
+                        android:textSize="18sp" />
+                    
                 </TableRow>
             </TableLayout>
             
