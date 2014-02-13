@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
@@ -51,6 +52,10 @@ public class CalendarioAcademico extends Activity {
 		intent.putExtra("date", formatter.format(new Date()));
 		startActivityForResult(intent, PICK_DATE_REQUEST);
 	}
+	
+	public void showCalendarImage(View view) {
+		StandardImageProgrammatic.showHome(this);
+	}
 
 	public static void showHome(Context context) {
 		Intent intent = new Intent(context, CalendarioAcademico.class);
@@ -65,11 +70,24 @@ public class CalendarioAcademico extends Activity {
 				
 				date_chossed.setText(data.getStringExtra("date"));
 				
-				TextView valueTV = new TextView(this);
-				valueTV.setText("hallo hallo");
-				valueTV.setId(5);
-				valueTV.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-				((LinearLayout) linearLayout).addView(valueTV);
+				int detalle = data.getIntExtra("detalle", 0);
+				
+				if (detalle == 1){
+					TextView valueTV = new TextView(this);
+					valueTV.setText("MESA DE EXAMEN");
+					valueTV.setId(5);
+					valueTV.setTextColor(Color.WHITE);
+					valueTV.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+					((LinearLayout) linearLayout).addView(valueTV);
+				} else {
+					TextView valueTV = new TextView(this);
+					valueTV.setText("DIA LIBRE");
+					valueTV.setId(5);
+					valueTV.setTextColor(Color.WHITE);
+					valueTV.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+					((LinearLayout) linearLayout).addView(valueTV);
+				}
+				
 
 			}
 		}

@@ -15,6 +15,7 @@ import com.jmv.frre.moduloestudiante.utils.Utils;
 
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -47,6 +48,14 @@ public class MainScreenActivity extends LinkActivity {
 
 	private Button button_calendar;
 
+	private TextView current_time_label;
+
+	private TextView current_session_key_label;
+
+	private View delete_current_profile;
+	
+	public static boolean USE_SYSACAD = false;
+
 	public static void showHome(Context parent) {
 		Intent intent = new Intent(parent, MainScreenActivity.class);
 		parent.startActivity(intent);
@@ -56,48 +65,69 @@ public class MainScreenActivity extends LinkActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		if (!isNetworkAvailable()){
-			ConectionRequired.showHome(this);
-			finish();
-			return;
-		}
-		
-		loggedInUserName = getIntent().getStringExtra(
-				Utils.PREFS_LOGIN_USERNAME_KEY);
-		loggedInUserPassword = getIntent().getStringExtra(
-				Utils.PREFS_LOGIN_PASSWORD_KEY);
-		if (FRReUtils.isNull(loggedInUserName)
-				&& FRReUtils.isNull(loggedInUserPassword)) {
-			loggedInUserName = Utils.getFromPrefs(this,
-					Utils.PREFS_LOGIN_USERNAME_KEY);
-			loggedInUserPassword = Utils.getFromPrefs(this,
-					Utils.PREFS_LOGIN_PASSWORD_KEY);
-			if (FRReUtils.isNull(loggedInUserName)
-					&& FRReUtils.isNull(loggedInUserPassword)) {
-				// goto login page
-				Intent intent = new Intent(this, LoginActivity.class);
-				startActivity(intent);
-				finish();
-				return;
-			}
-		} else {
-			new SaveCredentialsTask().execute(loggedInUserName,loggedInUserPassword);
-		}
-		
 		setContentView(R.layout.activity_main_screen);
+		
+		button_calendar = (Button) findViewById(R.id.calendario);
 		
 		sessionStatusText = (TextView) findViewById(R.id.session_status);
 		sysacadMobileStatusUsr = (TextView) findViewById(R.id.current_user);
 		current_session_key = (TextView) findViewById(R.id.current_session_key);
 		
 		button_sysacad = (Button) findViewById(R.id.button_sysacad);
-		button_calendar = (Button) findViewById(R.id.calendario);
+		
+		current_time_label = (TextView) findViewById(R.id.current_time_label);
+		current_session_key_label = (TextView) findViewById(R.id.current_session_key_label);
+		
+		delete_current_profile = (View) findViewById(R.id.delete_current_profile);
 		
 		currentTime = (TextView) findViewById(R.id.current_time);
 		sessionStatusIconOk = (Button) findViewById(R.id.session_status_icon_ok);
 		sessionStatusIconBad = (Button) findViewById(R.id.session_status_icon_bad);
 		
-		getNewToken();
+		if (USE_SYSACAD){
+			if (!isNetworkAvailable()){
+				ConectionRequired.showHome(this);
+				finish();
+				return;
+			}
+			
+			loggedInUserName = getIntent().getStringExtra(
+					Utils.PREFS_LOGIN_USERNAME_KEY);
+			loggedInUserPassword = getIntent().getStringExtra(
+					Utils.PREFS_LOGIN_PASSWORD_KEY);
+			if (FRReUtils.isNull(loggedInUserName)
+					&& FRReUtils.isNull(loggedInUserPassword)) {
+				loggedInUserName = Utils.getFromPrefs(this,
+						Utils.PREFS_LOGIN_USERNAME_KEY);
+				loggedInUserPassword = Utils.getFromPrefs(this,
+						Utils.PREFS_LOGIN_PASSWORD_KEY);
+				if (FRReUtils.isNull(loggedInUserName)
+						&& FRReUtils.isNull(loggedInUserPassword)) {
+					// goto login page
+					Intent intent = new Intent(this, LoginActivity.class);
+					startActivity(intent);
+					finish();
+					return;
+				}
+			} else {
+				new SaveCredentialsTask().execute(loggedInUserName,loggedInUserPassword);
+			}
+			
+			getNewToken();
+			
+		} else {
+			
+			sessionStatusText.setVisibility(View.GONE);
+			sysacadMobileStatusUsr.setVisibility(View.GONE);
+			current_session_key.setVisibility(View.GONE);			
+			current_session_key_label.setVisibility(View.GONE);
+			current_time_label.setVisibility(View.GONE);
+			currentTime.setVisibility(View.GONE);
+			sessionStatusIconOk.setVisibility(View.GONE);
+			sessionStatusIconBad.setVisibility(View.GONE);
+			delete_current_profile.setVisibility(View.GONE);
+		}
+		
 		
 	}
 
@@ -140,7 +170,12 @@ public class MainScreenActivity extends LinkActivity {
 	}
 	
 	public void seeSysacad(View view){
-		SysacadActivity.showHome(this);
+		if (USE_SYSACAD){
+			SysacadActivity.showHome(this);
+		} else {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sysacadweb.frre.utn.edu.ar/"));
+			startActivity(browserIntent);
+		}
 	}
 	
 	public void seeCalendar(View view){
@@ -189,7 +224,7 @@ public class MainScreenActivity extends LinkActivity {
 
 	@Override
 	protected void onPause() {
-		if (sessionChecker!=null){
+		if (sessionChecker!=null && USE_SYSACAD){
 			this.sessionChecker.cancel();
 		}
 		super.onPause();
@@ -197,7 +232,7 @@ public class MainScreenActivity extends LinkActivity {
 
 	@Override
 	protected void onResume() {
-		if (sessionChecker!=null){
+		if (sessionChecker!=null && USE_SYSACAD){
 			getNewToken();
 		}
 		super.onResume();
@@ -205,7 +240,7 @@ public class MainScreenActivity extends LinkActivity {
 
 	@Override
 	protected void onStop() {
-		if (sessionChecker!=null){
+		if (sessionChecker!=null && USE_SYSACAD){
 			this.sessionChecker.start();
 		}
 		super.onStop();

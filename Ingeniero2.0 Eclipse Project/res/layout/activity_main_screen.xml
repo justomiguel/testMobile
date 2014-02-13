@@ -13,6 +13,7 @@
         android:gravity="center_horizontal" >
 
         <TextView
+             android:id="@+id/current_session_key_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:shadowColor="#FFFFFF"
@@ -37,6 +38,7 @@
         android:gravity="center_horizontal" >
 
         <TextView
+             android:id="@+id/current_time_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:shadowColor="#FFFFFF"

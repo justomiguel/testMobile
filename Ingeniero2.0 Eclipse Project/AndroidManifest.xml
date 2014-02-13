@@ -32,6 +32,7 @@
             android:name="com.jmv.frre.moduloestudiante.SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
+        
         <activity
             android:name="com.jmv.frre.moduloestudiante.activities.sysacad.ExamsMadeActivity"
             android:label="@string/title_activity_exams_made" >
@@ -64,6 +65,10 @@
         <activity
             android:name="com.jmv.frre.moduloestudiante.activities.calendar.CalendarioAcademico"
             android:label="@string/title_activity_calendario_academico" >
+        </activity>
+        <activity 
+            android:name="com.jmv.frre.moduloestudiante.activities.calendar.StandardImageProgrammatic"
+            android:label="@string/title_activity_calendario_academico">
         </activity>
         <activity
             android:name="com.jmv.frre.moduloestudiante.activities.calendar.CalendarView"
