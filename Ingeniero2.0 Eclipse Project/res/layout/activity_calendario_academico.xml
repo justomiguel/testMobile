@@ -107,7 +107,7 @@
                         android:shadowRadius="5"
                         android:text="@string/calendar_activity_details_title"
                         android:textColor="#FFFFFF"
-                        android:textSize="13sp"
+                        android:textSize="14sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -121,7 +121,7 @@
                         android:shadowRadius="5"
                         android:text="@string/calendar_activity_details_title_content"
                         android:textColor="#FFFFFF"
-                        android:textSize="12sp"
+                        android:textSize="13sp"
                         android:textStyle="normal" />
                 </LinearLayout>
 

@@ -18,6 +18,7 @@ package com.jmv.frre.moduloestudiante.activities.calendar;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 
 
 import com.jmv.frre.moduloestudiante.R;
@@ -38,23 +39,18 @@ public class CalendarAdapter extends BaseAdapter {
 
     private java.util.Calendar month;
     private Calendar selectedDate;
-    private ArrayList<String> items;
+    private HashMap<Integer, String> items;
     
     public CalendarAdapter(Context c, Calendar monthCalendar) {
     	month = monthCalendar;
     	selectedDate = (Calendar)monthCalendar.clone();
     	mContext = c;
         month.set(Calendar.DAY_OF_MONTH, 1);
-        this.items = new ArrayList<String>();
+        this.items = new HashMap<Integer, String>();
         refreshDays();
     }
     
-    public void setItems(ArrayList<String> items) {
-    	for(int i = 0;i != items.size();i++){
-    		if(items.get(i).length()==1) {
-    		items.set(i, "0" + items.get(i));
-    		}
-    	}
+    public void setItems(HashMap<Integer, String> items) {
     	this.items = items;
     }
     
@@ -111,7 +107,10 @@ public class CalendarAdapter extends BaseAdapter {
        
         // show icon if date is not empty and it exists in the items array
         ImageView iw = (ImageView)v.findViewById(R.id.date_icon);
-        if(date.length()>0 && items!=null && items.contains(date)) {        	
+        
+        int dateNumber = date.length()>0?Integer.parseInt(date):-1;
+        
+        if(date.length()>0 && items!=null && items.get(dateNumber) !=null && !items.get(dateNumber).isEmpty()) {       
         	iw.setVisibility(View.VISIBLE);
         }
         else {

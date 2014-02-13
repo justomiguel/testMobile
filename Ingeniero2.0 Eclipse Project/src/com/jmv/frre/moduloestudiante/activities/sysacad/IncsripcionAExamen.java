@@ -293,7 +293,7 @@ public class IncsripcionAExamen extends LinkActivity {
 
 	protected void inscribirseAExamen() {
 
-		final String link = LINK + MainScreenActivity.CURRENT_ID + "&plan="
+		final String link = LINK + SysacadActivity.CURRENT_ID + "&plan="
 				+ materiaToInscribirse.getPlan() + "&materia="
 				+ materiaToInscribirse.getCodigo();
 

@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashMap;
 import java.util.Random;
 
 import com.jmv.frre.moduloestudiante.R;
@@ -28,10 +29,16 @@ public class CalendarView extends Activity {
 	public Calendar month;
 	public CalendarAdapter adapter;
 	public Handler handler;
-	public ArrayList<String> items; // container to store some random calendar
+	public HashMap<Integer, String> items; // container to store some random calendar
 									// items
 
-	public int [][] matrix = new int[12][31];
+	public HashMap<SpecialDates, String[][]> specialDates;
+	public HashMap<SpecialDates, Integer> specialDatesResources = new HashMap<SpecialDates, Integer>();
+
+	{
+		specialDatesResources.put(SpecialDates.MESA_EXAMEN, R.raw.fechas_examen);
+		specialDatesResources.put(SpecialDates.FERIADO, R.raw.fechas_feriados);
+	}
 	
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -40,44 +47,20 @@ public class CalendarView extends Activity {
 		month = Calendar.getInstance();
 		onNewIntent(getIntent());
 
-		items = new ArrayList<String>();
+		items = new HashMap<Integer, String>();
 		adapter = new CalendarAdapter(this, month);
 
+		specialDates = new HashMap<SpecialDates, String[][]>();
+		for (SpecialDates specialDateKey : SpecialDates.values()) {
+			specialDates.put(specialDateKey, new String[12][31]);
+			Integer resourceId = specialDatesResources.get(specialDateKey);
+			if (resourceId!=null){
+				getDatesFromFiles(specialDateKey, resourceId);
+			}
+		}
+		
 		GridView gridview = (GridView) findViewById(R.id.gridview);
 		gridview.setAdapter(adapter);
-
-		try {
-			Resources res = getResources();
-			InputStream in_s = res.openRawResource(R.raw.fechas_examen);
-
-			for (int i = 0; i < 12; i++) {
-				for (int j = 0; j < 31; j++) {
-					matrix[i][j]=0;
-				}
-			}
-			
-			if (in_s != null) {
-
-				InputStreamReader tmp = new InputStreamReader(in_s);
-
-				BufferedReader reader = new BufferedReader(tmp);
-
-				String str;
-
-				StringBuilder buf = new StringBuilder();
-
-				while ((str = reader.readLine()) != null && !str.trim().isEmpty()) {
-					String[] line = str.split("-");
-					int posFila = Integer.parseInt(line[1]);
-					int posColumna = Integer.parseInt(line[2]);
-					matrix[posFila][posColumna]=1;
-				}
-
-				in_s.close();
-			}
-		} catch (Exception e) {
-
-		}
 
 		handler = new Handler();
 		handler.post(calendarUpdater);
@@ -134,17 +117,66 @@ public class CalendarView extends Activity {
 							"date",
 							android.text.format.DateFormat.format("yyyy-MM",
 									month) + "-" + day);
-					
-					int i = Integer.parseInt(String.valueOf(android.text.format.DateFormat.format("MM", month)));
+
+					int i = Integer.parseInt(String
+							.valueOf(android.text.format.DateFormat.format(
+									"MM", month)));
 					int j = Integer.parseInt(day);
-					intent.putExtra(
-							"detalle", matrix[i][j]);
+					
+					StringBuilder builder = new StringBuilder();
+					
+					for (SpecialDates specialDateKey : SpecialDates.values()) {
+						String value = specialDates.get(specialDateKey)[i][j];
+						if (value!=null || !value.isEmpty()){
+							builder.append(specialDateKey.toString())
+								.append(":")
+								.append(value);
+							builder.append("&");
+						}
+					}
+					intent.putExtra("detalle", builder.toString());
 					setResult(RESULT_OK, intent);
 					finish();
 				}
 
 			}
 		});
+	}
+
+	private void getDatesFromFiles(SpecialDates specialDateKey, int resourceID) {
+		try {
+			Resources res = getResources();
+			InputStream in_s = res.openRawResource(resourceID);
+
+			String[][] matrix = specialDates.get(specialDateKey);
+
+			if (in_s != null) {
+
+				InputStreamReader tmp = new InputStreamReader(in_s);
+
+				BufferedReader reader = new BufferedReader(tmp);
+
+				String str;
+
+				StringBuilder buf = new StringBuilder();
+
+				while ((str = reader.readLine()) != null
+						&& !str.trim().isEmpty()) {
+					String[] line = str.split("-");
+					int posFila = Integer.parseInt(line[1]);
+					int posColumna = Integer.parseInt(line[2]);
+					String detail = "";
+					if (line.length==4){
+						detail = line[3];
+					}
+					matrix[posFila][posColumna] = detail;
+				}
+
+				in_s.close();
+			}
+		} catch (Exception e) {
+
+		}
 	}
 
 	public void refreshCalendar() {
@@ -170,11 +202,27 @@ public class CalendarView extends Activity {
 		public void run() {
 			items.clear();
 
-			int i = Integer.parseInt(String.valueOf(android.text.format.DateFormat.format("MM", month)));
+			int i = Integer
+					.parseInt(String.valueOf(android.text.format.DateFormat
+							.format("MM", month)));
 			for (int j = 0; j < 31; j++) {
-				if (matrix[i][j]==1){
-					items.add(Integer.toString(j));
+				
+				StringBuilder builder = new StringBuilder("");
+				
+				for (SpecialDates specialDateKey : SpecialDates.values()) {
+					String value = specialDates.get(specialDateKey)[i][j];
+					if (value!=null && !value.isEmpty()){
+						builder.append(specialDateKey.toString())
+							.append(":")
+							.append(value);
+						builder.append("&");
+					}
 				}
+				String value = builder.toString();
+				if (!value.isEmpty()){
+					items.put(j, value);
+				}
+				
 			}
 			adapter.setItems(items);
 			adapter.notifyDataSetChanged();

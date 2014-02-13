@@ -16,12 +16,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
-import com.jmv.frre.moduloestudiante.R.id;
-import com.jmv.frre.moduloestudiante.R.layout;
-import com.jmv.frre.moduloestudiante.R.menu;
-import com.jmv.frre.moduloestudiante.R.string;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
 import com.jmv.frre.moduloestudiante.utils.FRReUtils;
@@ -246,7 +241,7 @@ public class LoginActivity extends Activity {
             showProgress(false);
 
             if (success) {
-                Intent intent = new Intent(this.parent, MainScreenActivity.class);
+                Intent intent = new Intent(this.parent, SysacadActivity.class);
                 intent.putExtra(Utils.PREFS_LOGIN_USERNAME_KEY, mlegajo);
                 intent.putExtra(Utils.PREFS_LOGIN_PASSWORD_KEY, mPassword);
                 startActivity(intent);

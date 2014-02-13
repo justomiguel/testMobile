@@ -65,6 +65,99 @@
             android:layout_gravity="left|top"
             android:orientation="vertical" >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    android:id="@+id/current_session_key_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="3"
+                    android:text="@string/sysacad_mobile_status_current_key"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/current_session_key"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="3"
+                    android:text="@string/sysacad_mobile_status_key"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal" >
+
+                <TextView
+                    android:id="@+id/current_time_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="3"
+                    android:text="@string/sysacad_mobile_status_current_time"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/current_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="3"
+                    android:text="@string/sysacad_mobile_status_time"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right|top"
+                android:gravity="right|top" >
+
+                <TextView
+                    android:id="@+id/session_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="3"
+                    android:text="@string/sysacad_mobile_status_ready"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/current_user"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="3"
+                    android:text="@string/sysacad_mobile_status_ready"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/session_status_icon_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ok_led"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="20"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/session_status_icon_bad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/getting_token"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="20"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
@@ -78,6 +171,31 @@
                 android:layout_height="fill_parent"
                 android:layout_gravity="left|top"
                 android:orientation="vertical" >
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/delete_current_profile"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/pass" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="deleteCurrentProfile"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="6"
+                    android:text="@string/main_menu_change"
+                    android:textColor="#000000" />
             </LinearLayout>
 
             <LinearLayout
@@ -104,7 +222,7 @@
                     android:text="@string/sysacad_menu_exams"
                     android:textColor="#000000" />
             </LinearLayout>
-            
+
             <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
@@ -129,7 +247,7 @@
                     android:text="@string/sysacad_menu_ins"
                     android:textColor="#000000" />
             </LinearLayout>
-                    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </merge>

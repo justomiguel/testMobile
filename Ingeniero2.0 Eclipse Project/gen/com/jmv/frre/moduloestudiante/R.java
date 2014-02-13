@@ -181,6 +181,7 @@ public final class R {
     }
     public static final class raw {
         public static final int fechas_examen=0x7f050000;
+        public static final int fechas_feriados=0x7f050001;
     }
     public static final class string {
         public static final int action_forgot_password=0x7f08002e;
