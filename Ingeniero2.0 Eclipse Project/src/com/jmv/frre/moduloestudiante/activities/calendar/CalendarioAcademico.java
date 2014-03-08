@@ -70,15 +70,18 @@ public class CalendarioAcademico extends Activity {
 				
 				date_chossed.setText(data.getStringExtra("date"));
 				
-				int detalle = data.getIntExtra("detalle", 0);
+				String detalle = data.getStringExtra("detalle");
 				
-				if (detalle == 1){
-					TextView valueTV = new TextView(this);
-					valueTV.setText("MESA DE EXAMEN");
-					valueTV.setId(5);
-					valueTV.setTextColor(Color.WHITE);
-					valueTV.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
-					((LinearLayout) linearLayout).addView(valueTV);
+				if (!detalle.isEmpty()){
+					String[] events = detalle.split("&");
+					for (String string : events) {
+						TextView valueTV = new TextView(this);
+						valueTV.setText(string);
+						valueTV.setId(5);
+						valueTV.setTextColor(Color.WHITE);
+						valueTV.setLayoutParams(new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+						((LinearLayout) linearLayout).addView(valueTV);
+					}
 				} else {
 					TextView valueTV = new TextView(this);
 					valueTV.setText("DIA LIBRE");

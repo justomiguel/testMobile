@@ -18,7 +18,7 @@ public class MainScreenActivity extends Activity {
 	private Button button_sysacad;
 	private Button button_calendar;
 	
-	public static boolean USE_SYSACAD = false;
+	public static boolean USE_SYSACAD = true;
 
 	public static void showHome(Context parent) {
 		Intent intent = new Intent(parent, MainScreenActivity.class);
@@ -47,6 +47,21 @@ public class MainScreenActivity extends Activity {
 	public void seeCalendar(View view){
 		CalendarioAcademico.showHome(this);
 	}
+	
+	public void addToCalendar(View view){
+		AgregarEventoActivity.showAddChangeActivityHome(this);
+	}
+	
+	public void seeCampus(View view){
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://frre.cvg.utn.edu.ar/"));
+		startActivity(browserIntent);
+	}
+	
+	public void goUnete(View view){
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/pages/UNETE-FRRe/121499131207059"));
+		startActivity(browserIntent);
+	}
+	
 	
 	@Override
 	public void onBackPressed() {

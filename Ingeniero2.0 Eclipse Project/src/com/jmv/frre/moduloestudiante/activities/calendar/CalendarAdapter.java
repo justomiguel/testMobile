@@ -108,7 +108,7 @@ public class CalendarAdapter extends BaseAdapter {
         // show icon if date is not empty and it exists in the items array
         ImageView iw = (ImageView)v.findViewById(R.id.date_icon);
         
-        int dateNumber = date.length()>0?Integer.parseInt(date):-1;
+        int dateNumber = date.length()>0?Integer.parseInt(date)-1:-1;
         
         if(date.length()>0 && items!=null && items.get(dateNumber) !=null && !items.get(dateNumber).isEmpty()) {       
         	iw.setVisibility(View.VISIBLE);

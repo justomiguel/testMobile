@@ -50,16 +50,31 @@
                 android:textColorHint="#FFFFFF"
                 android:textSize="18sp" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center_vertical"
-                android:shadowColor="#FFFFFF"
-                android:onClick="showCalendarImage"
-                android:shadowRadius="20"
-                android:text="@string/pictureCalendar"
-                android:textColor="#000000" />
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/set_initial_profile_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/calendar" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"
+                    android:onClick="showCalendarImage"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="20"
+                    android:text="@string/pictureCalendar"
+                    android:textColor="#000000" />
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -72,17 +87,32 @@
                 android:textColorHint="#FFFFFF"
                 android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/session_status_icon_ok"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:gravity="center_vertical"
-                android:onClick="showCalendar"
-                android:shadowColor="#FFFFFF"
-                android:shadowRadius="20"
-                android:text="@string/detailedCalendar"
-                android:textColor="#000000" />
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/set_initial_profile_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/event" />
+
+                <Button
+                    android:id="@+id/session_status_icon_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_vertical"
+                    android:onClick="showCalendar"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="20"
+                    android:text="@string/detailedCalendar"
+                    android:textColor="#000000" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -114,9 +144,9 @@
                         android:id="@+id/date_chossed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:padding="10dp"
                         android:layout_gravity="center_horizontal"
                         android:gravity="center_horizontal"
+                        android:padding="10dp"
                         android:shadowColor="#FFFFFF"
                         android:shadowRadius="5"
                         android:text="@string/calendar_activity_details_title_content"
@@ -151,19 +181,8 @@
                     android:gravity="center_horizontal"
                     android:orientation="vertical"
                     android:padding="15dp" >
-                    
                 </LinearLayout>
             </LinearLayout>
-
-            <!--
-                 ImageView
-                android:id="@+id/imageView1"
-                android:padding="15dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY"
-                android:src="@drawable/calendario" /
-            -->
         </LinearLayout>
     </ScrollView>
 

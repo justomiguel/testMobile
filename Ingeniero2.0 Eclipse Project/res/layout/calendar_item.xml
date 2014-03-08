@@ -21,6 +21,6 @@
 		android:id="@+id/date_icon"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-		android:src="@drawable/icon" 
+		android:src="@drawable/examen_events" 
 		android:visibility="invisible"/>
 </LinearLayout>
