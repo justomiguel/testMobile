@@ -1,0 +1,202 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/internal_bg"
+    android:orientation="vertical"
+    tools:context=".SelectProfile" >
+
+    <ScrollView
+        android:id="@+id/home_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/login_form"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/app_name"
+                android:src="@drawable/screen_settings_icon" />
+
+            <LinearLayout
+                android:id="@+id/button_place"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left|top"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/button_page_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:orientation="vertical" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/user" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="6"
+                            android:text="@string/nombre"
+                            android:textColor="#000000"
+                            android:textSize="19sp" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/calendario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="6"
+                            android:textColor="#000000"
+                            android:textSize="19sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/webuser" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="6"
+                            android:text="@string/legajo"
+                            android:textColor="#000000"
+                            android:textSize="19sp" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/calendario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:inputType="number"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="6"
+                            android:textColor="#000000"
+                            android:textSize="19sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/keypass" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="6"
+                            android:text="@string/pass"
+                            android:textColor="#000000"
+                            android:textSize="19sp" />
+
+                        <AutoCompleteTextView
+                            android:id="@+id/calendario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:inputType="textPassword"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="6"
+                            android:textColor="#000000"
+                            android:textSize="19sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal" >
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:src="@drawable/carreras" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="6"
+                            android:text="@string/carrera"
+                            android:textColor="#000000"
+                            android:textSize="19sp" />
+                        
+                        <Spinner
+                            android:id="@+id/change_type_spinner"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:entries="@array/carreras"
+                            android:prompt="@string/carrera_prompt" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="left|top"
+                        android:orientation="vertical" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:gravity="center_horizontal"
+                            android:hint="@string/mainScreenLInks"
+                            android:paddingBottom="5dp"
+                            android:paddingTop="15dp"
+                            android:shadowColor="#FFFFFF"
+                            android:shadowRadius="25"
+                            android:textColorHint="#FFFFFF"
+                            android:textSize="18sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

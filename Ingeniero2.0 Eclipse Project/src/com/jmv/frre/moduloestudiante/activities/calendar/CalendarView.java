@@ -120,14 +120,14 @@ public class CalendarView extends Activity {
 
 					int i = Integer.parseInt(String
 							.valueOf(android.text.format.DateFormat.format(
-									"MM", month)));
-					int j = Integer.parseInt(day);
+									"MM", month)))-1;
+					int j = Integer.parseInt(day)-1;
 					
 					StringBuilder builder = new StringBuilder();
 					
 					for (SpecialDates specialDateKey : SpecialDates.values()) {
 						String value = specialDates.get(specialDateKey)[i][j];
-						if (value!=null || !value.isEmpty()){
+						if (value!=null){
 							builder.append(specialDateKey.toString())
 								.append(":")
 								.append(value);
@@ -163,8 +163,8 @@ public class CalendarView extends Activity {
 				while ((str = reader.readLine()) != null
 						&& !str.trim().isEmpty()) {
 					String[] line = str.split("-");
-					int posFila = Integer.parseInt(line[1]);
-					int posColumna = Integer.parseInt(line[2]);
+					int posFila = Integer.parseInt(line[1])-1;
+					int posColumna = Integer.parseInt(line[2])-1;
 					String detail = "";
 					if (line.length==4){
 						detail = line[3];
@@ -192,7 +192,7 @@ public class CalendarView extends Activity {
 	public void onNewIntent(Intent intent) {
 		String date = intent.getStringExtra("date");
 		String[] dateArr = date.split("-"); // date format is yyyy-mm-dd
-		month.set(Integer.parseInt(dateArr[0]), Integer.parseInt(dateArr[1]),
+		month.set(Integer.parseInt(dateArr[0]), Integer.parseInt(dateArr[1])-1,
 				Integer.parseInt(dateArr[2]));
 	}
 
@@ -204,14 +204,14 @@ public class CalendarView extends Activity {
 
 			int i = Integer
 					.parseInt(String.valueOf(android.text.format.DateFormat
-							.format("MM", month)));
+							.format("MM", month)))-1;
 			for (int j = 0; j < 31; j++) {
 				
 				StringBuilder builder = new StringBuilder("");
 				
 				for (SpecialDates specialDateKey : SpecialDates.values()) {
 					String value = specialDates.get(specialDateKey)[i][j];
-					if (value!=null && !value.isEmpty()){
+					if (value!=null){
 						builder.append(specialDateKey.toString())
 							.append(":")
 							.append(value);

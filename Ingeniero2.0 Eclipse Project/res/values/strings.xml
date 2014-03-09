@@ -8,16 +8,22 @@
     <string name="friday">Lu</string>
     <string name="saturday">Lu</string>
     <string name="sunday">Lu</string>
+    <string name="promptAlarm">Tipo de Alarma</string>
+    <string name="calendar_event_missing_description">"Pone algo en la descripcion pue!!"</string>
+    <string name="calendar_event_undefined_error">"Se produjo un error"</string>
+    <string name="calendar_event_missing_sr_chg_number">"Pone algo en el campo!!!"</string>
+    <string name="calendar_event_deleted">"Se borro el Evento!!"</string>
+    <string name="calendar_event_deleted_error">"Error:"</string>
+    <string name="calendar_event_wrong_message">"Fecha Incorrecta!!"</string>
+    <string name="calendar_event_added_message">"Evento Agregado!!"</string>
     <string name="specialheader"> &lt;&lt;</string>
-    
-    <string name="detailedCalendar">Seleccionar Fecha</string>
+    <string name="detailedCalendar">Seleccionar Dia</string>
     <string name="pictureCalendar">Imagen Completa</string>
-    
     <string name="detailedCalendarTex" type="id">Calendario Detallado por Mes</string>
     <string name="pictureCalendarTex" type="id">Calendario Completo</string>
-   
-    <string name="app_name">Ingeniero 2.0</string>
-    <string name="login_main_label">Ingresar a Ingeniero 2.0</string>
+    <string name="mainScreenLInks" type="id">Links Utiles</string>
+    <string name="app_name">Marmota 2.0</string>
+    <string name="login_main_label">Ingresar a Marmota 2.0</string>
     <string name="mainteance_mode_on">Sysacad No Anda!</string>
     <string name="no_internet">Tu Internet No Anda!</string>
     <string name="login_usr_label">Legajo:</string>
@@ -25,22 +31,25 @@
     <string name="maintenance_mode">Sepa disculpar los incovenientes, pero esto no funciona sin el sysacad </string>
     <string name="login_password_label">Password (Sysacad):</string>
     <string name="main_menu_change">Cambiar Usuario</string>
-    <string name="main_menu_sysacad">Sysacad Mobile</string>
+    <string name="main_menu_sysacad">Pagina Sysacad</string>
+    <string name="main_menu_utn">Pagina Campus UTN FRRe</string>
     <string name="main_menu_calendario">Calendario Academico</string>
-    <string name="main_menu_about">Sobre Ingeniero 2.0</string>
+    <string name="main_menu_add_calendario">Agregar Evento</string>
+    
+    <string name="nombre">Nombre:</string>
+    <string name="legajo">Legajo:</string>
+    <string name="pass">Password:</string>
+    <string name="carrera">Carrera:</string>
+    
     <string name="sysacad_menu_exams">Ver Estado Academico</string>
     <string name="sysacad_menu_ins">Gestionar Finales</string>
     <string name="sysacad_mobile_status_separator"> - </string>
     <string name="sysacad_mobile_status_ready">Usuario Actual:</string>
     <string name="calendar_activity_title">Calendario Academico 2014</string>
-    
     <string name="calendar_activity_details_title">Fecha Seleccionada:</string>
     <string name="calendar_activity_details_title_content">--/--/--</string>
     <string name="calendar_activity_details_content">Detalle:</string>
-     <string name="calendar_activity_details_content_content">-------------</string>
-    
-    
-    
+    <string name="calendar_activity_details_content_content">-------------</string>
     <string name="sysacad_mobile_status_time">00:00</string>
     <string name="sysacad_mobile_status_key">XXXXX</string>
     <string name="sysacad_mobile_status_current_time">Session Time:</string>
@@ -69,7 +78,7 @@
     <string name="dialog_confirm_response_info">Error:</string>
     <string name="dialog_confirm_response_info_button">Aceptar</string>
     <string name="dialog_tittle_label">El servidor dice:</string>
-    <string name="dialog_tittle_label_about">Ingeniero 2.0</string>
+    <string name="dialog_tittle_label_about">Marmota 2.0</string>
     <string name="dialog_tittle_label_exam">Detalles de Examen:</string>
     <string name="dialog_tittle_label_ins_exam_details">Materia a Inscribirse:</string>
     <string name="dialog_tittle_label_ins_exam_delete_details">Materia a Borrar Inscripcion:</string>
@@ -85,7 +94,7 @@
 
     <string name="getting_events_current_account" type="id">Obteniendo Examenes Por Rendir!</string>
     <string name="default_image_description" type="id">IMG</string>
-    <string name="from_label_change" type="id">Desde:</string>
+    <string name="from_label_change" type="id">Fecha:</string>
     <string name="date_label_change">Fecha:</string>
     <string name="default_date_label_change">29/09/2014</string>
     <string name="set_button_label_change">Cambiar</string>
@@ -93,7 +102,8 @@
     <string name="search_button_label_change">Buscar</string>
     <string name="change_details_label_change">Detalles del Examen:</string>
     <string name="change_list_label_change">Resultados:</string>
-    <string name="change_prompt">Examenes Encontrados</string>
+    <string name="change_prompt">Tipo Evento</string>
+    <string name="carrera_prompt">Carrera</string>
     <string name="change_extended_details_label_change">&#8230;</string>
     <string name="confirm_button_label_modify_change">Modificar</string>
     <string name="confirm_button_label_delete_change">Borrar</string>
@@ -117,18 +127,20 @@
     <string name="activity_ins_exam_to_compare" type="id">Inscribir</string>
     <string name="activity_ins_exam_btn_ins" type="id">Inscribirse</string>
     <string name="activity_ins_exam_btn_delete_ins" type="id">Eliminar Inscripcion</string>
-    <string name="activity_about" type="id">Sobre Ingeniero 2.0</string>
+    <string name="activity_about" type="id">Sobre Marmota 2.0</string>
     <string name="activity_ins_exam_btn_ver" type="id">Ver Comprobante</string>
     <string name="activity_ins_exam_status_no_inscripto" type="id">No Inscripto</string>
     <string name="activity_ins_exam_status_inscripto" type="id">Inscripto</string>
     <string name="title_activity_exams_made">Examenes Rendidos</string>
     <string name="title_activity_incsripcion_aexamen">Inscripcion A Examen</string>
-    <string name="title_activity_main_screen">Ingeniero 2.0</string>
+    <string name="title_activity_main_screen">Marmota 2.0</string>
     <string name="title_activity_maintenance_mode">MaintenanceMode</string>
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_conection_required">ConectionRequired</string>
     <string name="title_activity_listar_examenes">ListarExamenes</string>
     <string name="title_activity_calendario_academico">CalendarioAcademico</string>
     <string name="title_activity_calendar_view">Calendar Academico</string>
+    <string name="title_activity_agregar_evento">AgregarEventoActivity</string>
+    <string name="title_activity_select_profile">Seleccionar Profile</string>
 
 </resources>

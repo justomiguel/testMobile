@@ -1,0 +1,240 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/internal_bg"
+    android:orientation="vertical"
+    tools:context=".AgregarEventoActivity" >
+
+    <LinearLayout
+        android:layout_width="0px"
+        android:layout_height="0px"
+        android:focusable="true"
+        android:focusableInTouchMode="true" />
+
+        <ScrollView
+        android:id="@+id/home_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@string/default_image_description"
+                android:src="@drawable/event_search_icon" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre Evento"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/change_type_spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/events_names"
+                    android:prompt="@string/change_prompt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:id="@+id/change_number_layer" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre Materia"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/change_number"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Sistemas de Representacion - Termo"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Detalle"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp" />
+
+                <AutoCompleteTextView
+                    android:id="@+id/autotext"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Algun detalle extra"
+                    android:nextFocusLeft="@id/autotext"
+                    android:nextFocusUp="@id/autotext" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/button_place"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="left|top"
+                android:orientation="vertical"
+                android:paddingLeft="5dp"
+                android:paddingTop="25dp" >
+
+                <LinearLayout
+                    android:id="@+id/button_page_container"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dp" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/button_chg_from_date"
+                            android:layout_width="31dp"
+                            android:layout_height="31dp"
+                            android:background="@drawable/button_indicator_next"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="@string/date_label_change"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/from_selected_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="@string/default_date_label_change"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="setDateFrom"
+                            android:paddingLeft="10dp"
+                            android:text="@string/set_button_label_change"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/button_chg_from_time"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:background="@drawable/clock"
+                            android:textColor="#FFFFFF" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="Hora:"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:id="@+id/from_selected_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="10dp"
+                            android:text="16:00"
+                            android:textAppearance="?android:attr/textAppearanceLarge"
+                            android:textSize="18sp" />
+
+                        <Button
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:onClick="setTimeFrom"
+                            android:paddingLeft="10dp"
+                            android:text="@string/set_button_label_change"
+                            android:textColor="#FFFFFF" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+                        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Metodo de Alarma"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:textSize="20sp" />
+
+                <Spinner
+                    android:id="@+id/change_type_spinner"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/alarm_methods"
+                    android:prompt="@string/promptAlarm" />
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:background="@drawable/tick"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/button_chg_confirm"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="addToCalendar"
+                    android:text="Confirmar"
+                    android:textColor="#FFFFFF" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
