@@ -6,15 +6,7 @@ SysAcad
 </name>
 </assembly>
 <members>
-<member name="M:SysAcad.CorrExamenes.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="M:SysAcad.CorrCursado.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="P:SysAcad.App.RootFrame">
+<member name="P:SysAcad.App.RootFrame">
 	<summary>
  Provides easy access to the root frame of the Phone Application.
  </summary>
@@ -24,6 +16,14 @@ InitializeComponent
  Constructor for the Application object.
  </summary>
 </member><member name="M:SysAcad.App.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.CorrCursado.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.CorrExamenes.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>

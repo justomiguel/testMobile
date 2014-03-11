@@ -85,7 +85,7 @@ Partial Public Class MainPage
         handler.UseCookies = True
         Dim httpclient As New HttpClient(handler)
         Dim url As String = "http://sysacadweb.frre.utn.edu.ar/menuAlumno.asp"
-        Dim body = String.Format("legajo=" + tbLegajoLogin.Text.Trim + "&password=" + tbPassLogin.Password.Trim)
+        'Dim body = String.Format("legajo=" + tbLegajoLogin.Text.Trim + "&password=" + tbPassLogin.Password.Trim)
         'Dim credenciales As StringContent = New StringContent(body, System.Text.Encoding.Unicode, "application/x-www-form-urlencoded")
         Dim credenciales As New Dictionary(Of String, String)
         credenciales.Add("legajo", tbLegajoLogin.Text.Trim)
@@ -99,25 +99,31 @@ Partial Public Class MainPage
         cookies.SetCookies(myuri, cookies.GetCookieHeader(myuri))
         Dim htmlpage As New HtmlDocument
         htmlpage.LoadHtml(text)
-        Dim ndNombre = htmlpage.DocumentNode.SelectNodes("//td")
-        Try
-            Dim nombre As String = App.toTitleCase(ndNombre(3).InnerText.Trim.ToLower)
+        Dim ndError = htmlpage.DocumentNode.SelectNodes("//p[@class='textoError']")
+        If ndError.Count = 0 Then
+            Dim ndNombre = htmlpage.DocumentNode.SelectNodes("//td")
+            Try
+                Dim nombre As String = App.toTitleCase(ndNombre(3).InnerText.Trim.ToLower)
+                setPG(False)
+                MessageBox.Show("Entraste como " + nombre, "Genial!", MessageBoxButton.OK)
+                Dim ndLinks = htmlpage.DocumentNode.SelectNodes("//a")
+                App.urlEstadoAcademico = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(1).Attributes("href").Value)
+                App.urlExamenes = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(2).Attributes("href").Value)
+                App.urlCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(3).Attributes("href").Value)
+                App.urlCorrCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(4).Attributes("href").Value)
+                App.urlCorrRendir = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(5).Attributes("href").Value)
+                App.urlInscExamen = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(6).Attributes("href").Value)
+                App.ttNombre = nombre
+                App.cookies = cookies
+                NavigationService.Navigate(New Uri("/MenuPrincipal.xaml", UriKind.Relative))
+            Catch ex As Exception
+                setPG(False)
+                MessageBox.Show("Algo salió mal. O el servidor no responde, o quizás pusiste mal tu legajo y contraseña!", "Oh noes!", MessageBoxButton.OK)
+            End Try
+        Else
+            Dim txtError As String = ndError(0).InnerText
             setPG(False)
-            MessageBox.Show("Entraste como " + nombre, "Genial!", MessageBoxButton.OK)
-            Dim ndLinks = htmlpage.DocumentNode.SelectNodes("//a")
-            App.urlEstadoAcademico = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(1).Attributes("href").Value)
-            App.urlExamenes = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(2).Attributes("href").Value)
-            App.urlCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(3).Attributes("href").Value)
-            App.urlCorrCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(4).Attributes("href").Value)
-            App.urlCorrRendir = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(5).Attributes("href").Value)
-            App.urlInscExamen = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(6).Attributes("href").Value)
-            App.ttNombre = nombre
-            App.cookies = cookies
-            NavigationService.Navigate(New Uri("/MenuPrincipal.xaml", UriKind.Relative))
-        Catch ex As Exception
-            setPG(False)
-            MessageBox.Show("Algo salió mal. O el servidor no responde, o quizás pusiste mal tu legajo y contraseña!", "Oh noes!", MessageBoxButton.OK)
-        End Try
-
+            MessageBox.Show(txtError, "Que raro!", MessageBoxButton.OK)
+        End If
     End Sub
 End Class
