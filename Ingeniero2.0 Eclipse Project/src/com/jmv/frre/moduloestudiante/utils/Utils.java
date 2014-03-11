@@ -29,7 +29,11 @@ public class Utils {
 	public static String currentID = "";
 	
     public static final String PREFS_LOGIN_USERNAME_KEY = "__USERNAME__" ;
+    
+    public static final String PREFS_LOGIN_IMAGE = "__IMG__" ;
     public static final String PREFS_LOGIN_PASSWORD_KEY = "__PASSWORD__" ;
+
+	public static final String PREFS_LOGIN_PASSWORD_USER = "__NAME__";
 
     // Saves value to shared preferences with specified key
     public static void saveToPrefs(Context context, String key, String value) {

@@ -206,7 +206,7 @@ public class LoginActivity extends Activity {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    public class UserLoginTask extends AsyncTask<String, Void, Boolean> {
+    public class UserLoginTask extends AsyncTask<String, Void, String> {
 
         private LoginActivity parent;
 
@@ -215,7 +215,7 @@ public class LoginActivity extends Activity {
         }
 
         @Override
-        protected Boolean doInBackground(String... params) {
+        protected String doInBackground(String... params) {
 
 
             List<NameValuePair> pairs = new ArrayList<NameValuePair>();
@@ -229,21 +229,22 @@ public class LoginActivity extends Activity {
 
             HTMLParser parser = HTMLParser.getParserFor(response);
             if (FRReUtils.isEmpty(response) || !parser.succefullyLoggin()){
-                return false;
+                return null;
             }
             // TODO: register the new account here.
-            return true;
+            return "Justo";
         }
 
         @Override
-        protected void onPostExecute(final Boolean success) {
+        protected void onPostExecute(final String name) {
             mAuthTask = null;
             showProgress(false);
 
-            if (success) {
+            if (name!=null) {
                 Intent intent = new Intent(this.parent, SysacadActivity.class);
                 intent.putExtra(Utils.PREFS_LOGIN_USERNAME_KEY, mlegajo);
                 intent.putExtra(Utils.PREFS_LOGIN_PASSWORD_KEY, mPassword);
+                intent.putExtra(Utils.PREFS_LOGIN_PASSWORD_USER, name);
                 startActivity(intent);
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

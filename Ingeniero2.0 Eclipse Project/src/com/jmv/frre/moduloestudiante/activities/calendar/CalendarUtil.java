@@ -76,7 +76,7 @@ public class CalendarUtil {
 			if (modify && eventIDFM!=-1){
 				deleteEventWithID(curActivity, eventIDFM);
 			}
-			eventValues.put("description", "Marmota 2.0 - Evento Planificado");
+			eventValues.put("description", "Ingeniero 2.0 - Evento Planificado");
 			eventValues.put("eventLocation", "Resistencia");
 			eventValues.put("dtstart", startDate);
 			eventValues.put("dtend", endDate);

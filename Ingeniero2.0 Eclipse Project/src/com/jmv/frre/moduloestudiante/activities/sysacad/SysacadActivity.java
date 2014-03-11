@@ -54,6 +54,8 @@ public class SysacadActivity extends LinkActivity {
 	private TextView current_session_key_label;
 
 	private View delete_current_profile;
+	
+	private View main_container_icons;
 
 	public static void showHome(Context context) {
 		Intent intent = new Intent(context, SysacadActivity.class);
@@ -66,7 +68,13 @@ public class SysacadActivity extends LinkActivity {
 		setContentView(R.layout.activity_main);
 		mHomeFormView = findViewById(R.id.home_form);
 		mLoginStatusView = findViewById(R.id.loading_content_status);
+		
+		main_container_icons = findViewById(R.id.main_container_icons);
+		
 		mHomeFormView.setVisibility(View.GONE);
+		main_container_icons.setEnabled(false);
+		main_container_icons.setAlpha(0.5f);
+		
 		init();
 	}
 
@@ -190,6 +198,9 @@ public class SysacadActivity extends LinkActivity {
 						sessionChecker.cancel();
 					}
 
+					main_container_icons.setEnabled(true);
+					main_container_icons.setAlpha(1.0f);
+					
 					sessionChecker = null;
 					sessionChecker = new SessionChecker(3 * 60000, 1000);
 					sessionChecker.start();

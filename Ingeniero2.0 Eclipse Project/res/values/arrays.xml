@@ -9,6 +9,17 @@
         <item>TSP</item>
     </string-array>
     
+     <string-array name="subjects">
+        <item>Consulta Academica</item>
+        <item>Reporte de Bug</item>
+        <item>Por que Pinto Decirte Algo!</item>
+    </string-array>
+    
+      <string-array name="owners">
+        <item>Justo Vargas - justomiguelvargas@gmail.com</item>
+        <item>Carlos Perez - thelinkin3000@gmail.com</item>
+    </string-array>
+    
     <string-array name="change_items_array">
         <item>Aprobadas</item>
         <item>Ausentes</item>
