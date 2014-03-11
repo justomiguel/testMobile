@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jmv.frre.moduloestudiante"
     android:versionCode="2"
-    android:versionName="1.1" >
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="11"
@@ -82,6 +82,14 @@
         <activity
             android:name="com.jmv.frre.moduloestudiante.SelectProfile"
             android:label="@string/title_activity_select_profile" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.HorariosCursado"
+            android:label="@string/title_activity_horarios_cursado" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.SendEmailActivity"
+            android:label="@string/title_activity_send_email" >
         </activity>
     </application>
 

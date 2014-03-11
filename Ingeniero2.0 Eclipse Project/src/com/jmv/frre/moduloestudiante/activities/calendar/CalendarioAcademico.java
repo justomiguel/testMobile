@@ -54,7 +54,7 @@ public class CalendarioAcademico extends Activity {
 	}
 	
 	public void showCalendarImage(View view) {
-		StandardImageProgrammatic.showHome(this);
+		StandardImageProgrammatic.showHome(this, R.id.calendario);
 	}
 
 	public static void showHome(Context context) {

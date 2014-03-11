@@ -154,98 +154,107 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/getting_token"
                     android:shadowColor="#FFFFFF"
+                    android:onClick="deleteCurrentProfile"
                     android:shadowRadius="20"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
 
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:src="@drawable/home_image" />
-
             <LinearLayout
-                android:id="@+id/button_place"
+                android:id="@+id/main_container_icons"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:layout_gravity="left|top"
                 android:orientation="vertical" >
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/delete_current_profile"
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal" >
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@drawable/pass" />
-
-                <Button
+                    android:id="@+id/imageView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:onClick="deleteCurrentProfile"
-                    android:shadowColor="#FFFFFF"
-                    android:shadowRadius="6"
-                    android:text="@string/main_menu_change"
-                    android:textColor="#000000" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/test"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/btn_activity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:onClick="academicStatus"
-                    android:shadowColor="#FFFFFF"
-                    android:shadowRadius="5"
-                    android:text="@string/sysacad_menu_exams"
-                    android:textColor="#000000" />
-            </LinearLayout>
+                    android:src="@drawable/home_image" />
 
-            <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center_horizontal"
-                android:orientation="horizontal" >
+                <LinearLayout
+                    android:id="@+id/button_place"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="left|top"
+                    android:orientation="vertical" >
+                </LinearLayout>
 
-                <Button
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:background="@drawable/exam"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/btn_activity"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                <LinearLayout
+                    android:id="@+id/delete_current_profile"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
-                    android:onClick="actionBtnExams"
-                    android:shadowColor="#FFFFFF"
-                    android:shadowRadius="5"
-                    android:text="@string/sysacad_menu_ins"
-                    android:textColor="#000000" />
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:src="@drawable/pass" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:onClick="deleteCurrentProfile"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="6"
+                        android:text="@string/main_menu_change"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/test"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/btn_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:onClick="academicStatus"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="5"
+                        android:text="@string/sysacad_menu_exams"
+                        android:textColor="#000000" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/exam"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/btn_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:onClick="actionBtnExams"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="5"
+                        android:text="@string/sysacad_menu_ins"
+                        android:textColor="#000000" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
