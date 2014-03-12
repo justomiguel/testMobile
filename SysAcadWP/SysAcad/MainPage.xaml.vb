@@ -21,10 +21,18 @@ Partial Public Class MainPage
     Public Sub New()
         InitializeComponent()
 
-        SupportedOrientations = SupportedPageOrientation.Portrait Or SupportedPageOrientation.Landscape
-        ' Sample code to localize the ApplicationBar
-        'BuildLocalizedApplicationBar()
-
+        SupportedOrientations = SupportedPageOrientation.Portrait
+        'Código para armar la appbar
+        ApplicationBar = New ApplicationBar
+        ApplicationBar.Mode = ApplicationBarMode.Default
+        ApplicationBar.Opacity = 1.0
+        ApplicationBar.IsVisible = True
+        ApplicationBar.IsMenuEnabled = True
+        Dim appBarButtonHelp As ApplicationBarIconButton = New ApplicationBarIconButton
+        appBarButtonHelp.IconUri = New Uri("/Assets/appbar.home.question.png", UriKind.Relative)
+        appBarButtonHelp.Text = "Ayuda"
+        ApplicationBar.Buttons.Add(appBarButtonHelp)
+        AddHandler appBarButtonHelp.Click, AddressOf appBarButtonHelp_Click
     End Sub
 
     ' Sample code for building a localized ApplicationBar
@@ -42,6 +50,9 @@ Partial Public Class MainPage
     '    ApplicationBar.MenuItems.Add(appBarMenuItem)
     'End Sub
 
+    Private Sub appBarButtonHelp_click(ByVal sender As Object, ByVal e As EventArgs)
+        NavigationService.Navigate(New Uri("/Consultas.xaml", UriKind.Relative))
+    End Sub
 
     Private Sub tbLegajoLogin_GotFocus(sender As Object, e As RoutedEventArgs)
         If tbLegajoLogin.Text = " Legajo" Then
@@ -131,6 +142,6 @@ Partial Public Class MainPage
             setPG(False)
             MessageBox.Show("Hubo un error, seguro que tenés conexión a internet?", "Rayos!", MessageBoxButton.OK)
         End If
-        
+
     End Sub
 End Class

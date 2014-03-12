@@ -6,7 +6,11 @@ SysAcad
 </name>
 </assembly>
 <members>
-<member name="P:SysAcad.App.RootFrame">
+<member name="M:SysAcad.Page3.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="P:SysAcad.App.RootFrame">
 	<summary>
  Provides easy access to the root frame of the Phone Application.
  </summary>
