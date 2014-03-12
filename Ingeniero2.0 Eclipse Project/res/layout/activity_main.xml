@@ -166,6 +166,20 @@
                 android:layout_gravity="left|top"
                 android:orientation="vertical" >
 
+                <TextView
+                    android:id="@+id/name_place_holder"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:text="@string/sysacad_mobile_status_key"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="15dp"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="25"
+                    android:textColor="#FFFFFF"
+                    android:textSize="25sp" />
+                
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="match_parent"
@@ -207,6 +221,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/estado_academico"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -232,6 +247,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/inscripcion_examenes"
                     android:layout_width="fill_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center_horizontal"
@@ -253,6 +269,32 @@
                         android:shadowColor="#FFFFFF"
                         android:shadowRadius="5"
                         android:text="@string/sysacad_menu_ins"
+                        android:textColor="#000000" />
+                </LinearLayout>
+                
+                <LinearLayout
+                    android:id="@+id/inscripcion_cursado"
+                    android:layout_width="fill_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal" >
+
+                    <Button
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:background="@drawable/corre"
+                        android:textColor="#FFFFFF" />
+
+                    <Button
+                        android:id="@+id/btn_activity"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:onClick="actionBtnCursado"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="5"
+                        android:text="@string/sysacad_menu_ins_cursado"
                         android:textColor="#000000" />
                 </LinearLayout>
             </LinearLayout>

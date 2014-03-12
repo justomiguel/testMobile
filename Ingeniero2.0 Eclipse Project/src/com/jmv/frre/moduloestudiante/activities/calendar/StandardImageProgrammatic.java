@@ -23,7 +23,7 @@ public class StandardImageProgrammatic extends Activity {
         LayoutParams params = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
         view = new GestureImageView(this);
         int image =  getIntent().getIntExtra(
-				Utils.PREFS_LOGIN_IMAGE, R.drawable.calendario);
+				Utils.PREFS_LOGIN_IMAGE, R.drawable.calendario_imagen);
         view.setImageResource(image);
         view.setLayoutParams(params);
         

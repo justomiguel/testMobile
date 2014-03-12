@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jmv.frre.moduloestudiante"
-    android:versionCode="2"
+    android:versionCode="6"
     android:versionName="2.0" >
 
     <uses-sdk
-        android:minSdkVersion="11"
+        android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -90,6 +90,14 @@
         <activity
             android:name="com.jmv.frre.moduloestudiante.SendEmailActivity"
             android:label="@string/title_activity_send_email" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.ContactoActivity"
+            android:label="@string/title_activity_contacto" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.InscripcionCursadoActivity"
+            android:label="@string/title_activity_inscripcion_cursado" >
         </activity>
     </application>
 

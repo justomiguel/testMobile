@@ -13,16 +13,20 @@
         android:text="A: "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Spinner
+    <TextView
         android:id="@+id/editTextTo"
-        android:layout_width="fill_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:entries="@array/owners"
-        android:prompt="@string/pomrpt_mails">
-
-
-        <requestFocus />
-    </Spinner>
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:hint="@string/contacto"
+        android:paddingBottom="5dp"
+        android:paddingTop="15dp"
+        android:shadowColor="#FFFFFF"
+        android:shadowRadius="25"
+        android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/textViewSubject"
@@ -38,19 +42,18 @@
         android:entries="@array/subjects"
         android:prompt="@string/pomrpt_subjects" />
 
-     <TextView
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Tu Mail (Asi sabemos donde contestar)"
         android:textAppearance="?android:attr/textAppearanceLarge" />
- 
+
     <EditText
         android:id="@+id/from"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-         >
+        android:layout_height="wrap_content" >
     </EditText>
-    
+
     <TextView
         android:id="@+id/textViewMessage"
         android:layout_width="wrap_content"

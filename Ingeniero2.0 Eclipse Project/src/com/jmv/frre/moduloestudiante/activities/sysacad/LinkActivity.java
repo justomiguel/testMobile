@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.common.base.Function;
+import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.dialogs.ConfirmationDialog;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
@@ -28,6 +29,7 @@ public class LinkActivity extends Activity{
     public static final String LINK_EXTRA = "link_extra";
 
     protected static final int DIALOG_SHOW_ERROR = 0;
+    protected static final int DIALOG_SHOW_ERROR_SYSACAD_NO_ANDA = 8;
     protected static final int DIALOG_SHOW_INFO = 1;
     protected static final int DIALOG_SHOW_ABOUT = 5;
     protected static final int DIALOG_SHOW_DETAILS_EXAM = 2;
@@ -35,6 +37,7 @@ public class LinkActivity extends Activity{
     protected static final int DIALOG_SHOW_INSCRIBIRSE_CONFIRM = 4;
     protected static final int DIALOG_SHOW_DELETE_CONFIRM = 7;
     protected static final int DIALOG_SHOW_DELETE_EXAM = 6;
+    protected static final int DIALOG_SHOW_DELETE_EXAM_EMPTY = 9;
     
 
     protected View mHomeFormView;
@@ -86,6 +89,16 @@ public class LinkActivity extends Activity{
     @Override
     public Dialog onCreateDialog(int id) {
         switch (id) {
+        	case DIALOG_SHOW_ERROR_SYSACAD_NO_ANDA:
+            return ConfirmationDialog.create(this, id,
+                    R.string.dialog_tittle_label, currentError,
+                    R.string.dialog_confirm_response_has_errors_button,
+                    new Runnable() {
+                        @Override
+                        public void run() {
+                        	MainScreenActivity.showHome(LinkActivity.this);
+                        }
+                    });
             case DIALOG_SHOW_ERROR:
                 return ConfirmationDialog.create(this, id,
                         R.string.dialog_tittle_label, currentError,

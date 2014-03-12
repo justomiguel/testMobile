@@ -69,15 +69,10 @@ public class HTMLParser {
     }
 
     public HashMap<HomePageLinks, List<String>> getHomeLinks() {
-
         String baseUri = "http://sysacadweb.frre.utn.edu.ar/";
-
         HashMap<HomePageLinks, List<String>> links = new HashMap<HomePageLinks, List<String>>();
         Elements wrapper = doc.getElementsByClass("textoTabla");
-        //inbound
-        //faresReturn
         if (wrapper != null) {
-
             for (Element row : wrapper) {
                 if (row != null) {
                     Elements trips = row.getElementsByTag("li");
@@ -98,6 +93,18 @@ public class HTMLParser {
             }
         }
         return links;
+    }
+    
+    public String getNameFromHome() {
+        Elements wrapper = doc.getElementsByClass("tituloTabla");
+        if (wrapper != null) {
+            for (Element row : wrapper) {
+                if (row != null) {
+                    return row.text();
+                }
+            }
+        }
+        return "";
     }
 
     

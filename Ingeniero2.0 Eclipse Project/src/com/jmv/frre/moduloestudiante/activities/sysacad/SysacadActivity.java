@@ -1,6 +1,7 @@
 package com.jmv.frre.moduloestudiante.activities.sysacad;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -8,6 +9,7 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.text.format.Time;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.common.base.Function;
+import com.jmv.frre.moduloestudiante.InscripcionCursadoActivity;
 import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.comps.MyButton;
@@ -26,8 +29,11 @@ import com.jmv.frre.moduloestudiante.net.SessionKeyGetter;
 import com.jmv.frre.moduloestudiante.utils.FRReUtils;
 import com.jmv.frre.moduloestudiante.utils.Utils;
 
+import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 public class SysacadActivity extends LinkActivity {
 
@@ -57,6 +63,18 @@ public class SysacadActivity extends LinkActivity {
 	
 	private View main_container_icons;
 
+	private View inscripcion_cursado;
+
+	private View estado_academico;
+
+	private View inscripcion_examenes;
+
+	private TextView name_place_holder;
+
+	private ProgressDialog progressDialog;
+	
+	private long lastTimeLoggedIn = -1;
+
 	public static void showHome(Context context) {
 		Intent intent = new Intent(context, SysacadActivity.class);
 		context.startActivity(intent);
@@ -69,11 +87,20 @@ public class SysacadActivity extends LinkActivity {
 		mHomeFormView = findViewById(R.id.home_form);
 		mLoginStatusView = findViewById(R.id.loading_content_status);
 		
+		inscripcion_cursado = findViewById(R.id.inscripcion_cursado);
+		inscripcion_examenes = findViewById(R.id.inscripcion_examenes);
+		estado_academico = findViewById(R.id.estado_academico);
+		
 		main_container_icons = findViewById(R.id.main_container_icons);
+		
+		name_place_holder = (TextView) findViewById(R.id.name_place_holder);
 		
 		mHomeFormView.setVisibility(View.GONE);
 		main_container_icons.setEnabled(false);
-		main_container_icons.setAlpha(0.5f);
+		
+		inscripcion_cursado.setVisibility(View.GONE);
+		estado_academico.setVisibility(View.GONE);
+		inscripcion_examenes.setVisibility(View.GONE);
 		
 		init();
 	}
@@ -85,6 +112,12 @@ public class SysacadActivity extends LinkActivity {
 	public void actionBtnExams(View view) {
 		IncsripcionAExamen.showExamsView(this, homeLink
 				+ HomePageLinks.INSCRIPCION_A_EXAMEN.getLink() + "?"
+				+ CURRENT_ID);
+	}
+	
+	public void actionBtnCursado(View view) {
+		InscripcionCursadoActivity.showExamsView(this, homeLink
+				+ HomePageLinks.INSCRIPCION_A_CURSADO.getLink() + "?"
 				+ CURRENT_ID);
 	}
 
@@ -185,32 +218,49 @@ public class SysacadActivity extends LinkActivity {
 
 	private void getNewToken() {
 
-		setSessionCheckerStatus(false);
 
-		Function<String, Void> afterLogin = new Function<String, Void>() {
-			@Override
-			public Void apply(String response) {
-				HTMLParser parser = HTMLParser.getParserFor(response);
-				if (!checkForErrors(parser, response, SysacadActivity.this)) {
-					CURRENT_ID = parser.getSessionID();
-					setSessionCheckerStatus(true);
-					if (sessionChecker != null) {
-						sessionChecker.cancel();
+		final long seconds = System.currentTimeMillis();
+		
+		if (seconds - lastTimeLoggedIn > 2*30000){
+			
+			setSessionCheckerStatus(false);
+			
+			progressDialog = ProgressDialog.show(this, "Aguanta...", "Accediendo a Sysacad...");
+			
+			Function<String, Void> afterLogin = new Function<String, Void>() {
+				@Override
+				public Void apply(String response) {
+					HTMLParser parser = HTMLParser.getParserFor(response);
+					progressDialog.dismiss();
+					if (FRReUtils.isEmpty(response) || parser.containsError()) {
+						currentError = FRReUtils.isEmpty(response) ? "Empty Response" : parser.getError();
+						SysacadActivity.this.showDialog(DIALOG_SHOW_ERROR_SYSACAD_NO_ANDA);
+					} else {
+						lastTimeLoggedIn = seconds;
+						CURRENT_ID = parser.getSessionID();
+						setSessionCheckerStatus(true);
+						if (sessionChecker != null) {
+							sessionChecker.cancel();
+						}
+						main_container_icons.setEnabled(true);
+						sessionChecker = null;
+						sessionChecker = new SessionChecker(3 * 60000, 1000);
+						sessionChecker.start();
+						HashMap<HomePageLinks, List<String>> links = parser.getHomeLinks();
+						String name = parser.getNameFromHome();
+						name_place_holder.setText(name);
+						inscripcion_cursado.setVisibility(links.containsKey(HomePageLinks.INSCRIPCION_A_CURSADO)?View.VISIBLE:View.GONE);
+						estado_academico.setVisibility(links.containsKey(HomePageLinks.ESTADO_ACADEMICO)?View.VISIBLE:View.GONE);
+						inscripcion_examenes.setVisibility(links.containsKey(HomePageLinks.INSCRIPCION_A_EXAMEN)?View.VISIBLE:View.GONE);
 					}
-
-					main_container_icons.setEnabled(true);
-					main_container_icons.setAlpha(1.0f);
-					
-					sessionChecker = null;
-					sessionChecker = new SessionChecker(3 * 60000, 1000);
-					sessionChecker.start();
+					return null;
 				}
-				return null;
-			}
-		};
+			};
 
-		new SessionKeyGetter(this, scraper, afterLogin).execute(
-				loggedInUserName, loggedInUserPassword);
+			new SessionKeyGetter(this, scraper, afterLogin).execute(
+					loggedInUserName, loggedInUserPassword);
+		}
+		
 	}
 
 	public void deleteCurrentProfile(View view) {

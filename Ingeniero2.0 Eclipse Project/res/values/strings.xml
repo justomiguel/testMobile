@@ -22,6 +22,17 @@
     <string name="detailedCalendarTex" type="id">Calendario Detallado por Mes</string>
     <string name="pictureCalendarTex" type="id">Calendario Completo</string>
     <string name="mainScreenLInks" type="id">Links Utiles</string>
+    <string name="contacto" type="id">Contacto</string>
+    <string name="main_contact" type="id">Justo Vargas</string>
+    <string name="main_contact_carlos" type="id">Carlos Perez</string>
+    <string name="main_contact_unete" type="id">Unete</string>
+    <string name="main_contact_unete_details" type="id">Agrupacion de estudiantes de la Facu. Preguntales lo que necesites!!</string>
+    <string name="main_contact_details" type="id">Estudiante de ISI. Consejero de Sistemas y creador de la version de Android de Ingeniero 2.0 y de la idea original</string>
+    <string name="main_contact_details_carlos" type="id">Estudiante de ISI. Responsable de la version de Windows Mobile de Ingeniero 2.0</string>
+    <string name="main_contact_to_carlos" type="id">Contactalo a Carlos!</string>
+    <string name="contact_details_purpose" type="id">Tenes alguna duda sobre la app? sobre la facu? sobre lo que sea del mundo academico? contactanos!!</string>
+    <string name="main_contact_to_justo" type="id">Contactalo a Justo!</string>
+    <string name="main_contact_to_unete" type="id">Contactalos a los chicos de Unete!</string>
     <string name="app_name">Ingeniero 2.0</string>
     <string name="login_main_label">Ingresar a Ingeniero 2.0</string>
     <string name="mainteance_mode_on">Sysacad No Anda!</string>
@@ -43,6 +54,7 @@
     <string name="carrera">Carrera:</string>
     <string name="sysacad_menu_exams">Ver Estado Academico</string>
     <string name="sysacad_menu_ins">Gestionar Finales</string>
+    <string name="sysacad_menu_ins_cursado">Inscripcion Cursado</string>
     <string name="sysacad_mobile_status_separator"> - </string>
     <string name="sysacad_mobile_status_ready">Usuario Actual:</string>
     <string name="calendar_activity_title">Calendario Academico 2014</string>
@@ -125,6 +137,7 @@
     <string name="activity_ins_exam_already_insc" type="id">Materias Inscriptas:</string>
     <string name="activity_ins_exam_materia" type="id">Materia</string>
     <string name="activity_ins_exam_fecha_insc" type="id">Fecha</string>
+    <string name="activity_ins_exam_fecha_insc_detalle" type="id">Detalle</string>
     <string name="activity_ins_exam_status" type="id">Estado</string>
     <string name="activity_ins_exam_plan" type="id">Plan</string>
     <string name="activity_ins_exam_codigo" type="id">Codigo</string>
@@ -148,5 +161,7 @@
     <string name="title_activity_select_profile">Seleccionar Profile</string>
     <string name="title_activity_horarios_cursado">Horarios del Cursado</string>
     <string name="title_activity_send_email">Contacto</string>
+    <string name="title_activity_contacto">Contacto</string>
+    <string name="title_activity_inscripcion_cursado">Inscripcion a Cursado</string>
 
 </resources>

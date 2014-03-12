@@ -18,7 +18,7 @@ public class MainScreenActivity extends Activity {
 	private Button button_sysacad;
 	private Button button_calendar;
 	
-	public static boolean USE_SYSACAD = false;
+	public static boolean USE_SYSACAD = true;
 
 	public static void showHome(Context parent) {
 		Intent intent = new Intent(parent, MainScreenActivity.class);
@@ -49,7 +49,7 @@ public class MainScreenActivity extends Activity {
 	}
 	
 	public void makeQuery(View view){
-		SendEmailActivity.showHome(this);
+		ContactoActivity.showHome(this);
 	}
 	
 	public void seeCursado(View view){

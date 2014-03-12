@@ -3,6 +3,7 @@ package com.jmv.frre.moduloestudiante.activities.calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.jmv.frre.moduloestudiante.HorariosCursado;
 import com.jmv.frre.moduloestudiante.R;
 
 import android.os.Bundle;
@@ -54,7 +55,8 @@ public class CalendarioAcademico extends Activity {
 	}
 	
 	public void showCalendarImage(View view) {
-		StandardImageProgrammatic.showHome(this, R.id.calendario);
+		int calendar =  this.getResources().getIdentifier("calendario_imagen", "drawable",  this.getPackageName());;
+		StandardImageProgrammatic.showHome(this, calendar);
 	}
 
 	public static void showHome(Context context) {
@@ -72,7 +74,7 @@ public class CalendarioAcademico extends Activity {
 				
 				String detalle = data.getStringExtra("detalle");
 				
-				if (!detalle.isEmpty()){
+				if (detalle!=null && detalle.length()!=0){
 					String[] events = detalle.split("&");
 					for (String string : events) {
 						TextView valueTV = new TextView(this);
