@@ -11,6 +11,174 @@
     <!-- This should make it easier for forks to change the branding -->
 
 
+<string name="monday">Lu</string>
+    <string name="tuesday">Lu</string>
+    <string name="wednesday">Lu</string>
+    <string name="thursday">Lu</string>
+    <string name="friday">Lu</string>
+    <string name="saturday">Lu</string>
+    <string name="sunday">Lu</string>
+    <string name="promptAlarm">Tipo de Alarma</string>
+    <string name="calendar_event_missing_description">"Pone algo en la descripcion pue!!"</string>
+    <string name="calendar_event_undefined_error">"Se produjo un error"</string>
+    <string name="calendar_event_missing_sr_chg_number">"Pone algo en el campo!!!"</string>
+    <string name="calendar_event_deleted">"Se borro el Evento!!"</string>
+    <string name="calendar_event_deleted_error">"Error:"</string>
+    <string name="calendar_event_wrong_message">"Fecha Incorrecta!!"</string>
+    <string name="calendar_event_added_message">"Evento Agregado!!"</string>
+    <string name="specialheader"> &lt;&lt;</string>
+    <string name="detailedCalendar">Seleccionar Dia</string>
+    <string name="pictureCalendar">ISI-LAR-IEM-IQ</string>
+    <string name="pictureCalendarTsp">TSP</string>
+    <string name="detailedCalendarTex" type="id">Calendario Detallado por Mes</string>
+    <string name="pictureCalendarTex" type="id">Calendario Completo</string>
+    <string name="mainScreenLInks" type="id">Links Utiles</string>
+    <string name="contacto" type="id">Contacto</string>
+    <string name="main_contact" type="id">Justo Vargas</string>
+    <string name="main_contact_carlos" type="id">Carlos Perez</string>
+    <string name="main_contact_unete" type="id">Unete</string>
+    <string name="main_contact_unete_details" type="id">Agrupacion de estudiantes de la Facu. Preguntales lo que necesites!!</string>
+    <string name="main_contact_details" type="id">Estudiante de ISI. Consejero de Sistemas, fanatico de Independiente y creador de la version de Android de Ingeniero 2.0 y de la idea original</string>
+    <string name="main_contact_details_carlos" type="id">Estudiante de ISI. Responsable de la version de Windows Mobile de Ingeniero 2.0</string>
+    <string name="main_contact_to_carlos" type="id">Contactalo a Carlos!</string>
+    <string name="contact_details_purpose" type="id">Tenes alguna duda sobre la app? sobre la facu? sobre lo que sea del mundo academico? contactanos!!</string>
+    <string name="main_contact_to_justo" type="id">Mandar un e-mail</string>
+    <string name="main_contact_to_unete" type="id">Contactalos a los chicos de Unete!</string>
+    <string name="app_name">Ingeniero 2.0</string>
+    <string name="login_main_label">Ingresar a Ingeniero 2.0</string>
+    <string name="mainteance_mode_on">Sysacad No Anda!</string>
+    <string name="no_internet">Tu Internet No Anda!</string>
+    <string name="login_usr_label">Legajo:</string>
+    <string name="no_inetrnet_label">Sepa disculpar los incovenientes, pero esto no funciona sin internet </string>
+    <string name="maintenance_mode">Sepa disculpar los incovenientes, pero esto no funciona sin el sysacad </string>
+    <string name="login_password_label">Password (Sysacad):</string>
+    <string name="main_menu_change">Cambiar Usuario</string>
+    <string name="main_menu_sysacad">Sysacad Mobile</string>
+    <string name="main_menu_contacto">Consultas</string>
+    <string name="main_menu_utn">Pagina Campus UTN FRRe</string>
+    <string name="main_menu_calendario">Calendario Academico</string>
+    <string name="main_menu_horarios">Horarios Cursado</string>
+    <string name="main_menu_add_calendario">Agregar Evento</string>
+    <string name="nombre">Nombre:</string>
+    <string name="legajo">Legajo:</string>
+    <string name="pass">Password:</string>
+    <string name="carrera">Carrera:</string>
+    <string name="sysacad_menu_exams">Ver Estado Academico</string>
+    <string name="sysacad_menu_ins">Gestionar Finales</string>
+    <string name="sysacad_menu_ins_cursado">Inscripcion Cursado</string>
+    <string name="sysacad_mobile_status_separator"> - </string>
+    <string name="sysacad_mobile_status_ready">Usuario Actual:</string>
+    <string name="calendar_activity_title">Calendario Academico 2014</string>
+    <string name="calendar_activity_details_title">Fecha Seleccionada:</string>
+    <string name="calendar_activity_details_title_content">--/--/--</string>
+    <string name="calendar_activity_details_content">Detalle:</string>
+    <string name="calendar_activity_details_content_content">-------------</string>
+    <string name="sysacad_mobile_status_time">00:00</string>
+    <string name="sysacad_mobile_status_key">XXXXX</string>
+    <string name="sysacad_mobile_status_current_time">Session Time:</string>
+    <string name="sysacad_mobile_status_current_key">Current Session Key:</string>
+    <string name="sysacad_mobile_status_usr">--</string>
+    <string name="sysacad_mobile_status_getting_token">Obteniendo Token</string>
+    <string name="action_settings">Borrar Credenciales</string>
+    <string name="title_activity_login">Ingresar Credenciales</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Legajo</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in_register"><b>Ingresar</b></string>
+    <string name="go_home"><b>Ir al Home</b></string>
+    <string name="retry_login"><b>Re-Intentar</b></string>
+    <string name="action_sign_in_short">Ingresar</string>
+    <string name="action_forgot_password">Recordar Password</string>
+    <string name="login_progress_signing_in">Ingresando al Sistema…</string>
+    <string name="error_invalid_email">Legajo Invalido</string>
+    <string name="error_invalid_password">Contraseña muy corta</string>
+    <string name="error_incorrect_password">Contraseña/Legajo Incorrecto</string>
+    <string name="error_field_required">Campo requerido</string>
+    <string name="loadin_content_progress">Cargando Contenido Del Servidor…</string>
+    <string name="loadin_content_progress_refresh">Resfrescando Session en el Servidor…</string>
+    <string name="dialog_confirm_response_has_errors">Error:</string>
+    <string name="dialog_confirm_response_has_errors_button">Aceptar</string>
+    <string name="dialog_confirm_response_info">Error:</string>
+    <string name="dialog_confirm_response_info_button">Aceptar</string>
+    <string name="dialog_tittle_label">Ingeniero 2.0 dice:</string>
+    <string name="dialog_tittle_label_about">Ingeniero 2.0</string>
+    <string name="dialog_tittle_label_exam">Detalles de Examen:</string>
+    <string name="dialog_tittle_label_ins_exam_details">Materia a Inscribirse:</string>
+    <string name="dialog_tittle_label_ins_exam_delete_details">Materia a Borrar Inscripcion:</string>
+    <string name="dialog_tittle_label_ins_exam">Estas seguro??</string>
+    <string name="dialog_tittle_label_ins_exam_confirm">Ya estas en el horno!</string>
+    <string name="dialog_tittle_label_ins_delete_exam_confirm">Arrugaste!</string>
+    <string name="dialog_tittle_label_ins_exam_confirm_details">Te inscribiste con exito!</string>
+    <string name="dialog_tittle_label_ins_exam_confirm_delete_details">Se Borro con exito!</string>
+    <string name="dialog_confirm_nothing_to_show">Nada por aqui</string>
+    <string name="dialog_about_details">Reportar bugs a justomiguelvargas@gmail.com</string>
+
+    <item name="activity_login_title" type="id">Ingresar a FRRe</item>
+
+    <string name="getting_events_current_account" type="id">Obteniendo Examenes Por Rendir!</string>
+    <string name="default_image_description" type="id">IMG</string>
+    <string name="from_label_change" type="id">Fecha:</string>
+    <string name="date_label_change">Fecha:</string>
+    <string name="default_date_label_change">29/09/2014</string>
+    <string name="set_button_label_change">Cambiar</string>
+    <string name="until_label_change">Hasta:</string>
+    <string name="search_button_label_change">Buscar</string>
+    <string name="change_details_label_change">Detalles del Examen:</string>
+    <string name="change_list_label_change">Resultados:</string>
+    <string name="change_prompt">Tipo Evento</string>
+    <string name="change_carrera">Carrera</string>
+    <string name="pomrpt_subjects">Subject</string>
+    
+    <string name="pomrpt_subjects_contact">Contacto</string>
+    
+    <string name="pomrpt_mails">Autores</string>
+    <string name="carrera_prompt">Carrera</string>
+    <string name="change_extended_details_label_change">&#8230;</string>
+    <string name="confirm_button_label_modify_change">Modificar</string>
+    <string name="confirm_button_label_delete_change">Borrar</string>
+    <string name="change_details_start_date_change">Teoria:</string>
+    <string name="change_details_end_date_change">Practica:</string>
+    <string name="change_details_tittle_change">Nombre:</string>
+    <string name="change_details_id_change">ID:</string>
+    <string name="activity_exam_date" type="id">Fecha</string>
+    <string name="activity_exam_materia" type="id">Materia</string>
+    <string name="activity_exam_nota" type="id">Nota</string>
+    <string name="activity_exam_plan" type="id">Plan</string>
+    <string name="activity_ins_exam_ano" type="id">Año</string>
+    <string name="activity_ins_exam_select_subject" type="id">Listado de Materias:</string>
+    <string name="activity_cursado_select_carrera" type="id">Listado de Carreras:</string>
+    <string name="activity_ins_exam_select_details" type="id">Detalle:</string>
+    <string name="activity_ins_exam_already_insc" type="id">Materias Inscriptas:</string>
+    <string name="activity_ins_exam_materia" type="id">Materia</string>
+    <string name="activity_ins_exam_fecha_insc" type="id">Fecha</string>
+    <string name="activity_ins_exam_fecha_insc_detalle" type="id">Detalle</string>
+    <string name="activity_ins_exam_status" type="id">Estado</string>
+    <string name="activity_ins_exam_plan" type="id">Plan</string>
+    <string name="activity_ins_exam_codigo" type="id">Codigo</string>
+    <string name="activity_ins_exam_to_compare" type="id">Inscribir</string>
+    <string name="activity_ins_exam_btn_ins" type="id">Inscribirse</string>
+    <string name="activity_ins_exam_btn_delete_ins" type="id">Eliminar Inscripcion</string>
+    <string name="activity_about" type="id">Sobre Ingeniero 2.0</string>
+    <string name="activity_ins_exam_btn_ver" type="id">Ver Comprobante</string>
+    <string name="activity_ins_exam_status_no_inscripto" type="id">No Inscripto</string>
+    <string name="activity_ins_exam_status_inscripto" type="id">Inscripto</string>
+    <string name="title_activity_exams_made">Examenes Rendidos</string>
+    <string name="title_activity_incsripcion_aexamen">Inscripcion A Examen</string>
+    <string name="title_activity_main_screen">Ingeniero 2.0</string>
+    <string name="title_activity_maintenance_mode">MaintenanceMode</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_conection_required">ConectionRequired</string>
+    <string name="title_activity_listar_examenes">ListarExamenes</string>
+    <string name="title_activity_calendario_academico">CalendarioAcademico</string>
+    <string name="title_activity_calendar_view">Calendar Academico</string>
+    <string name="title_activity_agregar_evento">AgregarEventoActivity</string>
+    <string name="title_activity_select_profile">Seleccionar Profile</string>
+    <string name="title_activity_horarios_cursado">Horarios del Cursado</string>
+    <string name="title_activity_send_email">Contacto</string>
+    <string name="title_activity_contacto">Contacto</string>
+    <string name="title_activity_inscripcion_cursado">Inscripcion a Cursado</string>
+    
     <!-- Used in AndroidManifest.xml -->
     <string name="app_name">Ingeniero2.0</string>
     <string name="beta_app_name">Ingeniero2.0 Mobile</string>

@@ -72,9 +72,10 @@
     <application
         android:name="com.jmv.frre.moduloestudiante.K9"
         android:allowTaskReparenting="false"
-        android:icon="@drawable/ic_swat_icon_app"
-        android:label="@string/app_name"
-        android:theme="@style/Theme.K9.Startup" >
+        android:theme="@style/Theme.K9.Startup" 
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name" >
         <meta-data
             android:name="android.app.default_searchable"
             android:value=".activity.Search" />
@@ -105,6 +106,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        
         <activity
             android:name="com.jmv.frre.moduloestudiante.activity.setup.Prefs"
             android:configChanges="locale"
@@ -174,6 +176,75 @@
             android:configChanges="locale"
             android:label="@string/choose_identity_title"
             android:theme="@style/Theme.K9Dialog" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.SysacadActivity"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.ExamsMadeActivity"
+            android:label="@string/title_activity_exams_made" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.IncsripcionAExamen"
+            android:label="@string/title_activity_incsripcion_aexamen" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.MaintenanceMode"
+            android:label="@string/title_activity_maintenance_mode" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.sysacad.ConectionRequired"
+            android:label="@string/title_activity_conection_required" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.ListarExamenes"
+            android:label="@string/title_activity_listar_examenes" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.calendar.CalendarioAcademico"
+            android:label="@string/title_activity_calendario_academico" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.calendar.StandardImageProgrammatic"
+            android:label="@string/title_activity_calendario_academico" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.activities.calendar.CalendarView"
+            android:label="@string/title_activity_calendar_view" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.AgregarEventoActivity"
+            android:label="@string/title_activity_agregar_evento" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.SelectProfile"
+            android:label="@string/title_activity_select_profile" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.HorariosCursado"
+            android:label="@string/title_activity_horarios_cursado" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.SendEmailActivity"
+            android:label="@string/title_activity_send_email" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.ContactoActivity"
+            android:label="@string/title_activity_contacto" >
+        </activity>
+        <activity
+            android:name="com.jmv.frre.moduloestudiante.InscripcionCursadoActivity"
+            android:label="@string/title_activity_inscripcion_cursado" >
         </activity>
         <activity
             android:name="com.jmv.frre.moduloestudiante.activity.ManageIdentities"

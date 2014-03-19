@@ -1,6 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
+    
+        <string-array name="carreras">
+        <item>ISI</item>
+        <item>IEM</item>
+        <item>IQ</item>
+        <item>LAR</item>
+        <item>TSP</item>
+    </string-array>
+    
+     <string-array name="subjects">
+        <item>Consulta Academica</item>
+        <item>Reporte de Bug</item>
+        <item>Por que Pinto Decirte Algo!</item>
+    </string-array>
+    
+      <string-array name="owners">
+        <item>Justo Vargas - justomiguelvargas@gmail.com</item>
+        <item>Carlos Perez - thelinkin3000@gmail.com</item>
+        <item>Unete - cet@frre.utn.edu.ar</item>
+    </string-array>
+    
+    <string-array name="change_items_array">
+        <item>Aprobadas</item>
+        <item>Ausentes</item>
+        <item>Desaprobadas</item>
+        <item>Todas</item>
+    </string-array>
+    
+    <string-array name="events_names">
+        <item>M1 - Estudiar para el Examen</item>
+        <item>M2 - Examen Parcial</item>
+        <item>M3 - Examen Final</item>
+        <item>M4 - Examen Recuperatorio</item>
+    </string-array>
+    
+    <string-array name="alarm_methods">
+        <item>E-mail 1 hora antes</item>
+        <item>SMS 1 hora antes</item>
+        <item>Alarm 1 hora antes</item>
+    </string-array>
 
     <string-array name="account_settings_check_frequency_entries">
         <item>@string/account_setup_options_mail_check_frequency_never</item>
