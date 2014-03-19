@@ -6,11 +6,7 @@ SysAcad
 </name>
 </assembly>
 <members>
-<member name="M:SysAcad.CorrExamenes.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="M:SysAcad.CorrCursado.InitializeComponent">
+<member name="M:SysAcad.Page3.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>
@@ -24,6 +20,14 @@ InitializeComponent
  Constructor for the Application object.
  </summary>
 </member><member name="M:SysAcad.App.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.CorrCursado.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.CorrExamenes.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>
