@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+
+<string name="accounts_welcome_swa">
+Welcome to SWAT Pager. K-9 is an open source mail client for Android originally based on the standard Android Mail client.
+\n
+\n\nK-9\'s improved features include:
+\n * Push mail using IMAP IDLE
+\n * Better performance
+\n * Message refiling
+\n * Email signatures
+\n * Bcc-to-self
+\n * Folder subscriptions
+\n * All folder synchronization
+\n * Return-address configuration
+\n * Keyboard shortcuts
+\n * Better IMAP support
+\n * Saving attachments to SD
+\n * Empty Trash
+\n * Message sorting
+\n * ...and more
+
+</string>
+
+<string name="account_setup_basics_swat">Select Profile</string>
+
+<string name="primary_account_email">swat.primary@globant.com</string>
+<string name="primary_account_password">Qwerty12$</string>
+<string name="primary_account_description">Swat Primary Pager</string>
+<string name="primary_account_name">Primary Pager</string>
+
+<string name="secondary_account_email">swat.secondary@globant.com</string>
+<string name="secondary_account_password">Qwerty12$</string>
+<string name="secondary_account_description">Swat Secondary Pager</string>
+<string name="secondary_account_name">Secondary Pager</string>
+
+<string name="l3_account_email">swat.monitor@globant.com</string>
+<string name="l3_account_password">loyalty@$</string>
+<string name="l3_account_description">Swat L3 Pager</string>
+<string name="l3_account_name">L3 Pager</string>
+
+<string name="change_profile">Change Profile</string>
+<string name="app_name_swat">Pager</string>
+<string name="check_mail_action_swat">Refresh</string>
+<string name="connection_up">Data Connection Established!</string>
+<string name="connection_lost">Data Connection Lost!</string>
+
+<string name="check_prod_state">Check Production</string>
+<string name="check_prod_purchase_count">Purchase Count</string>
+<string name="check_prod_service_closewaits">Service CloseWaits</string>
+<string name="check_prod_tomcat_closewaits">Tomcat CloseWaits</string>
+
+<string name="command_title_bookings">Check Production</string>
+
+</resources>

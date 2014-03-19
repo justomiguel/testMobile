@@ -16,6 +16,7 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
@@ -85,6 +86,10 @@ public class LoginActivity extends Activity {
     }
 
 
+    public void goHome(View view){
+    	MainScreenActivity.showHome(this);
+    }
+    
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -155,10 +160,7 @@ public class LoginActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
+        MainScreenActivity.showHome(this);
     }
 
     /**

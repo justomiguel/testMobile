@@ -108,6 +108,11 @@ public class SysacadActivity extends LinkActivity {
 	public void actionBtn(View view) {
 		showDialog(DIALOG_SHOW_ABOUT);
 	}
+	
+	 public void goHome(View view){
+	    	MainScreenActivity.showHome(this);
+	    }
+	    
 
 	public void actionBtnExams(View view) {
 		IncsripcionAExamen.showExamsView(this, homeLink

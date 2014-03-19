@@ -58,6 +58,12 @@ public class CalendarioAcademico extends Activity {
 		int calendar =  this.getResources().getIdentifier("calendario_imagen", "drawable",  this.getPackageName());;
 		StandardImageProgrammatic.showHome(this, calendar);
 	}
+	
+	public void showCalendarImageTsp(View view) {
+		int calendar =  this.getResources().getIdentifier("calendario_imagen_tsp", "drawable",  this.getPackageName());;
+		StandardImageProgrammatic.showHome(this, calendar);
+	}
+
 
 	public static void showHome(Context context) {
 		Intent intent = new Intent(context, CalendarioAcademico.class);

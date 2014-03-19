@@ -1,5 +1,6 @@
 package com.jmv.frre.moduloestudiante.activities.sysacad;
 
+import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.R.layout;
 import com.jmv.frre.moduloestudiante.R.menu;
@@ -26,6 +27,11 @@ public class ConectionRequired extends Activity {
 		setContentView(R.layout.activity_conection_required);
 	}
 
+	 public void goHome(View view){
+	    	MainScreenActivity.showHome(this);
+	    }
+	    
+	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

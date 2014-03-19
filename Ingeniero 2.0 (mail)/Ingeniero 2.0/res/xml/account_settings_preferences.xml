@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceScreen
+        android:key="notifications"
+        android:icon="@drawable/incomming_pager_preferences_icon"
+        android:title="@string/notifications_title" >
+        <PreferenceCategory
+            android:key="incoming_pagers"
+            android:title="Incoming Pagers Notifications" >
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="account_notify"
+                android:persistent="false"
+                android:summary="@string/account_settings_notify_summary"
+                android:title="@string/account_settings_notify_label" />
+            <ListPreference
+                android:dependency="account_notify"
+                android:dialogTitle="@string/account_settings_check_connectivity_times"
+                android:entries="@array/account_settings_check_connectivity_times_label"
+                android:entryValues="@array/account_settings_check_connectivity_times_label"
+                android:key="account_check_connectivity_times"
+                android:persistent="false"
+                android:title="@string/account_settings_check_connectivity_times" />
+            <CheckBoxPreference
+                android:key="quiet_time_enabled"
+                android:persistent="false"
+                android:summary="@string/quiet_time_description"
+                android:title="@string/quiet_time" />
+
+            <com.jmv.frre.moduloestudiante.preferences.TimePickerPreference
+                android:dependency="quiet_time_enabled"
+                android:dialogTitle="@string/quiet_time_starts"
+                android:key="quiet_time_starts"
+                android:persistent="false"
+                android:title="@string/quiet_time_starts" />
+            <com.jmv.frre.moduloestudiante.preferences.TimePickerPreference
+                android:dependency="quiet_time_enabled"
+                android:dialogTitle="@string/quiet_time_ends"
+                android:key="quiet_time_ends"
+                android:persistent="false"
+                android:title="@string/quiet_time_ends" />
+
+            <ListPreference
+                android:dialogTitle="@string/global_settings_notification_quick_delete_title"
+                android:entries="@array/global_settings_notification_quick_delete_entries"
+                android:entryValues="@array/global_settings_notification_quick_delete_values"
+                android:key="notification_quick_delete"
+                android:persistent="false"
+                android:summary="@string/global_settings_notification_quick_delete_description"
+                android:title="@string/global_settings_notification_quick_delete_title" />
+
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:dependency="account_notify"
+                android:key="account_notify_self"
+                android:persistent="false"
+                android:summary="@string/account_settings_notify_self_summary"
+                android:title="@string/account_settings_notify_self_label" />
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:key="sounds_and_vibrate"
+            android:title="Sound and Vibration" >
+            <RingtonePreference
+                android:defaultValue="content://settings/system/notification_sound"
+                android:dependency="account_notify"
+                android:key="account_ringtone"
+                android:layout="?android:attr/preferenceLayoutChild"
+                android:ringtoneType="notification"
+                android:title="@string/account_settings_ringtone" />
+
+            <ListPreference
+                android:dependency="account_notify"
+                android:dialogTitle="@string/account_settings_ringtone_times"
+                android:entries="@array/account_settings_ringtones_times_label"
+                android:entryValues="@array/account_settings_ringtones_times_label"
+                android:key="account_ringtone_times"
+                android:persistent="false"
+                android:title="@string/account_settings_ringtone_times" />
+
+            <CheckBoxPreference
+                android:defaultValue="false"
+                android:dependency="account_notify"
+                android:key="account_vibrate"
+                android:layout="?android:attr/preferenceLayoutChild"
+                android:persistent="false"
+                android:summary="@string/account_settings_vibrate_summary"
+                android:title="@string/account_settings_vibrate_enable" />
+
+            <ListPreference
+                android:dependency="account_vibrate"
+                android:dialogTitle="@string/account_settings_vibrate_pattern_label"
+                android:entries="@array/account_settings_vibrate_pattern_entries"
+                android:entryValues="@array/account_settings_vibrate_pattern_values"
+                android:key="account_vibrate_pattern"
+                android:persistent="false"
+                android:title="@string/account_settings_vibrate_pattern_label" />
+            <ListPreference
+                android:dependency="account_vibrate"
+                android:dialogTitle="@string/account_settings_vibrate_times"
+                android:entries="@array/account_settings_vibrate_times_label"
+                android:entryValues="@array/account_settings_vibrate_times_label"
+                android:key="account_vibrate_times"
+                android:persistent="false"
+                android:title="@string/account_settings_vibrate_times" />
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:key="lights"
+            android:title="Lights" >
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:dependency="account_notify"
+                android:key="account_led"
+                android:persistent="false"
+                android:summary="@string/account_settings_led_summary"
+                android:title="@string/account_settings_led_label" />
+
+            <Preference
+                android:key="led_color"
+                android:dependency="account_led"
+                android:persistent="false"
+                android:singleLine="true"
+                android:summary="@string/account_settings_led_color_summary"
+                android:title="@string/account_settings_led_color_label" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:icon="@drawable/general_display_settings" 
+        android:title="@string/account_settings_display_prefs_title" >
+        <PreferenceCategory
+            android:key="lists"
+            android:title="@string/account_settings_message_lists" >
+            <Preference
+                android:key="chip_color"
+                android:persistent="false"
+                android:singleLine="true"
+                android:summary="@string/account_settings_color_summary"
+                android:title="@string/account_settings_color_label" />
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:key="view"
+            android:title="@string/account_settings_message_view" >
+            <ListPreference
+                android:dialogTitle="@string/account_settings_show_pictures_label"
+                android:entries="@array/account_settings_show_pictures_entries"
+                android:entryValues="@array/account_settings_show_pictures_values"
+                android:key="show_pictures_enum"
+                android:persistent="false"
+                android:title="@string/account_settings_show_pictures_label" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="incoming_prefs"
+        android:icon="@drawable/pager_storage_icon"
+        android:title="@string/account_settings_sync" >
+        <ListPreference
+            android:dialogTitle="@string/account_settings_mail_display_count_label"
+            android:entries="@array/account_settings_display_count_entries"
+            android:entryValues="@array/account_settings_display_count_values"
+            android:key="account_display_count"
+            android:persistent="true"
+            android:title="@string/account_settings_mail_display_count_label" />
+        <ListPreference
+            android:dialogTitle="@string/account_settings_message_age_label"
+            android:entries="@array/account_settings_message_age_entries"
+            android:entryValues="@array/account_settings_message_age_values"
+            android:key="account_message_age"
+            android:persistent="true"
+            android:title="@string/account_settings_message_age_label" />
+        <ListPreference
+            android:dialogTitle="@string/account_settings_autodownload_message_size_label"
+            android:entries="@array/account_settings_autodownload_message_size_entries"
+            android:entryValues="@array/account_settings_autodownload_message_size_values"
+            android:key="account_autodownload_size"
+            android:persistent="true"
+            android:title="@string/account_settings_autodownload_message_size_label" />
+        <ListPreference
+            android:dialogTitle="@string/local_storage_provider_label"
+            android:key="local_storage_provider"
+            android:persistent="false"
+            android:title="@string/local_storage_provider_label" />
+        <ListPreference
+            android:dialogTitle="@string/account_settings_mail_check_frequency_label"
+            android:enabled="false"
+            android:entries="@array/account_settings_check_frequency_entries"
+            android:entryValues="@array/account_settings_check_frequency_values"
+            android:key="account_check_frequency"
+            android:persistent="false"
+            android:title="@string/account_settings_mail_check_frequency_label" />
+    </PreferenceScreen>
+</PreferenceScreen>

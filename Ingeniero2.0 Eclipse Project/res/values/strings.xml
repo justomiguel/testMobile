@@ -18,7 +18,8 @@
     <string name="calendar_event_added_message">"Evento Agregado!!"</string>
     <string name="specialheader"> &lt;&lt;</string>
     <string name="detailedCalendar">Seleccionar Dia</string>
-    <string name="pictureCalendar">Imagen Completa</string>
+    <string name="pictureCalendar">ISI-LAR-IEM-IQ</string>
+    <string name="pictureCalendarTsp">TSP</string>
     <string name="detailedCalendarTex" type="id">Calendario Detallado por Mes</string>
     <string name="pictureCalendarTex" type="id">Calendario Completo</string>
     <string name="mainScreenLInks" type="id">Links Utiles</string>
@@ -27,11 +28,11 @@
     <string name="main_contact_carlos" type="id">Carlos Perez</string>
     <string name="main_contact_unete" type="id">Unete</string>
     <string name="main_contact_unete_details" type="id">Agrupacion de estudiantes de la Facu. Preguntales lo que necesites!!</string>
-    <string name="main_contact_details" type="id">Estudiante de ISI. Consejero de Sistemas y creador de la version de Android de Ingeniero 2.0 y de la idea original</string>
+    <string name="main_contact_details" type="id">Estudiante de ISI. Consejero de Sistemas, fanatico de Independiente y creador de la version de Android de Ingeniero 2.0 y de la idea original</string>
     <string name="main_contact_details_carlos" type="id">Estudiante de ISI. Responsable de la version de Windows Mobile de Ingeniero 2.0</string>
     <string name="main_contact_to_carlos" type="id">Contactalo a Carlos!</string>
     <string name="contact_details_purpose" type="id">Tenes alguna duda sobre la app? sobre la facu? sobre lo que sea del mundo academico? contactanos!!</string>
-    <string name="main_contact_to_justo" type="id">Contactalo a Justo!</string>
+    <string name="main_contact_to_justo" type="id">Mandar un e-mail</string>
     <string name="main_contact_to_unete" type="id">Contactalos a los chicos de Unete!</string>
     <string name="app_name">Ingeniero 2.0</string>
     <string name="login_main_label">Ingresar a Ingeniero 2.0</string>
@@ -75,6 +76,7 @@
     <string name="prompt_email">Legajo</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in_register"><b>Ingresar</b></string>
+    <string name="go_home"><b>Ir al Home</b></string>
     <string name="retry_login"><b>Re-Intentar</b></string>
     <string name="action_sign_in_short">Ingresar</string>
     <string name="action_forgot_password">Recordar Password</string>
@@ -117,6 +119,9 @@
     <string name="change_prompt">Tipo Evento</string>
     <string name="change_carrera">Carrera</string>
     <string name="pomrpt_subjects">Subject</string>
+    
+    <string name="pomrpt_subjects_contact">Contacto</string>
+    
     <string name="pomrpt_mails">Autores</string>
     <string name="carrera_prompt">Carrera</string>
     <string name="change_extended_details_label_change">&#8230;</string>

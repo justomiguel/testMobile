@@ -144,6 +144,30 @@
                     android:id="@+id/session_status_icon_ok"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="left"
+                    android:gravity="left"
+                    android:background="@drawable/home"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="20"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@android:color/transparent"
+                    android:text="@string/go_home"
+                    android:onClick="goHome"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="20"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF" />
+                
+                <Button
+                    android:id="@+id/session_status_icon_ok"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:background="@drawable/ok_led"
                     android:shadowColor="#FFFFFF"
                     android:shadowRadius="20"

@@ -1,5 +1,6 @@
 package com.jmv.frre.moduloestudiante.activities.sysacad;
 
+import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.R.layout;
 import com.jmv.frre.moduloestudiante.utils.Utils;
@@ -34,6 +35,11 @@ public class MaintenanceMode extends Activity {
 		finish();
 	}
 	
+	 public void goHome(View view){
+	    	MainScreenActivity.showHome(this);
+	    }
+	    
+	 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		return true;

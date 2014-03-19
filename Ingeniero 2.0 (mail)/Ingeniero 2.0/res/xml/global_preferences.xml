@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2008 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+
+<!--
+  Make sure to add android:persistent="false" to all preferences to disable saving
+  the preference values to SharedPreferences. We use our own storage mechanism for
+  the preferences. See com.jmv.frre.moduloestudiante.preferences.Storage.
+
+  Also note that every sub-PreferenceScreen needs an "android:key" parameter so the correct screen
+  can be displayed after the device has been rotated.
+-->
+
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceScreen
+        android:icon="@drawable/global_settings_prefs_icon"
+        android:key="display_preferences"
+        android:title="@string/display_preferences" >
+        <PreferenceCategory
+            android:key="global_preferences"
+            android:title="@string/global_preferences" >
+            <ListPreference
+                android:dialogTitle="@string/settings_theme_label"
+                android:entries="@array/settings_theme_entries"
+                android:entryValues="@array/settings_theme_values"
+                android:key="theme"
+                android:persistent="false"
+                android:title="@string/settings_theme_label" />
+
+            <CheckBoxPreference
+                android:key="fixedMessageViewTheme"
+                android:persistent="false"
+                android:summaryOff="@string/settings_message_theme_selection_summary_off"
+                android:summaryOn="@string/settings_message_theme_selection_summary_on"
+                android:title="@string/settings_message_theme_selection_label" />
+
+            <ListPreference
+                android:dependency="fixedMessageViewTheme"
+                android:dialogTitle="@string/settings_message_theme_label"
+                android:entries="@array/settings_message_theme_entries"
+                android:entryValues="@array/settings_message_theme_values"
+                android:key="messageViewTheme"
+                android:persistent="false"
+                android:title="@string/settings_message_theme_label" />
+            <ListPreference
+                android:dialogTitle="@string/settings_compose_theme_label"
+                android:entries="@array/settings_message_theme_entries"
+                android:entryValues="@array/settings_message_theme_values"
+                android:key="messageComposeTheme"
+                android:persistent="false"
+                android:title="@string/settings_compose_theme_label" />
+
+            <Preference
+                android:key="font_size"
+                android:persistent="false"
+                android:singleLine="true"
+                android:summary="@string/font_size_settings_description"
+                android:title="@string/font_size_settings_title" />
+
+            <CheckBoxPreference
+                android:key="animations"
+                android:persistent="false"
+                android:summary="@string/animations_summary"
+                android:title="@string/animations_title" />
+        </PreferenceCategory>
+        <PreferenceCategory
+            android:key="messagelist_preferences"
+            android:title="@string/messagelist_preferences" >
+            <ListPreference
+                android:dialogTitle="@string/global_settings_preview_lines_label"
+                android:entries="@array/settings_preview_lines_entries"
+                android:entryValues="@array/settings_preview_lines_values"
+                android:key="messagelist_preview_lines"
+                android:persistent="false"
+                android:title="@string/global_settings_preview_lines_label" />
+
+            <CheckBoxPreference
+                android:key="messagelist_stars"
+                android:persistent="false"
+                android:summary="@string/global_settings_flag_summary"
+                android:title="@string/global_settings_flag_label" />
+
+            <ListPreference
+                android:dialogTitle="@string/global_settings_splitview_mode_label"
+                android:entries="@array/global_settings_splitview_mode_entries"
+                android:entryValues="@array/global_settings_splitview_mode_values"
+                android:key="splitview_mode"
+                android:persistent="false"
+                android:title="@string/global_settings_splitview_mode_label" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:icon="@drawable/confirm_icon_logo"
+        android:key="confirm_user_actions_preferences"
+        android:title="@string/interaction_preferences" >
+        <PreferenceCategory
+            android:key="interaction_preferences"
+            android:title="@string/interaction_preferences" >
+            <com.jmv.frre.moduloestudiante.preferences.CheckBoxListPreference
+                android:dialogTitle="@string/global_settings_confirm_actions_title"
+                android:key="confirm_actions"
+                android:negativeButtonText="@android:string/cancel"
+                android:persistent="false"
+                android:positiveButtonText="@android:string/ok"
+                android:summary="@string/global_settings_confirm_actions_summary"
+                android:title="@string/global_settings_confirm_actions_title" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:icon="@drawable/privacy_icon_settings"
+        android:key="privacy_preferences"
+        android:title="@string/privacy_preferences" >
+        <ListPreference
+            android:entries="@array/global_settings_notification_hide_subject_entries"
+            android:entryValues="@array/global_settings_notification_hide_subject_values"
+            android:key="notification_hide_subject"
+            android:persistent="false"
+            android:title="@string/global_settings_notification_hide_subject_title" />
+    </PreferenceScreen>
+
+</PreferenceScreen>
