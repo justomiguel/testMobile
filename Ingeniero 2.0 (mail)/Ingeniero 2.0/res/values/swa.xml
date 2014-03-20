@@ -1,19 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="account_setup_basics_swat">Seleccionar Buzon</string>
+    <string name="account_setup_basics_swat">Seleccionar Carrera</string>
+    
     <string name="primary_account_email">ingeniero2.0app@gmail.com</string>
     <string name="primary_account_password">caracoles123</string>
     <string name="primary_account_description">Buzon de Notificaciones Generales</string>
     <string name="primary_account_name">Notificaciones Generales</string>
-    <string name="secondary_account_email">isi.ingeniero2.0@gmail.com</string>
+    
+    <string name="secondary_account_email">isi.ingeniero.app@gmail.com</string>
     <string name="secondary_account_password">caracoles123</string>
     <string name="secondary_account_description">Buzon de Ingenieria en Sistemas</string>
     <string name="secondary_account_name">Notificaciones de Sistemas</string>
-    <string name="l3_account_email">swat.monitor@globant.com</string>
-    <string name="l3_account_password">loyalty@$</string>
-    <string name="l3_account_description">Swat L3 Pager</string>
-    <string name="l3_account_name">L3 Pager</string>
+    
+    <string name="l3_account_email">iq.ingeniero.app@gmail.com</string>
+    <string name="l3_account_password">caracoles123</string>
+    <string name="l3_account_description">Buzon de Ingenieria Quimica</string>
+    <string name="l3_account_name">Notificaciones de Quimica</string>
+    
+    <string name="iem_account_email">iem.ingeniero.app@gmail.com</string>
+    <string name="iem_account_password">caracoles123</string>
+    <string name="iem_account_description">Buzon de Electro</string>
+    <string name="iem_account_name">Notificaciones de Electro</string>
+    
+    <string name="lar_account_email">lar.ingeniero.app@gmail.com</string>
+    <string name="lar_account_password">caracoles123</string>
+    <string name="lar_account_description">Buzon de la Licenciatura</string>
+    <string name="lar_account_name">Notificaciones de LAR</string>
+    
+    <string name="tsp_account_email">tsp.ingeniero.app@gmail.com</string>
+    <string name="tsp_account_password">caracoles123</string>
+    <string name="tsp_account_description">Buzon de la Tecnicatura</string>
+    <string name="tsp_account_name">Notificaciones de TSP</string>
+    
+    
     <string name="change_profile">Change Profile</string>
     <string name="go_home">Go Home</string>
     <string name="app_name_swat">Pager</string>
@@ -21,20 +41,20 @@
     <string name="connection_up">Data Connection Established!</string>
     <string name="connection_lost">Data Connection Lost!</string>
     <string name="check_prod_state">Check Production</string>
-    <string name="account_settings">Account Settings</string>
+    <string name="account_settings">Configuracion de Notificaciones</string>
     <string name="check_prod_purchase_count">Purchase Count</string>
     <string name="check_prod_service_closewaits">Service CloseWaits</string>
     <string name="check_prod_tomcat_closewaits">Tomcat CloseWaits</string>
     <string name="command_title_bookings">Check Production</string>
     <string name="check_emails_home">Check Incoming E-mails</string>
-    <string name="set_initial_profile">Set Initial Profile</string>
-    <string name="delete_current_profile">Delete Current Profile</string>
-    <string name="change_profile_label">Change Profiles</string>
+    <string name="set_initial_profile">Activar Notificaciones</string>
+    <string name="delete_current_profile">Desactivar Notificaciones</string>
+    <string name="change_profile_label">Cambiar Lista de Notificacion</string>
     <string name="alert_header">Out of Connectivity!</string>
     <string name="add_change_descrip">Add Change</string>
     <string name="list_change_descrip">List Changes</string>
     <string name="delete_change_descrip">Delete Change</string>
-    <string name="setup_account_message">Finish Set up&#8230;</string>
+    <string name="setup_account_message">Terminando de Configurar!&#8230;</string>
     <string name="time_label_change">Time:</string>
     <string name="date_label_change">Date:</string>
     <string name="until_label_change">To:</string>

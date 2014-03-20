@@ -12,12 +12,12 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.common.base.Function;
-import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.dialogs.ConfirmationDialog;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
 import com.jmv.frre.moduloestudiante.utils.FRReUtils;
+import com.swacorp.oncallpager.MainActivity;
 
 /**
  * Created by Cleo on 12/10/13.
@@ -96,7 +96,7 @@ public class LinkActivity extends Activity{
                     new Runnable() {
                         @Override
                         public void run() {
-                        	MainScreenActivity.showHome(LinkActivity.this);
+                        	MainActivity.showHome(LinkActivity.this);
                         }
                     });
             case DIALOG_SHOW_ERROR:

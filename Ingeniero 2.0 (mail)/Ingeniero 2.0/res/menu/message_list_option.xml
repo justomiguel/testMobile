@@ -50,12 +50,7 @@
         android:title="@string/check_mail_action"/>
 
     <!-- MessageView -->
-    <item
-        android:id="@+id/delete"
-        android:alphabeticShortcut="q"
-        android:icon="?attr/iconActionDelete"
-        android:showAsAction="always"
-        android:title="@string/delete_action"/>
+    
     <!-- MessageView -->
     <item
         android:id="@+id/archive"
@@ -189,12 +184,14 @@
         android:id="@+id/select_all"
         android:icon="?attr/iconActionSelectAll"
         android:showAsAction="never"
+        android:visible="false"
         android:title="@string/batch_select_all"/>
 
     <!-- MessageList -->
     <item
         android:id="@+id/mark_all_as_read"
         android:showAsAction="never"
+        android:visible="false"
         android:title="@string/mark_all_as_read"/>
 
     <!-- MessageList -->
@@ -209,6 +206,7 @@
     <item
         android:id="@+id/expunge"
         android:showAsAction="never"
+        android:visible="false"
         android:title="@string/expunge_action"/>
 
     <!-- MessageView -->
@@ -225,6 +223,7 @@
     <item
         android:id="@+id/show_folder_list"
         android:showAsAction="never"
+        android:visible="false"
         android:title="@string/folders_title" />
     <!-- always -->
     <item

@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_height="fill_parent"
-    android:layout_width="fill_parent">
+    android:layout_width="fill_parent"
+    android:background="@drawable/internal_bg">
 
 <ScrollView
     android:layout_width="fill_parent"
@@ -23,7 +24,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="SWATKATS PAGER"
-                    android:src="@drawable/chose_account" />
+                    android:src="@drawable/web_icon" />
         
       <TextView
         android:text="@string/account_setup_basics_swat"
@@ -41,13 +42,22 @@
 		android:id="@+id/RolePager">
 	  	<RadioButton android:checked="false"
 			android:id="@+id/option_primary" 
-			android:text="Primary Pager"/>
+			android:text="Notificaciones Generales"/>
 	  	<RadioButton android:checked="false"
-			android:id="@+id/option_secondary" 
-			android:text="Secondary Pager"/>
+			android:id="@+id/option_isi" 
+			android:text="Solo ISI"/>
 	  	<RadioButton android:checked="false"
-			android:id="@+id/option_l3" 
-			android:text="L3 Pager"/>
+			android:id="@+id/option_iq" 
+			android:text="Solo IQ"/>
+	  	<RadioButton android:checked="false"
+			android:id="@+id/option_iem" 
+			android:text="Solo IEM"/>
+	  	<RadioButton android:checked="false"
+			android:id="@+id/option_lar" 
+			android:text="Solo LAR"/>
+	  	<RadioButton android:checked="false"
+			android:id="@+id/option_tsp" 
+			android:text="Solo TSP"/>
 	  	<RadioButton android:checked="false"
 	  	    android:visibility="gone"
 			android:id="@+id/debug_email_option" 

@@ -19,7 +19,7 @@ public class SwatRingtoneHelper {
 
 
     public static String getRingtone(Context context){
-        try {
+       /* try {
             if (context!=null){
                 //Open the InputStream from the Assets
                 InputStream fis = context.getAssets().open("ringtones/beeper_loop.ogg");
@@ -82,7 +82,7 @@ public class SwatRingtoneHelper {
         
         } catch (IOException e) {
         
-        }
+        }*/
         
         return defaultRingtone;
     }

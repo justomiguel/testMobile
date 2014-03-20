@@ -16,49 +16,63 @@ public class AccountSetupNamesSwat {
 
 	public static void actionSetNames(Context context, Account mAccount) {
 		// TODO Auto-generated method stub
-        if (mAccount.getEmail().equals(context.getString(R.string.primary_account_email))){
-			mAccount.setDescription(context.getString(R.string.primary_account_description));
-	        mAccount.setName(context.getString(R.string.primary_account_name));
-        } else if (mAccount.getEmail().equals(context.getString(R.string.secondary_account_email))){
-        	mAccount.setDescription(context.getString(R.string.secondary_account_description));
-	        mAccount.setName(context.getString(R.string.secondary_account_name));
-        } else {
-        	if (MainActivity.DEBUG){
-        		mAccount.setDescription("Debug Mail For test");
-    	        mAccount.setName("Debug Mail");
-        	} else {
-        		mAccount.setDescription(context.getString(R.string.l3_account_description));
-    	        mAccount.setName(context.getString(R.string.l3_account_name));
-        	}
-        }
-        mAccount.setAutomaticCheckIntervalMinutes(15);
-        mAccount.setPushPollOnConnect(true);
-        mAccount.setIdleRefreshMinutes(5);
-        mAccount.setMaxPushFolders(1);
-        mAccount.setDeletePolicy(0);
-        mAccount.setEnabled(true);
-        mAccount.setCryptoAutoEncrypt(false);
-        mAccount.setCryptoApp(None.NAME);
-        mAccount.setFolderSyncMode(Account.FolderMode.FIRST_CLASS);
-        mAccount.setNotifyNewMail(true);
-        mAccount.setShowOngoing(true);
-        mAccount.setExpungePolicy(Account.EXPUNGE_MANUALLY);
-        mAccount.setSyncRemoteDeletions(false);
-        mAccount.setDeletePolicy(Account.DELETE_POLICY_NEVER);
-        mAccount.setMarkMessageAsReadOnView(false);
-        mAccount.setGoToUnreadMessageSearch(true);
-        mAccount.setNotificationShowsUnreadCount(true);
-        NotificationSetting n = mAccount.getNotificationSetting();
-        n.setKeepPlaying(true);
-        n.setLed(true);
-        n.setLedColor(Color.RED);
-        n.setVibrate(true);
-        n.setVibratePattern(1);
-        n.setVibrateTimes(3);
-        n.setConnectivityTimesCheck(1);
-        mAccount.setFolderPushMode(Account.FolderMode.FIRST_CLASS);
-        mAccount.save(Preferences.getPreferences(context));	
+		if (mAccount.getEmail().equals(
+				context.getString(R.string.primary_account_email))) {
+			mAccount.setDescription(context
+					.getString(R.string.primary_account_description));
+			mAccount.setName(context.getString(R.string.primary_account_name));
+		} else if (mAccount.getEmail().equals(
+				context.getString(R.string.secondary_account_email))) {
+			mAccount.setDescription(context
+					.getString(R.string.secondary_account_description));
+			mAccount.setName(context.getString(R.string.secondary_account_name));
+		} else if (mAccount.getEmail().equals(
+				context.getString(R.string.l3_account_email))) {
+			mAccount.setDescription(context
+					.getString(R.string.l3_account_description));
+			mAccount.setName(context.getString(R.string.l3_account_name));
+		} else if (mAccount.getEmail().equals(
+				context.getString(R.string.iem_account_email))) {
+			mAccount.setDescription(context
+					.getString(R.string.iem_account_description));
+			mAccount.setName(context.getString(R.string.iem_account_name));
+		} else if (mAccount.getEmail().equals(
+				context.getString(R.string.lar_account_email))) {
+			mAccount.setDescription(context
+					.getString(R.string.lar_account_description));
+			mAccount.setName(context.getString(R.string.lar_account_name));
+		} else {
+			mAccount.setDescription(context
+					.getString(R.string.tsp_account_description));
+			mAccount.setName(context.getString(R.string.tsp_account_name));
+		}
+
+		mAccount.setPushPollOnConnect(true);
+		mAccount.setIdleRefreshMinutes(5);
+		mAccount.setMaxPushFolders(1);
+		mAccount.setDeletePolicy(0);
+		mAccount.setEnabled(true);
+		mAccount.setCryptoAutoEncrypt(false);
+		mAccount.setCryptoApp(None.NAME);
+		mAccount.setFolderSyncMode(Account.FolderMode.FIRST_CLASS);
+		mAccount.setNotifyNewMail(true);
+		mAccount.setShowOngoing(true);
+		mAccount.setExpungePolicy(Account.EXPUNGE_MANUALLY);
+		mAccount.setSyncRemoteDeletions(false);
+		mAccount.setDeletePolicy(Account.DELETE_POLICY_NEVER);
+		mAccount.setMarkMessageAsReadOnView(false);
+		mAccount.setGoToUnreadMessageSearch(true);
+		mAccount.setNotificationShowsUnreadCount(true);
+		NotificationSetting n = mAccount.getNotificationSetting();
+		n.setKeepPlaying(true);
+		n.setLed(true);
+		n.setLedColor(Color.RED);
+		n.setVibrate(true);
+		n.setVibratePattern(1);
+		n.setVibrateTimes(3);
+		n.setConnectivityTimesCheck(1);
+		mAccount.setFolderPushMode(Account.FolderMode.FIRST_CLASS);
+		mAccount.save(Preferences.getPreferences(context));
 	}
-	
 
 }

@@ -45,6 +45,8 @@ public class ExamsMadeActivity extends LinkActivity {
 
 	protected String myCurrentResponse = null;
 
+	private TextView promedio;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -52,6 +54,9 @@ public class ExamsMadeActivity extends LinkActivity {
 		setContentView(R.layout.activity_exams_made);
 
 		aprobaText = (TextView) findViewById(R.id.aprobadasTextView);
+		
+		promedio = (TextView) findViewById(R.id.promedio);
+		
 		desaprobaText = (TextView) findViewById(R.id.desaprobadasTextView);
 		ausenteText = (TextView) findViewById(R.id.ausentesTextView);
 
@@ -138,16 +143,29 @@ public class ExamsMadeActivity extends LinkActivity {
 
 		Collections.sort(aprobados);
 
+		Double nota = 0d;
 		for (String exam : aprobados) {
-			materiasView.addView(getTableRowView(exam), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+			NotaTableRow notaR = getTableRowView(exam);
+			materiasView.addView(notaR, new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+			nota += notaR.getNota();
 		}
+		
+		Double notaAplazos = nota;
+		
+		nota = nota / aprobados.size();
 
 		Collections.sort(desaprobados);
 
 		for (String exam : desaprobados) {
-			materiasView.addView(getTableRowView(exam), new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+			NotaTableRow notaR = getTableRowView(exam);
+			materiasView.addView(notaR, new TableLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+			notaAplazos += notaR.getNota();
 		}
 
+		notaAplazos = notaAplazos / (aprobados.size()+desaprobados.size());
+		
+		promedio.setText(String.valueOf(nota).substring(0, 4) + " - " + String.valueOf(notaAplazos).substring(0, 4));
+		
 		Collections.sort(ausentes);
 
 		for (String exam : ausentes) {

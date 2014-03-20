@@ -22,6 +22,7 @@
         android:alphabeticShortcut="c"
         android:icon="?attr/iconActionCompose"
         android:showAsAction="always"
+        android:visible="false"
         android:title="@string/compose_action"/>
     <item
         android:icon="?attr/iconFolder"
@@ -45,11 +46,7 @@
         android:id="@+id/send_messages"
         android:icon="?attr/iconActionUpload"
         android:title="@string/send_messages_action"/>
-    <item
-        android:id="@+id/empty_trash"
-        android:alphabeticShortcut="e"
-        android:icon="?attr/iconActionDelete"
-        android:title="@string/empty_trash_action"/>
+    
     <item
         android:id="@+id/compact"
         android:showAsAction="never"

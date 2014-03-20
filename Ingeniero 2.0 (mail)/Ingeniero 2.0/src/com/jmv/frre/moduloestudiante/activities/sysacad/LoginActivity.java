@@ -16,12 +16,12 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
 import com.jmv.frre.moduloestudiante.utils.FRReUtils;
 import com.jmv.frre.moduloestudiante.utils.Utils;
+import com.swacorp.oncallpager.MainActivity;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -87,7 +87,7 @@ public class LoginActivity extends Activity {
 
 
     public void goHome(View view){
-    	MainScreenActivity.showHome(this);
+    	MainActivity.showHome(this);
     }
     
     @Override
@@ -160,7 +160,7 @@ public class LoginActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        MainScreenActivity.showHome(this);
+    	MainActivity.showHome(this);
     }
 
     /**

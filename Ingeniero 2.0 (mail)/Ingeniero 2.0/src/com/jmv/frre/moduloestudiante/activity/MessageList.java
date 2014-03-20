@@ -3,6 +3,7 @@ package com.jmv.frre.moduloestudiante.activity;
 import java.util.Collection;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -64,6 +65,7 @@ import de.cketti.library.changelog.ChangeLog;
  * shows a list of messages.
  * From this Activity the user can perform all standard message operations.
  */
+@SuppressLint("NewApi")
 public class MessageList extends K9FragmentActivity implements MessageListFragmentListener,
         MessageViewFragmentListener, OnBackStackChangedListener, OnSwipeGestureListener,
         OnSwitchCompleteListener {
@@ -844,7 +846,7 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
                 return true;
             }
             case R.id.reply: {
-                mMessageViewFragment.onReply();
+                //mMessageViewFragment.onReply();
                 return true;
             }
             case R.id.reply_all: {
@@ -945,32 +947,33 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
      *         the method does nothing and immediately returns.
      */
     private void configureMenu(Menu menu) {
+    	
         if (menu == null) {
             return;
         }
 
         // Set visibility of account/folder settings menu items
-        if (mMessageListFragment == null) {
+      //  if (mMessageListFragment == null) {
             menu.findItem(R.id.account_settings).setVisible(false);
             menu.findItem(R.id.folder_settings).setVisible(false);
-        } else {
-            menu.findItem(R.id.account_settings).setVisible(
-                    mMessageListFragment.isSingleAccountMode());
-            menu.findItem(R.id.folder_settings).setVisible(
-                    mMessageListFragment.isSingleFolderMode());
-        }
+       // } else {
+       //     menu.findItem(R.id.account_settings).setVisible(
+       //             mMessageListFragment.isSingleAccountMode());
+       //     menu.findItem(R.id.folder_settings).setVisible(
+            //        mMessageListFragment.isSingleFolderMode());
+       // }
 
         /*
          * Set visibility of menu items related to the message view
          */
 
-        if (mDisplayMode == DisplayMode.MESSAGE_LIST
-                || mMessageViewFragment == null
-                || !mMessageViewFragment.isInitialized()) {
+      //  if (mDisplayMode == DisplayMode.MESSAGE_LIST
+      //          || mMessageViewFragment == null
+      //          || !mMessageViewFragment.isInitialized()) {
             menu.findItem(R.id.next_message).setVisible(false);
             menu.findItem(R.id.previous_message).setVisible(false);
             menu.findItem(R.id.single_message_options).setVisible(false);
-            menu.findItem(R.id.delete).setVisible(false);
+            menu.findItem(R.id.compose).setVisible(false);
             menu.findItem(R.id.archive).setVisible(false);
             menu.findItem(R.id.move).setVisible(false);
             menu.findItem(R.id.copy).setVisible(false);
@@ -981,31 +984,31 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
             menu.findItem(R.id.toggle_message_view_theme).setVisible(false);
             menu.findItem(R.id.show_headers).setVisible(false);
             menu.findItem(R.id.hide_headers).setVisible(false);
-        } else {
-            // hide prev/next buttons in split mode
-            if (mDisplayMode != DisplayMode.MESSAGE_VIEW) {
+      //  } else {
+    //  /      // hide prev/next buttons in split mode
+          //  if (mDisplayMode != DisplayMode.MESSAGE_VIEW) {
                 menu.findItem(R.id.next_message).setVisible(false);
                 menu.findItem(R.id.previous_message).setVisible(false);
-            } else {
-                MessageReference ref = mMessageViewFragment.getMessageReference();
+          //  } else {
+             /*   MessageReference ref = mMessageViewFragment.getMessageReference();
                 boolean initialized = (mMessageListFragment != null &&
                         mMessageListFragment.isLoadFinished());
                 boolean canDoPrev = (initialized && !mMessageListFragment.isFirst(ref));
-                boolean canDoNext = (initialized && !mMessageListFragment.isLast(ref));
+                boolean canDoNext = (initialized && !mMessageListFragment.isLast(ref));*/
 
-                MenuItem prev = menu.findItem(R.id.previous_message);
+            /*    MenuItem prev = menu.findItem(R.id.previous_message);
                 prev.setEnabled(canDoPrev);
                 prev.getIcon().setAlpha(canDoPrev ? 255 : 127);
 
                 MenuItem next = menu.findItem(R.id.next_message);
                 next.setEnabled(canDoNext);
                 next.getIcon().setAlpha(canDoNext ? 255 : 127);
-            }
+            }*/
 
             MenuItem toggleTheme = menu.findItem(R.id.toggle_message_view_theme);
-            if (K9.useFixedMessageViewTheme()) {
+        //    if (K9.useFixedMessageViewTheme()) {*/
                 toggleTheme.setVisible(false);
-            } else {
+          /*  } else {
                 // Set title of menu item to switch to dark/light theme
                 if (K9.getK9MessageViewTheme() == K9.Theme.DARK) {
                     toggleTheme.setTitle(R.string.message_view_theme_action_light);
@@ -1013,34 +1016,34 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
                     toggleTheme.setTitle(R.string.message_view_theme_action_dark);
                 }
                 toggleTheme.setVisible(true);
-            }
+            }*/
 
             // Set title of menu item to toggle the read state of the currently displayed message
-            if (mMessageViewFragment.isMessageRead()) {
+          /*  if (mMessageViewFragment.isMessageRead()) {
                 menu.findItem(R.id.toggle_unread).setTitle(R.string.mark_as_unread_action);
             } else {
                 menu.findItem(R.id.toggle_unread).setTitle(R.string.mark_as_read_action);
-            }
+            }*/
 
             // Jellybean has built-in long press selection support
-            menu.findItem(R.id.select_text).setVisible(Build.VERSION.SDK_INT < 16);
+            menu.findItem(R.id.select_text).setVisible(false);
 
-            menu.findItem(R.id.delete).setVisible(K9.isMessageViewDeleteActionVisible());
+           // menu.findItem(R.id.delete).setVisible(K9.isMessageViewDeleteActionVisible());
 
             /*
              * Set visibility of copy, move, archive, spam in action bar and refile submenu
              */
             Menu refileSubmenu = menu.findItem(R.id.refile).getSubMenu();
 
-            if (mMessageViewFragment.isCopyCapable()) {
+          /*  if (mMessageViewFragment.isCopyCapable()) {
                 menu.findItem(R.id.copy).setVisible(K9.isMessageViewCopyActionVisible());
                 refileSubmenu.findItem(R.id.copy).setVisible(true);
-            } else {
+            } else {*/
                 menu.findItem(R.id.copy).setVisible(false);
                 refileSubmenu.findItem(R.id.copy).setVisible(false);
-            }
+       //     }
 
-            if (mMessageViewFragment.isMoveCapable()) {
+           /* if (mMessageViewFragment.isMoveCapable()) {
                 boolean canMessageBeArchived = mMessageViewFragment.canMessageBeArchived();
                 boolean canMessageBeMovedToSpam = mMessageViewFragment.canMessageBeMovedToSpam();
 
@@ -1053,20 +1056,20 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
                 refileSubmenu.findItem(R.id.move).setVisible(true);
                 refileSubmenu.findItem(R.id.archive).setVisible(canMessageBeArchived);
                 refileSubmenu.findItem(R.id.spam).setVisible(canMessageBeMovedToSpam);
-            } else {
+            } else {*/
                 menu.findItem(R.id.move).setVisible(false);
                 menu.findItem(R.id.archive).setVisible(false);
                 menu.findItem(R.id.spam).setVisible(false);
 
                 menu.findItem(R.id.refile).setVisible(false);
-            }
+           // }
 
-            if (mMessageViewFragment.allHeadersVisible()) {
+         //   if (mMessageViewFragment.allHeadersVisible()) {
                 menu.findItem(R.id.show_headers).setVisible(false);
-            } else {
+         //   } else {
                 menu.findItem(R.id.hide_headers).setVisible(false);
-            }
-        }
+           // }
+       // }
 
 
         /*
@@ -1077,8 +1080,8 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
         menu.findItem(R.id.search).setVisible(false);
         menu.findItem(R.id.search_remote).setVisible(false);
 
-        if (mDisplayMode == DisplayMode.MESSAGE_VIEW || mMessageListFragment == null ||
-                !mMessageListFragment.isInitialized()) {
+      //  if (mDisplayMode == DisplayMode.MESSAGE_VIEW || mMessageListFragment == null ||
+        //        !mMessageListFragment.isInitialized()) {
             menu.findItem(R.id.check_mail).setVisible(false);
             menu.findItem(R.id.set_sort).setVisible(false);
             menu.findItem(R.id.select_all).setVisible(false);
@@ -1086,7 +1089,7 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
             menu.findItem(R.id.expunge).setVisible(false);
             menu.findItem(R.id.mark_all_as_read).setVisible(false);
             menu.findItem(R.id.show_folder_list).setVisible(false);
-        } else {
+       /* } else {
             menu.findItem(R.id.set_sort).setVisible(true);
             menu.findItem(R.id.select_all).setVisible(true);
             menu.findItem(R.id.mark_all_as_read).setVisible(
@@ -1101,7 +1104,7 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
                 menu.findItem(R.id.expunge).setVisible(mMessageListFragment.isRemoteFolder() &&
                         mMessageListFragment.isAccountExpungeCapable());
                 menu.findItem(R.id.show_folder_list).setVisible(true);
-            }
+            }*/
 
             menu.findItem(R.id.check_mail).setVisible(mMessageListFragment.isCheckMailSupported());
 
@@ -1112,7 +1115,7 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
             } else if (!mMessageListFragment.isManualSearch()) {
                 menu.findItem(R.id.search).setVisible(true);
             }
-        }
+        
     }
 
     protected void onAccountUnavailable() {
@@ -1508,7 +1511,7 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
 
     @Override
     public void updateMenu() {
-        invalidateOptionsMenu();
+       // invalidateOptionsMenu();
     }
 
     @Override

@@ -1,10 +1,10 @@
 package com.jmv.frre.moduloestudiante.activities.sysacad;
 
-import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.R.layout;
 import com.jmv.frre.moduloestudiante.R.menu;
 import com.jmv.frre.moduloestudiante.utils.Utils;
+import com.swacorp.oncallpager.MainActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -28,7 +28,7 @@ public class ConectionRequired extends Activity {
 	}
 
 	 public void goHome(View view){
-	    	MainScreenActivity.showHome(this);
+	    	MainActivity.showHome(this);
 	    }
 	    
 	 

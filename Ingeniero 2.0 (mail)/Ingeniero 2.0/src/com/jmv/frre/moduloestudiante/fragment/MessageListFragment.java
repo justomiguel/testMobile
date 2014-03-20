@@ -686,7 +686,7 @@ public class MessageListFragment extends SherlockFragment implements OnItemClick
 
             String operation = mListener.getOperation(activity);
             if (operation.length() < 1) {
-                mFragmentListener.setMessageListSubTitle(mAccount.getEmail());
+                mFragmentListener.setMessageListSubTitle("");
             } else {
                 mFragmentListener.setMessageListSubTitle(operation);
             }
@@ -1494,8 +1494,8 @@ public class MessageListFragment extends SherlockFragment implements OnItemClick
                 break;
             }
             case R.id.reply: {
-                Message message = getMessageAtPosition(adapterPosition);
-                onReply(message);
+               // Message message = getMessageAtPosition(adapterPosition);
+                //onReply(message);
                 break;
             }
             case R.id.reply_all: {
@@ -3272,7 +3272,7 @@ public class MessageListFragment extends SherlockFragment implements OnItemClick
     }
 
     public boolean isRemoteSearchAllowed() {
-        if (!mSearch.isManualSearch() || mRemoteSearchPerformed || !mSingleFolderMode) {
+        if (mSearch== null || !mSearch.isManualSearch() || mRemoteSearchPerformed || !mSingleFolderMode) {
             return false;
         }
 

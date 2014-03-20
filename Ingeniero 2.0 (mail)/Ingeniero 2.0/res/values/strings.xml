@@ -83,8 +83,8 @@
     <string name="title_activity_login">Ingresar Credenciales</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Legajo</string>
-    <string name="prompt_password">Password</string>
+    <string name="prompt_email">Tu Legajo va aca&#8230;</string>
+    <string name="prompt_password">Tu password va aca</string>
     <string name="action_sign_in_register"><b>Ingresar</b></string>
     <string name="go_home"><b>Ir al Home</b></string>
     <string name="retry_login"><b>Re-Intentar</b></string>
@@ -193,30 +193,30 @@
     <string name="app_license">Licensed under the Apache License, Version 2.0.</string>
 
     <!-- Welcome message -->
-    <string name="welcome_message_title">Ingeniero2.0 Pager Mobile</string>
+    <string name="welcome_message_title">Ingeniero2.0 Mobile</string>
     <string name="accounts_welcome">
 <![CDATA[
 <p>
-Ingeniero2.0 Pager Mobile.
 </p><p>
-Mobile Application for doing onCall Support to Southwest Airlines:
+Aplicacion para cualquier alumno de la Regional Resistencia, que te permite:
 </p>
 <ul>
-  <li>Push Pagers using IMAP IDLE</li>
-  <li>Saving ringtones and user preferences</li>
-  <li>View Current Prod Status</li>
-  <li>…and more</li>
+  <li>Estar al dia con el Calendario Academico Actualizado</li>
+  <li>Recibir Notificaciones de interes sobre tu carrera</li>
+  <li>Conocer tus horarios de cursado</li>
+  <li>Acceder al Sysacad, para ver tu estado academico, inscribirte a finales y al cursado</li>
+  <li>…y mas</li>
 </ul>
 <p>
-App Developed by SWATKATS - The Village Team - Resistencia Argentina
+UTN FRRe - Resistencia
 </p><p>
-Southwest Airlines Co.
+Argentina
 </p>
     ]]>
     </string>
 
     <!-- Default signature -->
-    <string name="default_signature">-- \nSent from SWAT Pager.</string>
+    <string name="default_signature">-- \nSent from Ingeniero 2.0.</string>
 
     <!-- General strings that include the app name -->
     <string name="account_delete_dlg_instructions_fmt">The account \"<xliff:g id="account">%s</xliff:g>\" will be removed from Ingeniero 2.0.</string>
@@ -251,16 +251,16 @@ Southwest Airlines Co.
     <string name="compose_title_reply_all">Reply all</string>
     <string name="compose_title_forward">Forward</string>
     <string name="choose_folder_title">Choose Folder</string>
-    <string name="status_loading_account_folder">Poll <xliff:g id="account">%s</xliff:g>:<xliff:g id="folder">%s</xliff:g><xliff:g id="progress">%s</xliff:g></string>
+    <string name="status_loading_account_folder">Actualizacion <xliff:g id="account">%s</xliff:g>:<xliff:g id="folder">%s</xliff:g><xliff:g id="progress">%s</xliff:g></string>
     <string name="status_loading_account_folder_headers">Fetching headers <xliff:g id="account">%s</xliff:g>:<xliff:g id="folder">%s</xliff:g><xliff:g id="progress">%s</xliff:g></string>
     <string name="status_sending_account">Sending <xliff:g id="account">%s</xliff:g><xliff:g id="progress">%s</xliff:g></string>
     <string name="status_processing_account">Proc <xliff:g id="account">%s</xliff:g>:<xliff:g id="command">%s</xliff:g><xliff:g id="progress">%s</xliff:g></string>
     <string name="folder_progress">\u0020<xliff:g id="completed">%s</xliff:g>/<xliff:g id="total">%s</xliff:g></string>
     <string name="status_next_poll">Next poll <xliff:g id="nexttime">%s</xliff:g></string>
-    <string name="status_syncing_off">Syncing disabled</string>
+    <string name="status_syncing_off">Sincronizacion Automatica no habilitada! (Para ahorrar bateria!)</string>
     <string name="actionbar_selected"><xliff:g id="selection_count">%d</xliff:g> selected</string>
     <!-- Actions will be used as buttons and in menu items -->
-    <string name="next_action">Next</string> <!-- Used as part of a multi-step process -->
+    <string name="next_action">Siguiente</string> <!-- Used as part of a multi-step process -->
     <string name="previous_action">Previous</string> <!-- Used as part of a multi-step process -->
     <string name="okay_action">OK</string> <!-- User to confirm acceptance of dialog boxes, warnings, errors, etc. -->
     <string name="cancel_action">Cancel</string>
@@ -282,7 +282,7 @@ Southwest Airlines Co.
     <string name="done_action">Done</string> <!-- Used to complete a multi-step process -->
     <string name="discard_action">Discard</string>
     <string name="save_draft_action">Save as draft</string>
-    <string name="check_mail_action">Check Pagers</string>
+    <string name="check_mail_action">Buscando Notificaciones</string>
     <string name="send_messages_action">Send messages</string>
     <string name="refresh_folders_action">Refresh folder list</string>
     <string name="filter_folders_action">Find folder</string>
@@ -291,7 +291,7 @@ Southwest Airlines Co.
     <string name="search_action">Search</string>
     <string name="search_results">Search results</string>
     <string name="preferences_action">Settings</string>
-    <string name="account_settings_action">Account settings</string>
+    <string name="account_settings_action">Configurar Notificaciones</string>
     <string name="folder_settings_action">Folder settings</string>
     <string name="global_settings_action">Global settings</string>
     <string name="remove_account_action">Remove account</string>
@@ -324,12 +324,12 @@ Southwest Airlines Co.
     <string name="general_no_subject">(No subject)</string> <!-- Shown in place of the subject when a message has no subject. Showing this in parentheses is customary. -->
     <string name="general_no_sender">No sender</string>
     <string name="status_loading">Polling</string>
-    <string name="status_loading_more">Loading messages\u2026</string>
+    <string name="status_loading_more">Cargando mensajes\u2026</string>
     <string name="status_network_error">Connection error</string>
     <string name="status_invalid_id_error">Message not found</string>
     <string name="status_loading_more_failed">Retry loading more messages</string>
-    <string name="load_more_messages_fmt">Load up
-    to <xliff:g id="messages_to_load">%d</xliff:g> more</string>
+    <string name="load_more_messages_fmt">Cargar
+    hasta <xliff:g id="messages_to_load">%d</xliff:g> mas</string>
     <string name="abbrev_gigabytes">GB</string>
     <string name="abbrev_megabytes">MB</string>
     <string name="abbrev_kilobytes">KB</string>
@@ -346,13 +346,13 @@ Southwest Airlines Co.
     <string name="notification_action_mark_as_read">Mark Read</string>
     <string name="notification_action_delete">Delete</string>
     <string name="notification_certificate_error_title">Certificate error for <xliff:g id="account">%s</xliff:g></string>
-    <string name="notification_certificate_error_text">Check your server settings</string>
-    <string name="notification_bg_sync_ticker">Checking For Pagers: <xliff:g id="account">%s</xliff:g>:<xliff:g id="folder">%s</xliff:g></string>
-    <string name="notification_bg_sync_title">Checking Pager</string>
+    <string name="notification_certificate_error_text">Algo malo paso...</string>
+    <string name="notification_bg_sync_ticker">Revisando Notificaciones: <xliff:g id="account">%s</xliff:g>:<xliff:g id="folder">%s</xliff:g></string>
+    <string name="notification_bg_sync_title">Revisando Notificaciones</string>
     <string name="notification_bg_send_ticker">Sending Pager: <xliff:g id="account">%s</xliff:g></string>
     <string name="notification_bg_send_title">Sending Pager</string>
     <string name="notification_bg_title_separator">:</string>
-    <string name="special_mailbox_name_inbox">Inbox</string>
+    <string name="special_mailbox_name_inbox">Buzon de Notificaciones</string>
     <string name="special_mailbox_name_outbox">Outbox</string>
     <!-- The following mailbox names will be used if the user has not specified one from the server -->
     <string name="special_mailbox_name_drafts">Drafts</string>
@@ -362,12 +362,12 @@ Southwest Airlines Co.
     <string name="special_mailbox_name_spam">Spam</string>
     <!-- Mailbox names displayed to user -->
 
-    <string name="disable_current_account">Disabling Current Profile&#8230;</string>
+    <string name="disable_current_account">Desactivando Notificaciones&#8230;</string>
     <string name="getting_events_current_account">Gettings Events From Calendar&#8230;</string>
-    <string name="account_settings_display_prefs_title">General Display Settings</string>
-    <string name="account_settings_message_lists">Listing messages</string>
-    <string name="account_settings_message_view">Viewing messages</string>
-    <string name="account_settings_ringtone_times">Repeat Pager Sound</string>
+    <string name="account_settings_display_prefs_title">Configuracion General de Interfaz</string>
+    <string name="account_settings_message_lists">Lista de Notificaciones</string>
+    <string name="account_settings_message_view">Vista de Notificaciones</string>
+    <string name="account_settings_ringtone_times">Repeticion de Sonido</string>
     <string name="special_mailbox_name_drafts_fmt"><xliff:g id="folder">%s</xliff:g> (Drafts)</string>
     <string name="special_mailbox_name_trash_fmt"><xliff:g id="folder">%s</xliff:g> (Trash)</string>
     <string name="special_mailbox_name_sent_fmt"><xliff:g id="folder">%s</xliff:g> (Sent)</string>
@@ -478,13 +478,13 @@ Southwest Airlines Co.
     <string name="quiet_time_description">Disable ringing, buzzing and flashing at night</string>
     <string name="quiet_time_starts">Quiet Time starts</string>
     <string name="quiet_time_ends">Quiet Time ends</string>
-    <string name="account_setup_basics_title">Set up a new account</string>
+    <string name="account_setup_basics_title">Inscribirse a notificaciones!</string>
     <string name="account_setup_basics_email_hint">Pager address</string>
     <string name="account_setup_basics_password_hint">Password</string>
     <string name="account_setup_basics_manual_setup_action">Manual setup</string>
     <string name="account_setup_check_settings_title"></string>
     <string name="account_setup_check_settings_retr_info_msg">Retrieving account information\u2026</string>
-    <string name="account_setup_check_settings_check_incoming_msg">Checking incoming server settings\u2026</string>
+    <string name="account_setup_check_settings_check_incoming_msg">Bajando Notificaciones sin leer!.. \u2026</string>
     <string name="account_setup_check_settings_check_outgoing_msg">Checking outgoing server settings\u2026</string>
     <string name="account_setup_check_settings_authenticate">Authenticating\u2026</string>
     <string name="account_setup_check_settings_fetch">Fetching account settings\u2026</string>
@@ -519,10 +519,10 @@ Southwest Airlines Co.
     <string name="account_setup_incoming_mobile_label">Mobile</string>
     <string name="account_setup_incoming_wifi_label">Wi-Fi</string>
     <string name="account_setup_incoming_other_label">Other</string>
-    <string name="local_storage_provider_external_label">External storage (SD card)</string>
-    <string name="local_storage_provider_internal_label">Regular internal storage</string>
+    <string name="local_storage_provider_external_label">Memoria Externa (SD card)</string>
+    <string name="local_storage_provider_internal_label">Memoria Interna</string>
     <string name="local_storage_provider_samsunggalaxy_label">%1$s additional internal storage</string>
-    <string name="local_storage_provider_label">Storage location</string>
+    <string name="local_storage_provider_label">Lugar de guardado</string>
     <string name="account_setup_expunge_policy_label">Erase deleted messages on server</string>
     <string name="account_setup_expunge_policy_immediately">Immediately</string>
     <string name="account_setup_expunge_policy_on_poll">When polling</string>
@@ -587,29 +587,29 @@ Southwest Airlines Co.
 
     <!-- Number of displayed messages, also used in account_settings_* -->
     <string name="account_setup_options_mail_display_count_label">Number of messages to display</string>
-    <string name="account_setup_options_mail_display_count_10">10 messages</string>
-    <string name="account_setup_options_mail_display_count_25">25 messages</string>
-    <string name="account_setup_options_mail_display_count_50">50 messages</string>
-    <string name="account_setup_options_mail_display_count_100">100 messages</string>
-    <string name="account_setup_options_mail_display_count_250">250 messages</string>
-    <string name="account_setup_options_mail_display_count_500">500 messages</string>
-    <string name="account_setup_options_mail_display_count_1000">1000 messages</string>
-    <string name="account_setup_options_mail_display_count_all">all messages</string>
+    <string name="account_setup_options_mail_display_count_10">10 notificaciones</string>
+    <string name="account_setup_options_mail_display_count_25">25 notificaciones</string>
+    <string name="account_setup_options_mail_display_count_50">50 notificaciones</string>
+    <string name="account_setup_options_mail_display_count_100">100 notificaciones</string>
+    <string name="account_setup_options_mail_display_count_250">250 notificaciones</string>
+    <string name="account_setup_options_mail_display_count_500">500 notificaciones</string>
+    <string name="account_setup_options_mail_display_count_1000">1000 notificaciones</string>
+    <string name="account_setup_options_mail_display_count_all">Todas las notificaciones</string>
     <string name="move_copy_cannot_copy_unsynced_message">Cannot copy or move a message that is not synchronized with the server</string>
-    <string name="account_setup_failed_dlg_title">Setup could not finish</string>
-    <string name="account_setup_failed_dlg_auth_message_fmt">Can Not Connect to the server - Check Later.\n(<xliff:g id="error">%s</xliff:g>)</string> <!-- Username or password incorrect\n(ERR01 Account does not exist) -->
-    <string name="account_setup_failed_dlg_certificate_message_fmt">The server presented an invalid SSL certificate. Sometimes, this is because of a server misconfiguration. Sometimes it is because someone is trying to attack you or your mail server. If you\'re not sure what\'s up, click Reject and contact the folks who manage your Pager server.\n\n(<xliff:g id="error">%s</xliff:g>)</string> <!-- Cannot safely connect to server\n(Invalid certificate) -->
-    <string name="account_setup_failed_dlg_server_message_fmt">Cannot connect to server - Check Later .\n(<xliff:g id="error">%s</xliff:g>)</string> <!-- Cannot connect to server\n(Connection timed out) -->
+    <string name="account_setup_failed_dlg_title">No puedo revisar notificaciones ahora!</string>
+    <string name="account_setup_failed_dlg_auth_message_fmt">Revisa dentro de un rato!.\n(<xliff:g id="error">%s</xliff:g>)</string> <!-- Username or password incorrect\n(ERR01 Account does not exist) -->
+    <string name="account_setup_failed_dlg_certificate_message_fmt">Todo mal con el SSL certificate. Sometimes, this is because of a server misconfiguration. Sometimes it is because someone is trying to attack you or your mail server. If you\'re not sure what\'s up, click Reject and contact the folks who manage your Pager server.\n\n(<xliff:g id="error">%s</xliff:g>)</string> <!-- Cannot safely connect to server\n(Invalid certificate) -->
+    <string name="account_setup_failed_dlg_server_message_fmt">Revisa dentro de un rato! .\n(<xliff:g id="error">%s</xliff:g>)</string> <!-- Cannot connect to server\n(Connection timed out) -->
     <string name="account_setup_failed_dlg_edit_details_action">Edit details</string>
-    <string name="account_setup_failed_dlg_continue_action">Continue</string>
+    <string name="account_setup_failed_dlg_continue_action">Continuar</string>
     <string name="account_settings_push_advanced_title">Advanced</string>
-    <string name="account_settings_title_fmt">Account settings</string>
+    <string name="account_settings_title_fmt">Configuracion de Notificaciones</string>
     <string name="account_settings_default_label">Default account</string>
     <string name="account_settings_default_summary">Send Pager from this account by default</string>
-    <string name="account_settings_notify_label">New Pager notifications</string>
+    <string name="account_settings_notify_label">Alertar Nueva notificacion</string>
     <string name="account_settings_notify_sync_label">Sync notifications</string>
     <string name="account_settings_email_label">Your ePager address</string>
-    <string name="account_settings_notify_summary">Notify in status bar when Pager arrives</string>
+    <string name="account_settings_notify_summary">Mostrar notificacion en la barra de estado</string>
     <string name="account_settings_notify_sync_summary">Notify in status bar while Pager is checked</string>
     <string name="account_settings_notify_self_label">Include outgoing Pager</string>
     <string name="account_settings_notify_self_summary">Show a notification for messages I sent</string>
@@ -619,10 +619,10 @@ Southwest Airlines Co.
     <string name="account_settings_notification_unread_count_summary">Show the number of unread messages in the notification bar.</string>
     <string name="account_settings_mark_message_as_read_on_view_label">Mark as read when opened</string>
     <string name="account_settings_mark_message_as_read_on_view_summary">Mark a message as read when it is opened for viewing</string>
-    <string name="account_settings_show_pictures_label">Always show images</string>
+    <string name="account_settings_show_pictures_label">Mostrar Siempre Imagenes?</string>
     <string name="account_settings_show_pictures_never">No</string>
-    <string name="account_settings_show_pictures_only_from_contacts">From contacts</string>
-    <string name="account_settings_show_pictures_always">From anyone</string>
+    <string name="account_settings_show_pictures_only_from_contacts">Solo de contactos</string>
+    <string name="account_settings_show_pictures_always">De cualquiera</string>
     <string name="account_settings_composition">Sending Pager</string>
     <string name="account_settings_default_quoted_text_shown_label">Quote message when replying</string>
     <string name="account_settings_default_quoted_text_shown_summary">Include the original message in your reply.</string>
@@ -642,7 +642,7 @@ Southwest Airlines Co.
     <string name="account_settings_quote_style_header">Header (like Outlook)</string>
     <string name="account_settings_general_title">General settings</string>
     <string name="account_settings_reading_mail">Reading Pager</string>
-    <string name="account_settings_sync">Pager Storage Settings</string>
+    <string name="account_settings_sync">Configuracion de Almacenamiento</string>
     <string name="account_settings_folders">Folders</string>
     <string name="account_settings_quote_prefix_label">Quoted text prefix</string>
     <string name="account_settings_crypto">Cryptography</string>
@@ -653,14 +653,14 @@ Southwest Airlines Co.
     <string name="account_settings_crypto_auto_encrypt">Auto-encrypt</string>
     <string name="account_settings_crypto_auto_encrypt_summary">Automatically set encrypt if a public key matches a recipient.</string>
     <string name="account_settings_crypto_apg_not_installed">APG not installed</string>
-    <string name="account_settings_mail_check_frequency_label">Folder poll frequency</string>
+    <string name="account_settings_mail_check_frequency_label">Frecuencia de Checkeo automatico</string>
     <string name="account_settings_storage_title">Storage</string>
-    <string name="account_settings_color_label">Account color</string>
-    <string name="account_settings_color_summary">The accent color of this account used in folder and account list</string>
-    <string name="account_settings_led_color_label">Notification LED color</string>
-    <string name="account_settings_led_color_summary">The color your device LED should blink for this account</string>
-    <string name="account_settings_mail_display_count_label">Local folder size</string>
-    <string name="account_settings_autodownload_message_size_label">Fetch messages up to</string>
+    <string name="account_settings_color_label">Color de Buzon</string>
+    <string name="account_settings_color_summary">El color es usado en la carpeta y en la lista de los mensajes</string>
+    <string name="account_settings_led_color_label">Elegir color de LED</string>
+    <string name="account_settings_led_color_summary">Color que se mostrara ante un nuevo mensaje</string>
+    <string name="account_settings_mail_display_count_label">Tamaño de carpeta local</string>
+    <string name="account_settings_autodownload_message_size_label">Descargar notificaciones hasta</string>
     <string name="account_settings_autodownload_message_size_1">1Kb</string>
     <string name="account_settings_autodownload_message_size_2">2Kb</string>
     <string name="account_settings_autodownload_message_size_4">4Kb</string>
@@ -675,20 +675,20 @@ Southwest Airlines Co.
     <string name="account_settings_autodownload_message_size_2048">2Mb</string>
     <string name="account_settings_autodownload_message_size_5120">5Mb</string>
     <string name="account_settings_autodownload_message_size_10240">10Mb</string>
-    <string name="account_settings_autodownload_message_size_any">any size (no limit)</string>
-    <string name="account_settings_message_age_label">Sync messages from</string>
-    <string name="account_settings_message_age_any">any time (no limit)</string>
-    <string name="account_settings_message_age_0">today</string>
-    <string name="account_settings_message_age_1">the last 2 days</string>
-    <string name="account_settings_message_age_2">the last 3 days</string>
-    <string name="account_settings_message_age_7">the last week</string>
-    <string name="account_settings_message_age_14">the last 2 weeks</string>
-    <string name="account_settings_message_age_21">the last 3 weeks</string>
-    <string name="account_settings_message_age_1_month">the last month</string>
-    <string name="account_settings_message_age_2_months">the last 2 months</string>
-    <string name="account_settings_message_age_3_months">the last 3 months</string>
-    <string name="account_settings_message_age_6_months">the last 6 months</string>
-    <string name="account_settings_message_age_1_year">the last year</string>
+    <string name="account_settings_autodownload_message_size_any">Sin limite</string>
+    <string name="account_settings_message_age_label">Sincronizar notificaciones desde</string>
+    <string name="account_settings_message_age_any">Sin limite</string>
+    <string name="account_settings_message_age_0">De Hoy</string>
+    <string name="account_settings_message_age_1">de los ultimos 2 dias</string>
+    <string name="account_settings_message_age_2">de los ultimos 3 dias</string>
+    <string name="account_settings_message_age_7">de la ultima semana</string>
+    <string name="account_settings_message_age_14">de las ultimas 2 semanas</string>
+    <string name="account_settings_message_age_21">de las ultimas 3 semanas</string>
+    <string name="account_settings_message_age_1_month">del ultimo mes</string>
+    <string name="account_settings_message_age_2_months">de los ultimos 2 meses</string>
+    <string name="account_settings_message_age_3_months">de los ultimos 3 meses</string>
+    <string name="account_settings_message_age_6_months">de los ultimos 6 meses</string>
+    <string name="account_settings_message_age_1_year">Del ultimo año</string>
     <string name="account_settings_folder_display_mode_label">Folders to display</string>
     <string name="account_settings_folder_display_mode_all">All</string>
     <string name="account_settings_folder_display_mode_first_class">Only 1st Class folders</string>
@@ -736,22 +736,22 @@ Southwest Airlines Co.
     <string name="account_settings_outgoing_summary">Configure the outgoing Pager (SMTP) server</string>
     <string name="account_settings_description_label">Account name</string>
     <string name="account_settings_name_label">Your name</string>
-    <string name="notifications_title">Incoming Pagers</string>
-    <string name="account_settings_vibrate_enable">Vibrate</string>
-    <string name="account_settings_vibrate_summary">Vibrate when Pager arrives</string>
-    <string name="account_settings_vibrate_pattern_label">Vibration patterns</string>
+    <string name="notifications_title">Notificaciones Entrantes</string>
+    <string name="account_settings_vibrate_enable">Vibracion</string>
+    <string name="account_settings_vibrate_summary">Vibrar cuando llega una notificacion</string>
+    <string name="account_settings_vibrate_pattern_label">Patrones de Vibracion</string>
     <string name="account_settings_vibrate_pattern_default">default</string>
-    <string name="account_settings_vibrate_pattern_1">pattern 1</string>
-    <string name="account_settings_vibrate_pattern_2">pattern 2</string>
-    <string name="account_settings_vibrate_pattern_3">pattern 3</string>
-    <string name="account_settings_vibrate_pattern_4">pattern 4</string>
-    <string name="account_settings_vibrate_pattern_5">pattern 5</string>
-    <string name="account_settings_vibrate_times">Repeat vibration</string>
+    <string name="account_settings_vibrate_pattern_1">Patron 1</string>
+    <string name="account_settings_vibrate_pattern_2">Patron 2</string>
+    <string name="account_settings_vibrate_pattern_3">Patron 3</string>
+    <string name="account_settings_vibrate_pattern_4">Patron 4</string>
+    <string name="account_settings_vibrate_pattern_5">Patron 5</string>
+    <string name="account_settings_vibrate_times">Repetir vibracion</string>
     <string name="account_settings_check_connectivity_label">Notify Lost Signal After (Minutes)</string>
     <string name="account_settings_check_connectivity_times">Notify Lost Signal After (Minutes)</string>
-    <string name="account_settings_ringtone">New Pager ringtone</string>
-    <string name="account_settings_led_label">Blink LED</string>
-    <string name="account_settings_led_summary">Blink LED when Pager arrives</string>
+    <string name="account_settings_ringtone">Elegir ringtone</string>
+    <string name="account_settings_led_label">Titilar LED</string>
+    <string name="account_settings_led_summary">Titilar LED cuando llegue una nueva notificacion</string>
     <string name="account_settings_composition_title">Message composition options</string>
     <string name="account_settings_composition_label">Composition defaults</string>
     <string name="account_settings_composition_summary">Set your default From, Bcc and signature</string>
@@ -982,8 +982,8 @@ Southwest Airlines Co.
     <string name="select_text_now">Select text to copy.</string>
     <string name="dialog_confirm_delete_title">Confirm deletion</string>
     <string name="dialog_confirm_delete_message">Do you want to delete this message?</string>
-    <string name="dialog_confirm_delete_account_title">Confirm Disable Current Profile</string>
-    <string name="dialog_confirm_change_account_title">Confirm Change Current Profile</string>
+    <string name="dialog_confirm_delete_account_title">Estas seguro??</string>
+    <string name="dialog_confirm_change_account_title">Estas seguro??</string>
 
     <!--
       Translators:
@@ -1000,7 +1000,7 @@ Southwest Airlines Co.
         <item quantity="other">Do you really want to delete <xliff:g id="message_count">%1$d</xliff:g> messages?</item>
     </plurals>
 
-    <string name="dialog_confirm_delete_confirm_button">Yes</string>
+    <string name="dialog_confirm_delete_confirm_button">Si</string>
     <string name="dialog_confirm_delete_cancel_button">No</string>
     <string name="dialog_confirm_spam_title">Confirm move to spam folder</string>
 
@@ -1009,7 +1009,7 @@ Southwest Airlines Co.
         <item quantity="other">Do you really want to move <xliff:g id="message_count">%1$d</xliff:g> messages to the spam folder?</item>
     </plurals>
 
-    <string name="dialog_confirm_spam_confirm_button">Yes</string>
+    <string name="dialog_confirm_spam_confirm_button">Si</string>
     <string name="dialog_confirm_spam_cancel_button">No</string>
     <string name="dialog_attachment_progress_title">Downloading attachment</string>
     <string name="debug_logging_enabled">Debug logging enabled</string>
@@ -1121,12 +1121,12 @@ Southwest Airlines Co.
     <string name="upgrade_databases_title">Upgrading databases</string>
     <string name="upgrade_databases_unspecified">Upgrading databases…</string>
     <string name="upgrade_database_format">Upgrading database of account \"<xliff:g id="account">%s</xliff:g>\"</string>
-    <string name="message_list_loading">Loading…</string>
+    <string name="message_list_loading">Cargando…</string>
     <string name="global_settings_splitview_mode_label">Show split-screen</string>
     <string name="global_settings_splitview_always">Always</string>
     <string name="global_settings_splitview_never">Never</string>
     <string name="global_settings_splitview_when_in_landscape">When in Landscape orientation</string>
-    <string name="message_view_empty">Please select a message on the left</string>
+    <string name="message_view_empty">Selecciona un mensaje de la izquierda!</string>
     <string name="global_settings_show_contact_picture_label">Show contact pictures</string>
     <string name="global_settings_show_contact_picture_summary">Show contact pictures in the message list</string>
     <string name="last_refresh_time_format">Refreshed <xliff:g id="formatted_time">%s</xliff:g></string>

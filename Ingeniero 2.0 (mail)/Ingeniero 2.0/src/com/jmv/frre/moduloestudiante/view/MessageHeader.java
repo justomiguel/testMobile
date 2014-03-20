@@ -286,7 +286,7 @@ public class MessageHeader extends LinearLayout implements OnClickListener {
 
         mFromView.setText(from);
 
-        updateAddressField(mToView, to, mToLabel);
+        updateAddressField(mToView, mAccount.getName(), mToLabel);
         updateAddressField(mCcView, cc, mCcLabel);
         mAnsweredIcon.setVisibility(message.isSet(Flag.ANSWERED) ? View.VISIBLE : View.GONE);
         mForwardedIcon.setVisibility(message.isSet(Flag.FORWARDED) ? View.VISIBLE : View.GONE);

@@ -83,11 +83,6 @@
         <item>@string/account_setup_options_mail_display_count_all</item>
     </string-array>
     
-     <string-array name="change_items_array">
-        <item>Remedy Change - CHG</item>
-        <item>Service Request - SR</item>
-        <item>Other Planned Activity</item>
-    </string-array>
     
     <string-array name="account_settings_ringtones_times_label">
         <item>1</item>

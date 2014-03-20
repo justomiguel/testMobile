@@ -93,7 +93,8 @@
                 android:paddingBottom="6dip"
                 android:text="@string/login_usr_label"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF" 
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/email"
@@ -105,8 +106,8 @@
                 android:nextFocusLeft="@id/email"
                 android:nextFocusUp="@id/email"
                 android:singleLine="true"
-                android:textColor="#000bff"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#CCCCFF" />
 
             <TextView
                 android:id="@+id/message"
@@ -117,7 +118,8 @@
                 android:paddingBottom="6dip"
                 android:text="@string/login_password_label"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF" 
+                android:textStyle="bold"/>
 
             <EditText
                 android:id="@+id/password"
@@ -130,39 +132,16 @@
                 android:inputType="textPassword"
                 android:maxLines="1"
                 android:singleLine="true"
-                android:textColor="#000bff"
-                android:textColorHint="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:textColorHint="#CCCCFF" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:gravity="right"
+                android:layout_gravity="center"
+                android:gravity="center"
                 android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/session_status_icon_ok"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:gravity="left"
-                    android:background="@drawable/home"
-                    android:shadowColor="#FFFFFF"
-                    android:shadowRadius="20"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/sign_in_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:background="@android:color/transparent"
-                    android:text="@string/go_home"
-                    android:onClick="goHome"
-                    android:shadowColor="#000000"
-                    android:shadowRadius="20"
-                    android:textSize="20sp"
-                    android:textColor="#FFFFFF" />
+                
                 
                 <Button
                     android:id="@+id/session_status_icon_ok"
@@ -178,13 +157,43 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
-                    android:background="@android:color/transparent"
                     android:text="@string/action_sign_in_register"
                     android:shadowColor="#000000"
                     android:shadowRadius="20"
                     android:textSize="20sp"
                     android:textColor="#FFFFFF" />
             </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal" >
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/home"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="20"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_gravity="center"
+                    android:text="@string/go_home"
+                    android:onClick="goHome"
+                    android:shadowColor="#000000"
+                    android:shadowRadius="20"
+                    android:textSize="20sp"
+                    android:textColor="#FFFFFF" />
+                </LinearLayout>
+                
         </LinearLayout>
     </ScrollView>
 

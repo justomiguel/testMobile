@@ -114,7 +114,8 @@ public class FolderList extends K9ListActivity {
 
                     String operation = mAdapter.mListener.getOperation(FolderList.this);
                     if (operation.length() < 1) {
-                        mActionBarSubTitle.setText(mAccount.getEmail());
+                    	//mAccount.getEmail()
+                        mActionBarSubTitle.setText("");
                     } else {
                         mActionBarSubTitle.setText(operation);
                     }
@@ -577,10 +578,10 @@ public class FolderList extends K9ListActivity {
     }
 
     @Override public boolean onCreateOptionsMenu(Menu menu) {
-        super.onCreateOptionsMenu(menu);
-        getSupportMenuInflater().inflate(R.menu.folder_list_option, menu);
-        mRefreshMenuItem = menu.findItem(R.id.check_mail);
-        configureFolderSearchView(menu);
+       // super.onCreateOptionsMenu(menu);
+       // getSupportMenuInflater().inflate(R.menu.folder_list_option, menu);
+        //mRefreshMenuItem = menu.findItem(R.id.check_mail);
+       // configureFolderSearchView(menu);
         return true;
     }
 

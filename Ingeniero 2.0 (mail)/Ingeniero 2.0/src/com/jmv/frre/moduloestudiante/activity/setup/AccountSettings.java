@@ -34,16 +34,12 @@ public class AccountSettings extends K9PreferenceActivity {
 
     private static final String PREFERENCE_FREQUENCY = "account_check_frequency";
     private static final String PREFERENCE_DISPLAY_COUNT = "account_display_count";
-    private static final String PREFERENCE_HIDE_BUTTONS = "hide_buttons_enum";
-    private static final String PREFERENCE_HIDE_MOVE_BUTTONS = "hide_move_buttons_enum";
     private static final String PREFERENCE_SHOW_PICTURES = "show_pictures_enum";
-    private static final String PREFERENCE_ENABLE_MOVE_BUTTONS = "enable_move_buttons";
     private static final String PREFERENCE_NOTIFY = "account_notify";
     private static final String PREFERENCE_NOTIFY_SELF = "account_notify_self";
     private static final String PREFERENCE_VIBRATE = "account_vibrate";
     private static final String PREFERENCE_VIBRATE_PATTERN = "account_vibrate_pattern";
     private static final String PREFERENCE_VIBRATE_TIMES = "account_vibrate_times";
-    private static final String PREFERENCE_CHECK_CONNECTIVITY_TIMES = "account_check_connectivity_times";
     private static final String PREFERENCE_RINGTONE_TIMES = "account_ringtone_times";
     private static final String PREFERENCE_RINGTONE = "account_ringtone";
     private static final String PREFERENCE_NOTIFICATION_LED = "account_led";
@@ -51,11 +47,6 @@ public class AccountSettings extends K9PreferenceActivity {
     private static final String PREFERENCE_LED_COLOR = "led_color";
     private static final String PREFERENCE_MESSAGE_AGE = "account_message_age";
     private static final String PREFERENCE_MESSAGE_SIZE = "account_autodownload_size";
-
-    
-    private static final String PREFERENCE_QUIET_TIME_ENABLED = "quiet_time_enabled";
-    private static final String PREFERENCE_QUIET_TIME_STARTS = "quiet_time_starts";
-    private static final String PREFERENCE_QUIET_TIME_ENDS = "quiet_time_ends";
     
     
     private static final String PREFERENCE_LOCAL_STORAGE_PROVIDER = "local_storage_provider";
@@ -68,23 +59,17 @@ public class AccountSettings extends K9PreferenceActivity {
     private ListPreference mMessageAge;
     private ListPreference mMessageSize;
     private CheckBoxPreference mAccountNotify;
-    private CheckBoxPreference mAccountNotifySelf;
     private ListPreference mAccountShowPictures;
     private CheckBoxPreference mAccountVibrate;
     private CheckBoxPreference mAccountLed;
     private ListPreference mAccountVibratePattern;
     private ListPreference mAccountVibrateTimes;
-    private ListPreference mCheckConnectivityTimes;
     private ListPreference mAccountRingtoneTimes;
     private RingtonePreference mAccountRingtone;
     private Preference mChipColor;
     private Preference mLedColor;
 
     private ListPreference mLocalStorageProvider;
-
-    private CheckBoxPreference mQuietTimeEnabled;
-    private com.jmv.frre.moduloestudiante.preferences.TimePickerPreference mQuietTimeStarts;
-    private com.jmv.frre.moduloestudiante.preferences.TimePickerPreference mQuietTimeEnds;
 
     public static void actionSettings(Context context, Account account) {
         Intent i = new Intent(context, AccountSettings.class);
@@ -222,16 +207,7 @@ public class AccountSettings extends K9PreferenceActivity {
             }
         });
 
-        mAccountNotifySelf = (CheckBoxPreference) findPreference(PREFERENCE_NOTIFY_SELF);
-        mAccountNotifySelf.setChecked(mAccount.isNotifySelfNewMail());
-        mAccountNotifySelf.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-            	mAccountNotifySelf.setChecked(Boolean.valueOf(String.valueOf(newValue)));
-                saveSettings();
-                return false;
-            }
-        });
-        
+       
         mAccountRingtone = (RingtonePreference) findPreference(PREFERENCE_RINGTONE);
 
         // XXX: The following two lines act as a workaround for the RingtonePreference
@@ -280,20 +256,6 @@ public class AccountSettings extends K9PreferenceActivity {
             }
         });
         
-        mCheckConnectivityTimes = (ListPreference) findPreference(PREFERENCE_CHECK_CONNECTIVITY_TIMES);
-        mCheckConnectivityTimes.setValue(String.valueOf(mAccount.getNotificationSetting().getConnectivityTimesCheck()));
-        mCheckConnectivityTimes.setSummary(String.valueOf(mAccount.getNotificationSetting().getConnectivityTimesCheck()));
-        mCheckConnectivityTimes.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            @Override
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                final String value = newValue.toString();
-                mCheckConnectivityTimes.setSummary(value);
-                mCheckConnectivityTimes.setValue(value);
-                saveSettings();
-                return false;
-            }
-        });
-
 
         mAccountRingtoneTimes = (ListPreference) findPreference(PREFERENCE_RINGTONE_TIMES);
         mAccountRingtoneTimes.setValue(mAccount.getNotificationSetting().shouldKeepPlaying()?"Always":"1");
@@ -337,40 +299,6 @@ public class AccountSettings extends K9PreferenceActivity {
             }
         });
         
-        mQuietTimeEnabled = (CheckBoxPreference) findPreference(PREFERENCE_QUIET_TIME_ENABLED);
-        mQuietTimeEnabled.setChecked(K9.getQuietTimeEnabled());
-        mQuietTimeEnabled.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-            	mQuietTimeEnabled.setChecked(Boolean.valueOf(String.valueOf(newValue)));
-            	saveSettings();
-                return false;
-            }
-        });
-        
-        mQuietTimeStarts = (TimePickerPreference) findPreference(PREFERENCE_QUIET_TIME_STARTS);
-        mQuietTimeStarts.setDefaultValue(K9.getQuietTimeStarts());
-        mQuietTimeStarts.setSummary(K9.getQuietTimeStarts());
-        mQuietTimeStarts.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                final String time = (String) newValue;
-                mQuietTimeStarts.setSummary(time);
-                saveSettings();
-                return false;
-            }
-        });
-
-        mQuietTimeEnds = (TimePickerPreference) findPreference(PREFERENCE_QUIET_TIME_ENDS);
-        mQuietTimeEnds.setSummary(K9.getQuietTimeEnds());
-        mQuietTimeEnds.setDefaultValue(K9.getQuietTimeEnds());
-        mQuietTimeEnds.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
-            public boolean onPreferenceChange(Preference preference, Object newValue) {
-                final String time = (String) newValue;
-                mQuietTimeEnds.setSummary(time);
-                saveSettings();
-                return false;
-            }
-        });
-
 
     }
 
@@ -383,7 +311,6 @@ public class AccountSettings extends K9PreferenceActivity {
     private void saveSettings() {
 
         mAccount.setNotifyNewMail(mAccountNotify.isChecked());
-        mAccount.setNotifySelfNewMail(mAccountNotifySelf.isChecked());
        
         mAccount.setDisplayCount(Integer.parseInt(mDisplayCount.getValue()));
         mAccount.setMaximumAutoDownloadMessageSize(Integer.parseInt(mMessageSize.getValue()));
@@ -393,8 +320,6 @@ public class AccountSettings extends K9PreferenceActivity {
         mAccount.getNotificationSetting().setVibrate(mAccountVibrate.isChecked());
         mAccount.getNotificationSetting().setVibratePattern(Integer.parseInt(mAccountVibratePattern.getValue()));
         mAccount.getNotificationSetting().setVibrateTimes(Integer.parseInt(mAccountVibrateTimes.getValue()));
-
-        mAccount.getNotificationSetting().setConnectivityTimesCheck(Integer.parseInt(mCheckConnectivityTimes.getValue()));
         
         final boolean value = String.valueOf(mAccountRingtoneTimes.getValue()).equalsIgnoreCase("Always")?true:false;
         mAccount.getNotificationSetting().setKeepPlaying(value);
@@ -425,9 +350,6 @@ public class AccountSettings extends K9PreferenceActivity {
 	    }
 	    
 	    SharedPreferences preferences = Preferences.getPreferences(this).getPreferences();
-        K9.setQuietTimeEnabled(mQuietTimeEnabled.isChecked());
-        K9.setQuietTimeStarts(mQuietTimeStarts.getTime());
-        K9.setQuietTimeEnds(mQuietTimeEnds.getTime());
         Editor editor = preferences.edit();
         K9.save(editor);
         editor.commit();

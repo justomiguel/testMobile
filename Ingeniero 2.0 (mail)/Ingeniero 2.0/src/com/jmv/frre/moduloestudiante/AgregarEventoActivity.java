@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 import com.jmv.frre.moduloestudiante.activities.calendar.CalendarUtil;
+import com.swacorp.oncallpager.MainActivity;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -253,7 +254,7 @@ public class AgregarEventoActivity extends Activity {
 		
 		 Toast.makeText(getApplicationContext(), R.string.calendar_event_added_message, Toast.LENGTH_LONG).show();
 		 
-		 MainScreenActivity.showHome(this);
+		 MainActivity.showHome(this);
 	}
 	
 	

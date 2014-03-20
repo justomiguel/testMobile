@@ -6,6 +6,7 @@ import java.util.Properties;
 import com.jmv.frre.moduloestudiante.activities.calendar.CalendarioAcademico;
 import com.jmv.frre.moduloestudiante.activities.sysacad.ConectionRequired;
 import com.jmv.frre.moduloestudiante.mail.GMailSender;
+import com.swacorp.oncallpager.MainActivity;
 
 import javax.mail.*;
 import javax.mail.internet.*;
@@ -124,7 +125,7 @@ public class SendEmailActivity extends Activity {
 		protected void onPostExecute(Void aVoid) {
 			super.onPostExecute(aVoid);
 			progressDialog.dismiss();
-			MainScreenActivity.showHome(SendEmailActivity.this);
+			MainActivity.showHome(SendEmailActivity.this);
 		}
 
 		@Override

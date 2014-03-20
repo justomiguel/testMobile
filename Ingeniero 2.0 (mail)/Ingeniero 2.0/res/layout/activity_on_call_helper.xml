@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:contentDescription="SWATKATS PAGER"
-                android:src="@drawable/home_helper" />
+                android:src="@drawable/web_icon" />
 
            <LinearLayout
                 android:id="@+id/button_place"

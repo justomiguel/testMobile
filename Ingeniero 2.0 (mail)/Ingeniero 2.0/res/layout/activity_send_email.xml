@@ -23,7 +23,7 @@
         android:paddingBottom="5dp"
         android:paddingTop="15dp"
         android:shadowColor="#FFFFFF"
-        android:shadowRadius="25"
+        android:shadowRadius="10"
         android:textColorHint="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
@@ -51,6 +51,7 @@
     <EditText
         android:id="@+id/from"
         android:layout_width="fill_parent"
+        android:hint="Escribi aca tu e-mail"
         android:layout_height="wrap_content" >
     </EditText>
 
@@ -58,7 +59,7 @@
         android:id="@+id/textViewMessage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Message : "
+        android:text="Mensaje : "
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <EditText
@@ -67,6 +68,7 @@
         android:layout_height="wrap_content"
         android:gravity="top"
         android:inputType="textMultiLine"
+        android:hint="Escribi aca tu consulta!..."
         android:lines="5" />
 
     <Button

@@ -11,7 +11,7 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@drawable/bg"
+        android:background="@drawable/internal_bg"
         android:orientation="vertical" >
 
         <ScrollView
@@ -65,34 +65,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:contentDescription="SWATKATS PAGER"
-                    android:src="@drawable/swat_kat" />
-                
-                <ImageView
-                    android:id="@+id/imageViewL3"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="SWATKATS PAGER"
-                    android:src="@drawable/swat_kat_l3" />
-                
-                <ImageView
-                    android:id="@+id/imageViewPrimary"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="SWATKATS PAGER"
-                    android:src="@drawable/swat_kat_primary" />
-                
-                <ImageView
-                    android:id="@+id/imageViewSecondary"
-                    android:visibility="gone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:contentDescription="SWATKATS PAGER"
-                    android:src="@drawable/swat_kat_secondary" />
+                    android:src="@drawable/web_icon" />
 
                 <LinearLayout
                     android:id="@+id/button_place"
@@ -168,7 +141,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@drawable/check_pager" />
+                                android:src="@drawable/mailto" />
 
                             <Button
                                 android:id="@+id/btn_mails"
@@ -176,7 +149,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:onClick="showEmails"
-                                android:text="Check-Pagers"
+                                android:text="Ver Notificaciones"
                                 android:textColor="#FFFFFF" />
                         </LinearLayout>
 
@@ -198,7 +171,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
                                 android:onClick="changeGeneralSettings"
-                                android:text="Account Settings"
+                                android:text="Configurar Notificaciones"
                                 android:textColor="#FFFFFF" />
                         </LinearLayout>
 
@@ -211,21 +184,82 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:src="@drawable/global_settings_icon" />
+                                android:src="@drawable/calendar" />
 
                             <Button
-                                android:id="@+id/btn_global_settings"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center_horizontal"
-                                android:onClick="changeGlobalSettings"
-                                android:text="Settings"
+                                android:onClick="seeCalendar"
+                                android:text="@string/main_menu_calendario"
                                 android:textColor="#FFFFFF" />
                         </LinearLayout>
-
+                        
                         <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/event" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:onClick="seeCursado"
+                                android:text="@string/main_menu_horarios"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+                        
+                         <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/academic" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:onClick="seeSysacad"
+                                android:text="@string/main_menu_sysacad"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+                        
+                          <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal" >
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:src="@drawable/confirm_icon_logo" />
+
+                            <Button
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_horizontal"
+                                android:onClick="makeQuery"
+                                android:text="@string/main_menu_contacto"
+                                android:textColor="#FFFFFF" />
+                        </LinearLayout>
+                        
+                          
+                        <!-- LinearLayout
                             android:id="@+id/check_prod_layer"
                             android:layout_width="match_parent"
+                            android:visibility="gone"
                             android:layout_height="match_parent"
                             android:layout_gravity="left|top"
                             android:orientation="horizontal" >
@@ -244,7 +278,7 @@
                                 android:onClick="startOnCallHelper"
                                 android:layout_gravity="center_horizontal"
                                 android:text="On-Call Helper" />
-                        </LinearLayout>
+                        </LinearLayout>  -->
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

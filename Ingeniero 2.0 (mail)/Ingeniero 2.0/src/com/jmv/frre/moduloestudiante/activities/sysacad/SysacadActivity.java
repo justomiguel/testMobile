@@ -18,7 +18,6 @@ import android.widget.TextView;
 
 import com.google.common.base.Function;
 import com.jmv.frre.moduloestudiante.InscripcionCursadoActivity;
-import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.comps.MyButton;
 import com.jmv.frre.moduloestudiante.constants.HomePageImages;
@@ -28,6 +27,7 @@ import com.jmv.frre.moduloestudiante.net.NetworkTaskHandler;
 import com.jmv.frre.moduloestudiante.net.SessionKeyGetter;
 import com.jmv.frre.moduloestudiante.utils.FRReUtils;
 import com.jmv.frre.moduloestudiante.utils.Utils;
+import com.swacorp.oncallpager.MainActivity;
 
 import java.util.Calendar;
 import java.util.Comparator;
@@ -110,7 +110,7 @@ public class SysacadActivity extends LinkActivity {
 	}
 	
 	 public void goHome(View view){
-	    	MainScreenActivity.showHome(this);
+		 MainActivity.showHome(this);
 	    }
 	    
 
@@ -298,7 +298,7 @@ public class SysacadActivity extends LinkActivity {
 
 	@Override
 	public void onBackPressed() {
-		MainScreenActivity.showHome(this);
+		MainActivity.showHome(this);
 	}
 
 	@Override

@@ -4886,9 +4886,9 @@ public class MessagingController implements Runnable {
                 builder.setContentTitle(sender);
                 builder.setStyle(style);
 
-                builder.addAction(R.drawable.ic_action_single_message_options_dark,
-                        context.getString(R.string.notification_action_reply),
-                        NotificationActionService.getReplyIntent(context, account, message.makeMessageReference()));
+                //builder.addAction(R.drawable.ic_action_single_message_options_dark,
+                  //      context.getString(R.string.notification_action_reply),
+                    //    NotificationActionService.getReplyIntent(context, account, message.makeMessageReference()));
             }
         } else {
             String accountNotice = context.getString(R.string.notification_new_one_account_fmt,

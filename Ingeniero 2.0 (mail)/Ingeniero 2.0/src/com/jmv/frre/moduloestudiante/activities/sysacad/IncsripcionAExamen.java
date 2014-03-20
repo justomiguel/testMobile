@@ -7,7 +7,6 @@ import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 
 import com.google.common.base.Function;
-import com.jmv.frre.moduloestudiante.MainScreenActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.comps.ExamenTableRow;
 import com.jmv.frre.moduloestudiante.dialogs.ConfirmationDialog;

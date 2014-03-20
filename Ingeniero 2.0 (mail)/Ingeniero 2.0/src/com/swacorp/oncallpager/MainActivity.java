@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,9 +21,14 @@ import android.widget.LinearLayout;
 import com.jmv.frre.moduloestudiante.R;
 
 import com.jmv.frre.moduloestudiante.Account;
+import com.jmv.frre.moduloestudiante.AgregarEventoActivity;
+import com.jmv.frre.moduloestudiante.ContactoActivity;
+import com.jmv.frre.moduloestudiante.HorariosCursado;
 import com.jmv.frre.moduloestudiante.K9;
 import com.jmv.frre.moduloestudiante.Preferences;
 import com.jmv.frre.moduloestudiante.K9.SplitViewMode;
+import com.jmv.frre.moduloestudiante.activities.calendar.CalendarioAcademico;
+import com.jmv.frre.moduloestudiante.activities.sysacad.SysacadActivity;
 import com.jmv.frre.moduloestudiante.activity.Accounts;
 import com.jmv.frre.moduloestudiante.activity.ConfirmationDialog;
 import com.jmv.frre.moduloestudiante.activity.MessageList;
@@ -37,9 +43,7 @@ import android.animation.AnimatorListenerAdapter;
 public class MainActivity extends Activity {
 
 	public static final boolean DEBUG = false;
-	
-	public static final String MAIN_DEBUG_EMAIL = "swatkatmobile@gmail.com";
-	public static final String MAIN_DEBUG_EMAIL_PASS = "test123456";
+
 
 	private final static int DIALOG_CONFIRM_DELETE = 1;
 	private final static int DIALOG_CONFIRM_CHANGE = 2;
@@ -65,11 +69,7 @@ public class MainActivity extends Activity {
 
 	private ImageView imageView;
 
-	private ImageView image1View;
-
-	private ImageView image2View;
-
-	private ImageView image3View;
+	public static boolean USE_SYSACAD = true;
 
 	public static void showHome(Context context) {
 		Intent intent = new Intent(context, MainActivity.class);
@@ -111,14 +111,11 @@ public class MainActivity extends Activity {
 		}
 
 		imageView = (ImageView) findViewById(R.id.imageView);
-		image1View = (ImageView) findViewById(R.id.imageViewPrimary);
-		image2View = (ImageView) findViewById(R.id.imageViewSecondary);
-		image3View = (ImageView) findViewById(R.id.imageViewL3);
 		
 		deleteCurrentProfileLayer = (LinearLayout) findViewById(R.id.delete_current_profile);
 
-		checkProdLayer = (LinearLayout) findViewById(R.id.check_prod_layer);
-		checkProdLayer.setVisibility(View.VISIBLE);
+		//checkProdLayer = (LinearLayout) findViewById(R.id.check_prod_layer);
+		//checkProdLayer.setVisibility(View.VISIBLE);
 		
 		setProfilesIcon = (ImageView) findViewById(R.id.set_initial_profile_icon);
 		changeProfilesIcon = (ImageView) findViewById(R.id.changes_profile_icon_home);
@@ -187,10 +184,46 @@ public class MainActivity extends Activity {
 		checkStyleUI();
 	}
 
+	
+	public void seeSysacad(View view){
+		if (USE_SYSACAD){
+			SysacadActivity.showHome(this);
+		} else {
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://sysacadweb.frre.utn.edu.ar/"));
+			startActivity(browserIntent);
+		}
+	}
+	
+	public void seeCalendar(View view){
+		CalendarioAcademico.showHome(this);
+	}
+	
+	public void makeQuery(View view){
+		ContactoActivity.showHome(this);
+	}
+	
+	public void seeCursado(View view){
+		HorariosCursado.showHome(this);
+	}
+	
+	public void addToCalendar(View view){
+		AgregarEventoActivity.showAddChangeActivityHome(this);
+	}
+	
+	public void seeCampus(View view){
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://frre.cvg.utn.edu.ar/"));
+		startActivity(browserIntent);
+	}
+	
+	public void goUnete(View view){
+		Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.facebook.com/pages/UNETE-FRRe/121499131207059"));
+		startActivity(browserIntent);
+	}
+	
 	private void checkStyleUI() {
 		Account account = Preferences.getPreferences(this).getDefaultAccount();
 		
-		setVisibilityToImages(View.GONE);
+		//setVisibilityToImages(View.GONE);
 		
 		if (account != null) {
 			setProfilesBtn.setText(getString(R.string.change_profile_label));
@@ -203,6 +236,7 @@ public class MainActivity extends Activity {
 			setProfilesIcon.setVisibility(View.GONE);
 			deleteCurrentProfileLayer.setVisibility(View.VISIBLE);
 			
+			/*
 			String currentName = account.getName(); 
 			
 			if (getString(R.string.l3_account_name).equalsIgnoreCase(currentName)){
@@ -211,7 +245,7 @@ public class MainActivity extends Activity {
 				image2View.setVisibility(View.VISIBLE);
 			} else {
 				image1View.setVisibility(View.VISIBLE);
-			}
+			}*/
 
 		} else {
 
@@ -228,9 +262,6 @@ public class MainActivity extends Activity {
 	}
 
 	private void setVisibilityToImages(int gone) {
-		image1View.setVisibility(gone);
-		image2View.setVisibility(gone);
-		image3View.setVisibility(gone);
 		imageView.setVisibility(gone);
 	}
 

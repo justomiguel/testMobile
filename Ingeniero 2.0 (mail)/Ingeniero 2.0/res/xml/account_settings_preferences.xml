@@ -7,60 +7,18 @@
         android:title="@string/notifications_title" >
         <PreferenceCategory
             android:key="incoming_pagers"
-            android:title="Incoming Pagers Notifications" >
+            android:title="Configuracion de Notificaciones" >
             <CheckBoxPreference
                 android:defaultValue="true"
                 android:key="account_notify"
                 android:persistent="false"
                 android:summary="@string/account_settings_notify_summary"
                 android:title="@string/account_settings_notify_label" />
-            <ListPreference
-                android:dependency="account_notify"
-                android:dialogTitle="@string/account_settings_check_connectivity_times"
-                android:entries="@array/account_settings_check_connectivity_times_label"
-                android:entryValues="@array/account_settings_check_connectivity_times_label"
-                android:key="account_check_connectivity_times"
-                android:persistent="false"
-                android:title="@string/account_settings_check_connectivity_times" />
-            <CheckBoxPreference
-                android:key="quiet_time_enabled"
-                android:persistent="false"
-                android:summary="@string/quiet_time_description"
-                android:title="@string/quiet_time" />
-
-            <com.jmv.frre.moduloestudiante.preferences.TimePickerPreference
-                android:dependency="quiet_time_enabled"
-                android:dialogTitle="@string/quiet_time_starts"
-                android:key="quiet_time_starts"
-                android:persistent="false"
-                android:title="@string/quiet_time_starts" />
-            <com.jmv.frre.moduloestudiante.preferences.TimePickerPreference
-                android:dependency="quiet_time_enabled"
-                android:dialogTitle="@string/quiet_time_ends"
-                android:key="quiet_time_ends"
-                android:persistent="false"
-                android:title="@string/quiet_time_ends" />
-
-            <ListPreference
-                android:dialogTitle="@string/global_settings_notification_quick_delete_title"
-                android:entries="@array/global_settings_notification_quick_delete_entries"
-                android:entryValues="@array/global_settings_notification_quick_delete_values"
-                android:key="notification_quick_delete"
-                android:persistent="false"
-                android:summary="@string/global_settings_notification_quick_delete_description"
-                android:title="@string/global_settings_notification_quick_delete_title" />
-
-            <CheckBoxPreference
-                android:defaultValue="true"
-                android:dependency="account_notify"
-                android:key="account_notify_self"
-                android:persistent="false"
-                android:summary="@string/account_settings_notify_self_summary"
-                android:title="@string/account_settings_notify_self_label" />
+           
         </PreferenceCategory>
         <PreferenceCategory
             android:key="sounds_and_vibrate"
-            android:title="Sound and Vibration" >
+            android:title="Sonido y Vibracion" >
             <RingtonePreference
                 android:defaultValue="content://settings/system/notification_sound"
                 android:dependency="account_notify"
@@ -106,7 +64,7 @@
         </PreferenceCategory>
         <PreferenceCategory
             android:key="lights"
-            android:title="Lights" >
+            android:title="Luz en Barra de Estado" >
             <CheckBoxPreference
                 android:defaultValue="true"
                 android:dependency="account_notify"

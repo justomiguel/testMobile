@@ -64,8 +64,11 @@ public class AccountSetupBasicsSwat extends K9Activity
     private Account mAccount;
     private Provider mProvider;
     private RadioButton mPrimaryRadioButton;
-    private RadioButton mSecondaryRadioButton;
-    private RadioButton mL3RadioButton;
+    private RadioButton mISI;
+    private RadioButton mIQ;
+    private RadioButton mIEM;
+    private RadioButton mLAR;
+    private RadioButton mTSP;
 
     private EmailAddressValidator mEmailValidator = new EmailAddressValidator();
 	private RadioButton mDebugRadioButton;
@@ -86,8 +89,13 @@ public class AccountSetupBasicsSwat extends K9Activity
         mNextButton = (Button)findViewById(R.id.next);
         mManualSetupButton = (Button)findViewById(R.id.manual_setup);
         mPrimaryRadioButton = (RadioButton)findViewById(R.id.option_primary);
-        mSecondaryRadioButton = (RadioButton)findViewById(R.id.option_secondary);
-        mL3RadioButton = (RadioButton)findViewById(R.id.option_l3);
+        
+        mISI = (RadioButton)findViewById(R.id.option_isi);
+        mIQ = (RadioButton)findViewById(R.id.option_iq);
+        mIEM = (RadioButton)findViewById(R.id.option_iem);
+        mLAR = (RadioButton)findViewById(R.id.option_lar);
+        mTSP = (RadioButton)findViewById(R.id.option_tsp);
+        
 
         mDebugRadioButton = (RadioButton)findViewById(R.id.debug_email_option);
         if (MainActivity.DEBUG){
@@ -97,8 +105,13 @@ public class AccountSetupBasicsSwat extends K9Activity
         mNextButton.setOnClickListener(this);
         mManualSetupButton.setOnClickListener(this);
         mPrimaryRadioButton.setOnClickListener(this);
-        mSecondaryRadioButton.setOnClickListener(this);
-        mL3RadioButton.setOnClickListener(this);
+       
+        mIQ.setOnClickListener(this);
+        mISI.setOnClickListener(this);
+        mIEM.setOnClickListener(this);
+        mLAR.setOnClickListener(this);
+        mTSP.setOnClickListener(this);
+        
         mDebugRadioButton.setOnClickListener(this);
         
         mEmailView.addTextChangedListener(this);
@@ -370,17 +383,28 @@ public class AccountSetupBasicsSwat extends K9Activity
         	mEmailView.setText(getString(R.string.primary_account_email));
     		mPasswordView.setText(getString(R.string.primary_account_password));
     		break;
-        case R.id.option_secondary:
+        case R.id.option_isi:
         	mEmailView.setText(getString(R.string.secondary_account_email));
     		mPasswordView.setText(getString(R.string.secondary_account_password));
         	break;
-        case R.id.option_l3:
+        case R.id.option_iq:
         	mEmailView.setText(getString(R.string.l3_account_email));
     		mPasswordView.setText(getString(R.string.l3_account_password));
         	break;	
+        case R.id.option_iem:
+        	mEmailView.setText(getString(R.string.iem_account_email));
+    		mPasswordView.setText(getString(R.string.iem_account_password));
+        	break;	
+        case R.id.option_lar:
+        	mEmailView.setText(getString(R.string.lar_account_email));
+    		mPasswordView.setText(getString(R.string.lar_account_password));
+        	break;	
+        case R.id.option_tsp:
+        	mEmailView.setText(getString(R.string.tsp_account_email));
+    		mPasswordView.setText(getString(R.string.tsp_account_password));
+        	break;	
         case R.id.debug_email_option:
-        	mEmailView.setText(MainActivity.MAIN_DEBUG_EMAIL);
-    		mPasswordView.setText(MainActivity.MAIN_DEBUG_EMAIL_PASS);
+        	
         	break;	
         }
     }
