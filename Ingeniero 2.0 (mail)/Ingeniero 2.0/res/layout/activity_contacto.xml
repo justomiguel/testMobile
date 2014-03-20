@@ -1,0 +1,217 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/internal_bg"
+    android:orientation="vertical"
+    tools:context=".ContactoActivity" >
+
+    <ScrollView
+        android:id="@+id/home_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/login_form"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/button_place"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/web_icon" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:hint="@string/contact_details_purpose"
+                android:paddingBottom="5dp"
+                android:paddingTop="15dp"
+                android:shadowColor="#FFFFFF"
+                android:shadowRadius="5"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/editTextSubject"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/owners"
+                android:prompt="@string/pomrpt_subjects_contact_notification" />
+
+            <LinearLayout
+                   android:id="@+id/justo_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/goku" />
+
+                <LinearLayout
+                    android:id="@+id/button_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:hint="@string/main_contact_details"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="15"
+                        android:textColorHint="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            <LinearLayout
+                   android:id="@+id/carlos_container"
+                   android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/carlos" />
+
+                <LinearLayout
+                    android:id="@+id/button_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:hint="@string/main_contact_carlos"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="15dp"
+                        android:paddingTop="15dp"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="25"
+                        android:textColorHint="#FFFFFF"
+                        android:textSize="14sp"
+                        android:textStyle="bold|italic" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:hint="@string/main_contact_details_carlos"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="20"
+                        android:textColorHint="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+            </LinearLayout>
+            
+            <LinearLayout
+                android:id="@+id/unete_container"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left|top"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/unete" />
+
+                <LinearLayout
+                    android:id="@+id/button_place"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|top"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:gravity="center_horizontal"
+                        android:hint="@string/main_contact_unete_details"
+                        android:shadowColor="#FFFFFF"
+                        android:shadowRadius="20"
+                        android:textColorHint="#000000"
+                        android:textSize="12sp"
+                        android:textStyle="bold|italic" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/set_initial_profile_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/mailto" />
+
+                <Button
+                    android:id="@+id/button_sysacad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="makeQueryJusto"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="6"
+                    android:text="@string/main_contact_to_justo"
+                    android:textColor="#000000"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

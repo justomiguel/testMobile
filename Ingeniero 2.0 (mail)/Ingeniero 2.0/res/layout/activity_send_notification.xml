@@ -1,0 +1,101 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/internal_bg"
+    android:orientation="vertical"
+    tools:context=".SendNotificationActivity" >
+
+    <ScrollView
+        android:id="@+id/home_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <LinearLayout
+            android:id="@+id/login_form"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/button_place"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/app_name"
+                    android:src="@drawable/megafono" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:hint="@string/contact_details_purpose_notification"
+                android:paddingBottom="5dp"
+                android:paddingTop="15dp"
+                android:shadowColor="#FFFFFF"
+                android:shadowRadius="5"
+                android:textColorHint="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+            <Spinner
+                android:id="@+id/listas"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:entries="@array/listas"
+                android:prompt="@string/pomrpt_subjects_contact" />
+            
+            <Spinner
+                android:id="@+id/mails"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:entries="@array/mails"
+                android:prompt="@string/pomrpt_subjects_contact" />
+            
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/set_initial_profile_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/send_notification" />
+
+                <Button
+                    android:id="@+id/button_sysacad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:onClick="sendEmail"
+                    android:shadowColor="#FFFFFF"
+                    android:shadowRadius="6"
+                    android:text="@string/main_contact_to_notification"
+                    android:textColor="#000000"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
