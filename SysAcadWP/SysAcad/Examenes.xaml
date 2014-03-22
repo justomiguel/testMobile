@@ -32,9 +32,9 @@
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
-                            <TextBlock Text="{Binding Materia}" Foreground="White"/>
-                            <TextBlock Text="{Binding Fecha}" TextWrapping="Wrap" Foreground="WhiteSmoke" />
-                            <TextBlock Text="{Binding Nota}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Materia}" TextWrapping="Wrap" Foreground="White" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock Text="{Binding Fecha}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Foreground="LightSlateGray" />
+                            <TextBlock Text="{Binding Nota}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Foreground="LightSlateGray" />
                         </StackPanel>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>

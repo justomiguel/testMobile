@@ -32,9 +32,8 @@
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
-                            <TextBlock Text="{Binding Anio}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding Materia}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding Estado}" TextWrapping="Wrap" Foreground="LightSlateGray"/>
+                            <TextBlock Text="{Binding Materia}" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding Estado}" Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Foreground="LightSlateGray"/>
                         </StackPanel>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>                    

@@ -14,6 +14,9 @@
     Foreground="{StaticResource PhoneForegroundBrush}"
     SupportedOrientations="Portrait" Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot is the root grid where all page content is placed-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -47,11 +50,12 @@
         </StackPanel>
 
         <!--ContentPanel - place additional content here-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <TextBox x:Name="tbLegajoLogin" Foreground="DimGray" GotFocus="tbLegajoLogin_GotFocus" LostFocus="tbLegajoLogin_LostFocus" HorizontalAlignment="Left" Height="72" Margin="-10,10,0,0" TextWrapping="Wrap" Text=" Legajo" VerticalAlignment="Top" Width="456"/>
-            <PasswordBox x:Name="tbPassLogin" GotFocus="tbPassLogin_GotFocus" LostFocus="tbPassLogin_LostFocus" HorizontalAlignment="Left" Height="72" Margin="-10,104,0,0"  VerticalAlignment="Top" Width="456"/>
-            <Button x:Name="btLogin" Content="Ingresar" HorizontalAlignment="Left" Margin="-10,204,0,0" VerticalAlignment="Top" Width="456" Click="btLogin_Click"/>
-            <TextBlock x:Name="lbPassHint" Tap="lbPassHint_Tap" FontFamily="Segoe WP" Foreground="DimGray" HorizontalAlignment="Left" Margin="13,122,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" FontSize="25.333"/>
+        <Grid x:Name="ContentPanel" Margin="12,120,12,0" Grid.RowSpan="2">
+            <TextBox x:Name="tbLegajoLogin" InputScope="Number" Foreground="DimGray" GotFocus="tbLegajoLogin_GotFocus" LostFocus="tbLegajoLogin_LostFocus" HorizontalAlignment="Left" Height="72" Margin="-10,10,0,0" TextWrapping="Wrap" Text=" Legajo" VerticalAlignment="Top" Width="456"/>
+            <PasswordBox x:Name="tbPassLogin" GotFocus="tbPassLogin_GotFocus" LostFocus="tbPassLogin_LostFocus" HorizontalAlignment="Left" Height="72" Margin="-10,87,0,0"  VerticalAlignment="Top" Width="456"/>
+            <Button x:Name="btLogin" Content="Ingresar" HorizontalAlignment="Left" Margin="-10,159,0,0" VerticalAlignment="Top" Width="456" Click="btLogin_click"/>
+            <TextBlock x:Name="lbPassHint" Tap="lbPassHint_Tap" FontFamily="Segoe WP" Foreground="DimGray" HorizontalAlignment="Left" Margin="10,106,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" FontSize="25.333"/>
+            <Button x:Name="btUseOffline" Content="No usar Sysacad" HorizontalAlignment="Left" Margin="0,494,0,0" VerticalAlignment="Top" Width="456"/>
 
         </Grid>
 

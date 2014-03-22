@@ -2,6 +2,8 @@ Compile filter specified.  Only the following files will be processed:
 c:\users\carlos\documents\visual studio 2012\projects\sysacad\sysacad\bin\debug\mdil\sysacad.dll
 Processing file: C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\MDIL\HtmlAgilityPack.dll
 File C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\MDIL\HtmlAgilityPack.dll is not in the compile filter. Skipping.
+Processing file: C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\MDIL\Ingeniero 2.0.dll
+File C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\MDIL\Ingeniero 2.0.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\MDIL\Microsoft.Phone.Controls.dll
 File C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\MDIL\Microsoft.Phone.Controls.dll is not in the compile filter. Skipping.
 Processing file: C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\MDIL\Microsoft.Phone.Controls.Toolkit.dll

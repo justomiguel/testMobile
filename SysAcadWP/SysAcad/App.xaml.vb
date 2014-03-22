@@ -1,6 +1,9 @@
 ﻿Imports System.Diagnostics
 Imports System.Resources
 Imports System.Windows.Markup
+Imports Microsoft.Phone.Tasks
+Imports System.Text
+
 
 Partial Public Class App
     Inherits Application
@@ -11,19 +14,31 @@ Partial Public Class App
     ''' <returns>The root frame of the Phone Application.</returns>
     Public Shared Property RootFrame As PhoneApplicationFrame
 
+    'Urls
     Public Shared Property urlExamenes As Uri
     Public Shared Property urlEstadoAcademico As Uri
     Public Shared Property urlCursado As Uri
     Public Shared Property urlCorrCursado As Uri
     Public Shared Property urlCorrRendir As Uri
     Public Shared Property urlInscExamen As Uri
-    Public Shared Property ttNombre As String
-    Public Shared Property cookies As CookieContainer
+    Public Shared Property urlInscCursado As Uri
+    Public Shared Property urlCambioPass As Uri
+    Public Shared Property uriCursado As Uri
+    'Bools de habilitación de módulos
+    Public Shared Property isSysacadEnabled As Boolean
+    Public Shared Property isInscExamenEnabled As Boolean
+    Public Shared Property isInscCursadoEnabled As Boolean
+    'Listas para LongListSelectors
     Public Shared Property listaEstadoAcademico As List(Of estAcad)
     Public Shared Property listaExamenes As List(Of examen)
     Public Shared Property listaCursado As List(Of cursado)
     Public Shared Property listaCorrCursado As List(Of corr)
     Public Shared Property listaCorrExamenes As List(Of corr)
+    Public Shared Property listaInscCursado As List(Of inscCursado)
+    'Otras cosas
+    Public Shared Property ttNombre As String
+    Public Shared Property cookies As CookieContainer
+    
 
 
     Public Class examen
@@ -52,6 +67,14 @@ Partial Public Class App
         Public Property Corr As String
         Public Property Fore As String
     End Class
+    Public Class inscCursado
+        Public Property Anio As String
+        Public Property Materia As String
+        Public Property Plan As String
+        Public Property Estado As String
+        Public Property Uri As Uri
+        Public Property Codigo As String
+    End Class
 
     Public Shared Function toTitleCase(text As String) As String
         If text Is Nothing Then
@@ -70,6 +93,32 @@ Partial Public Class App
         Return result.ToString
     End Function
 
+    Public Overloads Shared Sub report(ex As Exception)
+        MessageBox.Show("Te estamos llevando a la pantalla de confección de mails. Vas a ver que ya está el código de error, te agradeceríamos algún comentario al respecto de qué trataste de hacer al encontrarte con el error. Si querés agregar algún pensamiento, por favor, hacelo!")
+        Dim mailTask As New EmailComposeTask
+        mailTask.To = "thelinkin3000@gmail.com"
+        Dim mess As New StringBuilder
+        mess.Append("Hola! Soy un pobre usuario de Ingeniero 2.n0 para WP, y como siempre, algo anduvo mal con tu app -_-. El error fue: " + ex.ToString + ".")
+        mess.AppendLine()
+        mess.Append("Adicionalmente, tengo algo para decirte, señor desarrollador de ésta app:")
+        mess.AppendLine()
+        mailTask.Body = mess.ToString
+        mailTask.Subject = "[Reporte de Bug] Ingeniero 2.0 para WP"
+        mailTask.Show()
+    End Sub
+    Public Overloads Shared Sub report(ex As String)
+        MessageBox.Show("Te estamos llevando a la pantalla de confección de mails. Vas a ver que ya está el código de error, te agradeceríamos algún comentario al respecto de qué trataste de hacer al encontrarte con el error. Si querés agregar algún pensamiento, por favor, hacelo!")
+        Dim mailTask As New EmailComposeTask
+        mailTask.To = "thelinkin3000@gmail.com"
+        Dim mess As New StringBuilder
+        mess.Append("Hola! Soy un pobre usuario de Ingeniero 2.n0 para WP, y como siempre, algo anduvo mal con tu app -_-. El error fue: " + ex + ".")
+        mess.AppendLine()
+        mess.Append("Adicionalmente, tengo algo para decirte, señor desarrollador de ésta app:")
+        mess.AppendLine()
+        mailTask.Body = mess.ToString
+        mailTask.Subject = "[Reporte de Bug] Ingeniero 2.0 para WP"
+        mailTask.Show()
+    End Sub
 
     ''' <summary>
     ''' Constructor for the Application object.
@@ -84,6 +133,8 @@ Partial Public Class App
         ' Language display initialization
         InitializeLanguage()
 
+        isInscCursadoEnabled = False
+        isInscExamenEnabled = False
         ' Show graphics profiling information while debugging.
         If Debugger.IsAttached Then
             ' Display the current frame rate counters.
@@ -140,8 +191,12 @@ Partial Public Class App
             Diagnostics.Debugger.Break()
         Else
             e.Handled = True
-            MessageBox.Show(e.ExceptionObject.Message & Environment.NewLine & e.ExceptionObject.StackTrace,
-                            "Error", MessageBoxButton.OK)
+            Dim result = MessageBox.Show("Algo salió mal. Te gustaría enviar un reporte de bug?", "Oh noes!", MessageBoxButton.OKCancel)
+            'MessageBox.Show(e.ExceptionObject.Message & Environment.NewLine & e.ExceptionObject.StackTrace,"Error", MessageBoxButton.OK)
+            Dim errorString = DateTime.Now.ToLocalTime().ToString() + " | " + "Message: " + e.ExceptionObject.Message + "Stack Trace: " + e.ExceptionObject.StackTrace
+            If result = MessageBoxResult.OK Then
+                report(errorString)
+            End If
         End If
     End Sub
 
