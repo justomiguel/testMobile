@@ -4,6 +4,8 @@ Imports HtmlAgilityPack
 Imports System.Text
 Imports Microsoft.Phone.Tasks
 Imports Microsoft.VisualBasic
+Imports System.Collections.ObjectModel
+
 Partial Public Class PivotPage1
     Inherits PhoneApplicationPage
     Dim working As Boolean
@@ -56,7 +58,7 @@ Partial Public Class PivotPage1
             Me.NavigationService.RemoveBackEntry()
         End While
     End Sub
-    Private Async Sub btEstadoAcademico_Click(sender As Object, e As RoutedEventArgs) Handles btEstadoAcademico.Click
+    Private Async Sub btEstadoAcademico_Click(sender As Object, e As RoutedEventArgs) Handles btEstadoAcademico.Tap
         If working = Not True Then
             working = True
             SystemTray.ProgressIndicator = New ProgressIndicator
@@ -113,7 +115,7 @@ Partial Public Class PivotPage1
 
     End Sub
 
-    Private Async Sub btExamenes_Click(sender As Object, e As RoutedEventArgs) Handles btExamenes.Click
+    Private Async Sub btExamenes_Click(sender As Object, e As RoutedEventArgs) Handles btExamenes.Tap
         If working = False Then
             working = True
             SystemTray.ProgressIndicator = New ProgressIndicator
@@ -144,6 +146,7 @@ Partial Public Class PivotPage1
                         tempExamen.Materia = ndExamenes(i).ChildNodes(1).InnerText.Trim
                         tempExamen.Nota = App.toTitleCase(ndExamenes(i).ChildNodes(2).InnerText.Trim)
                         tempExamen.Codigo = ndExamenes(i).ChildNodes(5).InnerText.Trim
+                        tempExamen.Visible = System.Windows.Visibility.Visible
                         listaExamenes.Add(tempExamen)
                     Next
                     App.listaExamenes = listaExamenes
@@ -167,8 +170,14 @@ Partial Public Class PivotPage1
 
     End Sub
 
+    Protected Overrides Sub onBackKeyPress(e As System.ComponentModel.CancelEventArgs)
+        Dim result = MessageBox.Show("Estás seguro que querés salir?", "Seguro?", MessageBoxButton.OKCancel)
+        If result = MessageBoxResult.Cancel Then
+            e.Cancel = True
+        End If
+    End Sub
 
-    Private Async Sub btCursado_Click(sender As Object, e As RoutedEventArgs) Handles btCursado.Click
+    Private Async Sub btCursado_Click(sender As Object, e As RoutedEventArgs) Handles btCursado.Tap
         If working = False Then
             working = True
             SystemTray.ProgressIndicator = New ProgressIndicator
@@ -226,7 +235,7 @@ Partial Public Class PivotPage1
         End If
     End Sub
 
-    Private Async Sub btCorrCursado_Click(sender As Object, e As RoutedEventArgs) Handles btCorrCursado.Click
+    Private Async Sub btCorrCursado_Click(sender As Object, e As RoutedEventArgs) Handles btCorrCursado.Tap
         If working = False Then
             working = True
             SystemTray.ProgressIndicator = New ProgressIndicator
@@ -285,7 +294,7 @@ Partial Public Class PivotPage1
         End If
     End Sub
 
-    Private Async Sub btCorrRendir_Click(sender As Object, e As RoutedEventArgs) Handles btCorrRendir.Click
+    Private Async Sub btCorrRendir_Click(sender As Object, e As RoutedEventArgs) Handles btCorrRendir.Tap
         If working = False Then
             working = True
             SystemTray.ProgressIndicator = New ProgressIndicator
@@ -342,7 +351,7 @@ Partial Public Class PivotPage1
         End If
     End Sub
 
-    Private Async Sub btInscCursado_Click(sender As Object, e As RoutedEventArgs) Handles btInscCursado.Click
+    Private Async Sub btInscCursado_Click(sender As Object, e As RoutedEventArgs) Handles btInscCursado.Tap
         If working = False Then
             working = True
             SystemTray.ProgressIndicator = New ProgressIndicator
@@ -439,11 +448,11 @@ Partial Public Class PivotPage1
     Private Sub appBarButtonHelp_click(ByVal sender As Object, ByVal e As EventArgs)
         NavigationService.Navigate(New Uri("/Consultas.xaml", UriKind.Relative))
     End Sub
-    Private Sub btCalendarioAcad_Click(sender As Object, e As RoutedEventArgs) Handles btCalendarioAcad.Click
+    Private Sub btCalendarioAcad_Click(sender As Object, e As RoutedEventArgs) Handles btCalendarioAcad.Tap
         NavigationService.Navigate(New Uri("/CalendarioAcad.xaml", UriKind.Relative))
     End Sub
 
-    Private Sub btHorariosCursado_Click(sender As Object, e As RoutedEventArgs) Handles btHorariosCursado.Click
+    Private Sub btHorariosCursado_Click(sender As Object, e As RoutedEventArgs) Handles btHorariosCursado.Tap
         NavigationService.Navigate(New Uri("/HorariosCursado.xaml", UriKind.Relative))
     End Sub
 End Class

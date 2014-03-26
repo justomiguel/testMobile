@@ -12,6 +12,9 @@
     SupportedOrientations="Portrait" Orientation="Portrait"
     mc:Ignorable="d"
     shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
@@ -31,7 +34,7 @@
             <phone:LongListSelector x:Name="llExamenes">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Margin="0,0,0,17">
+                        <StackPanel Visibility="{Binding Visible}" Margin="0,0,0,17">
                             <TextBlock Text="{Binding Materia}" TextWrapping="Wrap" Foreground="White" Style="{StaticResource PhoneTextLargeStyle}"/>
                             <TextBlock Text="{Binding Fecha}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Foreground="LightSlateGray" />
                             <TextBlock Text="{Binding Nota}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Foreground="LightSlateGray" />

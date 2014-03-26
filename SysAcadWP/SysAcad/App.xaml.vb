@@ -3,6 +3,7 @@ Imports System.Resources
 Imports System.Windows.Markup
 Imports Microsoft.Phone.Tasks
 Imports System.Text
+Imports System.Collections.ObjectModel
 
 
 Partial Public Class App
@@ -46,6 +47,7 @@ Partial Public Class App
         Public Property Materia As String
         Public Property Nota As String
         Public Property Codigo As String
+        Public Property Visible As System.Windows.Visibility
     End Class
     Public Class estAcad
         Public Property Anio As String
@@ -94,17 +96,20 @@ Partial Public Class App
     End Function
 
     Public Overloads Shared Sub report(ex As Exception)
-        MessageBox.Show("Te estamos llevando a la pantalla de confección de mails. Vas a ver que ya está el código de error, te agradeceríamos algún comentario al respecto de qué trataste de hacer al encontrarte con el error. Si querés agregar algún pensamiento, por favor, hacelo!")
-        Dim mailTask As New EmailComposeTask
-        mailTask.To = "thelinkin3000@gmail.com"
-        Dim mess As New StringBuilder
-        mess.Append("Hola! Soy un pobre usuario de Ingeniero 2.n0 para WP, y como siempre, algo anduvo mal con tu app -_-. El error fue: " + ex.ToString + ".")
-        mess.AppendLine()
-        mess.Append("Adicionalmente, tengo algo para decirte, señor desarrollador de ésta app:")
-        mess.AppendLine()
-        mailTask.Body = mess.ToString
-        mailTask.Subject = "[Reporte de Bug] Ingeniero 2.0 para WP"
-        mailTask.Show()
+        Dim result = MessageBox.Show("Parece que algo anduvo mal, querés enviar un reporte de bug?", "Whoa!", MessageBoxButton.OKCancel)
+        If result = MessageBoxResult.OK Then
+            MessageBox.Show("Te estamos llevando a la pantalla de confección de mails. Vas a ver que ya está el código de error, te agradeceríamos algún comentario al respecto de qué trataste de hacer al encontrarte con el error. Si querés agregar algún pensamiento, por favor, hacelo!","Excelente!",MessageBoxButton.OK)
+            Dim mailTask As New EmailComposeTask
+            mailTask.To = "thelinkin3000@gmail.com"
+            Dim mess As New StringBuilder
+            mess.Append("Hola! Soy un pobre usuario de Ingeniero 2.0 para WP, y como era de esperarse, algo anduvo mal con tu app -_-. El error fue: " + ex.ToString + ".")
+            mess.AppendLine()
+            mess.Append("Adicionalmente, tengo algo para decirte, señor desarrollador de ésta app:")
+            mess.AppendLine()
+            mailTask.Body = mess.ToString
+            mailTask.Subject = "[Reporte de Bug] Ingeniero 2.0 para WP"
+            mailTask.Show()
+        End If
     End Sub
     Public Overloads Shared Sub report(ex As String)
         MessageBox.Show("Te estamos llevando a la pantalla de confección de mails. Vas a ver que ya está el código de error, te agradeceríamos algún comentario al respecto de qué trataste de hacer al encontrarte con el error. Si querés agregar algún pensamiento, por favor, hacelo!")

@@ -23,9 +23,8 @@
             <!--Elemento Pivot uno-->
             <phone:PivotItem Header="General">
                 <Grid>
-                    <Button x:Name="btCalendarioAcad" Content="Calendario Académico" HorizontalAlignment="Left" VerticalAlignment="Top" Width="456"/>
-                    <Button x:Name="btHorariosCursado" Content="Horarios Cursado" HorizontalAlignment="Left" VerticalAlignment="Top" Width="456" Margin="0,72,0,0"/>
-
+                    <TextBlock x:Name="btCalendarioAcad" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Calendario Académico" VerticalAlignment="Top" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40" Height="72"/>
+                    <TextBlock x:Name="btHorariosCursado" HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="Horarios Cursado" VerticalAlignment="Top" Style="{StaticResource PhoneTextTitle2Style}" FontSize="40"/>
                 </Grid>
             </phone:PivotItem>
 
@@ -33,13 +32,13 @@
             <phone:PivotItem x:Name="PivotSysacad"  Header="SysAcad Mobile" >
                 <Grid>
                     <TextBlock x:Name="tbOffline" Visibility="collapsed" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Éste modulo está deshabilitado. Para habilitarlo, cerrá la app, abrila de nuevo e ingresá tus datos en la primer pantalla." Style="{StaticResource PhoneTextLargeStyle}" VerticalAlignment="Top" Height="300" Width="428"/>
-                    <Button x:Name="btEstadoAcademico" Content="Estado Académico" HorizontalAlignment="Left" VerticalAlignment="Top" Width="456"/>
-                    <Button x:Name="btExamenes" Content="Exámenes" HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top" Width="456"/>
-                    <Button x:Name="btCursado" Content="Cursado" HorizontalAlignment="Left" Margin="0,143,0,0" VerticalAlignment="Top" Width="456"/>
-                    <Button x:Name="btCorrCursado" Content="Correlatividades Cursado" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="456"/>
-                    <Button x:Name="btCorrRendir" Content="Correlatividades Exámenes" HorizontalAlignment="Left" Margin="0,287,0,0" VerticalAlignment="Top" Width="456"/>
-                    <Button x:Name="btInscExamen" Visibility="Collapsed" Content="Inscripción a Exámen" HorizontalAlignment="Left" Margin="0,359,0,0" VerticalAlignment="Top" Width="456"/>
-                    <Button x:Name="btInscCursado" Visibility="Collapsed" Content="Inscripción a Cursado" HorizontalAlignment="Left" Margin="0,431,0,0" VerticalAlignment="Top" Width="456"/>
+                    <TextBlock x:Name="btEstadoAcademico" Text="Estado Académico" HorizontalAlignment="Left" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" Margin="10,0,0,0" FontSize="40"/>
+                    <TextBlock x:Name="btExamenes" Text="Exámenes" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btCursado" Text="Cursado" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btCorrCursado" Text="Correlatividades Cursado" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btCorrRendir" Text="Correlatividades Exámenes" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btInscExamen" Visibility="Collapsed" Text="Inscripción a Exámen" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btInscCursado" Visibility="Collapsed" Text="Inscripción a Cursado" HorizontalAlignment="Left" Margin="10,431,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
                 </Grid>
             </phone:PivotItem>
         </phone:Pivot>

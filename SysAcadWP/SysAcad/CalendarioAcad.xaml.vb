@@ -1,4 +1,5 @@
-﻿Partial Public Class Page5
+﻿
+Partial Public Class Page5
     Inherits PhoneApplicationPage
 
     Public Sub New()

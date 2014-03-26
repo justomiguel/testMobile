@@ -15,9 +15,11 @@ Partial Public Class Page4
     Inherits PhoneApplicationPage
 
     Public working As Boolean
+
     Public Sub New()
         InitializeComponent()
         working = False
+        lbNombre.Text = App.ttNombre
     End Sub
     Public Sub setPG(value As Boolean)
         If value = True Then

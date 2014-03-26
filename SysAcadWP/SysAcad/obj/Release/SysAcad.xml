@@ -6,7 +6,16 @@ SysAcad
 </name>
 </assembly>
 <members>
-<member name="M:SysAcad.PivotPage1.InitializeComponent">
+<member name="P:SysAcad.App.RootFrame">
+	<summary>
+ Provides easy access to the root frame of the Phone Application.
+ </summary>
+	<returns>The root frame of the Phone Application.</returns>
+</member><member name="M:SysAcad.App.#ctor">
+	<summary>
+ Constructor for the Application object.
+ </summary>
+</member><member name="M:SysAcad.PivotPage1.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>
@@ -54,23 +63,6 @@ InitializeComponent
 	<summary>
 InitializeComponent
 </summary>
-</member><member name="M:SysAcad.App.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="M:SysAcad.CorrCursado.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="P:SysAcad.App.RootFrame">
-	<summary>
- Provides easy access to the root frame of the Phone Application.
- </summary>
-	<returns>The root frame of the Phone Application.</returns>
-</member><member name="M:SysAcad.App.#ctor">
-	<summary>
- Constructor for the Application object.
- </summary>
 </member><member name="P:SysAcad.AppResources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
@@ -103,6 +95,14 @@ InitializeComponent
 </member><member name="T:SysAcad.AppResources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:SysAcad.App.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.CorrCursado.InitializeComponent">
+	<summary>
+InitializeComponent
 </summary>
 </member><member name="T:SysAcad.LocalizedStrings">
 	<summary>
