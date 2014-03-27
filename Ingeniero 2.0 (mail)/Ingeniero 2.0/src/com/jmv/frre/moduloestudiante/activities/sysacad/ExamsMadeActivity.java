@@ -28,6 +28,7 @@ import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
 import com.jmv.frre.moduloestudiante.net.NetworkTaskHandler;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -152,7 +153,7 @@ public class ExamsMadeActivity extends LinkActivity {
 		
 		Double notaAplazos = nota;
 		
-		nota = nota / aprobados.size();
+		nota = (aprobados.size() > 0)? nota / aprobados.size() : 0;
 
 		Collections.sort(desaprobados);
 
@@ -162,9 +163,10 @@ public class ExamsMadeActivity extends LinkActivity {
 			notaAplazos += notaR.getNota();
 		}
 
-		notaAplazos = notaAplazos / (aprobados.size()+desaprobados.size());
+		notaAplazos =  (aprobados.size() > 0) ? notaAplazos / (aprobados.size()+desaprobados.size()) :0;
 		
-		promedio.setText(String.valueOf(nota).substring(0, 4) + " - " + String.valueOf(notaAplazos).substring(0, 4));
+		
+		promedio.setText(String.valueOf(new DecimalFormat("##.##").format(nota)) + " - " + String.valueOf(new DecimalFormat("##.##").format(notaAplazos)));
 		
 		Collections.sort(ausentes);
 

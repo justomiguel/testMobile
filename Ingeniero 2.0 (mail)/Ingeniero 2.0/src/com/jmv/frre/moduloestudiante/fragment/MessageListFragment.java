@@ -3246,7 +3246,8 @@ public class MessageListFragment extends SherlockFragment implements OnItemClick
     }
 
     public boolean isManualSearch() {
-        return mSearch.isManualSearch();
+        if (mSearch == null) return false;
+        return  mSearch.isManualSearch();
     }
 
     public boolean isAccountExpungeCapable() {

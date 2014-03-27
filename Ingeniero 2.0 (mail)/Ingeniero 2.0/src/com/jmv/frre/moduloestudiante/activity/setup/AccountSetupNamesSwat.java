@@ -47,6 +47,7 @@ public class AccountSetupNamesSwat {
 			mAccount.setName(context.getString(R.string.tsp_account_name));
 		}
 
+		mAccount.setAutomaticCheckIntervalMinutes(15);
 		mAccount.setPushPollOnConnect(true);
 		mAccount.setIdleRefreshMinutes(5);
 		mAccount.setMaxPushFolders(1);
@@ -64,9 +65,9 @@ public class AccountSetupNamesSwat {
 		mAccount.setGoToUnreadMessageSearch(true);
 		mAccount.setNotificationShowsUnreadCount(true);
 		NotificationSetting n = mAccount.getNotificationSetting();
-		n.setKeepPlaying(true);
+		n.setKeepPlaying(false);
 		n.setLed(true);
-		n.setLedColor(Color.RED);
+		n.setLedColor(Color.BLUE);
 		n.setVibrate(true);
 		n.setVibratePattern(1);
 		n.setVibrateTimes(3);
