@@ -1,23 +1,48 @@
-﻿<xapCache source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="12/03/2014 15:26:33">
-  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.dll" archivePath="SysAcad.dll" lastWriteTime="12/03/2014 15:26:32" />
+﻿<xapCache source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad_Debug_AnyCPU.xap" wasSigned="False" wasTritonized="False" certificateThumbprint="" TimeStampUrl="" signKeyFile="" signKeyPassword="" lastWriteTime="21/03/2014 23:42:05">
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.dll" archivePath="SysAcad.dll" lastWriteTime="21/03/2014 23:42:03" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\AlignmentGrid.png" archivePath="Assets\AlignmentGrid.png" lastWriteTime="03/03/2014 22:04:26" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\appbar.arrow.right.png" archivePath="Assets\appbar.arrow.right.png" lastWriteTime="15/03/2014 15:32:54" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\appbar.email.hardedge.png" archivePath="Assets\appbar.email.hardedge.png" lastWriteTime="12/03/2014 15:09:49" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\appbar.home.question.png" archivePath="Assets\appbar.home.question.png" lastWriteTime="12/03/2014 13:59:08" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\appbar.key.png" archivePath="Assets\appbar.key.png" lastWriteTime="15/03/2014 17:26:45" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\CalendarioExams.jpg" archivePath="Assets\CalendarioExams.jpg" lastWriteTime="21/03/2014 20:06:41" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IEM1.png" archivePath="Assets\Horarios\IEM1.png" lastWriteTime="21/03/2014 22:12:46" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IEM2.png" archivePath="Assets\Horarios\IEM2.png" lastWriteTime="21/03/2014 22:12:37" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IEM3.png" archivePath="Assets\Horarios\IEM3.png" lastWriteTime="21/03/2014 22:12:26" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IEM4.png" archivePath="Assets\Horarios\IEM4.png" lastWriteTime="21/03/2014 22:12:15" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IEM5.png" archivePath="Assets\Horarios\IEM5.png" lastWriteTime="21/03/2014 22:12:06" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IQ1.png" archivePath="Assets\Horarios\IQ1.png" lastWriteTime="21/03/2014 22:11:43" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IQ2.png" archivePath="Assets\Horarios\IQ2.png" lastWriteTime="21/03/2014 22:02:33" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IQ3.png" archivePath="Assets\Horarios\IQ3.png" lastWriteTime="21/03/2014 22:03:10" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IQ4.png" archivePath="Assets\Horarios\IQ4.png" lastWriteTime="21/03/2014 22:05:48" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\IQ5.png" archivePath="Assets\Horarios\IQ5.png" lastWriteTime="21/03/2014 22:07:44" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\ISI1.png" archivePath="Assets\Horarios\ISI1.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\ISI2.png" archivePath="Assets\Horarios\ISI2.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\ISI3.png" archivePath="Assets\Horarios\ISI3.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\ISI4.png" archivePath="Assets\Horarios\ISI4.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\ISI5.png" archivePath="Assets\Horarios\ISI5.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\LAR1.png" archivePath="Assets\Horarios\LAR1.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\LAR2.png" archivePath="Assets\Horarios\LAR2.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\LAR3.png" archivePath="Assets\Horarios\LAR3.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\LAR4.png" archivePath="Assets\Horarios\LAR4.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\TSP1.png" archivePath="Assets\Horarios\TSP1.png" lastWriteTime="21/03/2014 21:58:52" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Horarios\TSP2.png" archivePath="Assets\Horarios\TSP2.png" lastWriteTime="21/03/2014 21:58:52" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Tiles\ApplicationIcon.png" archivePath="Assets\Tiles\ApplicationIcon.png" lastWriteTime="06/03/2014 22:41:59" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Tiles\FlipCycleTileLarge.png" archivePath="Assets\Tiles\FlipCycleTileLarge.png" lastWriteTime="03/03/2014 22:04:26" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="03/03/2014 22:04:26" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Tiles\FlipCycleTileSmall.png" archivePath="Assets\Tiles\FlipCycleTileSmall.png" lastWriteTime="03/03/2014 22:04:26" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Tiles\IconicTileMediumLarge.png" archivePath="Assets\Tiles\IconicTileMediumLarge.png" lastWriteTime="06/03/2014 22:41:59" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\Tiles\IconicTileSmall.png" archivePath="Assets\Tiles\IconicTileSmall.png" lastWriteTime="03/03/2014 22:04:26" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\IconImage.png" archivePath="IconImage.png" lastWriteTime="06/03/2014 22:30:16" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\README_FIRST.txt" archivePath="README_FIRST.txt" lastWriteTime="12/03/2014 14:18:04" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\rsz_iconimage.png" archivePath="rsz_iconimage.png" lastWriteTime="21/03/2014 19:45:18" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\SplashScreenImage.jpg" archivePath="SplashScreenImage.jpg" lastWriteTime="05/03/2014 06:26:07" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Toolkit.Content\ApplicationBar.Add.png" archivePath="Toolkit.Content\ApplicationBar.Add.png" lastWriteTime="12/03/2014 14:18:04" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Toolkit.Content\ApplicationBar.Cancel.png" archivePath="Toolkit.Content\ApplicationBar.Cancel.png" lastWriteTime="12/03/2014 14:18:04" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Toolkit.Content\ApplicationBar.Check.png" archivePath="Toolkit.Content\ApplicationBar.Check.png" lastWriteTime="12/03/2014 14:18:04" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Toolkit.Content\ApplicationBar.Delete.png" archivePath="Toolkit.Content\ApplicationBar.Delete.png" lastWriteTime="12/03/2014 14:18:04" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Toolkit.Content\ApplicationBar.Select.png" archivePath="Toolkit.Content\ApplicationBar.Select.png" lastWriteTime="12/03/2014 14:18:04" />
-  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="12/03/2014 14:34:21" />
-  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\Assets\Tiles\FlipCycleTileMedium.png" archivePath="Assets\Tiles\FlipCycleTileMedium.png" lastWriteTime="03/03/2014 22:04:26" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="21/03/2014 19:31:40" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\packages\HtmlAgilityPack.1.4.6\lib\sl4-windowsphone71\HtmlAgilityPack.dll" archivePath="HtmlAgilityPack.dll" lastWriteTime="04/03/2014 23:50:10" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Windows Phone\v8.0\Libraries\Microsoft.Phone.Controls.dll" archivePath="Microsoft.Phone.Controls.dll" lastWriteTime="31/12/2012 00:04:52" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\packages\WPtoolkit.4.2013.08.16\lib\wp8\Microsoft.Phone.Controls.Toolkit.dll" archivePath="Microsoft.Phone.Controls.Toolkit.dll" lastWriteTime="12/03/2014 14:18:03" />
@@ -31,5 +56,5 @@
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\packages\Microsoft.Net.Http.2.2.18\lib\sl4-windowsphone71\System.Net.Http.Primitives.xml" archivePath="System.Net.Http.Primitives.xml" lastWriteTime="04/03/2014 21:09:22" />
   <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v4.0\Libraries\Client\System.Xml.XPath.xml" archivePath="System.Xml.XPath.xml" lastWriteTime="05/02/2010 01:34:52" />
   <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Assets\ApplicationIcon.png" archivePath="Assets\ApplicationIcon.png" lastWriteTime="07/03/2014 19:04:40" />
-  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\My Project\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="06/03/2014 22:42:59" />
+  <file source="C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\My Project\WMAppManifest.xml" archivePath="WMAppManifest.xml" lastWriteTime="21/03/2014 20:08:40" />
 </xapCache>

@@ -136,12 +136,15 @@
     <Compile Include="EstadoAcad.xaml.vb">
       <DependentUpon>EstadoAcad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Horario.xaml.vb">
+      <DependentUpon>Horario.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InscCursado.xaml.vb">
+      <DependentUpon>InscCursado.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LocalizedStrings.vb" />
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MenuPrincipal.xaml.vb">
-      <DependentUpon>MenuPrincipal.xaml</DependentUpon>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="Examenes.xaml.vb">
@@ -152,6 +155,18 @@
     </Compile>
     <Compile Include="Consultas.xaml.vb">
       <DependentUpon>Consultas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CambiarPass.xaml.vb">
+      <DependentUpon>CambiarPass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MenuPrincipal.xaml.vb">
+      <DependentUpon>MenuPrincipal.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarioAcad.xaml.vb">
+      <DependentUpon>CalendarioAcad.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HorariosCursado.xaml.vb">
+      <DependentUpon>HorariosCursado.xaml</DependentUpon>
     </Compile>
     <Compile Include="Resources\AppResources.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -176,11 +191,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainPage.xaml">
+    <Page Include="Horario.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MenuPrincipal.xaml">
+    <Page Include="InscCursado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -196,6 +215,22 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CambiarPass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MenuPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CalendarioAcad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HorariosCursado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -203,13 +238,39 @@
     <None Include="My Project\WMAppManifest.xml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\appbar.arrow.right.png" />
     <Content Include="Assets\appbar.email.hardedge.png" />
     <Content Include="Assets\appbar.home.question.png" />
+    <Content Include="Assets\appbar.key.png" />
     <Content Include="Assets\ApplicationIcon.png" />
+    <Content Include="Assets\CalendarioExams.jpg" />
+    <Content Include="Assets\Horarios\IEM1.png" />
+    <Content Include="Assets\Horarios\IEM2.png" />
+    <Content Include="Assets\Horarios\IEM3.png" />
+    <Content Include="Assets\Horarios\IEM4.png" />
+    <Content Include="Assets\Horarios\IEM5.png" />
+    <Content Include="Assets\Horarios\IQ1.png" />
+    <Content Include="Assets\Horarios\IQ2.png" />
+    <Content Include="Assets\Horarios\IQ3.png" />
+    <Content Include="Assets\Horarios\IQ4.png" />
+    <Content Include="Assets\Horarios\IQ5.png" />
+    <Content Include="Assets\Horarios\ISI1.png" />
+    <Content Include="Assets\Horarios\ISI2.png" />
+    <Content Include="Assets\Horarios\ISI3.png" />
+    <Content Include="Assets\Horarios\ISI4.png" />
+    <Content Include="Assets\Horarios\ISI5.png" />
+    <Content Include="Assets\Horarios\LAR1.png" />
+    <Content Include="Assets\Horarios\LAR2.png" />
+    <Content Include="Assets\Horarios\LAR3.png" />
+    <Content Include="Assets\Horarios\LAR4.png" />
+    <Content Include="Assets\Horarios\TSP1.png" />
+    <Content Include="Assets\Horarios\TSP2.png" />
     <Content Include="Assets\Tiles\ApplicationIcon.png" />
     <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -228,6 +289,7 @@
     </Content>
     <Content Include="IconImage.png" />
     <Content Include="README_FIRST.txt" />
+    <Content Include="rsz_iconimage.png" />
     <Content Include="SplashScreenImage.jpg" />
     <Content Include="Toolkit.Content\ApplicationBar.Add.png" />
     <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />

@@ -6,33 +6,36 @@ Imports Microsoft.Phone.Shell
 Imports System.Net
 Imports System.Net.Http
 Imports System.IO
+Imports System.IO.IsolatedStorage
 Imports HtmlAgilityPack
 Imports System.Globalization
 Imports Microsoft.Phone.Net.NetworkInformation
-
-
-
-
+Imports Microsoft.Phone.Tasks
+Imports System.Text
 
 Partial Public Class MainPage
     Inherits PhoneApplicationPage
-
+    Dim settings As IsolatedStorageSettings = IsolatedStorageSettings.ApplicationSettings
     ' Constructor
     Public Sub New()
         InitializeComponent()
-
+        If Not settings.Contains("FirstRun") Then
+            MessageBox.Show("Hola, parece que es la primera vez que corrés la app Ingeniero 2.0! En esta pantalla vas a poder ingresar tus credenciales de Sysacad para habilitar el módulo de SysAcadMobile, y para loguearte cada vez que quieras cambiar de usuario.", "Buenas y santas!", MessageBoxButton.OK)
+            settings.Add("FirstRun", "Lo que sea")
+        End If
         SupportedOrientations = SupportedPageOrientation.Portrait
         'Código para armar la appbar
-        ApplicationBar = New ApplicationBar
-        ApplicationBar.Mode = ApplicationBarMode.Default
-        ApplicationBar.Opacity = 1.0
-        ApplicationBar.IsVisible = True
-        ApplicationBar.IsMenuEnabled = True
+
         Dim appBarButtonHelp As ApplicationBarIconButton = New ApplicationBarIconButton
         appBarButtonHelp.IconUri = New Uri("/Assets/appbar.home.question.png", UriKind.Relative)
         appBarButtonHelp.Text = "Ayuda"
         ApplicationBar.Buttons.Add(appBarButtonHelp)
-        AddHandler appBarButtonHelp.Click, AddressOf appBarButtonHelp_Click
+        AddHandler appBarButtonHelp.Click, AddressOf appBarButtonHelp_click
+        If settings.Contains("legajo") Then
+            tbLegajoLogin.Text = TryCast(settings("legajo"), String)
+            tbPassLogin.Password = TryCast(settings("pass"), String)
+            lbPassHint.Visibility = System.Windows.Visibility.Collapsed
+        End If
     End Sub
 
     ' Sample code for building a localized ApplicationBar
@@ -86,11 +89,16 @@ Partial Public Class MainPage
         End If
     End Sub
 
-    Private Async Sub btLogin_Click(sender As Object, e As RoutedEventArgs)
+    Public Sub btLogin_click(ByVal sender As Object, ByVal e As RoutedEventArgs)
+        Login(tbLegajoLogin.Text.Trim, tbPassLogin.Password.Trim)
+    End Sub
+
+    Public Async Sub Login(legajo As String, password As String)
         SystemTray.ProgressIndicator = New ProgressIndicator
         SystemTray.ProgressIndicator.IsIndeterminate = True
         SystemTray.ProgressIndicator.Text = "Ingresando..."
         setPG(True)
+        Dim settings As IsolatedStorageSettings = IsolatedStorageSettings.ApplicationSettings
         If DeviceNetworkInformation.IsNetworkAvailable Then
             Try
                 Dim cookies As New CookieContainer
@@ -102,10 +110,18 @@ Partial Public Class MainPage
                 'Dim body = String.Format("legajo=" + tbLegajoLogin.Text.Trim + "&password=" + tbPassLogin.Password.Trim)
                 'Dim credenciales As StringContent = New StringContent(body, System.Text.Encoding.Unicode, "application/x-www-form-urlencoded")
                 Dim credenciales As New Dictionary(Of String, String)
-                credenciales.Add("legajo", tbLegajoLogin.Text.Trim)
-                credenciales.Add("password", tbPassLogin.Password.Trim)
+                credenciales.Add("legajo", legajo)
+                credenciales.Add("password", password)
+                If Not settings.Contains("legajo") Then
+                    settings.Add("legajo", legajo)
+                    settings.Add("pass", password)
+                Else
+                    settings("legajo") = legajo
+                    settings("pass") = password
+                End If
                 Dim content As New FormUrlEncodedContent(credenciales)
                 Dim resp = Await httpclient.PostAsync(url, content)
+                resp.EnsureSuccessStatusCode()
                 Dim myuri As New Uri(url)
                 Dim bytes As Byte() = Await resp.Content.ReadAsByteArrayAsync
                 Dim latin = System.Text.Encoding.GetEncoding("ISO-8859-1")
@@ -120,28 +136,53 @@ Partial Public Class MainPage
                     setPG(False)
                     MessageBox.Show("Entraste como " + nombre, "Genial!", MessageBoxButton.OK)
                     Dim ndLinks = htmlpage.DocumentNode.SelectNodes("//a")
-                    App.urlEstadoAcademico = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(1).Attributes("href").Value)
-                    App.urlExamenes = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(2).Attributes("href").Value)
-                    App.urlCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(3).Attributes("href").Value)
-                    App.urlCorrCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(4).Attributes("href").Value)
-                    App.urlCorrRendir = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(5).Attributes("href").Value)
-                    App.urlInscExamen = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndLinks(6).Attributes("href").Value)
+                    For Each node As HtmlNode In ndLinks
+                        Select Case node.InnerText.Trim
+                            Case "Estado acad&eacute;mico"
+                                App.urlEstadoAcademico = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                            Case "Exámenes"
+                                App.urlExamenes = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                            Case "Cursado / Notas de parciales / Encuestas"
+                                App.urlCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                            Case "Correlatividad para cursar"
+                                App.urlCorrCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                            Case "Correlatividad para rendir"
+                                App.urlCorrRendir = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                            Case "Inscripci&oacute;n a examen"
+                                App.urlInscExamen = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                                App.isInscExamenEnabled = True
+                            Case "Inscripci&oacute;n a cursado"
+                                App.urlInscCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                                App.isInscCursadoEnabled = True
+                            Case "Cambio de Contrase&ntilde;a"
+                                App.urlCambioPass = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                        End Select
+                    Next
                     App.ttNombre = nombre
                     App.cookies = cookies
+                    App.isSysacadEnabled = True
                     NavigationService.Navigate(New Uri("/MenuPrincipal.xaml", UriKind.Relative))
                 Else
                     Dim txtError As String = ndError(0).InnerText
                     setPG(False)
                     MessageBox.Show(txtError, "Que raro!", MessageBoxButton.OK)
                 End If
+            Catch hre As HttpRequestException
+                setPG(False)
+                MessageBox.Show("Algo salió mal con la respuesta del servidor. El error es: " + hre.Message, "Oh, noes!", MessageBoxButton.OK)
             Catch ex As Exception
                 setPG(False)
-                MessageBox.Show("Algo salió mal. O el servidor no responde, o quizás pusiste mal tu legajo y contraseña!", "Oh noes!", MessageBoxButton.OK)
+                App.report(ex)
             End Try
         Else
             setPG(False)
             MessageBox.Show("Hubo un error, seguro que tenés conexión a internet?", "Rayos!", MessageBoxButton.OK)
         End If
+    End Sub
 
+    Private Sub btUseOffline_Click(sender As Object, e As RoutedEventArgs) Handles btUseOffline.Click
+        App.isSysacadEnabled = False
+        App.ttNombre = "Offline"
+        NavigationService.Navigate(New Uri("/MenuPrincipal.xaml", UriKind.Relative))
     End Sub
 End Class

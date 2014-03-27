@@ -27,15 +27,15 @@ Partial Public Class Page3
             Case "Justo Vargas (Android)"
                 emailTask.To = "justomiguelvargas@gmail.com"
             Case "Unete"
-                emailTask.To = ""
+                emailTask.To = "cet@frre.utn.edu.ar"
         End Select
         Select Case lpAsunto.SelectedItem.ToString
             Case "Consulta Académica"
-                emailTask.Subject = "Consulta Académica"
+                emailTask.Subject = "[Consulta Académica]"
             Case "Reporte de Bug"
-                emailTask.Subject = "Reporte de Bug"
+                emailTask.Subject = "[Reporte de Bug]"
             Case "Cualquier otra cosa"
-                emailTask.Subject = ""
+                emailTask.Subject = "[Otra Cosa]"
         End Select
         emailTask.Body = tbMail.Text
         emailTask.Show()

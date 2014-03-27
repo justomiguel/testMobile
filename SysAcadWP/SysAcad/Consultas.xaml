@@ -21,22 +21,21 @@
     <Grid x:Name="LayoutRoot" Background="Transparent">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
 
         <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
         <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock Text="SysAcad" Style="{StaticResource PhoneTextNormalStyle}"/>
             <TextBlock Text="Consultas" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
         </StackPanel>
 
         <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <StackPanel x:Name="ContentPanel" Margin="10,133,14,28" Grid.RowSpan="2">
+        <StackPanel x:Name="ContentPanel" Margin="10,106,14,28" Grid.RowSpan="2">
             <TextBlock TextWrapping="Wrap" Text="  Para" FontSize="25" Margin="0,0,222,0" Height="30"/>
             <toolkit:ListPicker x:Name="lpPara"></toolkit:ListPicker>
             <TextBlock TextWrapping="Wrap" Text="  Asunto" FontSize="25" Height="30"/>
             <toolkit:ListPicker x:Name="lpAsunto"/>
-            <TextBox x:Name="tbMail" InputScope="Text" Height="305" TextWrapping="Wrap" Text=""/>
+            <TextBox x:Name="tbMail" InputScope="Text" Height="360" TextWrapping="Wrap" Text=""/>
         </StackPanel>
     </Grid>
 </phone:PhoneApplicationPage>

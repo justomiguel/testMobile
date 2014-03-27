@@ -3,20 +3,12 @@ c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\Assets\Tiles\FlipCycleTileSmall.png
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\Assets\Tiles\IconicTileMediumLarge.png
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\Assets\Tiles\IconicTileSmall.png
-c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.dll
-c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.pdb
-c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.xml
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\AppManifest.xaml
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad_Debug_AnyCPU.xap
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\App.g.i.vb
-c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.g.resources
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.AppResources.resources
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.vbproj.GenerateResource.Cache
-c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.dll
-c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.xml
-c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.pdb
 c:\users\carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\obj\Debug\XapCacheFile.xml
-C:\Users\Carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.dll.config
 C:\Users\Carlos\documents\visual studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\Microsoft.Phone.Controls.dll
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\My Project\WMAppManifest.xml
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\System.Net.Http.dll
@@ -99,3 +91,16 @@ C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\zh-CN\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\zh-TW\Microsoft.Phone.Controls.Toolkit.resources.dll
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\Consultas.g.i.vb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\InscCursado.g.i.vb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\CambiarPass.g.i.vb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.dll.config
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.dll
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.pdb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\Bin\Debug\SysAcad.xml
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.g.resources
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.dll
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.xml
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\SysAcad.pdb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\CalendarioAcad.g.i.vb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\HorariosCursado.g.i.vb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Debug\Horario.g.i.vb

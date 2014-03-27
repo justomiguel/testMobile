@@ -1,0 +1,113 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+SysAcad
+</name>
+</assembly>
+<members>
+<member name="P:SysAcad.App.RootFrame">
+	<summary>
+ Provides easy access to the root frame of the Phone Application.
+ </summary>
+	<returns>The root frame of the Phone Application.</returns>
+</member><member name="M:SysAcad.App.#ctor">
+	<summary>
+ Constructor for the Application object.
+ </summary>
+</member><member name="M:SysAcad.PivotPage1.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Examenes.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Page4.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Page3.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Page6.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.InscCursado.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.CorrExamenes.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Horario.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.MainPage.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Page5.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Page1.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Page2.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="P:SysAcad.AppResources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:SysAcad.AppResources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="P:SysAcad.AppResources.ResourceFlowDirection">
+	<summary>
+  Looks up a localized string similar to LeftToRight.
+</summary>
+</member><member name="P:SysAcad.AppResources.ResourceLanguage">
+	<summary>
+  Looks up a localized string similar to us-EN.
+</summary>
+</member><member name="P:SysAcad.AppResources.ApplicationTitle">
+	<summary>
+  Looks up a localized string similar to MY APPLICATION.
+</summary>
+</member><member name="P:SysAcad.AppResources.AppBarButtonText">
+	<summary>
+  Looks up a localized string similar to button.
+</summary>
+</member><member name="P:SysAcad.AppResources.AppBarMenuItemText">
+	<summary>
+  Looks up a localized string similar to Menu Item.
+</summary>
+</member><member name="T:SysAcad.AppResources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:SysAcad.App.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.CorrCursado.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="T:SysAcad.LocalizedStrings">
+	<summary>
+ Provides access to string resources.
+ </summary>
+</member>
+</members>
+</doc>

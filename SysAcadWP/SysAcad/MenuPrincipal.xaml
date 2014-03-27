@@ -1,39 +1,47 @@
 ﻿<phone:PhoneApplicationPage
-    x:Class="SysAcad.MenuPrincipal"
+    x:Class="SysAcad.PivotPage1"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
     xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
     FontFamily="{StaticResource PhoneFontFamilyNormal}"
     FontSize="{StaticResource PhoneFontSizeNormal}"
     Foreground="{StaticResource PhoneForegroundBrush}"
-    SupportedOrientations="Portrait" Orientation="Portrait"
-    mc:Ignorable="d"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
     shell:SystemTray.IsVisible="True">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar/>
+    </phone:PhoneApplicationPage.ApplicationBar>
 
     <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
     <Grid x:Name="LayoutRoot" Background="Transparent">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
+        <!--Control Pivot-->
+        <phone:Pivot x:Name="Pivot" SelectionChanged="Pivot_SelectionChanged" Title="Ingeniero 2.0">
+            <!--Elemento Pivot uno-->
+            <phone:PivotItem Header="General">
+                <Grid>
+                    <TextBlock x:Name="btCalendarioAcad" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Calendario Académico" VerticalAlignment="Top" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40" Height="72"/>
+                    <TextBlock x:Name="btHorariosCursado" HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="Horarios Cursado" VerticalAlignment="Top" Style="{StaticResource PhoneTextTitle2Style}" FontSize="40"/>
+                </Grid>
+            </phone:PivotItem>
 
-        <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
-        <StackPanel Grid.Row="0" Margin="12,17,0,28">
-            <TextBlock x:Name="lbNombre" Text="MI APLICACIÓN" Style="{StaticResource PhoneTextNormalStyle}"/>
-            <TextBlock Text="Menú Principal" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
-        </StackPanel>
-
-        <!--ContentPanel. Colocar aquí el contenido adicional-->
-        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
-            <Button x:Name="btEstadoAcademico" Content="Estado Académico" HorizontalAlignment="Left" VerticalAlignment="Top" Width="456"/>
-            <Button x:Name="btExamenes" Content="Exámenes" HorizontalAlignment="Left" Margin="0,72,0,0" VerticalAlignment="Top" Width="456"/>
-            <Button x:Name="btCursado" Content="Cursado" HorizontalAlignment="Left" Margin="0,143,0,0" VerticalAlignment="Top" Width="456"/>
-            <Button x:Name="btCorrCursado" Content="Correlatividades Cursado" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="456"/>
-            <Button x:Name="btCorrRendir" Content="Correlatividades Exámenes" HorizontalAlignment="Left" Margin="0,287,0,0" VerticalAlignment="Top" Width="456"/>
-            <Button x:Name="btInscExamen" Content="Inscripción a Exámen" HorizontalAlignment="Left" Margin="0,359,0,0" VerticalAlignment="Top" Width="456"/>
-        </Grid>
+            <!--Elemento Pivot dos-->
+            <phone:PivotItem x:Name="PivotSysacad"  Header="SysAcad Mobile" >
+                <Grid>
+                    <TextBlock x:Name="tbOffline" Visibility="collapsed" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Éste modulo está deshabilitado. Para habilitarlo, cerrá la app, abrila de nuevo e ingresá tus datos en la primer pantalla." Style="{StaticResource PhoneTextLargeStyle}" VerticalAlignment="Top" Height="300" Width="428"/>
+                    <TextBlock x:Name="btEstadoAcademico" Text="Estado Académico" HorizontalAlignment="Left" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" Margin="10,0,0,0" FontSize="40"/>
+                    <TextBlock x:Name="btExamenes" Text="Exámenes" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btCursado" Text="Cursado" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btCorrCursado" Text="Correlatividades Cursado" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btCorrRendir" Text="Correlatividades Exámenes" HorizontalAlignment="Left" Margin="10,287,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btInscExamen" Visibility="Collapsed" Text="Inscripción a Exámen" HorizontalAlignment="Left" Margin="10,359,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                    <TextBlock x:Name="btInscCursado" Visibility="Collapsed" Text="Inscripción a Cursado" HorizontalAlignment="Left" Margin="10,431,0,0" VerticalAlignment="Top" Width="456" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40"/>
+                </Grid>
+            </phone:PivotItem>
+        </phone:Pivot>
     </Grid>
+
 </phone:PhoneApplicationPage>
