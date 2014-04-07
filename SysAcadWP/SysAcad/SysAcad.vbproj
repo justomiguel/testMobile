@@ -136,6 +136,9 @@
     <Compile Include="EstadoAcad.xaml.vb">
       <DependentUpon>EstadoAcad.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExamenesPivot.xaml.vb">
+      <DependentUpon>ExamenesPivot.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Horario.xaml.vb">
       <DependentUpon>Horario.xaml</DependentUpon>
     </Compile>
@@ -168,6 +171,12 @@
     <Compile Include="HorariosCursado.xaml.vb">
       <DependentUpon>HorariosCursado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Aulas.xaml.vb">
+      <DependentUpon>Aulas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="VerAulas.xaml.vb">
+      <DependentUpon>VerAulas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Resources\AppResources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -188,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EstadoAcad.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExamenesPivot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,6 +241,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HorariosCursado.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Aulas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VerAulas.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

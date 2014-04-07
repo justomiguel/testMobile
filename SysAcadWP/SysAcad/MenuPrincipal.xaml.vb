@@ -5,13 +5,17 @@ Imports System.Text
 Imports Microsoft.Phone.Tasks
 Imports Microsoft.VisualBasic
 Imports System.Collections.ObjectModel
+Imports System.Windows.Media
+Imports System.Xml.Linq
 
 Partial Public Class PivotPage1
     Inherits PhoneApplicationPage
     Dim working As Boolean
     Dim appBarButtonHelp As ApplicationBarIconButton = New ApplicationBarIconButton
     Dim AppBarChangePass As ApplicationBarIconButton = New ApplicationBarIconButton
-
+    Public Function accentColor() As Media.Color
+        Return Application.Current.Resources("PhoneAccentColor")
+    End Function
     Public Sub New()
         InitializeComponent()
         If App.isSysacadEnabled = True Then
@@ -39,10 +43,28 @@ Partial Public Class PivotPage1
         appBarButtonHelp.Text = "Ayuda"
         ApplicationBar.Buttons.Add(appBarButtonHelp)
         AddHandler appBarButtonHelp.Click, AddressOf appBarButtonHelp_click
-        appBarChangePass.IconUri = New Uri("/Assets/appbar.key.png", UriKind.Relative)
+        AppBarChangePass.IconUri = New Uri("/Assets/appbar.key.png", UriKind.Relative)
         AppBarChangePass.Text = "Cambiar Contraseña"
-        AddHandler appBarChangePass.Click, AddressOf appBarChangePass_click
+        AddHandler AppBarChangePass.Click, AddressOf appBarChangePass_click
+        'Código para animar la navegación
+        Dim navIn = New NavigationInTransition
+        navIn.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeIn}
+        navIn.Forward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeIn}
+        Dim navOut = New NavigationOutTransition
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeOut}
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeOut}
+        TransitionService.SetNavigationInTransition(Me, navIn)
+        TransitionService.SetNavigationOutTransition(Me, navOut)
 
+    End Sub
+
+    Sub limpiar(node As XElement)
+        If node.Elements.Count > 0 Then
+            For Each nodito In node.Elements
+                limpiar(nodito)
+            Next
+        End If
+        node.Name = node.Name.ToString.Replace("{http://www.w3.org/2005/Atom}", "")
     End Sub
 
     Private Sub setPG(value As Boolean)
@@ -58,6 +80,44 @@ Partial Public Class PivotPage1
             Me.NavigationService.RemoveBackEntry()
         End While
     End Sub
+
+
+    Private Async Sub cargarAulas(ByVal sender As Object, ByVal e As EventArgs) Handles btAulas.Tap
+        Dim httpclient As New HttpClient
+        Dim uri As New Uri("https://spreadsheets.google.com/feeds/worksheets/1iv-H96H2l70ZZ8AS0msdFh_mQ8bxxZo5N-9URPVoFCo/public/basic", UriKind.Absolute)
+        Dim resp = Await httpclient.GetAsync(uri)
+        Dim res = Await resp.Content.ReadAsStringAsync
+        Dim doc As XElement = XElement.Parse(res)
+        limpiar(doc)
+        Dim temp As App.carrera
+        App.listaCarreras = New List(Of App.carrera)
+        For Each fila In doc.Elements("entry")
+            temp = New App.carrera
+            temp.nombre = fila.<title>.Value.Trim
+            temp.color = New Media.SolidColorBrush(Media.Colors.White)
+            Select Case temp.nombre
+                Case "ISI"
+                    temp.nombreLargo = "Ingeniería en Sistemas de Información"
+                Case "IQ"
+                    temp.nombreLargo = "Ingeniería Química"
+                Case "IEM"
+                    temp.nombreLargo = "Ingeniería Electromecánica"
+                Case "LAR"
+                    temp.nombreLargo = "Licenciatura en Administración Rural"
+                Case "TSP"
+                    temp.nombreLargo = "Tecnicatura Superior en Programación"
+            End Select
+            For Each link In fila.Elements("link")
+                If link.Attribute("rel").Value = "http://schemas.google.com/spreadsheets/2006#listfeed" Then
+                    temp.uri = New Uri(link.Attribute("href").Value, UriKind.RelativeOrAbsolute)
+                End If
+            Next
+            App.listaCarreras.Add(temp)
+        Next
+        NavigationService.Navigate(New Uri("/Aulas.xaml", UriKind.RelativeOrAbsolute))
+    End Sub
+
+
     Private Async Sub btEstadoAcademico_Click(sender As Object, e As RoutedEventArgs) Handles btEstadoAcademico.Tap
         If working = Not True Then
             working = True
@@ -110,9 +170,7 @@ Partial Public Class PivotPage1
             Catch ex As Exception
                 App.report(ex)
             End Try
-
         End If
-
     End Sub
 
     Private Async Sub btExamenes_Click(sender As Object, e As RoutedEventArgs) Handles btExamenes.Tap
@@ -140,19 +198,71 @@ Partial Public Class PivotPage1
                 If nderror Is Nothing Then
                     Dim ndExamenes = htmlpage.DocumentNode.SelectNodes("//tr[@class='textoTabla']")
                     Dim listaExamenes As New List(Of App.examen)()
+                    App.promSinAplazo = 0
+                    App.promConAplazo = 0
+                    App.aprobadas = 0
+                    App.todas = 0
                     For i = 1 To (ndExamenes.Count - 1)
                         Dim tempExamen As New App.examen
                         tempExamen.Fecha = ndExamenes(i).ChildNodes(0).InnerText.Trim
                         tempExamen.Materia = ndExamenes(i).ChildNodes(1).InnerText.Trim
                         tempExamen.Nota = App.toTitleCase(ndExamenes(i).ChildNodes(2).InnerText.Trim)
+                        Select Case tempExamen.Nota.Trim.ToLower
+                            Case "uno"
+                                App.promConAplazo += 1
+                                App.todas += 1
+                            Case "dos"
+                                App.promConAplazo += 2
+                                App.todas += 1
+                            Case "tres"
+                                App.promConAplazo += 3
+                                App.todas += 1
+                            Case "cuatro"
+                                App.promConAplazo += 4
+                                App.promSinAplazo += 4
+                                App.aprobadas += 1
+                                App.todas += 1
+                            Case "cinco"
+                                App.promConAplazo += 5
+                                App.promSinAplazo += 5
+                                App.aprobadas += 1
+                                App.todas += 1
+                            Case "seis"
+                                App.promConAplazo += 6
+                                App.promSinAplazo += 6
+                                App.aprobadas += 1
+                                App.todas += 1
+                            Case "siete"
+                                App.promConAplazo += 7
+                                App.promSinAplazo += 7
+                                App.aprobadas += 1
+                                App.todas += 1
+                            Case "ocho"
+                                App.promConAplazo += 8
+                                App.promSinAplazo += 8
+                                App.aprobadas += 1
+                                App.todas += 1
+                            Case "nueve"
+                                App.promConAplazo += 9
+                                App.promSinAplazo += 9
+                                App.aprobadas += 1
+                                App.todas += 1
+                            Case "diez"
+                                App.promConAplazo += 10
+                                App.promSinAplazo += 10
+                                App.aprobadas += 1
+                                App.todas += 1
+                        End Select
                         tempExamen.Codigo = ndExamenes(i).ChildNodes(5).InnerText.Trim
                         tempExamen.Visible = System.Windows.Visibility.Visible
                         listaExamenes.Add(tempExamen)
                     Next
+                    App.promConAplazo = App.promConAplazo / App.todas
+                    App.promSinAplazo = App.promSinAplazo / App.aprobadas
                     App.listaExamenes = listaExamenes
                     setPG(False)
                     working = False
-                    NavigationService.Navigate(New Uri("/Examenes.xaml", UriKind.Relative))
+                    NavigationService.Navigate(New Uri("/ExamenesPivot.xaml", UriKind.Relative))
                 Else
                     Dim txtError As String = nderror(0).InnerText
                     setPG(False)
@@ -162,6 +272,7 @@ Partial Public Class PivotPage1
 
             Catch hre As HttpRequestException
                 setPG(False)
+                working = False
                 MessageBox.Show("Algo salió mal con la respuesta del servidor. El error es: " + hre.Message, "Oh, noes!", MessageBoxButton.OK)
             Catch ex As Exception
                 App.report(ex)
@@ -267,7 +378,7 @@ Partial Public Class PivotPage1
                         corr.Replace(")", ")\r")
                         tempCorrCursado.Corr = corr
                         If tempCorrCursado.Corr = "Puede cursar" Then
-                            tempCorrCursado.Fore = "LightSlateGray"
+                            tempCorrCursado.Fore = accentColor().ToString
                         Else
                             tempCorrCursado.Fore = "Red"
                         End If
@@ -324,7 +435,7 @@ Partial Public Class PivotPage1
                         tempCorrRendir.Materia = ndCorrRendir(i).ChildNodes(1).FirstChild.InnerText.Trim
                         tempCorrRendir.Corr = ndCorrRendir(i).ChildNodes(2).InnerText.Trim
                         If tempCorrRendir.Corr = "Puede inscribirse" Then
-                            tempCorrRendir.Fore = "LightSlateGray"
+                            tempCorrRendir.Fore = accentColor.ToString
                         Else
                             tempCorrRendir.Fore = "Red"
                         End If

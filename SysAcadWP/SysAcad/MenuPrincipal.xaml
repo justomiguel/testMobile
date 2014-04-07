@@ -25,6 +25,7 @@
                 <Grid>
                     <TextBlock x:Name="btCalendarioAcad" HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Calendario Académico" VerticalAlignment="Top" Style="{StaticResource PhoneTextLargeStyle}" FontSize="40" Height="72"/>
                     <TextBlock x:Name="btHorariosCursado" HorizontalAlignment="Left" Margin="10,72,0,0" TextWrapping="Wrap" Text="Horarios Cursado" VerticalAlignment="Top" Style="{StaticResource PhoneTextTitle2Style}" FontSize="40"/>
+                    <TextBlock x:Name="btAulas" HorizontalAlignment="Left" Margin="10,144,0,0" TextWrapping="Wrap" Text="Aulas" VerticalAlignment="Top" Style="{StaticResource PhoneTextTitle2Style}" FontSize="40"/>
                 </Grid>
             </phone:PivotItem>
 

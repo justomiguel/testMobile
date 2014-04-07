@@ -33,7 +33,7 @@
                     <DataTemplate>
                         <StackPanel Margin="0,0,0,17">
                             <TextBlock Text="{Binding Materia}" Style="{StaticResource PhoneTextLargeStyle}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding Estado}" Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Foreground="LightSlateGray"/>
+                            <TextBlock Text="{Binding Estado}" Style="{StaticResource PhoneTextNormalStyle}" TextWrapping="Wrap" Foreground="{StaticResource PhoneAccentBrush}"/>
                         </StackPanel>
                     </DataTemplate>
                 </phone:LongListSelector.ItemTemplate>                    

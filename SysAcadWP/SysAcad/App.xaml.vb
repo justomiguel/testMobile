@@ -4,6 +4,7 @@ Imports System.Windows.Markup
 Imports Microsoft.Phone.Tasks
 Imports System.Text
 Imports System.Collections.ObjectModel
+Imports System.Windows.Media
 
 
 Partial Public Class App
@@ -13,7 +14,7 @@ Partial Public Class App
     ''' Provides easy access to the root frame of the Phone Application.
     ''' </summary>
     ''' <returns>The root frame of the Phone Application.</returns>
-    Public Shared Property RootFrame As PhoneApplicationFrame
+    Public Shared Property RootFrame As TransitionFrame
 
     'Urls
     Public Shared Property urlExamenes As Uri
@@ -36,12 +37,31 @@ Partial Public Class App
     Public Shared Property listaCorrCursado As List(Of corr)
     Public Shared Property listaCorrExamenes As List(Of corr)
     Public Shared Property listaInscCursado As List(Of inscCursado)
+    Public Shared Property listaAulaMateria As List(Of aulaMateria)
+    Public Shared Property listaCarreras As List(Of carrera)
     'Otras cosas
     Public Shared Property ttNombre As String
     Public Shared Property cookies As CookieContainer
+    Public Shared Property promConAplazo As Double
+    Public Shared Property promSinAplazo As Double
+    Public Shared Property aprobadas As Integer
+    Public Shared Property todas As Integer
+
     
-
-
+    Partial Class carrera
+        Public Property Nombre As String
+        Public Property NombreLargo As String
+        Public Property uri As Uri
+        Public Property Color As System.Windows.Media.Brush
+    End Class
+    Partial Class aulaMateria
+        Public Property Materia As String
+        Public Property Aula As String
+        Public Property Div As String
+        Public Property Year As String
+        Public Property Visible As System.Windows.Visibility
+        Public Property Color As System.Windows.Media.Color
+    End Class
     Public Class examen
         Public Property Fecha As String
         Public Property Materia As String
@@ -77,6 +97,9 @@ Partial Public Class App
         Public Property Uri As Uri
         Public Property Codigo As String
     End Class
+
+
+
 
     Public Shared Function toTitleCase(text As String) As String
         If text Is Nothing Then
@@ -217,7 +240,7 @@ Partial Public Class App
 
         ' Create the frame but don't set it as RootVisual yet; this allows the splash
         ' screen to remain active until the application is ready to render.
-        RootFrame = New PhoneApplicationFrame()
+        RootFrame = New TransitionFrame()
         AddHandler RootFrame.Navigated, AddressOf CompleteInitializePhoneApplication
 
         ' Handle navigation failures
