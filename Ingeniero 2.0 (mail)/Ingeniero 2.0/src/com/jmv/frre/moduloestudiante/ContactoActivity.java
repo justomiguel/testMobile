@@ -15,6 +15,7 @@ import android.widget.Spinner;
 public class ContactoActivity extends Activity {
 
 	private View uneteView;
+	private View silvanaView;
 	private View justoView;
 	private View carlosView;
 	private Spinner spinner;
@@ -30,6 +31,7 @@ public class ContactoActivity extends Activity {
 		this.uneteView = findViewById(R.id.unete_container);
 		this.justoView = findViewById(R.id.justo_container);
 		this.carlosView = findViewById(R.id.carlos_container);
+		this.silvanaView = findViewById(R.id.sil_container);
 		
 		this.spinner = (Spinner) findViewById(R.id.editTextSubject);
 		spinner.setOnItemSelectedListener(spinnerListenerSubject);
@@ -41,6 +43,7 @@ public class ContactoActivity extends Activity {
 		views.add(uneteView);
 		views.add(justoView);
 		views.add(carlosView);
+		views.add(silvanaView);
 	}
 
 	@Override
@@ -79,6 +82,8 @@ public class ContactoActivity extends Activity {
 			if (pos == 1){
 				viewToShow = carlosView;
 			} else if (pos == 2){
+				viewToShow = silvanaView;
+			} else if (pos == 3){
 				viewToShow = uneteView;
 			}
 			

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
      When removing strings from the main file, please cleanup the translations.
-     The script tools/sync_translation.py will get rid of any surplus strings.
+     The script tools/sync_translation.py will get rid of any surplus strings.
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
@@ -35,20 +35,17 @@
     <string name="contacto" type="id">Contacto</string>
     <string name="main_contact" type="id">Justo Vargas</string>
     <string name="main_contact_carlos" type="id">Carlos Perez</string>
+    <string name="main_contact_silvana_2" type="id">Sil Trabalon</string>
     <string name="main_contact_unete" type="id">Unete</string>
     <string name="main_contact_unete_details" type="id">Agrupacion de estudiantes de la Facu. Preguntales lo que necesites!!</string>
     <string name="main_contact_details" type="id">Estudiante de ISI. Consejero de Sistemas, fanatico de Independiente y creador de la version de Android de Ingeniero 2.0 y de la idea original</string>
     <string name="main_contact_details_carlos" type="id">Estudiante de ISI. Responsable de la version de Windows Mobile de Ingeniero 2.0</string>
+    <string name="main_contact_details_sil_extended" type="id">Estudiante de ISI. Responsable de los contenidos de Ingeniero 2.0</string>
     <string name="main_contact_to_carlos" type="id">Contactalo a Carlos!</string>
     <string name="contact_details_purpose" type="id">Tenes alguna duda sobre la app? sobre la facu? sobre lo que sea del mundo academico? contactanos!!</string>
-    
     <string name="contact_details_purpose_notification" type="id">El profesor no vino? La facultad cerro? sabes algo que los demas necesitan de saber hacelo por este medio!! Elegi la lista y avisales!!</string>
-    
     <string name="main_contact_to_justo" type="id">Mandar un e-mail</string>
-    
     <string name="main_contact_to_notification" type="id">Enviar la notificacion</string>
-    
-    
     <string name="main_contact_to_unete" type="id">Contactalos a los chicos de Unete!</string>
     <string name="app_name">Ingeniero 2.0</string>
     <string name="login_main_label">Ingresar a Ingeniero 2.0</string>
@@ -136,10 +133,7 @@
     <string name="change_carrera">Carrera</string>
     <string name="pomrpt_subjects">Subject</string>
     <string name="pomrpt_subjects_contact">Contacto</string>
-    
     <string name="pomrpt_subjects_contact_notification">Listas</string>
-    
-    
     <string name="pomrpt_mails">Autores</string>
     <string name="carrera_prompt">Carrera</string>
     <string name="change_extended_details_label_change">&#8230;</string>
@@ -188,7 +182,6 @@
     <string name="title_activity_inscripcion_cursado">Inscripcion a Cursado</string>
 
     <!-- Used in AndroidManifest.xml -->
-    <string name="app_name">Ingeniero2.0</string>
     <string name="beta_app_name">Ingeniero2.0 Mobile</string>
     <string name="shortcuts_title">Ingeniero 2.0 Accounts</string>
     <string name="unread_widget_label">Ingeniero 2.0 Unread</string>
@@ -269,11 +262,11 @@ Argentina
     <string name="actionbar_selected"><xliff:g id="selection_count">%d</xliff:g> selected</string>
     <!-- Actions will be used as buttons and in menu items -->
     <string name="next_action">Siguiente</string>
- <!-- Used as part of a multi-step process -->
+    <!-- Used as part of a multi-step process -->
     <string name="previous_action">Previous</string>
- <!-- Used as part of a multi-step process -->
+    <!-- Used as part of a multi-step process -->
     <string name="okay_action">OK</string>
- <!-- User to confirm acceptance of dialog boxes, warnings, errors, etc. -->
+    <!-- User to confirm acceptance of dialog boxes, warnings, errors, etc. -->
     <string name="cancel_action">Cancel</string>
     <string name="send_action">Send</string>
     <string name="send_again_action">Send Again</string>
@@ -291,7 +284,7 @@ Argentina
     <string name="continue_action">Continue</string>
     <string name="back_action">Back</string>
     <string name="done_action">Done</string>
- <!-- Used to complete a multi-step process -->
+    <!-- Used to complete a multi-step process -->
     <string name="discard_action">Discard</string>
     <string name="save_draft_action">Save as draft</string>
     <string name="check_mail_action">Buscando Notificaciones</string>
@@ -334,7 +327,7 @@ Argentina
     <string name="prefs_title">Settings</string>
     <string name="accounts_context_menu_title">Account options</string>
     <string name="general_no_subject">(No subject)</string>
- <!-- Shown in place of the subject when a message has no subject. Showing this in parentheses is customary. -->
+    <!-- Shown in place of the subject when a message has no subject. Showing this in parentheses is customary. -->
     <string name="general_no_sender">No sender</string>
     <string name="status_loading">Polling</string>
     <string name="status_loading_more">Cargando mensajes\u2026</string>
@@ -354,7 +347,7 @@ Argentina
     <string name="notification_new_title">New Pager</string>
     <string name="notification_new_messages_title"><xliff:g id="new_message_count">%d</xliff:g> new messages</string>
     <string name="notification_new_one_account_fmt"><xliff:g id="unread_message_count">%d</xliff:g> Unread (<xliff:g id="account">%s</xliff:g>)</string>
- <!-- 279 Unread (someone@google.com) -->
+    <!-- 279 Unread (someone@google.com) -->
     <string name="notification_additional_messages">+ <xliff:g id="additional_messages">%d</xliff:g> more on <xliff:g id="account">%s</xliff:g></string>
     <string name="notification_action_reply">Reply</string>
     <string name="notification_action_mark_as_read">Mark Read</string>
@@ -377,7 +370,6 @@ Argentina
     <!-- Mailbox names displayed to user -->
 
     <string name="disable_current_account">Desactivando Notificaciones&#8230;</string>
-    <string name="getting_events_current_account">Gettings Events From Calendar&#8230;</string>
     <string name="account_settings_display_prefs_title">Configuracion General de Interfaz</string>
     <string name="account_settings_message_lists">Lista de Notificaciones</string>
     <string name="account_settings_message_view">Vista de Notificaciones</string>
@@ -612,11 +604,11 @@ Argentina
     <string name="move_copy_cannot_copy_unsynced_message">Cannot copy or move a message that is not synchronized with the server</string>
     <string name="account_setup_failed_dlg_title">No puedo revisar notificaciones ahora!</string>
     <string name="account_setup_failed_dlg_auth_message_fmt">Revisa dentro de un rato!.\n(<xliff:g id="error">%s</xliff:g>)</string>
- <!-- Username or password incorrect\n(ERR01 Account does not exist) -->
+    <!-- Username or password incorrect\n(ERR01 Account does not exist) -->
     <string name="account_setup_failed_dlg_certificate_message_fmt">Todo mal con el SSL certificate. Sometimes, this is because of a server misconfiguration. Sometimes it is because someone is trying to attack you or your mail server. If you\'re not sure what\'s up, click Reject and contact the folks who manage your Pager server.\n\n(<xliff:g id="error">%s</xliff:g>)</string>
- <!-- Cannot safely connect to server\n(Invalid certificate) -->
+    <!-- Cannot safely connect to server\n(Invalid certificate) -->
     <string name="account_setup_failed_dlg_server_message_fmt">Revisa dentro de un rato! .\n(<xliff:g id="error">%s</xliff:g>)</string>
- <!-- Cannot connect to server\n(Connection timed out) -->
+    <!-- Cannot connect to server\n(Connection timed out) -->
     <string name="account_setup_failed_dlg_edit_details_action">Edit details</string>
     <string name="account_setup_failed_dlg_continue_action">Continuar</string>
     <string name="account_settings_push_advanced_title">Advanced</string>
@@ -1010,7 +1002,7 @@ Argentina
 
       Possible values for 'quantity': zero, one, two, few, many, other
 
-      (1) http://developer.android.com/guide/topics/resources/string-resource.html#Plurals
+      (1) http://developer.android.com/guide/topics/resources/string-resource.html#Plurals
     -->
     <plurals name="dialog_confirm_delete_message">
         <item quantity="one">Do you really want to delete this message?</item>
@@ -1159,10 +1151,10 @@ Argentina
     <string name="fetching_attachment_dialog_title_save">Saving draft</string>
     <string name="fetching_attachment_dialog_message">Fetching attachment…</string>
     <string name="title_activity_on_call_helper">OnCall Helper</string>
-    <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
     <string name="title_activity_add_change">Add Change</string>
     <string name="title_activity_list_changes">ListChangesActivity</string>
     <string name="title_activity_send_notification">Enviar Notificacion</string>
+    <string name="title_activity_map">Donde Queda?</string>
+    <string name="title_activity_map_working">Donde Queda la UTN?</string>
 
 </resources>

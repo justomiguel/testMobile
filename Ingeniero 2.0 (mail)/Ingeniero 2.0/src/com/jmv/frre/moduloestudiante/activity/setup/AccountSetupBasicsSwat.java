@@ -335,7 +335,7 @@ public class AccountSetupBasicsSwat extends K9Activity
             finish();
         }
     }
-
+    
     private void onManualSetup() {
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();

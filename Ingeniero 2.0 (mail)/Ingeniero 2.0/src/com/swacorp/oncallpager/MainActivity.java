@@ -18,8 +18,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.jmv.frre.moduloestudiante.MapActivity;
 import com.jmv.frre.moduloestudiante.R;
-
 import com.jmv.frre.moduloestudiante.Account;
 import com.jmv.frre.moduloestudiante.AgregarEventoActivity;
 import com.jmv.frre.moduloestudiante.ContactoActivity;
@@ -38,6 +38,7 @@ import com.jmv.frre.moduloestudiante.activity.setup.AccountSetupBasicsSwat;
 import com.jmv.frre.moduloestudiante.activity.setup.Prefs;
 import com.jmv.frre.moduloestudiante.activity.setup.WelcomeMessage;
 import com.jmv.frre.moduloestudiante.controller.MessagingController;
+
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 
@@ -57,22 +58,14 @@ public class MainActivity extends Activity {
 	private Button setProfilesBtn;
 	private Button mailsBtn;
 	private Button settingsBtn;
+	private Button disable_profile;
 
 	private View mLoginStatusView;
 	private View mLoginFormView;
 
-	private ImageView changeProfilesIcon;
-	private ImageView setProfilesIcon;
-	private ImageView settingsIcon;
-	private ImageView checkIcon;
-	private LinearLayout deleteCurrentProfileLayer;
-	private LinearLayout checkProdLayer;
+	private Button changeProfilesbtn;
 
 	private ImageView imageView;
-
-
-	private ImageView send_notification_icon;
-
 
 	private Button send_notification_btn;
 
@@ -120,23 +113,15 @@ public class MainActivity extends Activity {
 
 		imageView = (ImageView) findViewById(R.id.imageView);
 		
-		deleteCurrentProfileLayer = (LinearLayout) findViewById(R.id.delete_current_profile);
-
 		//checkProdLayer = (LinearLayout) findViewById(R.id.check_prod_layer);
 		//checkProdLayer.setVisibility(View.VISIBLE);
-		
-		setProfilesIcon = (ImageView) findViewById(R.id.set_initial_profile_icon);
-		changeProfilesIcon = (ImageView) findViewById(R.id.changes_profile_icon_home);
-		send_notification_icon = (ImageView) findViewById(R.id.send_notification_icon);
-
-		settingsIcon = (ImageView) findViewById(R.id.btn_icon_settings);
-		checkIcon = (ImageView) findViewById(R.id.btn_icon_check_pager);
-		
+						
 		setProfilesBtn = (Button) findViewById(R.id.button_profile);
+		
 		mailsBtn = (Button) findViewById(R.id.btn_mails);
 		settingsBtn = (Button) findViewById(R.id.btn_settings);
 		send_notification_btn = (Button) findViewById(R.id.send_notification_btn);
-
+		disable_profile = (Button) findViewById(R.id.disable_profile);
 
 		mLoginStatusView = findViewById(R.id.login_status);
 		mLoginFormView = findViewById(R.id.login_form);
@@ -237,31 +222,18 @@ public class MainActivity extends Activity {
 		//setVisibilityToImages(View.GONE);
 		
 		if (account != null) {
-			setProfilesBtn.setText(getString(R.string.change_profile_label));
-
 			settingsBtn.setVisibility(View.VISIBLE);
-			checkIcon.setVisibility(View.VISIBLE);
 			mailsBtn.setVisibility(View.VISIBLE);
-			settingsIcon.setVisibility(View.VISIBLE);
-			changeProfilesIcon.setVisibility(View.VISIBLE);
-			setProfilesIcon.setVisibility(View.GONE);
-			deleteCurrentProfileLayer.setVisibility(View.VISIBLE);
+			//changeProfilesIcon.setVisibility(View.VISIBLE);
 			send_notification_btn.setVisibility(View.VISIBLE);
-			send_notification_icon.setVisibility(View.VISIBLE);
-
+			disable_profile.setVisibility(View.VISIBLE);
 		} else {
-
+			disable_profile.setVisibility(View.GONE);
 			send_notification_btn.setVisibility(View.GONE);
-			send_notification_icon.setVisibility(View.GONE);
 			imageView.setVisibility(View.VISIBLE);
-			setProfilesBtn.setText(getString(R.string.set_initial_profile));
-			deleteCurrentProfileLayer.setVisibility(View.GONE);
 			settingsBtn.setVisibility(View.GONE);
-			checkIcon.setVisibility(View.GONE);
 			mailsBtn.setVisibility(View.GONE);
-			settingsIcon.setVisibility(View.GONE);
-			setProfilesIcon.setVisibility(View.VISIBLE);
-			changeProfilesIcon.setVisibility(View.GONE);
+			//changeProfilesIcon.setVisibility(View.GONE);
 		}
 	}
 
@@ -312,6 +284,10 @@ public class MainActivity extends Activity {
 		showDialog(DIALOG_CONFIRM_DELETE);
 	}
 
+	public void getThere(View view) {
+		MapActivity.showHome(this);
+	}
+	
 	public void startOnCallHelper(View view) {
 		Intent intent = new Intent(this, OnCallHelperActivity.class);
 		this.startActivity(intent);
