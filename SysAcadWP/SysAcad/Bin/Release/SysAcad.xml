@@ -6,7 +6,15 @@ SysAcad
 </name>
 </assembly>
 <members>
-<member name="P:SysAcad.App.RootFrame">
+<member name="M:SysAcad.Page8.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.Page7.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="P:SysAcad.App.RootFrame">
 	<summary>
  Provides easy access to the root frame of the Phone Application.
  </summary>
@@ -36,6 +44,10 @@ InitializeComponent
 InitializeComponent
 </summary>
 </member><member name="M:SysAcad.InscCursado.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.ExamenesPivot.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>

@@ -104,3 +104,6 @@ C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Releas
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Release\SysAcad.xml
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Release\SysAcad.pdb
 C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Release\XapCacheFile.xml
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Release\ExamenesPivot.g.i.vb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Release\Aulas.g.i.vb
+C:\Users\Carlos\Documents\Visual Studio 2012\Projects\SysAcad\SysAcad\obj\Release\VerAulas.g.i.vb

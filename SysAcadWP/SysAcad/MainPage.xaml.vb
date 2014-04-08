@@ -21,7 +21,7 @@ Partial Public Class MainPage
         InitializeComponent()
         If Not settings.Contains("FirstRun") Then
             MessageBox.Show("Hola, parece que es la primera vez que corrés la app Ingeniero 2.0! En esta pantalla vas a poder ingresar tus credenciales de Sysacad para habilitar el módulo de SysAcadMobile, y para loguearte cada vez que quieras cambiar de usuario.", "Buenas y santas!", MessageBoxButton.OK)
-            settings.Add("FirstRun", "Lo que sea")
+            settings.Add("FirstRun", "Me importa un carajo, tomatelas te dije")
         End If
         SupportedOrientations = SupportedPageOrientation.Portrait
         'Código para armar la appbar
@@ -36,6 +36,16 @@ Partial Public Class MainPage
             tbPassLogin.Password = TryCast(settings("pass"), String)
             lbPassHint.Visibility = System.Windows.Visibility.Collapsed
         End If
+
+        'Código para animar la navegación
+        Dim navIn = New NavigationInTransition
+        navIn.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeIn}
+        navIn.Forward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeIn}
+        Dim navOut = New NavigationOutTransition
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeOut}
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeOut}
+        TransitionService.SetNavigationInTransition(Me, navIn)
+        TransitionService.SetNavigationOutTransition(Me, navOut)
     End Sub
 
     ' Sample code for building a localized ApplicationBar

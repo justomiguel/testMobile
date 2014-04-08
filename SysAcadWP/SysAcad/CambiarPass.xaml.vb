@@ -20,6 +20,15 @@ Partial Public Class Page4
         InitializeComponent()
         working = False
         lbNombre.Text = App.ttNombre
+        'Código para animar la navegación
+        Dim navIn = New NavigationInTransition
+        navIn.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeIn}
+        navIn.Forward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeIn}
+        Dim navOut = New NavigationOutTransition
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeOut}
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeOut}
+        TransitionService.SetNavigationInTransition(Me, navIn)
+        TransitionService.SetNavigationOutTransition(Me, navOut)
     End Sub
     Public Sub setPG(value As Boolean)
         If value = True Then

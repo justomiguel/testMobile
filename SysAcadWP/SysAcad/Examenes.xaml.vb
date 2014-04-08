@@ -29,6 +29,15 @@
         AddHandler menuItemAprobados.Click, AddressOf menuItemAprobados_click
         AddHandler menuItemDesaprobados.Click, AddressOf menuItemDesaprobados_click
         AddHandler menuItemAusentes.Click, AddressOf menuItemAusentes_click
+        'Código para animar la navegación
+        Dim navIn = New NavigationInTransition
+        navIn.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeIn}
+        navIn.Forward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeIn}
+        Dim navOut = New NavigationOutTransition
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideDownFadeOut}
+        navOut.Backward = New SlideTransition() With {.Mode = SlideTransitionMode.SlideUpFadeOut}
+        TransitionService.SetNavigationInTransition(Me, navIn)
+        TransitionService.SetNavigationOutTransition(Me, navOut)
     End Sub
 
     Private Sub menuItemTodos_click(ByVal sender As Object, ByVal e As EventArgs)
