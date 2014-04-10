@@ -47,7 +47,7 @@ public class AccountSetupNamesSwat {
 			mAccount.setName(context.getString(R.string.tsp_account_name));
 		}
 
-		mAccount.setAutomaticCheckIntervalMinutes(15);
+		mAccount.setAutomaticCheckIntervalMinutes(45);
 		mAccount.setPushPollOnConnect(true);
 		mAccount.setIdleRefreshMinutes(5);
 		mAccount.setMaxPushFolders(1);

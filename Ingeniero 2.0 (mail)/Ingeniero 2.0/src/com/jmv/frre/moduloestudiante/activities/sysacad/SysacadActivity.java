@@ -84,6 +84,9 @@ public class SysacadActivity extends LinkActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		addAdds(R.id.s_add_place);
+		
 		mHomeFormView = findViewById(R.id.home_form);
 		mLoginStatusView = findViewById(R.id.loading_content_status);
 		
@@ -226,7 +229,7 @@ public class SysacadActivity extends LinkActivity {
 
 		final long seconds = System.currentTimeMillis();
 		
-		if (seconds - lastTimeLoggedIn > 2*30000){
+		if (seconds - lastTimeLoggedIn > 2*30000 && !((Activity) SysacadActivity.this).isFinishing()){
 			
 			setSessionCheckerStatus(false);
 			
@@ -276,7 +279,7 @@ public class SysacadActivity extends LinkActivity {
 	}
 
 	@Override
-	protected void onPause() {
+	public void onPause() {
 		if (sessionChecker != null) {
 			this.sessionChecker.cancel();
 		}
@@ -284,7 +287,7 @@ public class SysacadActivity extends LinkActivity {
 	}
 
 	@Override
-	protected void onResume() {
+	public void onResume() {
 		if (sessionChecker != null) {
 			getNewToken();
 		}

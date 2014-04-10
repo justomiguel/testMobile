@@ -12,7 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Spinner;
 
-public class ContactoActivity extends Activity {
+public class ContactoActivity extends AdsActivity {
 
 	private View uneteView;
 	private View silvanaView;
@@ -27,6 +27,8 @@ public class ContactoActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_contacto);
+		
+		addAdds(R.id.cm_add_place);
 		
 		this.uneteView = findViewById(R.id.unete_container);
 		this.justoView = findViewById(R.id.justo_container);

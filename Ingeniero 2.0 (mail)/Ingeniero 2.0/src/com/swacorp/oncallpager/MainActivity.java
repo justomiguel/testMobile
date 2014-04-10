@@ -2,11 +2,13 @@ package com.swacorp.oncallpager;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.content.pm.ConfigurationInfo;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -17,7 +19,11 @@ import android.os.Build;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
+import com.google.android.gms.ads.AdView;
+import com.jmv.frre.moduloestudiante.AdsActivity;
+import com.jmv.frre.moduloestudiante.AppRater;
 import com.jmv.frre.moduloestudiante.MapActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.Account;
@@ -42,10 +48,9 @@ import com.jmv.frre.moduloestudiante.controller.MessagingController;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 
-public class MainActivity extends Activity {
+public class MainActivity extends AdsActivity {
 
 	public static final boolean DEBUG = false;
-
 
 	private final static int DIALOG_CONFIRM_DELETE = 1;
 	private final static int DIALOG_CONFIRM_CHANGE = 2;
@@ -98,6 +103,9 @@ public class MainActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_activity);
 
+		addAdds(R.id.add_place);
+		
+		AppRater.app_launched(this);
 		
 		Account[] accounts = Preferences.getPreferences(this).getAccounts();
 
@@ -285,7 +293,14 @@ public class MainActivity extends Activity {
 	}
 
 	public void getThere(View view) {
-		MapActivity.showHome(this);
+		final ActivityManager activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
+		final ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
+		final boolean supportsEs2 = configurationInfo.reqGlEsVersion >= 0x20000;
+		if (supportsEs2){
+			MapActivity.showHome(this);
+		} else {
+			Toast.makeText(this, "Tu cel no soporta OpenGl! :S", 10);
+		}
 	}
 	
 	public void startOnCallHelper(View view) {

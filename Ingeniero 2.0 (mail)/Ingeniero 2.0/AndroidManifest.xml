@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.jmv.frre.moduloestudiante"
-    android:versionCode="12"
+    android:versionCode="14"
     android:versionName="2.2" >
 
     <uses-sdk
@@ -25,6 +25,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_SYNC_SETTINGS" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_CALENDAR" />
     <uses-permission android:name="android.permission.READ_CALENDAR" />
 
@@ -75,7 +76,11 @@
 
     <uses-feature
         android:glEsVersion="0x00020000"
-        android:required="true" />
+        android:required="false" />
+    
+    <uses-feature
+        android:name="android.hardware.touchscreen"
+        android:required="false" />
 
     <application
         android:name="com.jmv.frre.moduloestudiante.K9"
@@ -93,14 +98,14 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
-        <!--meta-data
-            android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyAV6JwWNl7ZEUjUlGe3DWc8Zy3m6KbQ8iI" / -->
-       
-
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyD-CZWkDlhC8j7in01T7E3TUSQKs5BqWAc" />
+            android:value="AIzaSyAV6JwWNl7ZEUjUlGe3DWc8Zy3m6KbQ8iI" />
+       
+
+        <!-- meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyAJqm2gfVU-TKoRsAnjvfnYNU_XBH3Fb0I" /> -->
 
         <activity
             android:name="com.jmv.frre.moduloestudiante.activity.Accounts"
@@ -128,6 +133,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+         <activity android:name="com.google.android.gms.ads.AdActivity"
+             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"/>
         <activity
             android:name="com.jmv.frre.moduloestudiante.activity.setup.Prefs"
             android:configChanges="locale"

@@ -46,7 +46,7 @@ public class AccessibleEmailContentActivity extends ListActivity {
                 addToCleanedList(cleanedList, rawListItem);
             }
         }
-
+        
         String[] listItems = cleanedList.toArray(EMPTY_STRING_ARRAY);
 
         setContentView(com.jmv.frre.moduloestudiante.R.layout.accessible_email_content);

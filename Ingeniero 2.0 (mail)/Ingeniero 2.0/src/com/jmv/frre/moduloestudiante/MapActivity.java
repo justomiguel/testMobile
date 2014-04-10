@@ -16,6 +16,9 @@ import com.swacorp.oncallpager.MainActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -29,11 +32,11 @@ public class MapActivity extends FragmentActivity {
 		context.startActivity(intent);
 	}
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_map);
+		
 		mMap = ((SupportMapFragment) getSupportFragmentManager()
 				.findFragmentById(R.id.the_map)).getMap();
 		mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -43,6 +46,8 @@ public class MapActivity extends FragmentActivity {
 		
 		final LatLng pos = new LatLng(-27.450944, -58.979340);
 		builder.include(pos);
+		builder.include(new LatLng(-27.4504146,-58.9846012));
+		builder.include(new LatLng(-27.4502147,-58.9740011));
 		mMap.addMarker(new MarkerOptions()
 				.position(pos)
 				.title("UTN Chaco")
@@ -57,7 +62,34 @@ public class MapActivity extends FragmentActivity {
 		.snippet("Anexo - Intecnor - Laboratorios")
 		.icon(BitmapDescriptorFactory.fromResource(R.drawable.utn_logo)));
 
-		
+		mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(pos , 14.0f) );
+
+        // Getting LocationManager object from System Service LOCATION_SERVICE
+        LocationManager locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
+
+        // Creating a criteria object to retrieve provider
+        Criteria criteria = new Criteria();
+
+        // Getting the name of the best provider
+        String provider = locationManager.getBestProvider(criteria, true);
+
+        // Getting Current Location
+        if (provider!=null){
+        	Location location = locationManager.getLastKnownLocation(provider);
+
+            if(location!=null){
+    	        // Getting latitude of the current location
+    	        double latitude = location.getLatitude();
+    	
+    	        // Getting longitude of the current location
+    	        double longitude = location.getLongitude();
+    	
+    	        LatLng myPosition = new LatLng(latitude, longitude);
+    	        builder.include(myPosition);
+    	        
+            }
+        }
+        
 		mMap.setOnCameraChangeListener(new OnCameraChangeListener() {
             
             public void onCameraChange(CameraPosition arg0) {

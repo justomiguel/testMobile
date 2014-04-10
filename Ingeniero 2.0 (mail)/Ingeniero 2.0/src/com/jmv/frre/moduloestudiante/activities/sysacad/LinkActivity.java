@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.google.common.base.Function;
+import com.jmv.frre.moduloestudiante.AdsActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.dialogs.ConfirmationDialog;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
@@ -22,7 +23,7 @@ import com.swacorp.oncallpager.MainActivity;
 /**
  * Created by Cleo on 12/10/13.
  */
-public class LinkActivity extends Activity{
+public class LinkActivity extends AdsActivity{
 
     public static final String CONTEXT = "context";
 

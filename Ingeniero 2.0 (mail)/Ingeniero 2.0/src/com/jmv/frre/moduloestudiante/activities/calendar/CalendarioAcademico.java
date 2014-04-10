@@ -3,6 +3,7 @@ package com.jmv.frre.moduloestudiante.activities.calendar;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import com.jmv.frre.moduloestudiante.AdsActivity;
 import com.jmv.frre.moduloestudiante.HorariosCursado;
 import com.jmv.frre.moduloestudiante.R;
 
@@ -20,7 +21,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 @SuppressLint("SimpleDateFormat")
-public class CalendarioAcademico extends Activity {
+public class CalendarioAcademico extends AdsActivity {
 
 	static final int DATE_DIALOG_ID = 0;
 	static final int PICK_DATE_REQUEST = 1;
@@ -31,8 +32,11 @@ public class CalendarioAcademico extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_calendario_academico);
-		linearLayout = findViewById(R.id.details_form);
-		date_chossed = (TextView) findViewById(R.id.date_chossed);
+		
+		addAdds(R.id.e_add_place);
+		
+		//linearLayout = findViewById(R.id.details_form);
+		//date_chossed = (TextView) findViewById(R.id.date_chossed);
 	}
 
 	@Override
