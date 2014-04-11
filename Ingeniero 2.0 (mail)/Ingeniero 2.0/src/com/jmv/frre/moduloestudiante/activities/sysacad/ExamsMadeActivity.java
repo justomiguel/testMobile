@@ -226,7 +226,7 @@ public class ExamsMadeActivity extends LinkActivity {
 					NotaTableRow row = (NotaTableRow) nextChild;
 					switch (pos) {
 					case 0:
-						if (row.getNota() > 4) {
+						if (row.getNota() >= 4) {
 							row.setVisibility(View.VISIBLE);
 						}
 						break;
