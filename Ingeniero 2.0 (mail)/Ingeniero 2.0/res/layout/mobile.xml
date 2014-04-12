@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/grid_item_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowRadius="5"
+        android:text="@string/sysacad_menu_exams"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" >
+    </TextView>
+
+    <ImageView
+        android:id="@+id/grid_item_image"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/academic" >
+    </ImageView>
+    
+      <TextView
+          android:id="@+id/grid_item_label_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:shadowColor="#000000"
+        android:shadowRadius="5"
+        android:shadowDx="5"
+        android:shadowDy="5"
+        android:text="@string/sysacad_menu_exams"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" >
+    </TextView>
+
+</LinearLayout>
