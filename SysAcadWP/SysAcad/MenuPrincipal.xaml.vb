@@ -7,6 +7,7 @@ Imports Microsoft.VisualBasic
 Imports System.Collections.ObjectModel
 Imports System.Windows.Media
 Imports System.Xml.Linq
+Imports System.Net.NetworkInformation
 
 Partial Public Class PivotPage1
     Inherits PhoneApplicationPage
@@ -24,11 +25,11 @@ Partial Public Class PivotPage1
             'Else
             '    btInscCursado.Visibility = System.Windows.Visibility.Collapsed
             'End If
-            'If App.isInscExamenEnabled = True Then
-            '    btInscExamen.Visibility = System.Windows.Visibility.Visible
-            'Else
-            '    btInscExamen.Visibility = System.Windows.Visibility.Collapsed
-            'End If
+            If App.isInscExamenEnabled = True Then
+                btInscExamen.Visibility = System.Windows.Visibility.Visible
+            Else
+                btInscExamen.Visibility = System.Windows.Visibility.Collapsed
+            End If
         Else
             btCorrCursado.Visibility = System.Windows.Visibility.Collapsed
             btCorrRendir.Visibility = System.Windows.Visibility.Collapsed
@@ -83,38 +84,59 @@ Partial Public Class PivotPage1
 
 
     Private Async Sub cargarAulas(ByVal sender As Object, ByVal e As EventArgs) Handles btAulas.Tap
-        Dim httpclient As New HttpClient
-        Dim uri As New Uri("https://spreadsheets.google.com/feeds/worksheets/1iv-H96H2l70ZZ8AS0msdFh_mQ8bxxZo5N-9URPVoFCo/public/basic", UriKind.Absolute)
-        Dim resp = Await httpclient.GetAsync(uri)
-        Dim res = Await resp.Content.ReadAsStringAsync
-        Dim doc As XElement = XElement.Parse(res)
-        limpiar(doc)
-        Dim temp As App.carrera
-        App.listaCarreras = New List(Of App.carrera)
-        For Each fila In doc.Elements("entry")
-            temp = New App.carrera
-            temp.nombre = fila.<title>.Value.Trim
-            temp.color = New Media.SolidColorBrush(Media.Colors.White)
-            Select Case temp.nombre
-                Case "ISI"
-                    temp.nombreLargo = "Ingeniería en Sistemas de Información"
-                Case "IQ"
-                    temp.nombreLargo = "Ingeniería Química"
-                Case "IEM"
-                    temp.nombreLargo = "Ingeniería Electromecánica"
-                Case "LAR"
-                    temp.nombreLargo = "Licenciatura en Administración Rural"
-                Case "TSP"
-                    temp.nombreLargo = "Tecnicatura Superior en Programación"
-            End Select
-            For Each link In fila.Elements("link")
-                If link.Attribute("rel").Value = "http://schemas.google.com/spreadsheets/2006#listfeed" Then
-                    temp.uri = New Uri(link.Attribute("href").Value, UriKind.RelativeOrAbsolute)
-                End If
-            Next
-            App.listaCarreras.Add(temp)
-        Next
-        NavigationService.Navigate(New Uri("/Aulas.xaml", UriKind.RelativeOrAbsolute))
+        If NetworkInformation.NetworkInterface.GetIsNetworkAvailable Then
+            If working = False Then
+                working = True
+                SystemTray.ProgressIndicator = New ProgressIndicator
+                SystemTray.ProgressIndicator.IsIndeterminate = True
+                SystemTray.ProgressIndicator.Text = "Hablando con el servidor de Sysacad..."
+                setPG(True)
+                Dim httpclient As New HttpClient
+                Dim uri As New Uri("https://spreadsheets.google.com/feeds/worksheets/1iv-H96H2l70ZZ8AS0msdFh_mQ8bxxZo5N-9URPVoFCo/public/basic", UriKind.Absolute)
+                Try
+                    Dim resp = Await httpclient.GetAsync(uri)
+                    resp.EnsureSuccessStatusCode()
+                    Dim res = Await resp.Content.ReadAsStringAsync
+                    Dim doc As XElement = XElement.Parse(res)
+                    limpiar(doc)
+                    Dim temp As App.carrera
+                    App.listaCarreras = New List(Of App.carrera)
+                    For Each fila In doc.Elements("entry")
+                        temp = New App.carrera
+                        temp.Nombre = fila.<title>.Value.Trim
+                        temp.Color = New Media.SolidColorBrush(Media.Colors.White)
+                        Select Case temp.Nombre
+                            Case "ISI"
+                                temp.NombreLargo = "Ingeniería en Sistemas de Información"
+                            Case "IQ"
+                                temp.NombreLargo = "Ingeniería Química"
+                            Case "IEM"
+                                temp.NombreLargo = "Ingeniería Electromecánica"
+                            Case "LAR"
+                                temp.NombreLargo = "Licenciatura en Administración Rural"
+                            Case "TSP"
+                                temp.NombreLargo = "Tecnicatura Superior en Programación"
+                        End Select
+                        For Each link In fila.Elements("link")
+                            If link.Attribute("rel").Value = "http://schemas.google.com/spreadsheets/2006#listfeed" Then
+                                temp.uri = New Uri(link.Attribute("href").Value, UriKind.RelativeOrAbsolute)
+                            End If
+                        Next
+                        App.listaCarreras.Add(temp)
+                    Next
+                    setPG(False)
+                    working = False
+                    NavigationService.Navigate(New Uri("/Aulas.xaml", UriKind.RelativeOrAbsolute))
+                Catch hre As HttpRequestException
+                    MessageBox.Show("Algo salió mal. Tratá de nuevo.", "Whoa!", MessageBoxButton.OK)
+                End Try
+            End If
+            
+            
+        Else
+            MessageBox.Show("Algo salió mal. Seguro que tenés internet?", "Whoa!", MessageBoxButton.OK)
+        End If
+        
     End Sub
 
 
@@ -269,7 +291,6 @@ Partial Public Class PivotPage1
                     working = False
                     MessageBox.Show(txtError, "Que raro!", MessageBoxButton.OK)
                 End If
-
             Catch hre As HttpRequestException
                 setPG(False)
                 working = False
@@ -534,6 +555,67 @@ Partial Public Class PivotPage1
                     mailTask.Subject = "[Reporte de Bug] Ingeniero 2.0 para WP"
                     mailTask.Show()
                 End If
+            End Try
+        End If
+    End Sub
+
+
+    Private Async Sub btInscExamen_Click(sender As Object, e As RoutedEventArgs) Handles btInscExamen.Tap
+        If working = False Then
+            working = True
+            SystemTray.ProgressIndicator = New ProgressIndicator
+            SystemTray.ProgressIndicator.IsIndeterminate = True
+            SystemTray.ProgressIndicator.Text = "Hablando con el servidor de Sysacad..."
+            setPG(True)
+            Try
+                Dim cookies As New CookieContainer
+                Dim handler As New HttpClientHandler
+                handler.CookieContainer = App.cookies
+                handler.UseCookies = True
+                Dim httpclient As New HttpClient(handler)
+                Dim resp = Await httpclient.GetAsync(App.urlInscExamen)
+                Dim bytes = Await resp.Content.ReadAsByteArrayAsync
+                Dim latin = System.Text.Encoding.GetEncoding("ISO-8859-1")
+                Dim text As String = latin.GetString(bytes, 0, bytes.Length)
+                cookies.SetCookies(App.urlInscExamen, cookies.GetCookieHeader(App.urlInscExamen))
+                Dim htmlpage As New HtmlDocument
+                htmlpage.LoadHtml(text)
+                Dim ndError = htmlpage.DocumentNode.SelectNodes("//p[@class='textoError']")
+                If ndError Is Nothing Then
+                    Dim ndInscExamen = htmlpage.DocumentNode.SelectNodes("//tr[@class='textoTabla']")
+                    Dim ndLinks = htmlpage.DocumentNode.SelectNodes("//a")
+                    Dim listaInscExamen As New List(Of App.inscExamen)
+                    For i = 1 To (ndInscExamen.Count - 2)
+                        Dim tempInscExamen As New App.inscExamen
+                        tempInscExamen.Anio = ndInscExamen(i).ChildNodes(0).InnerText.Trim
+                        tempInscExamen.Materia = ndInscExamen(i).ChildNodes(1).InnerText.Trim
+                        tempInscExamen.Plan = ndInscExamen(i).ChildNodes(3).InnerText.Trim
+                        If ndInscExamen(i).ChildNodes(2).InnerText.Trim = "Inscribir" Then
+                            tempInscExamen.Estado = "No inscripto"
+                            tempInscExamen.Uri = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndInscExamen(i).ChildNodes(2).ChildNodes(0).Attributes("href").Value)
+                        Else
+                            tempInscExamen.Estado = ndInscExamen(i).ChildNodes(2).InnerText.Trim.Replace("Eliminar", "")
+                            'If ndInscExamen(i).ChildNodes(2).InnerText.Trim.IndexOf("Eliminar") > 0 Then
+                            '    tempInscExamen.Uri = New Uri("http://sysacadweb.frre.utn.edu.ar/" + ndInscExamen(i).ChildNodes(2).ChildNodes(0).Attributes("href").Value)
+                            'End If
+                        End If
+                        tempInscExamen.Codigo = ndInscExamen(i).ChildNodes(4).InnerText.Trim
+                        listaInscExamen.Add(tempInscExamen)
+                    Next
+                    App.listaInscExamen = listaInscExamen
+                    setPG(False)
+                    working = False
+                    NavigationService.Navigate(New Uri("/InscExamen.xaml", UriKind.Relative))
+                Else
+                    Dim txtError As String = ndError(0).InnerText
+                    setPG(False)
+                    working = False
+                    MessageBox.Show(txtError, "Que raro!", MessageBoxButton.OK)
+                End If
+            Catch hre As HttpRequestException
+                setPG(False)
+                working = False
+                MessageBox.Show("Algo salió mal con la respuesta del servidor. El error es: " + hre.Message, "Oh, noes!", MessageBoxButton.OK)
             End Try
         End If
     End Sub

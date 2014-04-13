@@ -6,11 +6,7 @@ SysAcad
 </name>
 </assembly>
 <members>
-<member name="M:SysAcad.Page8.InitializeComponent">
-	<summary>
-InitializeComponent
-</summary>
-</member><member name="M:SysAcad.Page7.InitializeComponent">
+<member name="M:SysAcad.Page9.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>
@@ -48,6 +44,10 @@ InitializeComponent
 InitializeComponent
 </summary>
 </member><member name="M:SysAcad.ExamenesPivot.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
+</member><member name="M:SysAcad.InscExamen.InitializeComponent">
 	<summary>
 InitializeComponent
 </summary>
@@ -116,10 +116,18 @@ InitializeComponent
 	<summary>
 InitializeComponent
 </summary>
+</member><member name="M:SysAcad.Page8.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
 </member><member name="T:SysAcad.LocalizedStrings">
 	<summary>
  Provides access to string resources.
  </summary>
+</member><member name="M:SysAcad.Page7.InitializeComponent">
+	<summary>
+InitializeComponent
+</summary>
 </member>
 </members>
 </doc>

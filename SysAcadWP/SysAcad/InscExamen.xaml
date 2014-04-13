@@ -1,0 +1,45 @@
+﻿<phone:PhoneApplicationPage
+    x:Class="SysAcad.InscExamen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot es la cuadrícula raíz donde se coloca todo el contenido de la página-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contiene el nombre de la aplicación y el título de la página-->
+        <StackPanel Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="lbNombre" Text="MI APLICACIÓN" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock Text="Inscripción Exámen" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel. Colocar aquí el contenido adicional-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <phone:LongListSelector x:Name="llInscExamen" HorizontalAlignment="Left" Height="597" Margin="10,0,0,0" VerticalAlignment="Top" Width="446" SelectionChanged="listaInsCursado_SelectionChanged">
+                <phone:LongListSelector.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Margin="0,0,0,17">
+                            <TextBlock Text="{Binding Materia}" TextWrapping="Wrap" Foreground="White" Style="{StaticResource PhoneTextLargeStyle}"/>
+                            <TextBlock Text="{Binding Estado}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Foreground="WhiteSmoke" />
+                            <TextBlock Text="{Binding Plan}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" />
+                        </StackPanel>
+                    </DataTemplate>
+                </phone:LongListSelector.ItemTemplate>
+            </phone:LongListSelector>
+        </Grid>
+    </Grid>
+
+</phone:PhoneApplicationPage>

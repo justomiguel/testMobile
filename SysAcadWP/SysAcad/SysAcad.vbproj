@@ -145,6 +145,9 @@
     <Compile Include="InscCursado.xaml.vb">
       <DependentUpon>InscCursado.xaml</DependentUpon>
     </Compile>
+    <Compile Include="InscExamen.xaml.vb">
+      <DependentUpon>InscExamen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LocalizedStrings.vb" />
     <Compile Include="MainPage.xaml.vb">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -173,6 +176,9 @@
     </Compile>
     <Compile Include="Aulas.xaml.vb">
       <DependentUpon>Aulas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="InscribirseExamen.xaml.vb">
+      <DependentUpon>InscribirseExamen.xaml</DependentUpon>
     </Compile>
     <Compile Include="VerAulas.xaml.vb">
       <DependentUpon>VerAulas.xaml</DependentUpon>
@@ -212,6 +218,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="InscExamen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -245,6 +255,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Aulas.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="InscribirseExamen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
