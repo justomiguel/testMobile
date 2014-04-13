@@ -267,7 +267,7 @@ public class MainActivity extends AdsActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// automatically handle clicks on the Home/Up button, so long
+		// automaticgetTheally handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		return super.onOptionsItemSelected(item);
@@ -299,7 +299,7 @@ public class MainActivity extends AdsActivity {
 		if (supportsEs2){
 			MapActivity.showHome(this);
 		} else {
-			Toast.makeText(this, "Tu cel no soporta OpenGl! :S", 10);
+			Toast.makeText(this, "Tu cel no soporta OpenGl! :S",  Toast.LENGTH_LONG).show();
 		}
 	}
 	

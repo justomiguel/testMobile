@@ -11,9 +11,9 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-
+import android.annotation.SuppressLint;
+import android.os.Build;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.CookieHandler;
@@ -24,6 +24,7 @@ import java.util.List;
 /**
  * Created by Cleo on 12/1/13.
  */
+@SuppressLint("NewApi") 
 public class HTTPScraper {
 
 	public static final String MAINTENANCE_MODE_ON = "MAINTENANCE_MODE_ON";
@@ -34,7 +35,9 @@ public class HTTPScraper {
 
     static {
     	// make sure cookies is turn on
-    	CookieHandler.setDefault(new CookieManager());
+    	if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+    		CookieHandler.setDefault(new CookieManager());
+    	}
     }
     
 	public static String getCookies() {

@@ -19,7 +19,6 @@ import android.widget.TextView;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
-import com.jmv.frre.moduloestudiante.utils.FRReUtils;
 import com.jmv.frre.moduloestudiante.utils.Utils;
 import com.swacorp.oncallpager.MainActivity;
 
@@ -230,7 +229,7 @@ public class LoginActivity extends Activity {
             String response = scraper.fetchPageHtmlPost("http://sysacadweb.frre.utn.edu.ar/menuAlumno.asp", pairs);
 
             HTMLParser parser = HTMLParser.getParserFor(response);
-            if (FRReUtils.isEmpty(response) || !parser.succefullyLoggin()){
+            if (response == null || response.length() == 0 || !parser.succefullyLoggin()){
                 return null;
             }
             // TODO: register the new account here.

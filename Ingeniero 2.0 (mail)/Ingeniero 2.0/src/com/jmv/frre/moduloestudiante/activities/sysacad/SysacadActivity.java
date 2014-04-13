@@ -25,7 +25,6 @@ import com.jmv.frre.moduloestudiante.constants.HomePageLinks;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.NetworkTaskHandler;
 import com.jmv.frre.moduloestudiante.net.SessionKeyGetter;
-import com.jmv.frre.moduloestudiante.utils.FRReUtils;
 import com.jmv.frre.moduloestudiante.utils.Utils;
 import com.swacorp.oncallpager.MainActivity;
 
@@ -163,14 +162,14 @@ public class SysacadActivity extends LinkActivity {
 				Utils.PREFS_LOGIN_USERNAME_KEY);
 		loggedInUserPassword = getIntent().getStringExtra(
 				Utils.PREFS_LOGIN_PASSWORD_KEY);
-		if (FRReUtils.isNull(loggedInUserName)
-				&& FRReUtils.isNull(loggedInUserPassword)) {
+		if (loggedInUserName == null
+				&& loggedInUserPassword == null) {
 			loggedInUserName = Utils.getFromPrefs(this,
 					Utils.PREFS_LOGIN_USERNAME_KEY);
 			loggedInUserPassword = Utils.getFromPrefs(this,
 					Utils.PREFS_LOGIN_PASSWORD_KEY);
-			if (FRReUtils.isNull(loggedInUserName)
-					&& FRReUtils.isNull(loggedInUserPassword)) {
+			if (loggedInUserName == null
+					&& loggedInUserPassword == null) {
 				// goto login page
 				Intent intent = new Intent(this, LoginActivity.class);
 				startActivity(intent);
@@ -242,8 +241,8 @@ public class SysacadActivity extends LinkActivity {
 					if((SysacadActivity.this !=null) && !((Activity) SysacadActivity.this).isFinishing())
 					{
 						progressDialog.dismiss();
-						if (FRReUtils.isEmpty(response) || parser.containsError()) {
-							currentError = FRReUtils.isEmpty(response) ? "Empty Response" : parser.getError();
+						if (response == null || response.length() == 0 || parser.containsError()) {
+							currentError = response == null || response.length() == 0 ? "Empty Response" : parser.getError();
 							SysacadActivity.this.showDialog(DIALOG_SHOW_ERROR_SYSACAD_NO_ANDA);
 						} else {
 							lastTimeLoggedIn = seconds;

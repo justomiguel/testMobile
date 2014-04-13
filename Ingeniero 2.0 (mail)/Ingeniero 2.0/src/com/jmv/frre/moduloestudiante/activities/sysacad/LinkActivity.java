@@ -17,7 +17,6 @@ import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.dialogs.ConfirmationDialog;
 import com.jmv.frre.moduloestudiante.net.HTMLParser;
 import com.jmv.frre.moduloestudiante.net.HTTPScraper;
-import com.jmv.frre.moduloestudiante.utils.FRReUtils;
 import com.swacorp.oncallpager.MainActivity;
 
 /**
@@ -147,8 +146,8 @@ public class LinkActivity extends AdsActivity{
     }
 
     protected boolean checkForErrors(HTMLParser parser, String response, Context parent) {
-        if (FRReUtils.isEmpty(response) || parser.containsError()) {
-            currentError = FRReUtils.isEmpty(response) ? "Empty Response" : parser.getError();
+        if (response == null || response.length() == 0|| parser.containsError()) {
+            currentError = response == null || response.length() == 0 ? "Empty Response" : parser.getError();
             showDialog(DIALOG_SHOW_ERROR);
             return true;
         } else  if (response.equalsIgnoreCase(HTTPScraper.MAINTENANCE_MODE_ON)){

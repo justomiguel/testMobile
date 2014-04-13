@@ -13,7 +13,6 @@ import android.os.AsyncTask;
 import com.google.common.base.Function;
 import com.jmv.frre.moduloestudiante.activities.sysacad.LoginActivity;
 import com.jmv.frre.moduloestudiante.activities.sysacad.MaintenanceMode;
-import com.jmv.frre.moduloestudiante.utils.FRReUtils;
 import com.jmv.frre.moduloestudiante.utils.Utils;
 
 public class SessionKeyGetter extends AsyncTask<String, Void, String> {
@@ -40,7 +39,7 @@ public class SessionKeyGetter extends AsyncTask<String, Void, String> {
 
 		HTMLParser parser = HTMLParser.getParserFor(response);
 
-		if (FRReUtils.isEmpty(response) || !parser.succefullyLoggin()) {
+		if (response == null || response.length() == 0 || !parser.succefullyLoggin()) {
 			Utils.saveToPrefs(parent,
 					Utils.PREFS_LOGIN_USERNAME_KEY, null);
 			Utils.saveToPrefs(parent,

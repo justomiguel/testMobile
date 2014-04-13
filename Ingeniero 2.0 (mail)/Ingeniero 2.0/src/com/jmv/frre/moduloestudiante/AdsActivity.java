@@ -6,6 +6,7 @@ import com.google.android.gms.ads.AdView;
 
 import android.app.Activity;
 import android.content.Context;
+import android.os.Build;
 import android.telephony.TelephonyManager;
 import android.widget.LinearLayout;
 
@@ -19,28 +20,33 @@ public class AdsActivity extends Activity {
 
 	public void addAdds(int id) {
 		// Create an ad.
-		adView = new AdView(this);
-		adView.setAdSize(AdSize.BANNER);
-		adView.setAdUnitId(AD_UNIT_ID);
+		// / the progress spinner.
+		if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.FROYO) {
+			adView = new AdView(this);
+			adView.setAdSize(AdSize.BANNER);
+			adView.setAdUnitId(AD_UNIT_ID);
 
-		// Add the AdView to the view hierarchy. The view will have no size
-		// until the ad is loaded.
-		LinearLayout layout = (LinearLayout) findViewById(id);
-		layout.addView(adView);
+			// Add the AdView to the view hierarchy. The view will have no size
+			// until the ad is loaded.
+			LinearLayout layout = (LinearLayout) findViewById(id);
+			layout.addView(adView);
 
-		final TelephonyManager tm =(TelephonyManager)getBaseContext().getSystemService(Context.TELEPHONY_SERVICE);
-		String deviceid = tm.getDeviceId();
-		
-		// Create an ad request. Check logcat output for the hashed device ID to
-		// get test ads on a physical device.
-		AdRequest adRequest = new AdRequest.Builder()
-				.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
-				.addTestDevice(deviceid).build();
+			final TelephonyManager tm = (TelephonyManager) getBaseContext()
+					.getSystemService(Context.TELEPHONY_SERVICE);
+			String deviceid = tm.getDeviceId();
 
-		// Start loading the ad in the background.
-		adView.loadAd(adRequest);
+			// Create an ad request. Check logcat output for the hashed device
+			// ID to
+			// get test ads on a physical device.
+			AdRequest adRequest = new AdRequest.Builder()
+					.addTestDevice(AdRequest.DEVICE_ID_EMULATOR)
+					.addTestDevice(deviceid).build();
+
+			// Start loading the ad in the background.
+			adView.loadAd(adRequest);
+		}
 	}
-	
+
 	@Override
 	public void onResume() {
 		super.onResume();
