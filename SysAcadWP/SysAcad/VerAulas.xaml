@@ -30,7 +30,7 @@
             <phone:LongListSelector x:Name="llAulas">
                 <phone:LongListSelector.ItemTemplate>
                     <DataTemplate>
-                        <StackPanel Visibility="visible" Margin="0,0,0,17">
+                        <StackPanel Visibility="{Binding Visible}" Margin="0,0,0,17">
                             <TextBlock Text="{Binding Materia}" TextWrapping="Wrap" Foreground="White" Style="{StaticResource PhoneTextLargeStyle}"/>
                             <TextBlock Text="{Binding Aula}" TextWrapping="Wrap" Style="{StaticResource PhoneTextNormalStyle}" Foreground="{StaticResource PhoneAccentBrush}" />
                         </StackPanel>

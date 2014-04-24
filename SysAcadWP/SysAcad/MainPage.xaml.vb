@@ -92,11 +92,7 @@ Partial Public Class MainPage
         tbPassLogin.Focus()
     End Sub
     Private Sub setPG(value As Boolean)
-        If value = True Then
-            SystemTray.ProgressIndicator.IsVisible = True
-        Else
-            SystemTray.ProgressIndicator.IsVisible = False
-        End If
+        SystemTray.ProgressIndicator.IsVisible = value
     End Sub
 
     Public Sub btLogin_click(ByVal sender As Object, ByVal e As RoutedEventArgs)
@@ -110,80 +106,77 @@ Partial Public Class MainPage
         setPG(True)
         Dim settings As IsolatedStorageSettings = IsolatedStorageSettings.ApplicationSettings
         If DeviceNetworkInformation.IsNetworkAvailable Then
+            Dim cookies As New CookieContainer
+            Dim handler As New HttpClientHandler
+            handler.CookieContainer = cookies
+            handler.UseCookies = True
+            Dim httpclient As New HttpClient(handler)
+            Dim url As String = "http://sysacadweb.frre.utn.edu.ar/menuAlumno.asp"
+            Dim credenciales As New Dictionary(Of String, String)
+            credenciales.Add("legajo", legajo)
+            credenciales.Add("password", password)
+            If Not settings.Contains("legajo") Then
+                settings.Add("legajo", legajo)
+                settings.Add("pass", password)
+            Else
+                settings("legajo") = legajo
+                settings("pass") = password
+            End If
+            Dim content As New FormUrlEncodedContent(credenciales)
+            Dim resp As HttpResponseMessage = Nothing
             Try
-                Dim cookies As New CookieContainer
-                Dim handler As New HttpClientHandler
-                handler.CookieContainer = cookies
-                handler.UseCookies = True
-                Dim httpclient As New HttpClient(handler)
-                Dim url As String = "http://sysacadweb.frre.utn.edu.ar/menuAlumno.asp"
-                'Dim body = String.Format("legajo=" + tbLegajoLogin.Text.Trim + "&password=" + tbPassLogin.Password.Trim)
-                'Dim credenciales As StringContent = New StringContent(body, System.Text.Encoding.Unicode, "application/x-www-form-urlencoded")
-                Dim credenciales As New Dictionary(Of String, String)
-                credenciales.Add("legajo", legajo)
-                credenciales.Add("password", password)
-                If Not settings.Contains("legajo") Then
-                    settings.Add("legajo", legajo)
-                    settings.Add("pass", password)
-                Else
-                    settings("legajo") = legajo
-                    settings("pass") = password
-                End If
-                Dim content As New FormUrlEncodedContent(credenciales)
-                Dim resp = Await httpclient.PostAsync(url, content)
+                resp = Await httpclient.PostAsync(url, content)
                 resp.EnsureSuccessStatusCode()
-                Dim myuri As New Uri(url)
-                Dim bytes As Byte() = Await resp.Content.ReadAsByteArrayAsync
-                Dim latin = System.Text.Encoding.GetEncoding("ISO-8859-1")
-                Dim text As String = latin.GetString(bytes, 0, bytes.Length)
-                cookies.SetCookies(myuri, cookies.GetCookieHeader(myuri))
-                Dim htmlpage As New HtmlDocument
-                htmlpage.LoadHtml(text)
-                Dim ndError = htmlpage.DocumentNode.SelectNodes("//p[@class='textoError']")
-                If ndError Is Nothing Then
-                    Dim ndNombre = htmlpage.DocumentNode.SelectNodes("//td")
-                    Dim nombre As String = App.toTitleCase(ndNombre(3).InnerText.Trim.ToLower)
-                    setPG(False)
-                    MessageBox.Show("Entraste como " + nombre, "Genial!", MessageBoxButton.OK)
-                    Dim ndLinks = htmlpage.DocumentNode.SelectNodes("//a")
-                    For Each node As HtmlNode In ndLinks
-                        Select Case node.InnerText.Trim
-                            Case "Estado acad&eacute;mico"
-                                App.urlEstadoAcademico = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                            Case "Exámenes"
-                                App.urlExamenes = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                            Case "Cursado / Notas de parciales / Encuestas"
-                                App.urlCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                            Case "Correlatividad para cursar"
-                                App.urlCorrCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                            Case "Correlatividad para rendir"
-                                App.urlCorrRendir = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                            Case "Inscripci&oacute;n a examen"
-                                App.urlInscExamen = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                                App.isInscExamenEnabled = True
-                            Case "Inscripci&oacute;n a cursado"
-                                App.urlInscCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                                App.isInscCursadoEnabled = True
-                            Case "Cambio de Contrase&ntilde;a"
-                                App.urlCambioPass = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
-                        End Select
-                    Next
-                    App.ttNombre = nombre
-                    App.cookies = cookies
-                    App.isSysacadEnabled = True
-                    NavigationService.Navigate(New Uri("/MenuPrincipal.xaml", UriKind.Relative))
-                Else
-                    Dim txtError As String = ndError(0).InnerText
-                    setPG(False)
-                    MessageBox.Show(txtError, "Que raro!", MessageBoxButton.OK)
-                End If
             Catch hre As HttpRequestException
                 setPG(False)
                 MessageBox.Show("Algo salió mal con la respuesta del servidor. El error es: " + hre.Message, "Oh, noes!", MessageBoxButton.OK)
-            Catch ex As Exception
-                setPG(False)
-                App.report(ex)
+                Exit Sub
             End Try
+            Dim myuri As New Uri(url)
+            Dim bytes As Byte() = Await resp.Content.ReadAsByteArrayAsync
+            Dim latin = System.Text.Encoding.GetEncoding("ISO-8859-1")
+            Dim text As String = latin.GetString(bytes, 0, bytes.Length)
+            cookies.SetCookies(myuri, cookies.GetCookieHeader(myuri))
+            Dim htmlpage As New HtmlDocument
+            htmlpage.LoadHtml(text)
+            Dim ndError = htmlpage.DocumentNode.SelectNodes("//p[@class='textoError']")
+            If ndError Is Nothing Then
+                Dim ndNombre = htmlpage.DocumentNode.SelectNodes("//td")
+                Dim nombre As String = App.toTitleCase(ndNombre(3).InnerText.Trim.ToLower)
+                setPG(False)
+                MessageBox.Show("Entraste como " + nombre, "Genial!", MessageBoxButton.OK)
+                Dim ndLinks = htmlpage.DocumentNode.SelectNodes("//a")
+                For Each node As HtmlNode In ndLinks
+                    Select Case node.InnerText.Trim
+                        Case "Estado acad&eacute;mico"
+                            App.urlEstadoAcademico = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                        Case "Exámenes"
+                            App.urlExamenes = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                        Case "Cursado / Notas de parciales / Encuestas"
+                            App.urlCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                        Case "Correlatividad para cursar"
+                            App.urlCorrCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                        Case "Correlatividad para rendir"
+                            App.urlCorrRendir = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                        Case "Inscripci&oacute;n a examen"
+                            App.urlInscExamen = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                            App.isInscExamenEnabled = True
+                        Case "Inscripci&oacute;n a cursado"
+                            App.urlInscCursado = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                            App.isInscCursadoEnabled = True
+                        Case "Cambio de Contrase&ntilde;a"
+                            App.urlCambioPass = New Uri("http://sysacadweb.frre.utn.edu.ar/" + node.Attributes("href").Value)
+                    End Select
+                Next
+                App.ttNombre = nombre
+                App.cookies = cookies
+                App.isSysacadEnabled = True
+                NavigationService.Navigate(New Uri("/MenuPrincipal.xaml", UriKind.Relative))
+            Else
+                Dim txtError As String = ndError(0).InnerText
+                setPG(False)
+                MessageBox.Show(txtError, "Que raro!", MessageBoxButton.OK)
+            End If
         Else
             setPG(False)
             MessageBox.Show("Hubo un error, seguro que tenés conexión a internet?", "Rayos!", MessageBoxButton.OK)
