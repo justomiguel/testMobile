@@ -37,8 +37,10 @@ Partial Public Class App
     Public Shared Property listaCorrCursado As List(Of corr)
     Public Shared Property listaCorrExamenes As List(Of corr)
     Public Shared Property listaInscCursado As List(Of inscCursado)
+    Public Shared Property listaInscExamen As List(Of inscExamen)
     Public Shared Property listaAulaMateria As List(Of aulaMateria)
     Public Shared Property listaCarreras As List(Of carrera)
+    Public Shared Property listaOpcInscExamen As List(Of opcInscExamen)
     'Otras cosas
     Public Shared Property ttNombre As String
     Public Shared Property cookies As CookieContainer
@@ -46,6 +48,8 @@ Partial Public Class App
     Public Shared Property promSinAplazo As Double
     Public Shared Property aprobadas As Integer
     Public Shared Property todas As Integer
+    Public Shared Property materiaActiva As App.inscExamen
+    Public Shared Property refererExamen As String
 
     
     Partial Class carrera
@@ -97,7 +101,20 @@ Partial Public Class App
         Public Property Uri As Uri
         Public Property Codigo As String
     End Class
-
+    Public Class inscExamen
+        Public Property Anio As String
+        Public Property Materia As String
+        Public Property Plan As String
+        Public Property Estado As String
+        Public Property Uri As Uri
+        Public Property Codigo As String
+    End Class
+    Public Class opcInscExamen
+        Public Property Fecha As String
+        Public Property Tribunal As String
+        Public Property Turno As String
+        Public Property Seleccion As String
+    End Class
 
 
 

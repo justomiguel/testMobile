@@ -17,7 +17,14 @@ Partial Public Class Page7
         If working = False Then
             working = True
             Dim httpclient As New HttpClient
-            Dim resp = Await httpclient.GetAsync(uri)
+            Dim resp As HttpResponseMessage = Nothing
+            Try
+                resp = Await httpclient.GetAsync(uri)
+                resp.EnsureSuccessStatusCode()
+            Catch ex As Exception
+                MessageBox.Show("Algo salió mal. Tratá de nuevo.", "Whoa!", MessageBoxButton.OK)
+                Exit Sub
+            End Try
             Dim res = Await resp.Content.ReadAsStringAsync
             Dim doc As XElement = XElement.Parse(res)
             limpiar(doc)
@@ -64,13 +71,15 @@ Partial Public Class Page7
         Dim isThereAny As Boolean = False
         Dim lista As List(Of App.aulaMateria) = New List(Of App.aulaMateria)
         For Each item As App.aulaMateria In App.listaAulaMateria
+            item.Visible = System.Windows.Visibility.Collapsed
+        Next
+        For Each item As App.aulaMateria In App.listaAulaMateria
             If item.Div = lpDiv.SelectedItem.ToString And item.Year = lpYear.SelectedItem.ToString Then
-                lista.Add(item)
+                item.Visible = System.Windows.Visibility.Visible
                 isThereAny = True
             End If
         Next
         If isThereAny Then
-            App.listaAulaMateria = lista
             NavigationService.Navigate(New Uri("/VerAulas.xaml", UriKind.RelativeOrAbsolute))
         Else
             MessageBox.Show("No hay ninguna materia con esa combinación!")
