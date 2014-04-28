@@ -331,7 +331,7 @@ public class AccountSetupBasicsSwat extends K9Activity
             K9.setServicesEnabled(this);
             //AccountSetupNames.actionSetNames(this, mAccount);
             AccountSetupNamesSwat.actionSetNames(this,mAccount);
-            MainActivity.showHome(this);
+            NotificacionesActivity.showHome(this);
             finish();
         }
     }

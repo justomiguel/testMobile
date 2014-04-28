@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.google.common.base.Function;
 import com.jmv.frre.moduloestudiante.InscripcionCursadoActivity;
+import com.jmv.frre.moduloestudiante.NotificacionesActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.comps.MyButton;
 import com.jmv.frre.moduloestudiante.constants.HomePageImages;
@@ -171,8 +172,7 @@ public class SysacadActivity extends LinkActivity {
 			if (loggedInUserName == null
 					&& loggedInUserPassword == null) {
 				// goto login page
-				Intent intent = new Intent(this, LoginActivity.class);
-				startActivity(intent);
+				LoginActivity.showHome(this, SysacadActivity.class);
 				finish();
 				return;
 			}

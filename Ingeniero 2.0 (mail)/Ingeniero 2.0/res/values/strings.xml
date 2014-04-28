@@ -10,13 +10,16 @@
 
     <!-- This should make it easier for forks to change the branding -->
 
-    <string name="monday">Lu</string>
-    <string name="tuesday">Lu</string>
-    <string name="wednesday">Lu</string>
-    <string name="thursday">Lu</string>
-    <string name="friday">Lu</string>
-    <string name="saturday">Lu</string>
-    <string name="sunday">Lu</string>
+    <string name="mail_notifi_menu">Ver Buzon Notif</string>
+    <string name="send_notif_menu">Enviar Notif</string>
+    <string name="config_notifi_menu">Configuracion</string>
+    <string name="mapas">Como llego?..</string>
+    <string name="cursado_horario">Horarios de Cursado</string>
+    <string name="calendario_academico">Calendario</string>
+    <string name="consultas_main_menu">Consultas</string>
+    <string name="sysacad_main_menu">Sysacad Mobile</string>
+    <string name="lista_main_menu">Listas de Notificacion</string>
+    <string name="close_notificaciones_menu">Desactivar Notif.</string>
     <string name="promptAlarm">Tipo de Alarma</string>
     <string name="calendar_event_missing_description">"Pone algo en la descripcion pue!!"</string>
     <string name="calendar_event_undefined_error">"Se produjo un error"</string>
@@ -1156,5 +1159,6 @@ Argentina
     <string name="title_activity_send_notification">Enviar Notificacion</string>
     <string name="title_activity_map">Donde Queda?</string>
     <string name="title_activity_map_working">Donde Queda la UTN?</string>
+    <string name="title_activity_notificaciones">Notificaciones 2.0</string>
 
 </resources>

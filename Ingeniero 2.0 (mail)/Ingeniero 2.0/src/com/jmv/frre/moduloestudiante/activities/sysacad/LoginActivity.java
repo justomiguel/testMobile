@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -46,6 +47,14 @@ public class LoginActivity extends Activity {
     private View mLoginStatusView;
     private TextView mLoginStatusMessageView;
 
+    private static  Class<?> classToGo;
+    
+    public static void showHome(Context context,  Class<?> classToGoThen) {
+    	classToGo = classToGoThen;
+		Intent intent = new Intent(context, LoginActivity.class);
+		context.startActivity(intent);
+	}
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -242,7 +251,7 @@ public class LoginActivity extends Activity {
             showProgress(false);
 
             if (name!=null) {
-                Intent intent = new Intent(this.parent, SysacadActivity.class);
+                Intent intent = new Intent(this.parent, classToGo);
                 intent.putExtra(Utils.PREFS_LOGIN_USERNAME_KEY, mlegajo);
                 intent.putExtra(Utils.PREFS_LOGIN_PASSWORD_KEY, mPassword);
                 intent.putExtra(Utils.PREFS_LOGIN_PASSWORD_USER, name);

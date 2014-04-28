@@ -43,6 +43,7 @@ import com.jmv.frre.moduloestudiante.fragment.MessageListFragment;
 import com.jmv.frre.moduloestudiante.fragment.MessageViewFragment;
 import com.jmv.frre.moduloestudiante.fragment.MessageListFragment.MessageListFragmentListener;
 import com.jmv.frre.moduloestudiante.fragment.MessageViewFragment.MessageViewFragmentListener;
+import com.jmv.frre.moduloestudiante.mail.Address;
 import com.jmv.frre.moduloestudiante.mail.Message;
 import com.jmv.frre.moduloestudiante.mail.store.StorageManager;
 import com.jmv.frre.moduloestudiante.search.LocalSearch;
@@ -764,7 +765,8 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
                 return true;
             }
             case R.id.compose: {
-                mMessageListFragment.onCompose();
+                //mMessageListFragment.onCompose();
+            	mMessageViewFragment.onReply();
                 return true;
             }
             case R.id.toggle_message_view_theme: {
@@ -973,7 +975,9 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
             menu.findItem(R.id.next_message).setVisible(false);
             menu.findItem(R.id.previous_message).setVisible(false);
             menu.findItem(R.id.single_message_options).setVisible(false);
-            menu.findItem(R.id.compose).setVisible(false);
+            
+            menu.findItem(R.id.compose).setVisible(mDisplayMode == DisplayMode.MESSAGE_VIEW);
+    		
             menu.findItem(R.id.archive).setVisible(false);
             menu.findItem(R.id.move).setVisible(false);
             menu.findItem(R.id.copy).setVisible(false);
@@ -1083,6 +1087,7 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
       //  if (mDisplayMode == DisplayMode.MESSAGE_VIEW || mMessageListFragment == null ||
         //        !mMessageListFragment.isInitialized()) {
             menu.findItem(R.id.check_mail).setVisible(false);
+            menu.findItem(R.id.reply).setVisible(true);
             menu.findItem(R.id.set_sort).setVisible(false);
             menu.findItem(R.id.select_all).setVisible(false);
             menu.findItem(R.id.send_messages).setVisible(false);
@@ -1210,7 +1215,21 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
 
     @Override
     public void onCompose(Account account) {
-        MessageCompose.actionCompose(this, account);
+       /* //MessageCompose.actionCompose(this, account);
+    	 String subject = "[INFO]";
+		  String message = "";
+
+		  Intent email = new Intent(Intent.ACTION_SEND);
+		  email.putExtra(Intent.EXTRA_EMAIL, new String[]{ to});
+		  //email.putExtra(Intent.EXTRA_CC, new String[]{ to});
+		  //email.putExtra(Intent.EXTRA_BCC, new String[]{to});
+		  email.putExtra(Intent.EXTRA_SUBJECT, subject);
+		  email.putExtra(Intent.EXTRA_TEXT, message);
+
+		  //need this to prompts email client only
+		  email.setType("message/rfc822");
+
+		  startActivity(Intent.createChooser(email, "Elegi tu cliente de E-mail:"));*/
     }
 
     @Override
@@ -1410,7 +1429,35 @@ public class MessageList extends K9FragmentActivity implements MessageListFragme
 
     @Override
     public void onReply(Message message, PgpData pgpData) {
-        MessageCompose.actionReply(this, mAccount, message, false, pgpData.getDecryptedData());
+    	String subject = "Re: "+message.getSubject();
+
+		  Intent email = new Intent(Intent.ACTION_SEND);
+		  
+		  Address[] replyToAddresses;
+	        if (message.getReplyTo().length > 0) {
+	            replyToAddresses = message.getReplyTo();
+	        } else {
+	            replyToAddresses = message.getFrom();
+	        }
+	      
+	      String[] adresses = new String[replyToAddresses.length+1];
+	      
+	      for (int i = 0; i < replyToAddresses.length; i++) {
+	    	  adresses[i] = replyToAddresses[i].getAddress();
+	      }
+	      adresses[replyToAddresses.length]= mAccount.getEmail();
+	      
+		  email.putExtra(Intent.EXTRA_EMAIL, adresses);
+		  //email.putExtra(Intent.EXTRA_CC, new String[]{ to});
+		  //email.putExtra(Intent.EXTRA_BCC, new String[]{to});
+		  email.putExtra(Intent.EXTRA_SUBJECT, subject);
+		  email.putExtra(Intent.EXTRA_TEXT, " ");
+
+		  //need this to prompts email client only
+		  email.setType("message/rfc822");
+
+		  startActivity(Intent.createChooser(email, "Elegi tu cliente de E-mail:"));
+    	//MessageCompose.actionReply(this, mAccount, message, false, pgpData.getDecryptedData());
     }
 
     @Override

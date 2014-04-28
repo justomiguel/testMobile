@@ -1,49 +1,32 @@
 package com.swacorp.oncallpager;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.ActivityManager;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.content.pm.ConfigurationInfo;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.os.Build;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.google.android.gms.ads.AdView;
+import com.jmv.frre.moduloestudiante.Account;
 import com.jmv.frre.moduloestudiante.AdsActivity;
 import com.jmv.frre.moduloestudiante.AppRater;
 import com.jmv.frre.moduloestudiante.MapActivity;
+import com.jmv.frre.moduloestudiante.NotificacionesActivity;
+import com.jmv.frre.moduloestudiante.Preferences;
 import com.jmv.frre.moduloestudiante.R;
-import com.jmv.frre.moduloestudiante.Account;
 import com.jmv.frre.moduloestudiante.AgregarEventoActivity;
 import com.jmv.frre.moduloestudiante.ContactoActivity;
 import com.jmv.frre.moduloestudiante.HorariosCursado;
-import com.jmv.frre.moduloestudiante.K9;
-import com.jmv.frre.moduloestudiante.Preferences;
-import com.jmv.frre.moduloestudiante.K9.SplitViewMode;
-import com.jmv.frre.moduloestudiante.SendNotificationActivity;
 import com.jmv.frre.moduloestudiante.activities.calendar.CalendarioAcademico;
 import com.jmv.frre.moduloestudiante.activities.sysacad.SysacadActivity;
 import com.jmv.frre.moduloestudiante.activity.Accounts;
-import com.jmv.frre.moduloestudiante.activity.ConfirmationDialog;
-import com.jmv.frre.moduloestudiante.activity.MessageList;
-import com.jmv.frre.moduloestudiante.activity.setup.AccountSettings;
-import com.jmv.frre.moduloestudiante.activity.setup.AccountSetupBasicsSwat;
 import com.jmv.frre.moduloestudiante.activity.setup.Prefs;
-import com.jmv.frre.moduloestudiante.activity.setup.WelcomeMessage;
-import com.jmv.frre.moduloestudiante.controller.MessagingController;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -52,27 +35,10 @@ public class MainActivity extends AdsActivity {
 
 	public static final boolean DEBUG = false;
 
-	private final static int DIALOG_CONFIRM_DELETE = 1;
-	private final static int DIALOG_CONFIRM_CHANGE = 2;
-
-	private static final String EXTRA_ACCOUNT = "account";
 	public static final String EXTRA_STARTUP = "startup";
-	private static final String EXTRA_FOLDER = "folder";
-	private static final String FROM_SPLASH = "FROM_SPLASH";
-
-	private Button setProfilesBtn;
-	private Button mailsBtn;
-	private Button settingsBtn;
-	private Button disable_profile;
 
 	private View mLoginStatusView;
 	private View mLoginFormView;
-
-	private Button changeProfilesbtn;
-
-	private ImageView imageView;
-
-	private Button send_notification_btn;
 
 	public static boolean USE_SYSACAD = true;
 
@@ -81,22 +47,7 @@ public class MainActivity extends AdsActivity {
 		context.startActivity(intent);
 	}
 
-	public static void showHomeAfterPresentation(Context context) {
-		Intent intent = new Intent(context, MainActivity.class);
-		intent.putExtra(FROM_SPLASH, "true");
-		context.startActivity(intent);
-	}
-
-	public Intent actionHandleFolderIntent(Context context) {
-		Intent intent = new Intent(context, MessageList.class);
-		intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-		intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-		Account account = Preferences.getPreferences(this).getDefaultAccount();
-		intent.putExtra(EXTRA_ACCOUNT, account.getUuid());
-		intent.putExtra(EXTRA_FOLDER, "INBOX");
-		return intent;
-	}
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -107,49 +58,10 @@ public class MainActivity extends AdsActivity {
 		
 		AppRater.app_launched(this);
 		
-		Account[] accounts = Preferences.getPreferences(this).getAccounts();
-
-		setInitialPreferences();
-
-		Intent intent = getIntent();
-		
-		/*if (accounts.length < 1 && intent.getStringExtra(FROM_SPLASH) == null) {
-			WelcomeMessage.showWelcomeMessage(this);
-			finish();
-			return;
-		}*/
-
-		imageView = (ImageView) findViewById(R.id.imageView);
-		
-		//checkProdLayer = (LinearLayout) findViewById(R.id.check_prod_layer);
-		//checkProdLayer.setVisibility(View.VISIBLE);
-						
-		setProfilesBtn = (Button) findViewById(R.id.button_profile);
-		
-		mailsBtn = (Button) findViewById(R.id.btn_mails);
-		settingsBtn = (Button) findViewById(R.id.btn_settings);
-		send_notification_btn = (Button) findViewById(R.id.send_notification_btn);
-		disable_profile = (Button) findViewById(R.id.disable_profile);
-
-		mLoginStatusView = findViewById(R.id.login_status);
-		mLoginFormView = findViewById(R.id.login_form);
 
 	}
 
-	private void setInitialPreferences() {
-		SharedPreferences preferences = Preferences.getPreferences(this)
-				.getPreferences();
-		K9.setK9Language("en");
-		K9.setMobileOptimizedLayout(true);
-		K9.setGesturesEnabled(true);
-		K9.setMessageViewReturnToList(true);
-		K9.setThreadedViewEnabled(false);
-		K9.setSplitViewMode(SplitViewMode.WHEN_IN_LANDSCAPE);
-		Editor editor = preferences.edit();
-		K9.save(editor);
-		editor.commit();
-	}
-
+	
 	/**
 	 * Shows the progress UI and hides the login form.
 	 */
@@ -182,11 +94,7 @@ public class MainActivity extends AdsActivity {
 		}
 	}
 
-	@Override
-	public void onResume() {
-		super.onResume();
-		checkStyleUI();
-	}
+	
 
 	
 	public void seeSysacad(View view){
@@ -224,30 +132,7 @@ public class MainActivity extends AdsActivity {
 		startActivity(browserIntent);
 	}
 	
-	private void checkStyleUI() {
-		Account account = Preferences.getPreferences(this).getDefaultAccount();
-		
-		//setVisibilityToImages(View.GONE);
-		
-		if (account != null) {
-			settingsBtn.setVisibility(View.VISIBLE);
-			mailsBtn.setVisibility(View.VISIBLE);
-			//changeProfilesIcon.setVisibility(View.VISIBLE);
-			send_notification_btn.setVisibility(View.VISIBLE);
-			disable_profile.setVisibility(View.VISIBLE);
-		} else {
-			disable_profile.setVisibility(View.GONE);
-			send_notification_btn.setVisibility(View.GONE);
-			imageView.setVisibility(View.VISIBLE);
-			settingsBtn.setVisibility(View.GONE);
-			mailsBtn.setVisibility(View.GONE);
-			//changeProfilesIcon.setVisibility(View.GONE);
-		}
-	}
-
-	private void setVisibilityToImages(int gone) {
-		imageView.setVisibility(gone);
-	}
+	
 
 	@Override
 	public void onBackPressed() {
@@ -267,31 +152,10 @@ public class MainActivity extends AdsActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// automaticgetTheally handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
 		return super.onOptionsItemSelected(item);
 	}
 
-	public void showEmails(View view) {
-		Account account = Preferences.getPreferences(this).getDefaultAccount();
-		if (account != null) {
-			Intent intent = actionHandleFolderIntent(this);
-			startActivity(intent);
-		} else {
-			AccountSetupBasicsSwat.actionNewAccount(this);
-			finish();
-		}
-	}
 	
-	public void sendNotification(View view) {
-		SendNotificationActivity.showSendNotificationActivityHome(this);
-	}
-
-	public void deleteCurrentProfile(View view) {
-		showDialog(DIALOG_CONFIRM_DELETE);
-	}
-
 	public void getThere(View view) {
 		final ActivityManager activityManager = (ActivityManager)getSystemService(Context.ACTIVITY_SERVICE);
 		final ConfigurationInfo configurationInfo = activityManager.getDeviceConfigurationInfo();
@@ -308,116 +172,14 @@ public class MainActivity extends AdsActivity {
 		this.startActivity(intent);
 	}
 	
-	public void changeGeneralSettings(View view) {
-		Account mAccount = Preferences.getPreferences(this).getDefaultAccount();
-		AccountSettings.actionSettings(this, mAccount);
-	}
-
+	
 	public void changeGlobalSettings(View view) {
 		Prefs.actionPrefs(this);
 	}
 
-	@Override
-	public Dialog onCreateDialog(int id) {
-		switch (id) {
-		case DIALOG_CONFIRM_DELETE:
-			return ConfirmationDialog.create(this, id,
-					R.string.dialog_confirm_delete_account_title, "",
-					R.string.dialog_confirm_delete_confirm_button,
-					R.string.dialog_confirm_delete_cancel_button,
-					new Runnable() {
-						@Override
-						public void run() {
-							deleteAccount(false);
-						}
-					}, new Runnable() {
-						@Override
-						public void run() {
-
-						}
-					});
-		case DIALOG_CONFIRM_CHANGE:
-			return ConfirmationDialog.create(this, id,
-					R.string.dialog_confirm_change_account_title, "",
-					R.string.dialog_confirm_delete_confirm_button,
-					R.string.dialog_confirm_delete_cancel_button,
-					new Runnable() {
-						@Override
-						public void run() {
-							deleteAccount(true);
-						}
-					}, new Runnable() {
-						@Override
-						public void run() {
-
-						}
-					});
-		}
-
-		return super.onCreateDialog(id);
-	}
-
 	public void setProfile(View view) {
-		Account realAccount = Preferences.getPreferences(this)
-				.getDefaultAccount();
-		if (realAccount != null) {
-			showDialog(DIALOG_CONFIRM_CHANGE);
-		} else {
-			Intent intent = new Intent(this, Accounts.class);
-			intent.putExtra(EXTRA_STARTUP, true);
-			startActivity(intent);
-		}
+		NotificacionesActivity.showHome(this);
 
 	}
-
-	/**
-	 * Represents an asynchronous login/registration task used to authenticate
-	 * the user.
-	 */
-	public class ChangeProfileTask extends AsyncTask<Boolean, Void, Boolean> {
-
-		@Override
-		protected Boolean doInBackground(Boolean... params) {
-			Account realAccount = Preferences.getPreferences(MainActivity.this)
-					.getDefaultAccount();
-			try {
-				realAccount.getLocalStore().delete();
-			} catch (Exception e) {
-				// Ignore, this may lead to localStores on sd-cards that
-				// are currently not inserted to be left
-			}
-			MessagingController.getInstance(getApplication())
-					.notifyAccountCancel(MainActivity.this, realAccount);
-			Preferences.getPreferences(MainActivity.this).deleteAccount(
-					realAccount);
-			K9.setServicesEnabled(MainActivity.this);
-			try {
-				// Simulate network access.
-				Thread.sleep(2500);
-			} catch (InterruptedException e) {
-
-			}
-			return params[0];
-		}
-
-		@Override
-		protected void onPostExecute(final Boolean shouldChooseNewAccount) {
-			checkStyleUI();
-			showProgress(false);
-			if (shouldChooseNewAccount) {
-				AccountSetupBasicsSwat.actionNewAccount(MainActivity.this);
-			}
-		}
-
-		@Override
-		protected void onCancelled() {
-			checkStyleUI();
-			showProgress(false);
-		}
-	}
-
-	public void deleteAccount(boolean shouldChooseNewAccount) {
-		showProgress(true);
-		new ChangeProfileTask().execute(shouldChooseNewAccount);
-	}
+	
 }

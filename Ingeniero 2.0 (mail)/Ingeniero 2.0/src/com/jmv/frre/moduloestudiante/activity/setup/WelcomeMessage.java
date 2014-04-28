@@ -9,6 +9,7 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.jmv.frre.moduloestudiante.NotificacionesActivity;
 import com.jmv.frre.moduloestudiante.R;
 import com.jmv.frre.moduloestudiante.activity.Accounts;
 import com.jmv.frre.moduloestudiante.activity.K9Activity;
@@ -41,7 +42,7 @@ public class WelcomeMessage extends K9Activity implements OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.next: {
-                MainActivity.showHomeAfterPresentation(this);
+                NotificacionesActivity.showHomeAfterPresentation(this);
                 finish();
                 break;
             }
